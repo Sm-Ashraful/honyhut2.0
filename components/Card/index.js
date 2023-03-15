@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import styles from "./card.module.css";
 import Button from "../Button";
 import Image from "next/image";
@@ -6,34 +8,30 @@ import Image from "next/image";
 import ReviewStar from "../Star";
 import OfferPercent from "../offer";
 
+import { addItemToCart } from "../../Store/cart/cart.action";
+import { selectCartItems } from "../../Store/cart/cart.selector";
+
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 
-const Card = (props) => {
-  const { id, name, image, cardType, quote, quantity, price, percentage } =
-    props;
+const Card = ({ product, percentage }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    dispatch(addItemToCart(cartItems, product));
+  };
 
   return (
     <>
-      {cardType === "category" ? (
-        <div
-          className={`${styles.card} my-2 cursor-pointer transition-all duration-300 shadow-hnx  hover:scale-105 bg-white`}
-        >
-          <div className="relative w-full h-3/4 transition-all duration-500 hover:scale-110 rounded-md hover:skew-x-2 overflow-hidden">
-            <Image src={image} alt={name} fill cover />
-          </div>
-
-          <div className="pt-8 text-center h-1/4">
-            <p className="text-xl font-semibold">{name}</p>
-          </div>
-        </div>
-      ) : (
+      {
         <div
           className={`${styles.productCard} shadow-hnx hover:scale-105 transition-all duration-300 bg-white`}
         >
           <div className="rounded  cursor-pointer w-64 h-full">
             <div className="w-full h-52 flex flex-col relative">
               <div className="relative w-full h-full transition-all duration-500 hover:scale-110 rounded-md hover:skew-x-2 overflow-hidden">
-                <Image src={image} alt={name} fill contain />
+                <Image src={product.image} alt={product.name} fill contain />
               </div>
               <div
                 className={`absolute w-full h-16  z-50 bottom-0 left-0  flex items-center gap-2 p-5`}
@@ -58,7 +56,7 @@ const Card = (props) => {
               </div>
               <div className="">
                 <p className="text-sm md:text-lg text-black text-left">
-                  <strong>{name}</strong>
+                  <strong>{product.name}</strong>
                 </p>
 
                 {/* ratting section  */}
@@ -78,14 +76,17 @@ const Card = (props) => {
                 View
               </div> */}
               <div className="w-full">
-                <Button className="w-full bg-primary text-black hover:bg-honey hover:text-black text-lg shadow-md">
-                  Shop Now
+                <Button
+                  className="w-full bg-primary text-black hover:bg-honey hover:text-black text-lg shadow-md"
+                  onClick={handleAddToCart}
+                >
+                  Add to cart
                 </Button>
               </div>
             </div>
           </div>
         </div>
-      )}
+      }
     </>
   );
 };

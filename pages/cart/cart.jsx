@@ -1,59 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "./Cart.module.css";
 import { MdClose } from "react-icons/md";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
-const tableHeader = [" ", " ", "Name", "Price", "Quantity", "Sub Total"];
-const tableData = [
-  {
-    id: 1,
-    close: "",
-    image: "/images/banner/banner-1.jpg",
-    product: "Product 1",
-    price: 10,
-    quantity: 2,
-    total: 20,
-  },
-  {
-    id: 2,
-    close: "",
-    image: "/images/banner/banner-2.jpg",
-    product: "Product 2",
-    price: 15,
-    quantity: 1,
-    total: 15,
-  },
-  {
-    id: 3,
-    close: "",
-    image: "/images/banner/banner-3.jpg",
-    product: "Product 3",
-    price: 20,
-    quantity: 3,
-    total: 60,
-  },
-  {
-    id: 3,
-    close: "",
-    image: "/images/banner/banner-4.jpg",
-    product: "Product 4",
-    price: 20,
-    quantity: 3,
-    total: 60,
-  },
-];
+import { useSelector, useDispatch } from "react-redux";
 
-const calculateTotalCost = () => {
-  let totalCost = 0;
-  tableData.forEach((item) => {
-    totalCost += item.total;
-  });
-  return totalCost;
-};
+import {
+  selectCartItems,
+  selectCartOpen,
+} from "../../Store/cart/cart.selector";
+
+const tableHeader = [" ", " ", "Name", "Price", "Quantity", "Sub Total"];
 
 export default function Cart() {
-  const [data, setData] = useState(tableData);
+  const cartItems = useSelector(selectCartItems);
+  const [data, setData] = useState(cartItems);
+  const isCartOpen = useSelector(selectCartOpen);
+
+  const calculateTotalCost = () => {
+    let totalCost = 0;
+    data.forEach((item) => {
+      totalCost += item.price * item.quantity;
+    });
+    return totalCost;
+  };
 
   return (
     <div className="relative grid grid-cols-4 top-36 md:top-48 w-full px-4">
@@ -80,15 +51,12 @@ export default function Cart() {
                   <span className="mx-4 font-bold cursor-pointer hover:text-primary-red">
                     <MdClose />
                   </span>
-                  {item.close}
                 </td>
                 <td className="p-2 h-16 w-24 shadow-sm">
                   <img className="w-full h-full bg-center" src={item.image} />
                 </td>
-                <td className="py-5 px-2 text-center">{item.product}</td>
-                <td className="py-5 px-2 text-center">
-                  ${item.price.toFixed(2)}
-                </td>
+                <td className="py-5 px-2 text-center">{item.name}</td>
+                <td className="py-5 px-2 text-center">{item.price}</td>
                 <td className="py-5 px-2 text-center flex justify-center items-center">
                   <span className="mx-4 font-bold cursor-pointer hover:bg-honey border border-gray">
                     <AiOutlineMinus />
@@ -99,7 +67,7 @@ export default function Cart() {
                   </span>
                 </td>
                 <td className="py-5 px-2 text-center pr-0">
-                  ${item.total.toFixed(2)}
+                  {calculateTotalCost()}
                 </td>
               </tr>
             ))}
@@ -147,9 +115,6 @@ export default function Cart() {
         </div>
         <div className="font-bold w-full flex justify-between">
           <p className="text-center ml-10 font-bold">Total:</p>
-          <p className="text-end text-secondary mx-4">
-            ${calculateTotalCost().toFixed(2)}
-          </p>
         </div>
       </div>
     </div>

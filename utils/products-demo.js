@@ -5,7 +5,7 @@ const people = [
     name: "Blue Bull Honey 22g Pouches",
     category: "Male enhancement Supplement",
     quote: "Don't Quit ... ",
-    quantity: "10 pcs",
+
     price: "$100",
   },
   {
@@ -32,7 +32,7 @@ const people = [
     name: "Vitamax Double Shot 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -41,7 +41,7 @@ const people = [
     name: "Leopard Miracle Honey 15g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -50,7 +50,7 @@ const people = [
     name: "Leopard Miracle Honey 22g Pouches",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -59,7 +59,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -68,7 +68,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -77,7 +77,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -86,7 +86,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -95,7 +95,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -104,7 +104,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -113,7 +113,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -122,7 +122,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -131,7 +131,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -140,7 +140,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -149,7 +149,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -158,7 +158,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -167,7 +167,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
   {
@@ -176,7 +176,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
+
     price: "$120",
   },
 ];

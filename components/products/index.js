@@ -49,17 +49,8 @@ const Products = () => {
       >
         {product.map((item, index) => {
           return (
-            <Link href={`/product/${product.id}`}>
-              <Card
-                key={index}
-                name={item.name}
-                image={item.image}
-                category={item.category}
-                quote={item.quote}
-                quantity={item.quantity}
-                price={item.price}
-                percentage={`20%`}
-              />
+            <Link href={`/product/${item.id}`}>
+              <Card key={index} product={item} percentage={`20%`} />
             </Link>
           );
         })}
