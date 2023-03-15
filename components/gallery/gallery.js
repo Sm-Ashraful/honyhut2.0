@@ -2,7 +2,7 @@ import React from "react";
 
 const Gallery = (props) => {
   const { id, name, image, cardType, quote } = props;
-  return cardType === "category" ? (
+  return cardType === "category" && (
     <div className={`bg-primary my-2 cursor-pointer transition-all`}>
       <div>
         <div className="relative w-full">
@@ -16,9 +16,7 @@ const Gallery = (props) => {
         </div>
       </div>
     </div>
-  ) : (
-    []
-  );
+  )
 };
 
 export default Gallery;
