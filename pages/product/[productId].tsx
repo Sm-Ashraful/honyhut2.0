@@ -16,12 +16,6 @@ const Product = () => {
   const productId = router.query.productId;
   const product = getProductById(productId);
 
-  useEffect(() => {
-    if (!router.isReady) return;
-
-    // codes using router.query
-  }, [router.isReady]);
-
   if (!product) {
     return <div className="w-screen h-screen text-center">Loading...</div>;
   }
@@ -68,5 +62,26 @@ const Product = () => {
     </div>
   );
 };
+
+// export async function getStaticProps({ params }) {
+//   const productId = params.productId;
+//   const product = getProductById(productId);
+
+//   return {
+//     props: {
+//       product,
+//     },
+//   };
+// }
+// export async function getStaticPaths() {
+//   const paths = products.map((product) => ({
+//     params: { productId: String(product.id) }, // ensure that productId is a string
+//   }));
+
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
 
 export default Product;

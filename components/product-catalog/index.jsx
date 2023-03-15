@@ -16,11 +16,11 @@ import photo4 from "../../public/Products/Gold Honey/Gold Honey(7).jpeg";
 import photo5 from "../../public/Products/Gold Honey/Gold Honey.jpeg";
 import LeftRightArrow from "../common/LeftRightArrow";
 
-const ProductCatalog = (props) => {
-  const { image, name, category, price } = props;
+const ProductCatalog = ({ props }) => {
+  console.log(props);
   const [index, setIndex] = useState(0);
 
-  const images = [photo, photo2, photo3, photo4, photo5];
+  const images = [props.image, photo2, photo3, photo4, photo5];
 
   useEffect(() => {
     const lastIndex = images.length - 1;
@@ -70,7 +70,7 @@ const ProductCatalog = (props) => {
         </div>
         {/* Product Information and button */}
         <div className="padding_inside w-full md:w-1/2 space-y-3 md:relative md:top-10">
-          <h3 className="text-3xl font-medium">{name}</h3>
+          <h3 className="text-3xl font-medium">{props.name}</h3>
           <div className="mb-2">
             <span className="flex items-center">
               <ReviewStar className={`flex text-honey`} />
@@ -128,7 +128,10 @@ const ProductCatalog = (props) => {
             </p>
             <p className="text-lg title-font tracking-widest">
               Category:
-              <span className="text-bold text-secondary"> {category}</span>
+              <span className="text-bold text-secondary">
+                {" "}
+                {props.category}
+              </span>
             </p>
             <p className="text-lg title-font tracking-widest">
               Brand:

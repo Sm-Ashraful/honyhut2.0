@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import Card from "../Card";
+import CategoryCard from "../Card/categoryCard";
 import categoryData from "../../utils/category-demo-data";
 import Link from "next/link";
 
@@ -51,12 +51,7 @@ const Categories = () => {
         {category.map((item, index) => {
           return (
             <div className={`${styles.categoryCard}`} key={index}>
-              <Card
-                key={index}
-                name={item.name}
-                image={item.image}
-                cardType="category"
-              />
+              <CategoryCard key={index} name={item.name} image={item.image} />
             </div>
           );
         })}

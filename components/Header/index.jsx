@@ -6,9 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   toggle,
   favToggle,
-  cartToggle,
   allDepartmentToggle,
 } from "../../Store/slices/globalSlice";
+import { setIsCartOpen } from "../../Store/cart/cart.action";
+import { selectCartOpen } from "../../Store/cart/cart.selector";
+import { selectCartCount } from "../../Store/cart/cart.selector";
+import { selectCartItems } from "../../Store/cart/cart.selector";
 
 import styles from "./style.module.css";
 import logo from "../../Assets/honeyhut logo.png";
@@ -25,9 +28,16 @@ import { MdManageAccounts, MdFavorite } from "react-icons/md";
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDepartmentOpen, setIsDepartmentOpen] = useState(false);
+
+  const isCartOpen = useSelector(selectCartOpen);
+  const total = useSelector(selectCartCount);
+  const cartItems = useSelector(selectCartItems);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -59,7 +69,7 @@ const Header = () => {
 
   const handleCart = (e) => {
     e.preventDefault();
-    dispatch(cartToggle());
+    dispatch(setIsCartOpen(!isCartOpen));
   };
 
   return (
@@ -96,7 +106,7 @@ const Header = () => {
                       onClick={handleCart}
                     >
                       <BsCart4 />
-                      <span className={styles.cart_count}>5</span>
+                      <span className={styles.cart_count}>{total}</span>
                     </div>
                   </div>
                 </div>
