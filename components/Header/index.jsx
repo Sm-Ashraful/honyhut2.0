@@ -101,8 +101,10 @@ const Header = () => {
                   </div>
                 </div>
 
-                <div className="text-4xl text-secondary hidden md:block">
+                <div className="text-4xl text-secondary hidden md:block cursor-pointer">
+                <Link href="/favorite">
                   <MdFavorite />
+                </Link>
                 </div>
 
                 <div className="md:hidden text-xl text-secondary">
