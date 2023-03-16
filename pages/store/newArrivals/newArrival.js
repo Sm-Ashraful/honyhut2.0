@@ -2,8 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 const New = ({ product }) => {
-  const { id, name, price, image } = product;
-  console.log(id);
+  const { name, price, image } = product;
 
   return (
     <div className={`my-2 cursor-pointer transition-all`}>
