@@ -43,17 +43,7 @@ const Product = () => {
           {products.map((item, index) => {
             if (index < 4) {
               return (
-                <RelProduct
-                  key={index}
-                  name={item.name}
-                  image={item.image}
-                  category={item.category}
-                  quote={item.quote}
-                  quantity={item.quantity}
-                  price={item.price}
-                  categoryType={`products`}
-                  percentage={`20%`}
-                />
+                <RelProduct key={index} product={item} percentage={`20%`} />
               );
             }
           })}
