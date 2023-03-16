@@ -1,60 +1,75 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import Head from "next/head";
+import styles from "./category-nav.module.css";
+import { MdClose } from "react-icons/md";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+
+import { useSelector, useDispatch } from "react-redux";
+
 import {
-  AiOutlineMinus,
-  AiOutlinePlus,
-} from "react-icons/ai";
-import cartDemo from "../../utils/cart-demo-data";
+  selectCartItems,
+  selectCartOpen,
+} from "../../Store/cart/cart.selector";
 
-const CheckOut = () => {
+const tableHeader = [" ", " ", " ", " ", " "];
+
+export default function Cart() {
+  const cartItems = useSelector(selectCartItems);
+  const [data, setData] = useState(cartItems);
+  const isCartOpen = useSelector(selectCartOpen);
+
+  const calculateTotalCost = () => {
+    let totalCost = 0;
+    data.forEach((item) => {
+      totalCost += item.price * item.quantity;
+    });
+    return totalCost;
+  };
+
   return (
-    <div className="">
-        <div className="pl-4 pt-4 flex flex-cols-2 gap-4 h-10 w-full">
-          <div className="left-2 h-10 font-bold">Royal Honey</div>
-          <div className="right-2">
-            <div class="flex flex-row h-10 w-full relative">
-              <span class="text-2xl font-bold cursor-pointer px-2 rounded-full bg-honey pt-2">
-                <AiOutlineMinus />
-              </span>
-              <span className="px-4">5</span>
-              <span class="text-2xl font-bold cursor-pointer px-2 rounded-full bg-honey pt-2">
-                <AiOutlinePlus />
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="pl-4 pt-4 flex flex-row gap-8">
-          <div className="font-bold">Black Bull Honey</div>
-          <div className="">
-            <div class="flex flex-row h-10 w-full relative">
-              <span class="text-2xl font-bold cursor-pointer px-2 rounded-full bg-honey pt-2">
-                <AiOutlineMinus />
-              </span>
-              <span className="px-4">5</span>
-              <span class="text-2xl font-bold cursor-pointer px-2 rounded-full bg-honey pt-2">
-                <AiOutlinePlus />
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="pl-4 pt-4 flex flex-row gap-8">
-          <div className="font-bold">Blue Bull Honey</div>
-          <div className="">
-            <div class="flex flex-row h-10 w-full  relative">
-              <span class="text-2xl font-bold cursor-pointer px-2 rounded-full bg-honey pt-2">
-                <AiOutlineMinus />
-              </span>
-              <span className="px-4">5</span>
-              <span class="text-2xl font-bold cursor-pointer px-2 rounded-full bg-honey pt-2">
-                <AiOutlinePlus />
-              </span>
-            </div>
-          </div>
-        </div>
-
+    <div className="relative grid grid-cols-1">
+      <div className={`md:col-span-2 mx-4 md:grid-cols-1`}>
+        <table className={`${styles.table} w-full`}>
+          <thead>
+            <tr>
+              {tableHeader.map((header) => (
+                <th className="p-2 text-center text-secondary" key={header}>
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item) => (
+              <tr
+                key={item.id}
+                className="border border-l-0 border-r-0 border-gray"
+              >
+                <td className="py-5 px-2 text-center flex justify-center items-center text-gray">
+                  <span className="mx-4 font-bold cursor-pointer hover:text-primary-red">
+                    <MdClose />
+                  </span>
+                </td>
+                <td className="p-2 h-16 w-24 shadow-sm">
+                  <img className="w-full h-full bg-center" src={item.image} />
+                </td>
+                <td className="py-5 px-2 text-center">{item.name.split(" ")[0]}</td>
+                <td className="py-5 px-2 text-center">{item.price}</td>
+                <td className="py-5 px-2 text-center flex justify-center items-center">
+                  <span className="mx-4 font-bold cursor-pointer hover:bg-honey border border-gray">
+                    <AiOutlineMinus />
+                  </span>
+                  {item.quantity}
+                  <span className="mx-4 font-bold cursor-pointer hover:bg-honey border border-gray">
+                    <AiOutlinePlus />
+                  </span>
+                </td>
+                
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-};
-
-export default CheckOut;
+}

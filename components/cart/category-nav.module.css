@@ -18,3 +18,13 @@
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
+
+.container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+.table {
+  border-collapse: collapse;
+}
