@@ -6,7 +6,7 @@ const people = [
     category: "Male enhancement Supplement",
     quote: "Don't Quit ... ",
 
-    price: "$100",
+    price: 100,
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const people = [
     name: "Rhino 69 1900K",
     category: "Male enhancement Supplement",
     quote: "Extra strength",
-    price: "$150",
+    price: 150,
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const people = [
     name: "Rhino 69 2400K",
     category: "VIP Royal Honey",
     quote: "Honey for Extra Energy",
-    price: "$100",
+    price: 70,
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const people = [
     name: "Rhino 69 10000K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 80,
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const people = [
     name: "Pink Pussy Cat Liquid Shot ",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 90,
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ const people = [
     name: "Rhino 69 4750k",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 50,
   },
   {
     id: 7,
@@ -54,7 +54,7 @@ const people = [
     name: "Rhino 69 15000K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 20,
   },
   {
     id: 8,
@@ -62,7 +62,7 @@ const people = [
     name: "Rhino 69 3750K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 70,
   },
   {
     id: 9,
@@ -70,7 +70,7 @@ const people = [
     name: "Rhino 69 23000K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 22,
   },
   {
     id: 10,
@@ -78,7 +78,7 @@ const people = [
     name: "Rhino 69 7500K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 24,
   },
   {
     id: 12,
@@ -86,7 +86,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 32,
   },
   {
     id: 13,
@@ -94,7 +94,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 43,
   },
   {
     id: 14,
@@ -102,7 +102,7 @@ const people = [
     name: "Trojan MAGNUM",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 67,
   },
   {
     id: 15,
@@ -110,7 +110,7 @@ const people = [
     name: "BLACK BULL EXTREME",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 23,
   },
   {
     id: 16,
@@ -118,7 +118,7 @@ const people = [
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 11,
   },
   {
     id: 17,
@@ -126,7 +126,7 @@ const people = [
     name: "Miracle of Honey 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 3,
   },
   {
     id: 18,
@@ -134,7 +134,7 @@ const people = [
     name: "Leopard Miracle Honey 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 90,
   },
   {
     id: 19,
@@ -142,7 +142,7 @@ const people = [
     name: "Red Bull",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 88,
   },
   {
     id: 20,
@@ -150,7 +150,7 @@ const people = [
     name: "VITA MAX Double Shot 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 77,
   },
   {
     id: 21,
@@ -158,7 +158,7 @@ const people = [
     name: "ETUMA Royal Honey 20g Sachet",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    price: "$120",
+    price: 99,
   },
 ];
 

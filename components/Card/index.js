@@ -70,7 +70,7 @@ const Card = ({ product, percentage }) => {
 
               <p className="flex space-x-8">
                 <strong>Price: </strong>
-                <strong className=" font-bold text-xl">7$</strong>
+                <strong className=" font-bold text-xl">${product.price}</strong>
               </p>
               {/* <div className="text-center pt-5 underline text-tertiary">
                 View

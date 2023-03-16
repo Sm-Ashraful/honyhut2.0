@@ -9,9 +9,12 @@ import {
   allDepartmentToggle,
 } from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
-import { selectCartOpen } from "../../Store/cart/cart.selector";
-import { selectCartCount } from "../../Store/cart/cart.selector";
-import { selectCartItems } from "../../Store/cart/cart.selector";
+import {
+  selectCartOpen,
+  selectCartCount,
+  selectCartItems,
+  selectCartTotal,
+} from "../../Store/cart/cart.selector";
 
 import styles from "./style.module.css";
 import logo from "../../Assets/honeyhut logo.png";
@@ -32,11 +35,12 @@ const Header = () => {
   const isCartOpen = useSelector(selectCartOpen);
   const total = useSelector(selectCartCount);
   const cartItems = useSelector(selectCartItems);
+  const totalCost = useSelector(selectCartTotal);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(cartItems);
+    console.log("total Cost: ", totalCost);
   }, [cartItems]);
 
   const handleChange = (event) => {
@@ -112,13 +116,13 @@ const Header = () => {
                 </div>
 
                 <div className="text-4xl text-secondary hidden md:block cursor-pointer">
-                <Link href="/favorite">
-                  <MdFavorite />
-                </Link>
+                  <Link href="/favorite">
+                    <MdFavorite />
+                  </Link>
                 </div>
 
                 <div className="md:hidden text-xl text-secondary">
-                  <p>0.00$</p>
+                  <p>${totalCost}</p>
                 </div>
               </div>
             </div>
@@ -146,16 +150,7 @@ const Header = () => {
                       <span>About</span>
                     </a>
                   </li>
-                  <li>
-                    <Link
-                      href="/store/store"
-                      className="flex flex-col justify-center items-center text-secondary"
-                    >
-                      <FaStore />
 
-                      <span>Store</span>
-                    </Link>
-                  </li>
                   <li>
                     <a
                       href="/"
@@ -228,7 +223,7 @@ const Header = () => {
               </div>
 
               <div className="hidden md:block text-xl ">
-                <p>0.00$</p>
+                <p>$ {totalCost.toFixed(2)}</p>
               </div>
             </div>
           </div>
