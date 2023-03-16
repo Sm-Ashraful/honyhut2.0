@@ -3,11 +3,13 @@ import Image from "next/image";
 
 const New = ({ product }) => {
   const { id, name, price, image } = product;
+  console.log(id);
+
   return (
     <div className={`my-2 cursor-pointer transition-all`}>
       <div>
         <div className="relative w-full h-36">
-          <Image src={image} alt={id} fill cover />
+          <Image src={image} alt={name} fill cover />
         </div>
         <div>
           <p>{name}</p>

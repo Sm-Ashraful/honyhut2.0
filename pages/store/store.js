@@ -9,14 +9,8 @@ import Link from "next/link";
 import styles from "../../components/heroSlider/slider.module.css";
 
 import data from "../../utils/data-demo";
-import Button from "../../components/Button";
 
-import NewArrivals from "./newArrivals/index";
-import TopRankings from "./topRanking/index";
-import WeeklyDeals from "./weeklyDeals/index";
-import TopProducts from "./topProduct/index";
-import RecommendProduct from "../../components/RecommandForYou";
-import WomenProducts from "./womenProduct/index";
+import NewArrivals from "./newArrivals";
 
 import Image from "next/image";
 
