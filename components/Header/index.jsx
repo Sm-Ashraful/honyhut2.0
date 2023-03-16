@@ -142,23 +142,23 @@ const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="/"
+                    <Link
+                      href="/about"
                       className="flex flex-col justify-center items-center text-secondary"
                     >
                       <BsInfoCircle />
                       <span>About</span>
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="/"
+                    <Link
+                      href="/allproducts"
                       className="flex flex-col justify-center items-center text-secondary"
                     >
                       <FaStore />
                       <span>Products</span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>

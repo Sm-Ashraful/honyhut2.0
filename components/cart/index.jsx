@@ -20,11 +20,16 @@ const CartNav = ({ headingLine, view, goto }) => {
   return (
     <div>
       {isCartOpen && (
-        <div className="heightFull bg-white higherPriority absolute top-0 md:right-3 right-2 flex justify-center md:w-2/5">
+        <div className="heightFull bg-white higherPriority absolute top-0 md:right-3 right-2 flex justify-center md:w-1/4">
           <div className="w-full">
             <div className="relative flex justify-between items-center p-6   ">
-              <p className="text-2xl text-secondary pl-4 font-bold">{headingLine}</p>
-              <p className="flex text-secondary cursor-pointer hover:text-primary-red text-2xl" onClick={closeCart}>
+              <p className="text-2xl text-secondary pl-4 font-bold">
+                {headingLine}
+              </p>
+              <p
+                className="flex text-secondary cursor-pointer hover:text-primary-red text-2xl"
+                onClick={closeCart}
+              >
                 <AiOutlineClose className="mr-2 mt-1" />
                 <span>close</span>
               </p>
