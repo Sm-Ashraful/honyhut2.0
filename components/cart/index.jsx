@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 
 import { selectCartOpen } from "@/Store/cart/cart.selector";
 import { setIsCartOpen } from "@/Store/cart/cart.action";
@@ -20,19 +20,14 @@ const CartNav = ({ headingLine, view, goto }) => {
   return (
     <div>
       {isCartOpen && (
-        <div className="heightFull w-96 bg-primary higherPriority absolute top-0 right-3 flex justify-center">
-          <div className="top-8 w-full">
-            <div
-              onClick={closeCart}
-              className="absolute right-4 flex top-2 text-secondary cursor-pointer text-3xl ml-2 font-bold hover:text-primary-red"
-            >
-              <AiOutlineCloseCircle className="mr-4 mt-1" />
-            </div>
-            <div>
-              <p className="text-3xl text-center mt-16 text-secondary ">
-                {headingLine}
+        <div className="heightFull bg-white higherPriority absolute top-0 md:right-3 right-2 flex justify-center md:w-2/5">
+          <div className="w-full">
+            <div className="relative flex justify-between items-center p-6   ">
+              <p className="text-2xl text-secondary pl-4 font-bold">{headingLine}</p>
+              <p className="flex text-secondary cursor-pointer hover:text-primary-red text-2xl" onClick={closeCart}>
+                <AiOutlineClose className="mr-2 mt-1" />
+                <span>close</span>
               </p>
-              <hr className="h-px my-4 bg-secondary border-0 dark:bg-secondary" />
             </div>
 
             <div className="relative left-2 h-96 w-full ">
@@ -40,18 +35,14 @@ const CartNav = ({ headingLine, view, goto }) => {
             </div>
           </div>
 
-          <div className=" bottom-24  cursor-pointer absolute place-items-center">
-            <Link
-              href={"../../cart/cart"}
-              class="text-black bg-gray border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center"
-            >
-              View Cart
-              {view}
-            </Link>
+          <div className=" bottom-24  cursor-pointer absolute place-items-center w-full px-4">
+            <div className="text-black bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
+              <Link href={"../../cart/cart"}>{view}</Link>
+            </div>
           </div>
 
-          <div className=" bottom-10  cursor-pointer absolute place-items-center">
-            <button class="text-black bg-secondary border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center">
+          <div className=" bottom-10  cursor-pointer absolute place-items-center w-full px-4">
+            <button class="text-black bg-gray border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
               {goto}
             </button>
           </div>
