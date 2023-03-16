@@ -1,9 +1,0 @@
-.menu_dropdown > li:first-child a {
-  color: #f9c901;
-  border-bottom: 1px solid #f9c901;
-}
-
-.menu_dropdown > li:first-child::after {
-  content: "\25bc";
-  color: #f9c901;
-}

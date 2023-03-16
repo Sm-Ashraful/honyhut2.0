@@ -15,9 +15,7 @@ const Slider = () => {
         className={`${styles.section_slider} flex justify-center md:space-x-5 md:padding_inside`}
       >
         {/* left section */}
-        <div className="w-1/5 hidden md:block">
-          <LeftSection />
-        </div>
+        <div className="w-1/5 hidden md:block"></div>
 
         {/* middle heroslide section */}
         <div className={`${styles.section_center}  flex-1`}>

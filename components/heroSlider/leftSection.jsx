@@ -57,24 +57,6 @@ const LeftSection = () => {
               <TiChevronRight className="text-secondary" />
             </span>
           </li>
-          {/* <li className="py-5 px-9 space-x-2 flex justify-between items-center cursor-pointer hover:bg-white shadow-sm hover:shadow-hnx">
-            <a className=" font-semibold">Leopard Miracle</a>
-            <span>
-              <TiChevronRight className="text-secondary" />
-            </span>
-          </li>
-          <li className="py-5 px-9 space-x-2 flex justify-between items-center cursor-pointer hover:bg-white shadow-sm hover:shadow-hnx">
-            <a className=" font-semibold">Leopard Miracle</a>
-            <span>
-              <TiChevronRight className="text-secondary" />
-            </span>
-          </li>
-          <li className="py-5 px-9 space-x-2 flex justify-between items-center cursor-pointer hover:bg-white shadow-sm hover:shadow-hnx">
-            <a className=" font-semibold">Leopard Miracle</a>
-            <span>
-              <TiChevronRight className="text-secondary" />
-            </span>
-          </li> */}
         </ul>
       </div>
     </div>
