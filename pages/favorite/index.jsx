@@ -8,7 +8,6 @@ const FavSection = () => {
   const [product, setProduct] = useState(productData);
   const cardBoxRef = useRef(null);
 
-
   return (
     <section className="padding_inside relative top-36 md:top-48 h-auto my-5">
       <h2 className="mb-0 ">Favorite Items</h2>
@@ -20,16 +19,7 @@ const FavSection = () => {
         {product.map((item, index) => {
           return (
             <Link href={`/product/${product.id}`}>
-              <Card
-                key={index}
-                name={item.name}
-                image={item.image}
-                category={item.category}
-                quote={item.quote}
-                quantity={item.quantity}
-                price={item.price}
-                percentage={`20%`}
-              />
+              <Card key={index} product={item} percentage={`20%`} />
             </Link>
           );
         })}
