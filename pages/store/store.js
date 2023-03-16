@@ -23,72 +23,16 @@ import Image from "next/image";
 const Store = () => {
   const [people, setPeople] = useState(data);
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    console.log("data", data);
+  }, []);
   return (
-    <div className="">
-      <section
-        className={`${styles.section_slider} flex justify-between w-100% h-auto `}
-      >
-        {/* heroslide section */}
-
-        <div className={styles.section_center}>
-          {people.map((person, personIndex) => {
-            const { id, image, name, title, quote } = person;
-
-            let position = "nextSlide";
-            if (personIndex === index) {
-              position = "activeSlide";
-            }
-            if (
-              personIndex === index - 1 ||
-              (index === 0 && personIndex === people.length - 1)
-            ) {
-              position = "lastSlide";
-            }
-            return (
-              <article className={`${styles[position]}`} key={id}>
-                <Image
-                  src={image}
-                  alt={name}
-                  fill
-                  responsive
-                  className={styles.person_img}
-                />
-
-                <div className={`${styles.slider_content} from-bottom`}>
-                  <Button className="bg-secondary text-primary hover:bg-honey hover:text-black">
-                    Shop Now
-                  </Button>
-                </div>
-              </article>
-            );
-          })}
-          <button className={styles.prev} onClick={() => setIndex(index - 1)}>
-            <FiChevronLeft />
-          </button>
-          <button className={styles.next} onClick={() => setIndex(index + 1)}>
-            <FiChevronRight />
-          </button>
-        </div>
-      </section>
+    <div className="padding_inside relative top-36 md:top-48 h-auto my-5">
       <div className="grid grid-cols-1 m-5 gap-4 justify-between md:grid-cols-3 sm:grid-cols-3 relative top-36">
-        <div className="bg-white rounded-xl">
+        <div className="bg-white rounded-xl w-full">
           <NewArrivals />
         </div>
-        <div className="bg-white rounded-xl">
-          <TopRankings />
-        </div>
-        <div className="bg-white rounded-xl">
-          <WeeklyDeals />
-        </div>
-        <div className="bg-white rounded-xl">
-          <RecommendProduct />
-        </div>
-        <div className="bg-white rounded-xl">
-          <WomenProducts />
-        </div>
-      </div>
-      <div className="grid grid-cols-1 m-5 gap-4 justify-between md:grid-cols-1 sm:grid-cols-1 relative top-36">
-        <TopProducts />
       </div>
     </div>
   );

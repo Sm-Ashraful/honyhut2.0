@@ -10,15 +10,7 @@ const NewSection = () => {
       {/* <hr className="h-px my-8 bg-gray border-0 dark:bg-gray" /> */}
       <div className="grid grid-cols-3 m-2 gap-1 justify-between md:grid-cols-3 sm:grid-cols-3">
         {category.map((item, index) => {
-          return (
-            <New
-              key={index}
-              price={item.price}
-              image={item.image}
-              quantity={item.quantity}
-              cardType="category"
-            />
-          );
+          return <New key={index} product={item} />;
         })}
       </div>
     </section>
