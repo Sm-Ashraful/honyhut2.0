@@ -27,11 +27,11 @@ export default function Cart() {
   };
 
   return (
-    <div className="relative grid grid-cols-4 top-36 md:top-48 w-full px-4">
-      <div className={`col-span-3 mx-4 py-10`}>
-        <h2 className="text-center font-bold text-secondary">Shopping Cart</h2>
+    <div className="relative grid grid-cols-1 top-28 md:top-48 w-full px-4 md:grid-cols-3">
+      <div className={`md:col-span-2 mx-4 pt-10 md:grid-cols-1`}>
+        <h2 className="text-center font-bold text-secondary mb-0">Shopping Cart</h2>
 
-        <table className={`${styles.table}`}>
+        <table className={`${styles.table} pr-4`}>
           <thead>
             <tr>
               {tableHeader.map((header) => (
@@ -75,12 +75,12 @@ export default function Cart() {
         </table>
       </div>
 
-      <div className="col-span-1 my-10 border-gray border-l-2">
-        <h2 className="text-center font-bold text-secondary">Cart Totals</h2>
+      <div className=" md:col-span-1 md:py-10 py-0 border-gray md:border-l-2 ">
+        <h2 className="text-center font-bold text-secondary mb-0">Cart Totals</h2>
 
         <div className="flex flex-col p-4">
           <h1 className="font-bold">Shipping</h1>
-          <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
+          <hr className="h-px mb-2  bg-gray border-0 dark:bg-gray" />
           <label className=" items-center text-lg">
             <input
               type="radio"
@@ -111,9 +111,9 @@ export default function Cart() {
               Express Shipping (2 to 3 Business Days): $17.99
             </span>
           </label>
-          <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
+          <hr className="h-px mb-2  bg-gray border-0 dark:bg-gray" />
         </div>
-        <div className="font-bold w-full flex justify-between">
+        <div className="font-bold w-full flex justify-between pb-0">
           <p className="text-center ml-10 font-bold">Total:</p>
         </div>
       </div>
