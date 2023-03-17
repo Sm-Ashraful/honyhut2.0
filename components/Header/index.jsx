@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import { useDispatch, useSelector } from "react-redux";
+
 import {
-  toggle,
-  favToggle,
-  allDepartmentToggle,
-} from "../../Store/slices/globalSlice";
+  setHeroContentInView,
+  setIsDropdownVisible,
+} from "@/Store/slices/globalSlice";
+
+import { toggle } from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import {
   selectCartOpen,
@@ -36,12 +37,18 @@ const Header = () => {
   const total = useSelector(selectCartCount);
   const cartItems = useSelector(selectCartItems);
   const totalCost = useSelector(selectCartTotal);
+  const isDropdownVisible = useSelector(
+    (state) => state.sidebar.isDropdownVisible
+  );
+  const isHeroContentInView = useSelector(
+    (state) => state.sidebar.isHeroContentInView
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("total Cost: ", totalCost);
-  }, [cartItems]);
+    console.log("total Cost: ", isHeroContentInView);
+  }, [isHeroContentInView]);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -62,13 +69,19 @@ const Header = () => {
     setSearchTerm(!searchTerm);
   };
 
-  const openCategoryMenu = (e) => {
-    e.preventDefault();
+  const openCategoryMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const openDepartment = (e) => {
-    e.preventDefault();
-    dispatch(allDepartmentToggle());
+    if (isHeroContentInView === false) {
+      dispatch(setIsDropdownVisible(true));
+    }
+    console.log("hover me");
+    console.log(isDropdownVisible);
+  };
+
+  const closeDepartMent = () => {
+    dispatch(setIsDropdownVisible(false));
   };
 
   const handleCart = (e) => {
@@ -186,8 +199,9 @@ const Header = () => {
           </div>
           <div className="w-full hidden md:flex h-full">
             <div
-              className={` w-1/5 h-full flex justify-center items-center mr-3 all-department`}
-              onClick={openDepartment}
+              className={` w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}
+              onMouseEnter={openDepartment}
+              onMouseLeave={closeDepartMent}
             >
               <p className="flex capitalize text-center font-bold text-white text-opacity-100 drop-shadow-xl cursor-pointer">
                 <span className="px-3">
@@ -195,6 +209,9 @@ const Header = () => {
                 </span>
                 All Department
               </p>
+              <div className="absolute top-16 left-0">
+                <AllDepartNav />
+              </div>
             </div>
 
             <div class="flex-1 relative">
@@ -253,7 +270,7 @@ const Header = () => {
 
       {/**Header dropdown end */}
       <Sidebar />
-      <AllDepartNav />
+
       <CartNav
         headingLine={`Shopping Cart`}
         view={`View Cart`}

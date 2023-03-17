@@ -7,7 +7,7 @@ import { TiChevronRight } from "react-icons/ti";
 const LeftSection = () => {
   return (
     <div>
-      <div className="scrollable-content mr-3 border-t-2 border-t-honey bg-primary text-secondary w-full leftHight shadow-hnx">
+      <div className="higherPriority w-96 scrollable-content mr-3 border-t-2 border-t-honey bg-primary text-secondary leftHight shadow-hnx">
         <ul className={`${styles.dropdown_content} text-xl tracking-wider`}>
           <li className="space-x-2 py-5 px-9 flex justify-between items-center cursor-pointer hover:bg-white shadow-sm hover:shadow-hnx">
             <a className=" font-semibold">Male Enhancement</a>

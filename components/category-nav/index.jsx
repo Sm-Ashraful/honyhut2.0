@@ -1,5 +1,6 @@
 import React from "react";
 import { TiArrowSortedDown } from "react-icons/ti";
+import { useSelector } from "react-redux";
 
 import styles from "./category-nav.module.css";
 

@@ -21,10 +21,13 @@ const BottomMenu = () => {
           </Link>
         </li>
         <li>
-          <a href="/" className="flex flex-col items-center justify-center">
+          <Link
+            href="/favorite"
+            className="flex flex-col items-center justify-center"
+          >
             <span className={styles.favourite_cart}></span>
             <span>Favorite</span>
-          </a>
+          </Link>
         </li>
         <li className="">
           <a href="/" className="">
@@ -33,16 +36,16 @@ const BottomMenu = () => {
           </a>
         </li>
         <li className="">
-          <a href="/">
+          <Link href="/allproducts">
             <span className={`${styles.bottom_store}`}></span>
             <span>Store</span>
-          </a>
+          </Link>
         </li>
         <li className="">
-          <a href="/">
+          <Link href="/about">
             <span className={`${styles.bottom_about}`}></span>
             <span>About</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
