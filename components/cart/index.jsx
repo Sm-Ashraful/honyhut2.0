@@ -5,7 +5,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { selectCartOpen } from "@/Store/cart/cart.selector";
 import { setIsCartOpen } from "@/Store/cart/cart.action";
 
-import CheckOut from "./checkOut";
+import CheckOut from "./cart";
 import Link from "next/link";
 
 // import styles from "./category-nav.module.css";
@@ -48,7 +48,7 @@ const CartNav = ({ headingLine, view, goto }) => {
 
           <div className=" bottom-10  cursor-pointer absolute place-items-center w-full px-4">
             <button class="text-black bg-gray border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
-              {goto}
+              <Link href={"../../cart/checkout"}>{goto}</Link>
             </button>
           </div>
         </div>
