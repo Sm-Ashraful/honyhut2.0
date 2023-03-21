@@ -3,6 +3,8 @@ import Head from "next/head";
 import styles from "./Cart.module.css";
 import { MdClose } from "react-icons/md";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import Link from "next/link";
+
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -152,6 +154,14 @@ export default function Cart() {
             <div className="font-bold w-full flex justify-between pb-0">
               <p className="text-center ml-10 font-bold">Total:</p>
             </div>
+            <Link href={"../../cart/checkout"}>
+                <button
+                  type="submit"
+                  className="bg-honey text-black font-bold rounded-md mx-2 py-2 px-2 w-full hover:bg-gray transition-colors border border-white mt-4"
+                >
+                  Checkout
+                </button>
+              </Link>
           </div>
         </div>
       )}

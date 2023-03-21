@@ -269,3 +269,7 @@ article.nextSlide {
   width: 250px;
   position: relative;
 }
+
+.map{
+  z-index: 0 !important;
+}
