@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import data from "../../utils/data-demo";
 
-import LeftSection from "./leftSection";
+import DropdownNavbar from "../navbar";
 import PhotoSlider from "./photo-slider";
 
 import {
@@ -16,10 +17,10 @@ import { useDispatch } from "react-redux";
 
 const Slider = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     const heroContent = document.getElementsByClassName("hero-content");
-
     function isHeroContentInView() {
       if (heroContent) {
         const heroContentTop = heroContent[0].offsetTop;
@@ -38,6 +39,11 @@ const Slider = () => {
       const isHeroInView = isHeroContentInView();
       dispatch(setHeroContentInView(isHeroInView));
     }
+    // if (router.pathname === "/") {
+    //   window.addEventListener("scroll", handleScroll);
+    // } else {
+    //   dispatch(setHeroContentInView(true));
+    // }
 
     window.addEventListener("scroll", handleScroll);
 
@@ -49,11 +55,11 @@ const Slider = () => {
   return (
     <section className={`w-full  relative top-36 md:top-52`}>
       <div
-        className={` ${styles.section_slider} flex justify-center md:space-x-5 md:padding_inside`}
+        className={` ${styles.section_slider} flex justify-center md:space-x-5 md:padding_inside hero-content`}
       >
         {/* left section */}
-        <div className="w-1/5 hidden md:block hero-content">
-          <LeftSection />
+        <div className="w-1/5 hidden md:block ">
+          <DropdownNavbar />
         </div>
 
         {/* middle heroslide section */}

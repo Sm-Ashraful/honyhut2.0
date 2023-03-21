@@ -46,10 +46,6 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log("total Cost: ", isHeroContentInView);
-  }, [isHeroContentInView]);
-
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -76,8 +72,6 @@ const Header = () => {
     if (isHeroContentInView === false) {
       dispatch(setIsDropdownVisible(true));
     }
-    console.log("hover me");
-    console.log(isDropdownVisible);
   };
 
   const closeDepartMent = () => {
@@ -199,7 +193,7 @@ const Header = () => {
           </div>
           <div className="w-full hidden md:flex h-full">
             <div
-              className={` w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}
+              className={`w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}
               onMouseEnter={openDepartment}
               onMouseLeave={closeDepartMent}
             >
@@ -209,7 +203,7 @@ const Header = () => {
                 </span>
                 All Department
               </p>
-              <div className="absolute top-16 left-0">
+              <div className="absolute top-20 left-0">
                 <AllDepartNav />
               </div>
             </div>
@@ -245,7 +239,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-        ``
         {searchTerm && (
           <form className="md:hidden bg-primary h-16 w-full top-36 md:top-48 left-0 absolute">
             <input

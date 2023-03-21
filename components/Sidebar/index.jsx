@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./sidebar.module.css";
 import CategoryNav from "../category-nav";
+import DropdownNavbar from "../navbar";
 // import CartNav from "../cart";
 
 import { menuItem } from "../../utils/menu-item";

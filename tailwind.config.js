@@ -11,11 +11,13 @@ module.exports = {
   theme: {
     extend: {
       height: {
+        112: "65vh",
         128: "75vh",
       },
       boxShadow: {
         hnx: "2px 3px 3px 2px rgba(249,201,1,0.38)",
         topx: "0px -1px 0px 3px rgba(249,201,1,0.58)",
+        right: "2px 0px 3px 0px rgba(231,166,26,1);",
       },
     },
     colors: {

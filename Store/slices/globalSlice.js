@@ -7,7 +7,7 @@ const initialState = {
   isModalOpen: false,
   isDepartmentOpen: false,
   isDropdownVisible: false,
-  isHeroContentInView: false,
+  isHeroContentInView: true,
 };
 
 export const sidebarSlice = createSlice({

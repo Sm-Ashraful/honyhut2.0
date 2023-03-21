@@ -64,9 +64,6 @@ export const menuItem = [
             title: "Rhino",
           },
           {
-            title: "Magnum",
-          },
-          {
             title: "Premier ZEN",
           },
           {
