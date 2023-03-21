@@ -30,7 +30,7 @@ export default function Checkout() {
                       type="text"
                       id="name"
                       name="name"
-                      placeholder="first name"
+                      placeholder="Your Name"
                       required
                       className="border border-gray rounded-md p-2 w-full"
                     />
@@ -104,7 +104,7 @@ export default function Checkout() {
                     Phone Number
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     id="name"
                     name="name"
                     placeholder="Phone number with country code"
@@ -168,7 +168,7 @@ export default function Checkout() {
                     Card Number
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     id="name"
                     name="name"
                     placeholder="put your card number"
@@ -195,7 +195,7 @@ export default function Checkout() {
                       Card code
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       id="name"
                       name="name"
                       placeholder="CVC"
