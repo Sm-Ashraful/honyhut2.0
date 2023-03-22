@@ -17,6 +17,8 @@ import {
   selectCartTotal,
 } from "../../Store/cart/cart.selector";
 
+import { selectFavItems } from "../../Store/favorite/favorite.selector";
+
 import styles from "./style.module.css";
 import logo from "../../Assets/honeyhut logo.png";
 import Sidebar from "../Sidebar";
@@ -27,7 +29,11 @@ import CartNav from "../cart";
 import { FaHome, FaStore, FaSearch } from "react-icons/fa";
 import { BsInfoCircle, BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
-import { MdManageAccounts, MdFavorite } from "react-icons/md";
+import {
+  MdManageAccounts,
+  MdFavorite,
+  MdOutlineFavoriteBorder,
+} from "react-icons/md";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
@@ -43,6 +49,8 @@ const Header = () => {
   const isHeroContentInView = useSelector(
     (state) => state.sidebar.isHeroContentInView
   );
+
+  const favItems = useSelector(selectFavItems);
 
   const dispatch = useDispatch();
 
@@ -121,16 +129,23 @@ const Header = () => {
                     </div>
                   </div>
                 </div>
-
+                {/* cart section  end */}
+                {/* whitelist section  */}
                 <div className="text-4xl text-secondary hidden md:block cursor-pointer">
                   <Link href="/favorite">
-                    <MdFavorite />
+                    {favItems.length > 0 ? (
+                      <MdFavorite />
+                    ) : (
+                      <MdOutlineFavoriteBorder />
+                    )}
                   </Link>
                 </div>
-
+                {/* whitelist section  end*/}
+                {/* total const section  */}
                 <div className="md:hidden text-xl text-secondary">
                   <p>${totalCost}</p>
                 </div>
+                {/* total const section  */}
               </div>
             </div>
             {/**Header Nav */}
