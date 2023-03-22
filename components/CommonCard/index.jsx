@@ -13,7 +13,7 @@ const CommonCard = ({ image, name, price, percentage }) => {
   return (
     <div className={`${styles.card_container}`}>
       <div className="w-full  text-center flex justify-center">
-        <Image src={image} width="120" cover />
+        <Image src={image} alt={"Image"} width="120" cover />
       </div>
       <div className="w-full">
         <p className="text-xl font-bold text-center">Name of the product</p>

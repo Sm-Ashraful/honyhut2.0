@@ -17,7 +17,6 @@ import photo5 from "../../public/Products/Gold Honey/Gold Honey.jpeg";
 import LeftRightArrow from "../common/LeftRightArrow";
 
 const ProductCatalog = ({ props }) => {
-  console.log(props);
   const [index, setIndex] = useState(0);
 
   const images = [props.image, photo2, photo3, photo4, photo5];
@@ -51,7 +50,7 @@ const ProductCatalog = ({ props }) => {
               }
               return (
                 <article className={`${position}`}>
-                  <Image src={pic} fill cover />
+                  <Image src={pic} alt={"Image"} fill cover />
                 </article>
               );
             })}
@@ -62,7 +61,7 @@ const ProductCatalog = ({ props }) => {
             {images.map((pic, picIndex) => {
               return (
                 <div key={picIndex} className="relative w-40 h-full ">
-                  <Image src={pic} fill cover />
+                  <Image src={pic} alt={"Image"} fill cover />
                 </div>
               );
             })}

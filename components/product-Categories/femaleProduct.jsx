@@ -8,7 +8,7 @@ import Card from "../Card";
 import productData from "../../utils/products-demo";
 import styles from "../Categories/style.module.css";
 
-const MaleProducts = () => {
+const FemaleProducts = () => {
   const [product, setProduct] = useState(productData);
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardBoxRef = useRef(null);
@@ -38,25 +38,20 @@ const MaleProducts = () => {
   }, [currentIndex]);
 
   return (
-    <section className="h-auto my-2 relative">
+    <section className="top-18 md:top-12 h-auto my-5 relative">
       <div className="p-5 w-auto">
         <div className="shadow-sm">
-          <h1 className=" font-bold pt-7 pl-1">Male Enhancement</h1>
+          <h1 className=" font-bold pt-7 pl-1">Female Enhancement</h1>
         </div>
         <div className="flex pt-8 md:pt-3 space-x-2 justify-start w-auto">
           <Link href="#">
             <button className="px-4 text-md font-bold  text-white hover:text-honey shadow-sm bg-secondary rounded hover:bg-white hover:rounded">
-              Honey
+              Liquid Shots
             </button>
           </Link>
           <Link href="#">
             <button className="px-4 text-md font-bold  text-white hover:text-honey shadow-sm bg-secondary rounded hover:bg-white hover:rounded">
               Pills
-            </button>
-          </Link>
-          <Link href="#">
-            <button className="px-4 text-md font-bold  text-white hover:text-honey shadow-sm bg-secondary rounded hover:bg-white hover:rounded">
-              Liquid Shots
             </button>
           </Link>
         </div>
@@ -86,4 +81,4 @@ const MaleProducts = () => {
   );
 };
 
-export default MaleProducts;
+export default FemaleProducts;

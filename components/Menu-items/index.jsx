@@ -5,8 +5,6 @@ import Dropdown from "../Dropdown";
 const MenuItems = ({ items, depthLevel, onHover }) => {
   const [dropdown, setDropdown] = useState(false);
 
-  // console.log("item: ", items.submenu, items, onHover);
-  // console.log(items.submenu.length, depthLevel);
 
   return (
     <li

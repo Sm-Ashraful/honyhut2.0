@@ -7,10 +7,7 @@ import Dropdown from "./dropdown";
 const MobilMenuItems = ({ items, depthLevel, onHover }) => {
   const [dropdown, setDropdown] = useState(false);
 
-  // console.log("item: ", items.submenu, items, onHover);
-  // console.log(items.submenu.length, depthLevel);
   useEffect(() => {
-    console.log("DropDown: ", dropdown);
   }, [dropdown]);
 
   const clickHandler = () => {
