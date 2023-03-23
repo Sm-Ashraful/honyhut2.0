@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "./style.module.css";
 
-import OfferPercent from "../offer";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
-
-import redbull from "../../Assets/redbullbalck.jpg";
 import Image from "next/image";
 import ReviewStar from "../Star";
 import Button from "../Button";
