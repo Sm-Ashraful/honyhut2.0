@@ -8,9 +8,6 @@ const AboutUs = () => {
   const zoom = 13;
   return (
     <div className="relative top-24 md:top-40 h-auto">
-      <div className="p-12 h-96">
-        <Map center={center} zoom={zoom} />
-      </div>
       <About />
       <Contact />
     </div>
