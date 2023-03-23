@@ -11,8 +11,6 @@ const Categories = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardBoxRef = useRef(null);
 
-  // console.log(window.screen);
-  // console.log("children: ", cardBoxRef.current.scrollLeft);
 
   const handlePreviousCategory = (e) => {
     let width = cardBoxRef.current.clientWidth;

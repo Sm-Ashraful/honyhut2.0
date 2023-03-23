@@ -105,7 +105,7 @@ const Header = () => {
               className={`${styles.logo_box} flex justify-center items-center`}
             >
               <a href="/">
-                <Image src={logo} cover />
+                <Image src={logo} alt={"Image"} cover />
               </a>
             </div>
             {/**cart */}

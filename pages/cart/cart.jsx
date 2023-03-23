@@ -83,6 +83,7 @@ export default function Cart() {
                       <img
                         className="w-full h-full bg-center"
                         src={item.image}
+                        alt={"Image"}
                       />
                     </td>
                     <td className="py-5 px-2 text-center">{item.name}</td>

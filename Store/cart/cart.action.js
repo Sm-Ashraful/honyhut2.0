@@ -48,7 +48,6 @@ export const decreaseCartItem = (cartItems, productRemove) => {
   return ActionReducer(CART_ACTION_TYPE.SET_ITEM_TO_CART, newCartItems);
 };
 export const removeItem = (cartItems, productToRemove) => {
-  console.log("hey this is for the product: ", productToRemove);
   const newCartItems = removeItemFromCart(cartItems, productToRemove);
 
   return ActionReducer(CART_ACTION_TYPE.SET_ITEM_TO_CART, newCartItems);

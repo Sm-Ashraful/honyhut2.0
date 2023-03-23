@@ -38,12 +38,12 @@ const CannabiesProducts = () => {
   }, [currentIndex]);
 
   return (
-    <section className="top-18 md:top-12 h-auto my-5 relative">
-      <div className="p-5 w-full">
+    <section className="h-auto my-2 relative">
+      <div className="p-5 w-auto">
         <div className="shadow-sm">
           <h1 className=" font-bold pt-7 pl-1">Cannabies Accessories</h1>
         </div>
-        <div className="flex pt-8 md:pt-3 justify-between w-1/4">
+        <div className="flex pt-8 md:pt-3 space-x-2 justify-start w-auto">
           <Link href="#">
             <button className="px-4 text-md font-bold  text-white hover:text-honey shadow-sm bg-secondary rounded hover:bg-white hover:rounded">
               Rolling Paper
