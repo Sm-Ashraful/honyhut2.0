@@ -12,13 +12,14 @@ const About = () => {
     <div>
       <div className="bg-gray w-full h-auto relative top-10">
         <div className="padding_inside grid grid-cols-2 md:grid-cols-4 ">
-
           <div className="p-4 justify-between items-center shadow-md">
             <div className="relative flex flex-col justify-center items-center">
               <div className=" pt-2 h-24 w-32 relative items-center">
                 <Image fill cover src={Shipping} />
               </div>
-              <h1 className=" font-bold pt-7 ml-1 text-center">Free Shipping</h1>
+              <h1 className=" font-bold pt-7 ml-1 text-center">
+                Free Shipping
+              </h1>
               <p>On All Orders $29.99</p>
             </div>
           </div>
@@ -31,13 +32,15 @@ const About = () => {
               <h1 className=" font-bold pt-7 ml-1 text-center">24/7 Support</h1>
             </div>
           </div>
-          
+
           <div className="p-5 justify-between items-center shadow-md">
             <div className="relative flex flex-col justify-center items-center">
               <div className=" pt-2 h-24 w-32 relative items-center">
                 <Image fill cover src={Payment} />
               </div>
-              <h1 className=" font-bold pt-7 ml-1 text-center">Secured Payment</h1>
+              <h1 className=" font-bold pt-7 ml-1 text-center">
+                Secured Payment
+              </h1>
             </div>
           </div>
 
@@ -46,11 +49,11 @@ const About = () => {
               <div className=" pt-2 h-24 w-32 relative items-center">
                 <Image fill cover src={Delivery} />
               </div>
-              <h1 className=" font-bold pt-7 ml-1 text-center">Fast Delivery</h1>
+              <h1 className=" font-bold pt-7 ml-1 text-center">
+                Fast Delivery
+              </h1>
             </div>
           </div>
-          
-
         </div>
       </div>
     </div>
