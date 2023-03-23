@@ -1,7 +1,6 @@
 import { FAVORITE_ACTION_TYPE } from "./favorite.type";
 
 export const FAV_INITIAL_STATE = {
-  isFavExist: false,
   favItems: [],
 };
 export const favReducer = (state = FAV_INITIAL_STATE, action = {}) => {
@@ -14,10 +13,9 @@ export const favReducer = (state = FAV_INITIAL_STATE, action = {}) => {
         favItems: payload,
       };
     case FAVORITE_ACTION_TYPE.SET_FAVORITE_EXIST:
-      console.log("Heelo Iam Reducer");
       return {
         ...state,
-        isFavExist: payload,
+        favItems: payload,
       };
 
     default:

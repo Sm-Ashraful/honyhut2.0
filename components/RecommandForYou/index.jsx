@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Gallery from "../gallery";
-import Card from "../Card";
+import Link from "next/link";
 
 import people from "../../utils/data-demo";
 import CommonCard from "../CommonCard";
@@ -16,11 +15,17 @@ const RecommendProduct = ({ top, className }) => {
       <hr className="h-px my-8 bg-gray border-0 dark:bg-gray" />
       <div
         className={`${
-          className ? `${className}` : `grid grid-cols-2 md:grid-cols-4 gap-5`
+          className
+            ? `${className}`
+            : `grid grid-cols-2 md:grid-cols-4 gap-5 cursor-pointer`
         } `}
       >
         {people.map((item, index) => {
-          return <CommonCard product={item} percentage={"Hot"} />;
+          return (
+            <Link href={`/product/${item.id}`}>
+              <CommonCard key={index} product={item} percentage={`Hot`} />
+            </Link>
+          );
         })}
       </div>
     </section>

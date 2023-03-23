@@ -75,11 +75,11 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 778px) {
+/* @media screen and (min-width: 778px) {
   .cart_count {
     left: 1rem;
   }
-}
+} */
 
 .cart_count {
   height: 1.8rem;
@@ -87,8 +87,8 @@
   @apply bg-white text-black;
   position: absolute;
   font-size: 12px;
-  top: -0.1rem;
-  right: -0.6rem;
+  left: 1rem;
+  top: -0.75rem;
   border: 1px solid;
   border-radius: 50%;
   border-color: seagreen;

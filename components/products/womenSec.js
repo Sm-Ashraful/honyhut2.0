@@ -39,7 +39,9 @@ const Women = () => {
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 sm:grid-cols-3">
           {productData.map((items, index) => {
             return (
-              <CommonCard product={items} percentage={"Hot"} key={index} />
+              <Link href={`/product/${items.id}`}>
+                <CommonCard key={index} product={items} percentage={`Hot`} />
+              </Link>
             );
           })}
         </div>

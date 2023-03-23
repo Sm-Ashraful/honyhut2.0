@@ -12,17 +12,15 @@ import { addItemToCart } from "../../Store/cart/cart.action";
 import { selectCartItems } from "../../Store/cart/cart.selector";
 
 import { addItemToFav } from "../../Store/favorite/favorite.action";
-import { isItemExists } from "../../Store/favorite/favorite.action";
 import { selectFavItems } from "@/Store/favorite/favorite.selector";
-import { selectFavExist } from "@/Store/favorite/favorite.selector";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 
 const Card = ({ product, percentage }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const favItems = useSelector(selectFavItems);
-  const isFavExist = useSelector(selectFavExist);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -32,7 +30,7 @@ const Card = ({ product, percentage }) => {
   const handleFavClick = (e) => {
     e.preventDefault();
     dispatch(addItemToFav(favItems, product));
-    dispatch(isItemExists(favItems, product));
+    setIsFavorite(!isFavorite);
   };
 
   return (
@@ -49,22 +47,15 @@ const Card = ({ product, percentage }) => {
               <div
                 className={`absolute w-full h-16  z-50 bottom-0 left-0  flex items-center gap-2 p-5`}
               >
-                <div
-                  onClick={handleFavClick}
-                  className=" w-12 h-12  rounded-full text-center"
-                >
-                  {isFavExist ? (
-                    <span className="w-full h-full flex items-center bg-primary text-secondary justify-center text-3xl rounded-full">
-                      <MdFavorite />
-                    </span>
-                  ) : (
-                    <span
-                      className="w-full h-full flex items-center bg-primary justify-center text-3xl text-black rounded-full"
-                      onClick={handleFavClick}
-                    >
-                      <MdOutlineFavoriteBorder />
-                    </span>
-                  )}
+                <div className=" w-12 h-12  rounded-full text-center">
+                  <span
+                    className={`w-full h-full flex items-center bg-primary justify-center text-3xl text-secondary rounded-full ${
+                      isFavorite && `border`
+                    }`}
+                    onClick={handleFavClick}
+                  >
+                    {isFavorite ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
+                  </span>
                 </div>
               </div>
             </div>

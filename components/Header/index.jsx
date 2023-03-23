@@ -118,15 +118,21 @@ const Header = () => {
                   <span className={`${styles.menu_button}`}></span>
                 </div>
                 {/* cart section  */}
-                <div className="relative">
-                  <div className={styles.shopping_cart}>
-                    <div
-                      className="mt-4 ml-1 text-3xl text-secondary"
-                      onClick={handleCart}
-                    >
+                <div>
+                  <div
+                    className={styles.shopping_cart}
+                    onMouseEnter={handleCart}
+                    onMouseLeave={handleCart}
+                  >
+                    <div className="relative mt-4 ml-1 text-3xl text-secondary">
                       <BsCart4 />
                       <span className={styles.cart_count}>{total}</span>
                     </div>
+                    <CartNav
+                      headingLine={`Shopping Cart`}
+                      view={`View Cart`}
+                      goto={`Goto Checkout`}
+                    />
                   </div>
                 </div>
                 {/* cart section  end */}
@@ -278,12 +284,6 @@ const Header = () => {
 
       {/**Header dropdown end */}
       <Sidebar />
-
-      <CartNav
-        headingLine={`Shopping Cart`}
-        view={`View Cart`}
-        goto={`Goto Checkout`}
-      />
     </div>
   );
 };
