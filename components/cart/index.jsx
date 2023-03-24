@@ -34,7 +34,7 @@ const CartNav = ({ headingLine, view, goto }) => {
               </p>
             </div>
 
-            <div className="relative left-2 h-96 w-full ">
+            <div className="relative left-2 h-96 w-full text-sm">
               <CheckOut />
             </div>
           </div>
