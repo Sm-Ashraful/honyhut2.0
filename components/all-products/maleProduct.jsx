@@ -38,12 +38,12 @@ const MaleProducts = () => {
   }, [currentIndex]);
 
   return (
-    <section className="h-auto my-2 relative">
-      <div className="p-5 w-auto">
+    <section className="h-auto pt-10 relative">
+      <div className="w-auto">
         <div className="shadow-sm">
-          <h1 className=" font-bold pt-7 pl-1">Male Enhancement</h1>
+          <h3>Male Enhancement</h3>
         </div>
-        <div className="flex pt-8 md:pt-3 space-x-2 justify-start w-auto">
+        <div className="flex md:pt-3 space-x-2 justify-start w-auto">
           <Link href="#">
             <button className="px-4 text-md font-bold  text-white hover:text-honey shadow-sm bg-secondary rounded hover:bg-white hover:rounded">
               Honey
@@ -60,10 +60,16 @@ const MaleProducts = () => {
             </button>
           </Link>
         </div>
+        <div className="flex pt-3  flex-wrap overflow-auto">
+          <p className="pr-5">Royal Honey</p>
+          <p className="pr-5">Etumax</p>
+          <p className="pr-5">Black Bull</p>
+          <p className="pr-5">Royal Honey</p>
+        </div>
       </div>
-      <hr className="h-px my-4 bg-gray border-0 dark:bg-gray" />
+      <hr className="h-px my-2 bg-gray border-0 dark:bg-gray" />
       <div
-        className="flex items-center gap-3 justify-between p-6 scroll-smooth x-scrollable-content rounded-md"
+        className="flex items-center gap-3 justify-between scroll-smooth x-scrollable-content rounded-md"
         ref={cardBoxRef}
       >
         {product.map((item, index) => {

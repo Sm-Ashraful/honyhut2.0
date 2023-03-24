@@ -19,7 +19,7 @@ const Women = () => {
   const [product, setProduct] = useState(productData);
   return (
     <div className="relative top-36 md:top-48 grid md:grid-cols-2">
-      <section className="padding_inside w-full h-auto">
+      <section className="padding_inside w-full h-128 overflow-auto">
         <div className="flex justify-between items-center md:flex-col md:justify-start md:items-start">
           <h2 className="mb-0">For Women</h2>
           <div className="flex pt-8 md:pt-3 space-x-5 justify-between">
@@ -37,15 +37,16 @@ const Women = () => {
         </div>
         <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 sm:grid-cols-3">
-          <CommonCard image={pill1} percentage={"Hot"} />
-          <CommonCard image={pill2} percentage={"Hot"} />
-          <CommonCard image={pill3} percentage={"Hot"} />
-          <CommonCard image={pill4} percentage={"Hot"} />
-          <CommonCard image={pill5} percentage={"Hot"} />
-          <CommonCard image={pill6} percentage={"Hot"} />
+          {productData.map((items, index) => {
+            return (
+              <Link href={`/product/${items.id}`}>
+                <CommonCard key={index} product={items} percentage={`Hot`} />
+              </Link>
+            );
+          })}
         </div>
       </section>
-      <section className="padding_inside w-full h-auto overflow-hidden">
+      <section className="padding_inside w-full h-128 overflow-hidden">
         <h2 className="pt-2 md:pb-3">Buy More Save More</h2>
         <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
         <div className="w-full h-96 md:h-4/5">

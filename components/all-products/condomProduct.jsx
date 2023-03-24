@@ -38,12 +38,12 @@ const CondomProducts = () => {
   }, [currentIndex]);
 
   return (
-    <section className="h-auto my-2 relative">
-      <div className="p-5 w-auto">
+    <section className="h-auto relative">
+      <div className="w-auto">
         <div className="shadow-sm">
-          <h1 className=" font-bold pt-7 pl-1">Condoms</h1>
+          <h3>Condoms</h3>
         </div>
-        <div className="flex pt-8 md:pt-3 space-x-2 justify-start w-auto">
+        <div className="flex md:pt-3 space-x-2 justify-start w-auto">
           <Link href="#">
             <button className="px-4 text-md font-bold  text-white hover:text-honey shadow-sm bg-secondary rounded hover:bg-white hover:rounded">
               Male Condoms

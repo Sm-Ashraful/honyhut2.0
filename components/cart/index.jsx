@@ -20,18 +20,17 @@ const CartNav = ({ headingLine, view, goto }) => {
   return (
     <div>
       {isCartOpen && (
-        <div className="heightFull bg-white higherPriority absolute top-0 md:right-3 right-2 flex justify-center md:w-1/4">
+        <div className="heightFullBody bg-white higherPriority absolute top-12 md:right-3 -right-6 flex justify-center md:w-96 w-72">
           <div className="w-full">
-            <div className="relative flex justify-between items-center p-6   ">
-              <p className="text-2xl text-secondary pl-4 font-bold">
+            <div className="relative flex justify-center items-center p-6   ">
+              <p className="text-2xl text-secondary font-bold border-b-2">
                 {headingLine}
               </p>
               <p
-                className="flex text-secondary cursor-pointer hover:text-primary-red text-2xl"
+                className="absolute top-0 right-0  h-12 w-12 md:hidden flex items-center justify-center cursor-pointer hover:text-primary-red text-xl  text-primary-red"
                 onClick={closeCart}
               >
-                <AiOutlineClose className="mr-2 mt-1" />
-                <span>close</span>
+                <AiOutlineClose />
               </p>
             </div>
 
@@ -40,7 +39,7 @@ const CartNav = ({ headingLine, view, goto }) => {
             </div>
           </div>
 
-          <div className=" bottom-24  cursor-pointer absolute place-items-center w-full px-4">
+          <div className="bottom-24  cursor-pointer absolute place-items-center w-full px-4">
             <div className="text-black bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
               <Link href={"../../cart/cart"}>{view}</Link>
             </div>

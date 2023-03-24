@@ -17,6 +17,8 @@ import {
   selectCartTotal,
 } from "../../Store/cart/cart.selector";
 
+import { selectFavItems } from "../../Store/favorite/favorite.selector";
+
 import styles from "./style.module.css";
 import logo from "../../Assets/honeyhut logo.png";
 import Sidebar from "../Sidebar";
@@ -27,7 +29,11 @@ import CartNav from "../cart";
 import { FaHome, FaStore, FaSearch } from "react-icons/fa";
 import { BsInfoCircle, BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
-import { MdManageAccounts, MdFavorite } from "react-icons/md";
+import {
+  MdManageAccounts,
+  MdFavorite,
+  MdOutlineFavoriteBorder,
+} from "react-icons/md";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
@@ -43,6 +49,8 @@ const Header = () => {
   const isHeroContentInView = useSelector(
     (state) => state.sidebar.isHeroContentInView
   );
+
+  const favItems = useSelector(selectFavItems);
 
   const dispatch = useDispatch();
 
@@ -110,27 +118,40 @@ const Header = () => {
                   <span className={`${styles.menu_button}`}></span>
                 </div>
                 {/* cart section  */}
-                <div className="relative">
-                  <div className={styles.shopping_cart}>
-                    <div
-                      className="mt-4 ml-1 text-3xl text-secondary"
-                      onClick={handleCart}
-                    >
+                <div>
+                  <div
+                    className={styles.shopping_cart}
+                    onMouseEnter={handleCart}
+                    onMouseLeave={handleCart}
+                  >
+                    <div className="relative mt-4 ml-1 text-3xl text-secondary">
                       <BsCart4 />
                       <span className={styles.cart_count}>{total}</span>
                     </div>
+                    <CartNav
+                      headingLine={`Shopping Cart`}
+                      view={`View Cart`}
+                      goto={`Goto Checkout`}
+                    />
                   </div>
                 </div>
-
+                {/* cart section  end */}
+                {/* whitelist section  */}
                 <div className="text-4xl text-secondary hidden md:block cursor-pointer">
                   <Link href="/favorite">
-                    <MdFavorite />
+                    {favItems.length > 0 ? (
+                      <MdFavorite />
+                    ) : (
+                      <MdOutlineFavoriteBorder />
+                    )}
                   </Link>
                 </div>
-
+                {/* whitelist section  end*/}
+                {/* total const section  */}
                 <div className="md:hidden text-xl text-secondary">
                   <p>${totalCost}</p>
                 </div>
+                {/* total const section  */}
               </div>
             </div>
             {/**Header Nav */}
@@ -263,12 +284,6 @@ const Header = () => {
 
       {/**Header dropdown end */}
       <Sidebar />
-
-      <CartNav
-        headingLine={`Shopping Cart`}
-        view={`View Cart`}
-        goto={`Goto Checkout`}
-      />
     </div>
   );
 };

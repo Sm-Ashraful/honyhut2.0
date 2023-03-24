@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import styles from "./card.module.css";
@@ -11,15 +11,26 @@ import OfferPercent from "../offer";
 import { addItemToCart } from "../../Store/cart/cart.action";
 import { selectCartItems } from "../../Store/cart/cart.selector";
 
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { addItemToFav } from "../../Store/favorite/favorite.action";
+import { selectFavItems } from "@/Store/favorite/favorite.selector";
+
+import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 
 const Card = ({ product, percentage }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
+  const favItems = useSelector(selectFavItems);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
     dispatch(addItemToCart(cartItems, product));
+  };
+
+  const handleFavClick = (e) => {
+    e.preventDefault();
+    dispatch(addItemToFav(favItems, product));
+    setIsFavorite(!isFavorite);
   };
 
   return (
@@ -37,8 +48,13 @@ const Card = ({ product, percentage }) => {
                 className={`absolute w-full h-16  z-50 bottom-0 left-0  flex items-center gap-2 p-5`}
               >
                 <div className=" w-12 h-12  rounded-full text-center">
-                  <span className="w-full h-full flex items-center bg-primary justify-center text-3xl text-black rounded-full ">
-                    <MdOutlineFavoriteBorder />
+                  <span
+                    className={`w-full h-full flex items-center bg-primary justify-center text-3xl text-secondary rounded-full ${
+                      isFavorite && `border`
+                    }`}
+                    onClick={handleFavClick}
+                  >
+                    {isFavorite ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
                   </span>
                 </div>
               </div>
