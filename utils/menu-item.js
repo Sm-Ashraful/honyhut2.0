@@ -198,25 +198,34 @@ export const menuItem = [
         title: "Pills",
         submenu: [
           {
-            title: "Viagra",
+            title: "Gold",
             details: [
               {
-                name: "Viagra Single Pack",
-                image: "../",
+                name: "100k Gold",
+                image: [
+                  "./Pills/100k-Gold/100k-Gold-Front-Side.png",
+                  "./Pills/100k-Gold/100k-Gold-Rear-Side.png",
+                ],
                 unit: "1 Pcs Per Box",
                 price: 250,
                 MOQ: "100 Box",
               },
               {
-                name: "Viagra 4 in 1 Pack",
-                image: "../",
+                name: "Black-Panther-350k",
+                image: [
+                  "./Pills/Black-Panther-350k/Black-Panther-350k-Front-Side.png",
+                  "./Pills/Black-Panther-350k/Black-Panther-350k-Rear-Side.png",
+                ],
                 unit: "4 Pcs Per Box",
                 price: 350,
                 MOQ: "100 Box",
               },
               {
-                name: "Viagra 30 Pcs Bottle",
-                image: "../",
+                name: "Bullet-3000",
+                image: [
+                  "./Pills/Bullet-3000/Bullet-3000-Front-Side.png",
+                  "./Pills/Bullet-3000/Bullet-3000-Rear-Side.png",
+                ],
                 unit: "30 Pcs Per Bottle",
                 price: 800,
                 MOQ: "100 Bottles",
@@ -224,18 +233,24 @@ export const menuItem = [
             ],
           },
           {
-            title: "Cialis",
+            title: "Magnum",
             details: [
               {
-                name: "Cialis Twin Pack",
-                image: "../",
+                name: "Magnum-1000k",
+                image: [
+                  "./Pills/Magnum-1000k/Magnum-1000k-Front-Side-Double.png",
+                  "./Pills/Magnum-1000k/Magnum-1000k-Front-Side-Double.png",
+                ],
                 unit: "2 Pcs Per Box",
                 price: 250,
                 MOQ: "100 Box",
               },
               {
-                name: "Cialis Bottle",
-                image: "../",
+                name: "Magnum-Platinum-250k",
+                image: [
+                  "/Pills/Magnum-Platinum-250k/Magnum-Platinum-250k-Front-Side.png",
+                  "/Pills/Magnum-Platinum-250k/Magnum-Platinum-250k-Rear-Side.png",
+                ],
                 unit: "30 Pcs Per Bottle",
                 price: 800,
                 MOQ: "100 Bottles",
@@ -243,18 +258,24 @@ export const menuItem = [
             ],
           },
           {
-            title: "ChingAL ing",
+            title: "Spanish-fly-22000",
             details: [
               {
-                name: "ChingAL ing Single Bag",
-                image: "../",
+                name: "Spanish-fly-22000-Green",
+                image: [
+                  "/Pills/Spanish-fly-22000-Green/Spanish-fly-22000-Front-Side-Green.png",
+                  "/Pills/Spanish-fly-22000-Green/Spanish-fly-22000-Rear-Side-Green.png",
+                ],
                 unit: "1 Pcs Per Bag",
                 price: 500,
                 MOQ: "500 Bag",
               },
               {
-                name: "ChingAL ing 25 Pcs Pack",
-                image: "../",
+                name: "Spanish-fly-22000-Red",
+                image: [
+                  "/Pills/Spanish-fly-22000-Red/Spanish-fly-22000-Front-Side-Red.png",
+                  "/Pills/Spanish-fly-22000-Red/Spanish-fly-22000-Rear-Side Red.png",
+                ],
                 unit: "25 Pcs Per Pack",
                 price: 900,
                 MOQ: "100 Pack",
@@ -262,25 +283,34 @@ export const menuItem = [
             ],
           },
           {
-            title: "Kangaroo",
+            title: "Bullet-3000",
             details: [
               {
-                name: "Kangaroo Green Single Pack",
-                image: "../",
+                name: "Bullet-3000",
+                image: [
+                  "/Pills/Bullet-3000/Bullet-3000-Front-Side.png",
+                  "/Pills/Bullet-3000/Bullet-3000-Rear-Side.png",
+                ],
                 unit: "30 Pack Per Box, 57 Box Per Carton",
                 price: 500,
                 MOQ: "114 Box",
               },
               {
-                name: "Kangaroo Blue Single Pack Small Box",
-                image: "../",
+                name: "Opal-Black",
+                image: [
+                  "/Pills/Opal-Black/Opal-Black-Front-Side.png",
+                  "/Pills/Opal-Black/Opal-Black-Rear-Side.png",
+                ],
                 unit: "30 Pack Per Box, 57 Box Per Carton",
                 price: 500,
                 MOQ: "114 Box",
               },
               {
-                name: "Kangaroo Blue Single Pack Large Box",
-                image: "../",
+                name: "Zesus-250k",
+                image: [
+                  "/Pills/Zesus-250k/Zesus-250k-Front-Side.png",
+                  "/Pills/Zesus-250k/Zesus-250k-Rear-Side.png",
+                ],
                 unit: "36 Pack Per Box, 48 Box Per Carton",
                 price: 500,
                 MOQ: "96 Box",
@@ -291,92 +321,181 @@ export const menuItem = [
             title: "Rhino",
             details: [
               {
-                name: "Rhino 69 500K Twin Pack",
-                image: "../",
+                name: "Rhino-69-1000k",
+                image: [
+                  "/Pills/Rhino-69-1000k/Rhino-69-1000k-Front-Side.png",
+                  "/Pills/Rhino-69-1000k/Rhino-69-1000k-Rear-Side.png",
+                ],
                 unit: "24 Pack 48 Pills Per Box",
                 price: 1000,
                 MOQ: "100 Box",
               },
               {
-                name: "Rhino 7 500K Twin Pack",
-                image: "../",
+                name: "Rhino-69-1200k",
+                image: [
+                  "/Pills/Rhino-69-1200k/Rhino-69-1200k-Front-Side.png",
+                  "/Pills/Rhino-69-1200k/Rhino-69-1200k-Rear-Side.png",
+                ],
                 unit: "24 Pack 48 Pills Per Box",
                 price: 1000,
                 MOQ: "100 Box",
               },
               {
-                name: "Rhino 8 500K Twin Pack",
-                image: "../",
+                name: "Rhino-69-1300k",
+                image: [
+                  "/Pills/Rhino-69-1300k/Rhino-69-1300k-Front-Side.png",
+                  "/Pills/Rhino-69-1300k/Rhino-69-1300k-Rear-Side.png",
+                ],
                 unit: "24 Pack 48 Pills Per Box",
                 price: 1000,
                 MOQ: "100 Box",
               },
               {
-                name: "Rhino 7 Platinum 12000 Single Pack",
-                image: "../",
+                name: "Rhino-69-1300k-Double",
+                image: [
+                  "/Pills/Rhino-69-1300k-Double/Rhino-69-1300k-Front-Side-Double.png",
+                  "/Pills/Rhino-69-1300k-Double/Rhino-69-1300k-Rear-Side-Double.png",
+                ],
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1000,
                 MOQ: "100 Box",
               },
               {
-                name: "Rhino Rush 70 13000 Trio Pack",
-                image: "../",
+                name: "Rhino-69-1400k",
+                image: [
+                  "/Pills/Rhino-69-1400k/Rhino-69-1400k-Front-Side.png",
+                  "/Pills/Rhino-69-1400k/Rhino-69-1400k-Rear-Side.png",
+                ],
                 unit: "24 Pack 72 Pills Per Box",
                 price: 1800,
                 MOQ: "100 Box",
               },
               {
-                name: "Platinum 10K Single Pack",
-                image: "../",
+                name: "Rhino-69-1500k-Double",
+                image: [
+                  "/Pills/Rhino-69-1500k-Double/Rhino-69-1500k-Front-Side-Double.png",
+                  "/Pills/Rhino-69-1500k-Double/Rhino-69-1500k-Rear-Side-Double.png",
+                ],
                 unit: "24 Pack 24 Pills Per Box, 12 Large Card+12 Small Card",
                 price: 1800,
                 MOQ: "100 Box",
               },
               {
-                name: "Rhino 7 3000 Single Pack",
-                image: "../",
+                name: "Rhino-69-1600k",
+                image: [
+                  "/Pills/Rhino-69-1600k/Rhino-69-1600k-Front-Side.png",
+                  "/Pills/Rhino-69-1600k/Rhino-69-1600k-Rear-Side.png",
+                ],
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1800,
                 MOQ: "100 Box",
               },
               {
-                name: "Blue Single Pack",
-                image: "../",
+                name: "Rhino-69-1600k-Double",
+                image: [
+                  "/Pills/Rhino-69-1600k-Double/Rhino-69-1600k-Front-Side-Double.png",
+                  "/Pills/Rhino-69-1600k-Double/Rhino-69-1600k-Rear-Side-Double.png",
+                ],
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1800,
                 MOQ: "100 Box",
               },
               {
-                name: "Go Rhino Single Pack",
-                image: "../",
+                name: "Rhino-69-1700k-double",
+                image: [
+                  "/Pills/Rhino-69-1700k-double/Rhino-69-1700k-Front-Side-double.png",
+                  "/Pills/Rhino-69-1700k-double/Rhino-69-1700k-Rear-Side-double.png",
+                ],
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1800,
                 MOQ: "100 Box",
               },
               {
-                name: "Rhino 17 12000 Single Pack",
-                image: "../",
+                name: "Rhino-69-1700k-Single",
+                image: [
+                  "/Pills/Rhino-69-1700k-Single/Rhino-69-1700k-Front-Side-Single.png",
+                  "/Pills/Rhino-69-1700k-Single/Rhino-69-1700k-Rear-Side-Single.png",
+                ],
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1800,
                 MOQ: "100 Box",
               },
               {
-                name: "Rhino 250K Single Pack",
-                image: "../",
+                name: "Rhino-69-1800k-Double",
+                image: [
+                  "/Pills/Rhino-69-1800k-Double/Rhino-69-1800k-Front-Side-Double.png",
+                  "/Pills/Rhino-69-1800k-Double/Rhino-69-1800k-Rear-Side-Double.png",
+                ],
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1800,
                 MOQ: "100 Box",
               },
               {
-                name: "Rush 78 5 in 1 Pack",
-                image: "../",
+                name: "Rhino-69-1900k",
+                image: [
+                  "/Pills/Rhino-69-1900k/Rhino-69-1900k-Front-Side.png",
+                  "/Pills/Rhino-69-1900k/Rhino-69-1900k-Rear-Side.png",
+                ],
                 unit: "24 Pack 120 Pills Per Box",
                 price: 1800,
                 MOQ: "100 Box",
               },
               {
-                name: "Rhino 7 5000 Single Pack",
-                image: "../",
+                name: "Rhino-69-1900k-Single",
+                image: [
+                  "/Pills/Rhino-69-1900k-Single/Rhino-69-1900k-Front-Side-Single.png",
+                  "/Pills/Rhino-69-1900k-Single/Rhino-69-1900k-Rear-Side-Single.png",
+                ],
+                unit: "24 Pack 120 Pills Per Box",
+                price: 1800,
+                MOQ: "100 Box",
+              },
+              {
+                name: "Rhino-69-2100k",
+                image: [
+                  "/Pills/Rhino-69-2100k/Rhino-69-2100k-Front-Side.png",
+                  "/Pills/Rhino-69-2100k/Rhino-69-2100k-Rear-Side.png",
+                ],
+                unit: "24 Pack 120 Pills Per Box",
+                price: 1800,
+                MOQ: "100 Box",
+              },
+              {
+                name: "Rhino-69-2100k-Single",
+                image: [
+                  "/Pills/Rhino-69-2100k-Single/Rhino-69-2100k-Front-Side-Single.png",
+                  "/Pills/Rhino-69-2100k-Single/Rhino-69-2100k-Rear-Side-Single.png",
+                ],
+                unit: "24 Pack 120 Pills Per Box",
+                price: 1800,
+                MOQ: "100 Box",
+              },
+              {
+                name: "Rhino-69-2400k-Red",
+                image: [
+                  "/Pills/Rhino-69-2400k-Red/Rhino-69-2400k-Front-Side-Red.png",
+                  "/Pills/Rhino-69-2400k-Red/Rhino-69-2400k-Rear-Side-Red.png",
+                ],
+                unit: "24 Pack 120 Pills Per Box",
+                price: 1800,
+                MOQ: "100 Box",
+              },
+              {
+                name: "Rhino-69-2400k-Red-Single",
+                image: [
+                  "/Pills/Rhino-69-2400k-Red-Single/Rhino-69-2400k-Front-Side-Red-Single.png",
+                  "/Pills/Rhino-69-2400k-Red-Single/Rhino-69-2400k-Rear-Side-Red-Single.png",
+                ],
+                unit: "24 Pack 120 Pills Per Box",
+                price: 1800,
+                MOQ: "100 Box",
+              },
+              {
+                name: "Rhino-69-18000-Single",
+                image: [
+                  "/Pills/Rhino-69-18000-Single/Rhino-69-18000-Front-Side-Single.png",
+                  "/Pills/Rhino-69-18000-Single/Rhino-69-18000-Rear-Side-Single.png",
+                ],
                 unit: "24 Pack 120 Pills Per Box",
                 price: 1800,
                 MOQ: "100 Box",
