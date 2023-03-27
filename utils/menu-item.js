@@ -10,7 +10,10 @@ export const menuItem = [
             details: [
               {
                 name: "Royal Honey VIP 20g Sachet",
-                image: ["./Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
+
+                image: [
+                  "/Honey/Royal Honey VIP/Royal Honey VIP.jpeg",
+                ],
                 percentage: "20%",
                 unit: "12 Sachet Per Box, 48 Box Per Carton",
                 price: 27,
@@ -18,7 +21,10 @@ export const menuItem = [
               },
               {
                 name: "Royal Honey VIP 22g Pouches",
-                image: ["./Honey/Royal Honey VIP/RoYAL hONEY.jpeg"],
+
+                image: [
+                  "/Honey/Royal Honey VIP/RoYAL hONEY.jpeg",
+                ],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
                 price: 38,
@@ -32,7 +38,10 @@ export const menuItem = [
             details: [
               {
                 name: "Etumax Honey 20g Sachet",
-                image: ["./Honey/Etumax Honey/Etumax(4).jpeg"],
+
+                image: [
+                  "/Honey/Etumax Honey/Etumax(4).jpeg",
+                ],
                 percentage: "20%",
                 unit: "12 Sachet Per Box, 60 Box Per Carton",
                 price: 27,
@@ -40,7 +49,10 @@ export const menuItem = [
               },
               {
                 name: "Etumax Honey 22g Pouches",
-                image: ["./Honey/Etumax Honey/Etumax.jpeg"],
+
+                image: [
+                  "/Honey/Etumax Honey/Etumax.jpeg",
+                ],
                 percentage: "20%",
                 unit: "15 Pouches Per Box ,28 Box Per Carton",
                 price: 38,
@@ -53,7 +65,10 @@ export const menuItem = [
             details: [
               {
                 name: "Black Bull Honey 22g Pouches",
-                image: ["./Honey/Black Bull Honey/Black Bull Honey.jpg"],
+
+                image: [
+                  "/Honey/Black Bull Honey/Black Bull Honey.jpg",
+                ],
                 percentage: "20%",
                 unit: "12 Poches Per Box, 48 Box Per Carton",
                 price: 35,
@@ -61,7 +76,10 @@ export const menuItem = [
               },
               {
                 name: "Black Bull Honey 22g Pouches",
-                image: ["./Honey/Black Bull Honey/Black Bull.jpeg"],
+                image: [
+                  "/Honey/Black Bull Honey/Black Bull.jpeg",
+                ],
+
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
                 price: 38,
@@ -74,7 +92,10 @@ export const menuItem = [
             details: [
               {
                 name: "Red Bull Honey 22g Pouches",
-                image: ["./Honey/Red Bull Honey/Red Bull Honey.jpeg"],
+
+                image: [
+                  "/Honey/Red Bull Honey/Red Bull Honey.jpeg",
+                ],
                 percentage: "20%",
                 unit: "12 Poches Per Box, 40 Box Per Carton",
                 price: 35,
@@ -82,7 +103,10 @@ export const menuItem = [
               },
               {
                 name: "Red Bull Honey 22g Pouches",
-                image: ["./Honey/Red Bull Honey/Red Bull Honey.jpeg"],
+
+                image: [
+                  "/Honey/Red Bull Honey/Red Bull Honey.jpeg",
+                ],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
                 price: 38,
@@ -95,7 +119,10 @@ export const menuItem = [
             details: [
               {
                 name: "Blue Bull Honey 22g Pouches",
-                image: ["./Honey/Blue Bull Honey/Blue Bull.jpeg"],
+
+                image: [
+                  "/Honey/Blue Bull Honey/Blue Bull.jpeg",
+                ],
                 percentage: "20%",
                 unit: "12 Poches Per Box, 40 Box Per Carton",
                 price: 35,
@@ -103,7 +130,10 @@ export const menuItem = [
               },
               {
                 name: "Blue Bull Honey 22g Pouches",
-                image: ["./Honey/Blue Bull Honey/Blue Bull.jpeg"],
+
+                image: [
+                  "/Honey/Blue Bull Honey/Blue Bull.jpeg",
+                ],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
                 price: 38,
@@ -117,7 +147,7 @@ export const menuItem = [
               {
                 name: "Leopard Miracle Honey 15g Sachet",
                 image: [
-                  "./Honey/Leopard Miracle Honey VIP/Leopard Miracle VIP.jpeg",
+                  "/Honey/Leopard Miracle Honey VIP/Leopard Miracle VIP.jpeg",
                 ],
                 percentage: "20%",
                 unit: "12 Sachet Per Box, 40 Box Per Carton",
@@ -127,7 +157,7 @@ export const menuItem = [
               {
                 name: "Leopard Miracle Honey 22g Pouches",
                 image: [
-                  "./Honey/Leopard Miracle Honey VIP/Leopard Miracle VIP.jpeg",
+                  "/Honey/Leopard Miracle Honey VIP/Leopard Miracle VIP.jpeg",
                 ],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
@@ -142,7 +172,7 @@ export const menuItem = [
               {
                 name: "Secret Miracle Honey 15g Sachet",
                 image: [
-                  "./Honey/Secret Miracel Honey/Secret Miracel Honey.jpeg",
+                  "/Honey/Secret Miracel Honey/Secret Miracel Honey.jpeg",
                 ],
                 percentage: "20%",
                 unit: "12 Poches Per Box, 40 Box Per Carton",
@@ -156,7 +186,10 @@ export const menuItem = [
             details: [
               {
                 name: "Vitamax Double Shot 20g Sachet",
-                image: ["./Honey/Vitamax Double shot/Vitamax Double shot.jpeg"],
+
+                image: [
+                  "/Honey/Vitamax Double shot/Vitamax Double shot.jpeg",
+                ],
                 percentage: "20%",
                 unit: "10 Poches Per Box, 48 Box Per Carton",
                 price: 37,
@@ -176,8 +209,9 @@ export const menuItem = [
               {
                 name: "Rhino 69 Liquid Shot ",
                 image: [
-                  "./Pills/Rhino-69-1000k/Rhino-69-1000k-Front-Side.png",
-                  "/Pills/Magnum-1000k/Magnum-1000k-Rear-Side-Double.png",
+
+                  "/Pills/Rhino-69-1000k/Rhino-69-1000k-Front-Side.png",
+                  "/Pills/Rhino-69-1000k/Rhino-69-1000k-Rear-Side.png",
                 ],
                 percentage: "20%",
                 unit: "12 Bottles Per Box",
@@ -187,8 +221,8 @@ export const menuItem = [
               {
                 name: "Rhino Platinum Liquid Shot",
                 image: [
-                  "./Pills/Rhino-69-1200k/Rhino-69-1200k-Front-Side.png",
-                  "./Pills/Rhino-69-1200k/Rhino-69-1200k-Rear-Side.png",
+                  "/Pills/Rhino-69-1200k/Rhino-69-1200k-Front-Side.png",
+                  "/Pills/Rhino-69-1200k/Rhino-69-1200k-Rear-Side.png",
                 ],
                 percentage: "20%",
                 unit: "12 Bottles Per Box",
@@ -203,8 +237,8 @@ export const menuItem = [
               {
                 name: "Hard Steel Liquid Shot",
                 image: [
-                  "./Pills/Opal-Black/Opal-Black-Front-Side.png",
-                  "./Pills/Opal-Black/Opal-Black-Rear-Side.png",
+                  "/Pills/Opal-Black/Opal-Black-Front-Side.png",
+                  "/Pills/Opal-Black/Opal-Black-Rear-Side.png",
                 ],
                 percentage: "20%",
                 unit: "12 Bottles Per Box",
@@ -219,8 +253,8 @@ export const menuItem = [
               {
                 name: "Super Man Liquid Shot",
                 image: [
-                  "./Pills/Bullet-3000/Bullet-3000-Front-Side.png",
-                  "./Pills/Bullet-3000/Bullet-3000-Rear-Side.png",
+                  "/Pills/Bullet-3000/Bullet-3000-Front-Side.png",
+                  "/Pills/Bullet-3000/Bullet-3000-Rear-Side.png",
                 ],
                 percentage: "20%",
                 unit: "12 Bottles Per Box",
@@ -240,8 +274,8 @@ export const menuItem = [
               {
                 name: "100k Gold",
                 image: [
-                  "./Pills/100k-Gold/100k-Gold-Front-Side.png",
-                  "./Pills/100k-Gold/100k-Gold-Rear-Side.png",
+                  "/Pills/100k-Gold/100k-Gold-Front-Side.png",
+                  "/Pills/100k-Gold/100k-Gold-Rear-Side.png",
                 ],
                 percentage: "20%",
                 unit: "1 Pcs Per Box",
@@ -251,8 +285,8 @@ export const menuItem = [
               {
                 name: "Black-Panther-350k",
                 image: [
-                  "./Pills/Black-Panther-350k/Black-Panther-350k-Front-Side.png",
-                  "./Pills/Black-Panther-350k/Black-Panther-350k-Rear-Side.png",
+                  "/Pills/Black-Panther-350k/Black-Panther-350k-Front-Side.png",
+                  "/Pills/Black-Panther-350k/Black-Panther-350k-Rear-Side.png",
                 ],
                 percentage: "20%",
                 unit: "4 Pcs Per Box",
@@ -262,8 +296,8 @@ export const menuItem = [
               {
                 name: "Bullet-3000",
                 image: [
-                  "./Pills/Bullet-3000/Bullet-3000-Front-Side.png",
-                  "./Pills/Bullet-3000/Bullet-3000-Rear-Side.png",
+                  "/Pills/Bullet-3000/Bullet-3000-Front-Side.png",
+                  "/Pills/Bullet-3000/Bullet-3000-Rear-Side.png",
                 ],
                 percentage: "20%",
                 unit: "30 Pcs Per Bottle",
@@ -278,8 +312,8 @@ export const menuItem = [
               {
                 name: "Magnum-1000k",
                 image: [
-                  "./Pills/Magnum-1000k/Magnum-1000k-Front-Side-Double.png",
-                  "./Pills/Magnum-1000k/Magnum-1000k-Front-Side-Double.png",
+                  "/Pills/Magnum-1000k/Magnum-1000k-Front-Side-Double.png",
+                  "/Pills/Magnum-1000k/Magnum-1000k-Front-Side-Double.png",
                 ],
                 percentage: "20%",
                 unit: "2 Pcs Per Box",
