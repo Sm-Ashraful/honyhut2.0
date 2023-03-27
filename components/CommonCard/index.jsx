@@ -12,10 +12,11 @@ import { selectFavItems } from "@/Store/favorite/favorite.selector";
 import Image from "next/image";
 import ReviewStar from "../Star";
 import Button from "../Button";
+import OfferPercent from "../offer";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 
-const CommonCard = ({ product }) => {
+const CommonCard = ({ product, percentage }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
@@ -37,24 +38,26 @@ const CommonCard = ({ product }) => {
   return (
     <>
       {product && (
-        <div className={`relative bg-white`}>
-          <div className="w-full h-32 text-center flex justify-center items-center">
-            <div>
+        <div className={`relative bg-white pt-4`}>
+          <div className="w-full h-32 text-center flex justify-center items-center py-4">
+            <div className="relative">
               <Image src={product.image} width="140" height="140" cover />
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full pt-5">
             <p
-              className="text-xl font-bold text-center"
+              className="md:text-xl font-bold text-center"
               style={{ fontSize: `${fontSize}` }}
             >
               {product.name}
             </p>
-            <p className="text-xl font-bold text-center">
+            <p className="md:text-xl font-bold text-center">
               Price: {product.price}$
             </p>
             <p className="w-full h-auto flex justify-center space-x-2 items-center">
-              <ReviewStar className={`flex text-center text-honey text-lg`} />
+              <ReviewStar
+                className={`flex text-center text-honey text-sm md:text-lg`}
+              />
               <span className=" text-primary-red">(10)</span>
             </p>
             <p>
@@ -68,9 +71,9 @@ const CommonCard = ({ product }) => {
           </div>
 
           <div className={`absolute w-full h-16  z-50 top-2 left-2`}>
-            <div className=" w-12 h-12  rounded-full text-center">
+            <div className=" md:w-12 md:h-12 h-10 w-10  rounded-full text-center">
               <span
-                className={`w-full h-full flex items-center bg-primary justify-center text-3xl text-secondary rounded-full ${
+                className={`w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full ${
                   isFavorite && `border`
                 }`}
                 onClick={handleFavClick}
@@ -79,6 +82,11 @@ const CommonCard = ({ product }) => {
               </span>
             </div>
           </div>
+          {percentage && (
+            <div className={`absolute top-2 right-2`}>
+              <OfferPercent percentage={percentage} />
+            </div>
+          )}
         </div>
       )}
     </>

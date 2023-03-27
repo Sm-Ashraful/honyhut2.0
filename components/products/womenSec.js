@@ -36,14 +36,22 @@ const Women = () => {
           </div>
         </div>
         <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 sm:grid-cols-3">
-          {productData.map((items, index) => {
-            return (
-              <Link href={`/product/${items.id}`}>
-                <CommonCard key={index} product={items} percentage={`Hot`} />
-              </Link>
-            );
-          })}
+        <div className="relative">
+          <div>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 sm:grid-cols-3">
+              {productData.map((items, index) => {
+                return (
+                  <Link href={`/product/${items.id}`}>
+                    <CommonCard
+                      key={index}
+                      product={items}
+                      percentage={`Hot`}
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
       <section className="padding_inside w-full h-128 overflow-hidden">

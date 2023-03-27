@@ -1,14 +1,5 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-
 import { FaMale, FaFemale, FaSmoking } from "react-icons/fa";
 import { BsFillSuitHeartFill } from "react-icons/bs";
-
-import Male from "../../Assets/Category/Male.jpeg";
-import Female from "../../Assets/Category/Fmale.jpeg";
-import Condoms from "../../Assets/Category/Condoms.jpeg";
-import Cannabies from "../../Assets/Category/Cannabies.jpeg";
 
 const Products = () => {
   return (
