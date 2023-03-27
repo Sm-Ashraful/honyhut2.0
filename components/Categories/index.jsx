@@ -11,7 +11,6 @@ const Categories = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardBoxRef = useRef(null);
 
-
   const handlePreviousCategory = (e) => {
     let width = cardBoxRef.current.clientWidth;
     cardBoxRef.current.scrollLeft -= width;
@@ -49,7 +48,9 @@ const Categories = () => {
         {category.map((item, index) => {
           return (
             <div className={`${styles.categoryCard}`} key={index}>
-              <CategoryCard key={index} name={item.name} image={item.image} />
+              <Link href={`/product-categories/${item.name}`}>
+                <CategoryCard key={index} name={item.name} image={item.image} />
+              </Link>
             </div>
           );
         })}

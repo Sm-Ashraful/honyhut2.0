@@ -10,9 +10,7 @@ export const menuItem = [
             details: [
               {
                 name: "Royal Honey VIP 20g Sachet",
-                image: [
-                  "./Honey/Royal Honey VIP/Royal Honey VIP.jpeg",
-                ],
+                image: ["./Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
                 percentage: "20%",
                 unit: "12 Sachet Per Box, 48 Box Per Carton",
                 price: 27,
@@ -20,9 +18,7 @@ export const menuItem = [
               },
               {
                 name: "Royal Honey VIP 22g Pouches",
-                image: [
-                  "./Honey/Royal Honey VIP/RoYAL hONEY.jpeg",
-                ],
+                image: ["./Honey/Royal Honey VIP/RoYAL hONEY.jpeg"],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
                 price: 38,
@@ -36,9 +32,7 @@ export const menuItem = [
             details: [
               {
                 name: "Etumax Honey 20g Sachet",
-                image: [
-                  "./Honey/Etumax Honey/Etumax(4).jpeg",
-                ],
+                image: ["./Honey/Etumax Honey/Etumax(4).jpeg"],
                 percentage: "20%",
                 unit: "12 Sachet Per Box, 60 Box Per Carton",
                 price: 27,
@@ -46,9 +40,7 @@ export const menuItem = [
               },
               {
                 name: "Etumax Honey 22g Pouches",
-                image: [
-                  "./Honey/Etumax Honey/Etumax.jpeg",
-                ],
+                image: ["./Honey/Etumax Honey/Etumax.jpeg"],
                 percentage: "20%",
                 unit: "15 Pouches Per Box ,28 Box Per Carton",
                 price: 38,
@@ -61,9 +53,7 @@ export const menuItem = [
             details: [
               {
                 name: "Black Bull Honey 22g Pouches",
-                image: [
-                  "./Honey/Black Bull Honey/Black Bull Honey.jpg",
-                ],
+                image: ["./Honey/Black Bull Honey/Black Bull Honey.jpg"],
                 percentage: "20%",
                 unit: "12 Poches Per Box, 48 Box Per Carton",
                 price: 35,
@@ -71,9 +61,7 @@ export const menuItem = [
               },
               {
                 name: "Black Bull Honey 22g Pouches",
-                image: [
-                  "./Honey/Black Bull Honey/Black Bull.jpeg",
-                ],
+                image: ["./Honey/Black Bull Honey/Black Bull.jpeg"],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
                 price: 38,
@@ -86,9 +74,7 @@ export const menuItem = [
             details: [
               {
                 name: "Red Bull Honey 22g Pouches",
-                image: [
-                  "./Honey/Red Bull Honey/Red Bull Honey.jpeg",
-                ],
+                image: ["./Honey/Red Bull Honey/Red Bull Honey.jpeg"],
                 percentage: "20%",
                 unit: "12 Poches Per Box, 40 Box Per Carton",
                 price: 35,
@@ -96,9 +82,7 @@ export const menuItem = [
               },
               {
                 name: "Red Bull Honey 22g Pouches",
-                image: [
-                  "./Honey/Red Bull Honey/Red Bull Honey.jpeg",
-                ],
+                image: ["./Honey/Red Bull Honey/Red Bull Honey.jpeg"],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
                 price: 38,
@@ -111,9 +95,7 @@ export const menuItem = [
             details: [
               {
                 name: "Blue Bull Honey 22g Pouches",
-                image: [
-                  "./Honey/Blue Bull Honey/Blue Bull.jpeg",
-                ],
+                image: ["./Honey/Blue Bull Honey/Blue Bull.jpeg"],
                 percentage: "20%",
                 unit: "12 Poches Per Box, 40 Box Per Carton",
                 price: 35,
@@ -121,9 +103,7 @@ export const menuItem = [
               },
               {
                 name: "Blue Bull Honey 22g Pouches",
-                image: [
-                  "./Honey/Blue Bull Honey/Blue Bull.jpeg",
-                ],
+                image: ["./Honey/Blue Bull Honey/Blue Bull.jpeg"],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
                 price: 38,
@@ -176,9 +156,7 @@ export const menuItem = [
             details: [
               {
                 name: "Vitamax Double Shot 20g Sachet",
-                image: [
-                  "./Honey/Vitamax Double shot/Vitamax Double shot.jpeg",
-                ],
+                image: ["./Honey/Vitamax Double shot/Vitamax Double shot.jpeg"],
                 percentage: "20%",
                 unit: "10 Poches Per Box, 48 Box Per Carton",
                 price: 37,
@@ -199,7 +177,7 @@ export const menuItem = [
                 name: "Rhino 69 Liquid Shot ",
                 image: [
                   "./Pills/Rhino-69-1000k/Rhino-69-1000k-Front-Side.png",
-                  "./Pills/Rhino-69-1000k/Rhino-69-1000k-Rear-Side.png",
+                  "/Pills/Magnum-1000k/Magnum-1000k-Rear-Side-Double.png",
                 ],
                 percentage: "20%",
                 unit: "12 Bottles Per Box",
@@ -619,9 +597,7 @@ export const menuItem = [
               },
               {
                 name: "Premier ZEN 7000 Single Pack",
-                image: [
-                  "/Honey/Blue Bull Honey/Blue Bull.jpeg",
-                ],
+                image: ["/Honey/Blue Bull Honey/Blue Bull.jpeg"],
                 percentage: "20%",
                 unit: "24 Pack 24 Pills Per Box, 12 Large Card+12 Small Card",
                 price: 1000,
@@ -629,9 +605,7 @@ export const menuItem = [
               },
               {
                 name: "Premier ZEN Black 5000 Single Pack",
-                image: [
-                  "/Honey/Leopard Honey/Leopard MiracleHoney.jpg",
-                ],
+                image: ["/Honey/Leopard Honey/Leopard MiracleHoney.jpg"],
                 percentage: "20%",
                 unit: "24 Pack 24 Pills Per Box, 12 Large Card+12 Small Card",
                 price: 1000,
@@ -654,9 +628,7 @@ export const menuItem = [
               },
               {
                 name: "SWAG 100K Yellow Single Pack",
-                image: [
-                  "/Honey/Red Bull Honey/Red Bull Honey.jpeg",
-                ],
+                image: ["/Honey/Red Bull Honey/Red Bull Honey.jpeg"],
                 percentage: "20%",
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1000,
@@ -669,9 +641,7 @@ export const menuItem = [
             details: [
               {
                 name: "vROX Gold Single Pack",
-                image: [
-                  "/Honey/Royal Honey VIP/Royal Honey VIP.jpeg",
-                ],
+                image: ["/Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
                 percentage: "20%",
                 unit: "30 Pack 30 Pills Per Box",
                 price: 1000,
@@ -679,9 +649,7 @@ export const menuItem = [
               },
               {
                 name: "vROX Silver Single Pack",
-                image: [
-                  "/Honey/Royal Honey VIP/RoYAL hONEY.jpeg",
-                ],
+                image: ["/Honey/Royal Honey VIP/RoYAL hONEY.jpeg"],
                 percentage: "20%",
                 unit: "30 Pack 30 Pills Per Box",
                 price: 1000,
@@ -694,9 +662,7 @@ export const menuItem = [
             details: [
               {
                 name: "7K Single Pack",
-                image: [
-                  "/Honey/Royal Honey VIP/VIP Honey.jpeg",
-                ],
+                image: ["/Honey/Royal Honey VIP/VIP Honey.jpeg"],
                 percentage: "20%",
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1000,
@@ -724,9 +690,7 @@ export const menuItem = [
             details: [
               {
                 name: "Stiff ROX Singlepack",
-                image: [
-                  "/Honey/Vitamax Double shot/Vitamax Double shot.jpeg",
-                ],
+                image: ["/Honey/Vitamax Double shot/Vitamax Double shot.jpeg"],
                 percentage: "20%",
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1000,
@@ -739,9 +703,7 @@ export const menuItem = [
             details: [
               {
                 name: "Strong Back Singlepack",
-                image: [
-                  "/Honey/Vitamax Double shot/Vitamax Honey.jpeg",
-                ],
+                image: ["/Honey/Vitamax Double shot/Vitamax Honey.jpeg"],
                 percentage: "20%",
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1000,
@@ -754,9 +716,7 @@ export const menuItem = [
             details: [
               {
                 name: "Spnanish Fly Twin Pack",
-                image: [
-                  "/Pills/100k-Gold/100k-Gold-Front-Side.png",
-                ],
+                image: ["/Pills/100k-Gold/100k-Gold-Front-Side.png"],
                 percentage: "20%",
                 unit: "24 Pack 48 Pills Per Box",
                 price: 1000,
@@ -769,9 +729,7 @@ export const menuItem = [
             details: [
               {
                 name: "HAMMER Stroke Single Pack",
-                image: [
-                  "/Pills/Bullet-3000/Bullet-3000-Front-Side.png",
-                ],
+                image: ["/Pills/Bullet-3000/Bullet-3000-Front-Side.png"],
                 percentage: "20%",
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1000,
@@ -829,9 +787,7 @@ export const menuItem = [
             details: [
               {
                 name: "Gold 14K Single Pack",
-                image: [
-                  "/Pills/100k-Gold/100k-Gold-Front-Side.png",
-                ],
+                image: ["/Pills/100k-Gold/100k-Gold-Front-Side.png"],
                 percentage: "20%",
                 unit: "24 Pack 24 Pills Per Box",
                 price: 1000,
@@ -844,9 +800,7 @@ export const menuItem = [
             details: [
               {
                 name: "Wow Panther Single Pack",
-                image: [
-                  "/Pills/Opal-Black/Opal-Black-Front-Side.png",
-                ],
+                image: ["/Pills/Opal-Black/Opal-Black-Front-Side.png"],
                 percentage: "20%",
                 unit: "40 Pack 40 Pills Per Box",
                 price: 1000,
@@ -859,9 +813,7 @@ export const menuItem = [
             details: [
               {
                 name: "Brahma Single Pack",
-                image: [
-                  "/Pills/Shilajit-1000k/Shilajit-1000k-Front-Side.png",
-                ],
+                image: ["/Pills/Shilajit-1000k/Shilajit-1000k-Front-Side.png"],
                 percentage: "20%",
                 unit: "40 Pack 40 Pills Per Box",
                 price: 1000,
@@ -884,9 +836,7 @@ export const menuItem = [
             details: [
               {
                 name: "Pink Pussy Cat Liquid Shot ",
-                image: [
-                  "/Pills/Zesus-250k/Zesus-250k-Front-Side.png",
-                ],
+                image: ["/Pills/Zesus-250k/Zesus-250k-Front-Side.png"],
                 percentage: "20%",
                 unit: "12 Bottles Per Box",
                 price: 2500,
@@ -904,9 +854,7 @@ export const menuItem = [
             details: [
               {
                 name: "Kangaroo Pink Single Pack Large Box",
-                image: [
-                  "/Pills/100k-Gold/100k-Gold-Front-Side.png",
-                ],
+                image: ["/Pills/100k-Gold/100k-Gold-Front-Side.png"],
                 percentage: "20%",
                 unit: "36 Pack Per Box, 48 Box Per Carton",
                 price: 2500,
@@ -954,9 +902,7 @@ export const menuItem = [
             details: [
               {
                 name: "Magnum Trojan Condom 3 in 1 Box",
-                image: [
-                  "/condoms/3pcs latex.jpeg",
-                ],
+                image: ["/condoms/3pcs latex.jpeg"],
                 percentage: "20%",
                 unit: "3 latex Per Box",
                 price: 1200,
@@ -964,9 +910,7 @@ export const menuItem = [
               },
               {
                 name: "Magnum Trojan Condom 40/48 in 1 Box",
-                image: [
-                  "/condoms/48pcs latex.jpeg",
-                ],
+                image: ["/condoms/48pcs latex.jpeg"],
                 percentage: "20%",
                 unit: "40/48 Latex Per Box",
                 price: 1000,
@@ -989,9 +933,7 @@ export const menuItem = [
             details: [
               {
                 name: "RAW Classic Kingsize Slim Rolling Paper",
-                image: [
-                  "/Cannabies Accessories/1.png",
-                ],
+                image: ["/Cannabies Accessories/1.png"],
                 percentage: "20%",
                 unit: "32 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
                 price: 1000,
@@ -999,9 +941,7 @@ export const menuItem = [
               },
               {
                 name: "RAW Black Kingsize Slim Rolling Paper",
-                image: [
-                  "/Cannabies Accessories/2.png",
-                ],
+                image: ["/Cannabies Accessories/2.png"],
                 percentage: "20%",
                 unit: "32 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
                 price: 1200,
@@ -1009,9 +949,7 @@ export const menuItem = [
               },
               {
                 name: "RAW Kingsize with Tips Rolling Paper",
-                image: [
-                  "/Cannabies Accessories/3.png",
-                ],
+                image: ["/Cannabies Accessories/3.png"],
                 percentage: "20%",
                 unit: "32 Leaves Per Booklets, 24 Booklets Per Box, 40 Box Per Carton",
                 price: 1200,
@@ -1024,9 +962,7 @@ export const menuItem = [
             details: [
               {
                 name: "OCB Premium Slim Rolling Paper",
-                image: [
-                  "/Cannabies Accessories/4.png",
-                ],
+                image: ["/Cannabies Accessories/4.png"],
                 percentage: "20%",
                 unit: "32 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
                 price: 1000,
@@ -1034,9 +970,7 @@ export const menuItem = [
               },
               {
                 name: "OCB Premium Slim with Tips Rolling Paper",
-                image: [
-                  "/Cannabies Accessories/5.png",
-                ],
+                image: ["/Cannabies Accessories/5.png"],
                 percentage: "20%",
                 unit: "32 Leaves Per Booklets, 32 Booklets Per Box, 24 Box Per Carton",
                 price: 1200,
@@ -1044,9 +978,7 @@ export const menuItem = [
               },
               {
                 name: "OCB Brown Slim Rolling Paper",
-                image: [
-                  "/Cannabies Accessories/6.png",
-                ],
+                image: ["/Cannabies Accessories/6.png"],
                 percentage: "20%",
                 unit: "32 Leaves Per Booklets, 32 Booklets Per Box, 24 Box Per Carton",
                 price: 1200,
@@ -1059,9 +991,7 @@ export const menuItem = [
             details: [
               {
                 name: "Big Bambu Classic Rolling Paper",
-                image: [
-                  "/Cannabies Accessories/1.png",
-                ],
+                image: ["/Cannabies Accessories/1.png"],
                 percentage: "20%",
                 unit: "33 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
                 price: 2000,
@@ -1069,9 +999,7 @@ export const menuItem = [
               },
               {
                 name: "Big Bambu Pure Hemp Paper",
-                image: [
-                  "/Cannabies Accessories/2.png",
-                ],
+                image: ["/Cannabies Accessories/2.png"],
                 percentage: "20%",
                 unit: "33 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
                 price: 2000,
@@ -1084,9 +1012,7 @@ export const menuItem = [
             details: [
               {
                 name: "Elements Kingsize Slim Papers",
-                image: [
-                  "/Cannabies Accessories/3.png",
-                ],
+                image: ["/Cannabies Accessories/3.png"],
                 percentage: "20%",
                 unit: "33 Leaves Per Booklets, 50 Booklets Per Box",
                 price: 1000,
@@ -1104,9 +1030,7 @@ export const menuItem = [
             details: [
               {
                 name: "RAW Cone 1 1/4 Classic 6PK",
-                image: [
-                  "/Cannabies Accessories/4.png",
-                ],
+                image: ["/Cannabies Accessories/4.png"],
                 percentage: "20%",
                 unit: "32 Cones Per Pack, 6 Pack Per Box, 24 Box Per Carton",
                 price: 1000,
@@ -1114,9 +1038,7 @@ export const menuItem = [
               },
               {
                 name: "RAW Cone 1 1/4 Classic 6PK",
-                image: [
-                  "/Cannabies Accessories/5.png",
-                ],
+                image: ["/Cannabies Accessories/5.png"],
                 percentage: "20%",
                 unit: "32 Cones Per Pack, 3 Pack Per Box, 24 Box Per Carton",
                 price: 1000,
@@ -1124,9 +1046,7 @@ export const menuItem = [
               },
               {
                 name: "RAW 32 11/4 Classic Cones",
-                image: [
-                  "/Cannabies Accessories/6.png",
-                ],
+                image: ["/Cannabies Accessories/6.png"],
                 percentage: "20%",
                 unit: "32 Cones Per Pack, 3 Pack Per Box, 24 Box Per Carton",
                 price: 1000,
