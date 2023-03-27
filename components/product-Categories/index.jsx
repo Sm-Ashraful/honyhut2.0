@@ -1,60 +1,19 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 
-import Male from "../../Assets/Category/Male.jpeg";
-import Female from "../../Assets/Category/Fmale.jpeg";
-import Condoms from "../../Assets/Category/Condoms.jpeg";
-import Cannabies from "../../Assets/Category/Cannabies.jpeg";
+import CategoryCard from "../Card/categoryCard";
+import categoryData from "../../utils/category-demo-data";
+import { menuItems } from "../../utils/menu-item";
 
 const ProCategory = () => {
+  console.log("menuItems: s", menuItems);
   return (
-    <div>
-      <div className="mr-3 bg-primary w-full h-auto relative top-10">
-        <div className="grid grid-cols-2 md:grid-cols-4">
-          <div className="p-5 justify-between items-center cursor-pointer hover:bg-white shadow-md">
-            <div className="relative flex flex-col justify-center items-center hover:text-honey">
-              <div className=" pt-2 h-24 w-32 relative items-center">
-                <Image fill cover src={Male} alt={"Image"} />
-              </div>
-              <h1 className=" font-bold pt-7 ml-1 text-center">
-                Male Enhancement
-              </h1>
-            </div>
-          </div>
-
-          <div className="p-5 justify-between items-center cursor-pointer hover:bg-white shadow-md">
-            <div className="relative flex flex-col justify-center items-center hover:text-honey">
-              <div className=" pt-2 h-24 w-32 relative items-center">
-                <Image fill cover src={Female} alt={"Image"} />
-              </div>
-              <h1 className=" font-bold pt-7 ml-1 text-center">
-                Female Enhancement
-              </h1>
-            </div>
-          </div>
-
-          <div className="p-5 justify-between items-center cursor-pointer hover:bg-white shadow-md">
-            <div className="relative flex flex-col justify-center items-center hover:text-honey">
-              <div className=" pt-2 h-24 w-32 relative items-center">
-                <Image fill cover src={Condoms} alt={"Image"} />
-              </div>
-              <h1 className=" font-bold pt-7 ml-1 text-center">Condoms</h1>
-            </div>
-          </div>
-
-          <div className="p-5 justify-between items-center cursor-pointer hover:bg-white shadow-md">
-            <div className="relative flex flex-col justify-center items-center hover:text-honey">
-              <div className=" pt-2 h-24 w-32 relative items-center">
-                <Image fill cover src={Cannabies} alt={"Image"} />
-              </div>
-              <h1 className=" font-bold pt-7 ml-1 text-center">
-                Cannabies Accessories
-              </h1>
-            </div>
-          </div>
-        </div>
+    <div className="grid grid-cols-5">
+      <div className="col-span-1">
+        {categoryData.map((category, index) => {
+          return <CategoryCard image={category.image} name={category.name} />;
+        })}
       </div>
+      <div className="col-span-4 bg-primary-red"></div>
     </div>
   );
 };
