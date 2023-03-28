@@ -1,55 +1,74 @@
 // **Women Products Section
 // **Developed by Dev-2(Mehedi Hasan Munna)
 
-import React, { useState } from "react";
-import Card from "../Card";
+import React, { useEffect, useState } from "react";
 import productData from "../../utils/products-demo";
 import Link from "next/link";
 import ByMoreSection from "./buyMore";
 import CommonCard from "../CommonCard";
 
-import pill1 from "../../public/Products/Pills/Pandora-for-Women-Front-Side.jpg";
-import pill2 from "../../public/Products/Pills/Spanish-fly-22000-Front-Side-Red.jpg";
-import pill3 from "../../public/Products/Pills/Zesus-250k-Front-Side.jpg";
-import pill4 from "../../public/Products/Pills/Bullet-3000-Front-Side.jpg";
-import pill5 from "../../public/Products/Pills/Rhino-69-1200k-Front-Side.jpg";
-import pill6 from "../../public/Products/Pills/Magnum-Gold-1000k-Gold-Side.jpg";
+import { menuItem } from "../../utils/menu-item";
 
 const Women = () => {
-  const [product, setProduct] = useState(productData);
+  const [product, setProduct] = useState(null);
+  const [pillProduct, setPillProduct] = useState(null);
+  const [liquidShotsProduct, setLiquidShotsProduct] = useState(null);
+  const [currentSubCategory, setCurrentSubCategory] = useState(null);
+
+  useEffect(() => {
+    menuItem.map((menu, index) => {
+      if (menu.title === "Female Enhancement") {
+        setProduct(menu);
+        setCurrentSubCategory(menu.submenu[0]);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log("subCategory", currentSubCategory);
+  }, [currentSubCategory]);
+
+  const handleSubmenu = (submenu) => {
+    setCurrentSubCategory(submenu);
+  };
+
   return (
     <div className="relative top-36 md:top-48 grid md:grid-cols-2">
       <section className="padding_inside w-full h-128 overflow-auto">
         <div className="flex justify-between items-center md:flex-col md:justify-start md:items-start">
           <h2 className="mb-0">For Women</h2>
           <div className="flex pt-8 md:pt-3 space-x-5 justify-between">
-            <Link href="#">
-              <button className="text-2xl  text-gray hover:text-honey hover:underline active">
-                Pill
-              </button>
-            </Link>
-            <Link href="#">
-              <button className=" text-2xl text-gray hover:text-honey hover:underline">
-                Liquid Shots
-              </button>
-            </Link>
+            {product &&
+              product.submenu.map((submenu, index) => {
+                return (
+                  <button
+                    onClick={() => handleSubmenu(submenu)}
+                    className=" text-2xl text-gray hover:text-honey hover:underline"
+                  >
+                    {submenu.title}
+                  </button>
+                );
+              })}
           </div>
         </div>
         <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
         <div className="relative">
           <div>
             <div className="grid grid-cols-2 gap-3 md:grid-cols-3 sm:grid-cols-3">
-              {productData.map((items, index) => {
-                return (
-                  <Link href={`/product/${items.id}`}>
-                    <CommonCard
-                      key={index}
-                      product={items}
-                      percentage={`Hot`}
-                    />
-                  </Link>
-                );
-              })}
+              {currentSubCategory &&
+                currentSubCategory.submenu.map((submenu, index) => {
+                  return submenu.details.map((item, idx) => {
+                    return (
+                      <Link href={`/product/${item.id}`}>
+                        <CommonCard
+                          key={idx}
+                          product={item}
+                          percentage={`Hot`}
+                        />
+                      </Link>
+                    );
+                  });
+                })}
             </div>
           </div>
         </div>

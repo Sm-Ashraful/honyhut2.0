@@ -25,6 +25,7 @@ const CommonCard = ({ product, percentage }) => {
   const fontSize = product.name.length > MAX_LENGTH ? "1rem" : "1.125rem";
 
   const handleAddToCart = (e) => {
+    console.log("product : ", product);
     e.preventDefault();
     dispatch(addItemToCart(cartItems, product));
   };
@@ -41,7 +42,7 @@ const CommonCard = ({ product, percentage }) => {
         <div className={`relative bg-white pt-4`}>
           <div className="w-full h-32 text-center flex justify-center items-center py-4">
             <div className="relative">
-              <Image src={product.image} width="140" height="140" cover />
+              <Image src={product.image[0]} width="140" height="140" cover />
             </div>
           </div>
           <div className="w-full pt-5">

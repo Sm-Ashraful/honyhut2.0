@@ -1,7 +1,7 @@
 const people = [
   {
     id: 1,
-    image: "/images/Product/pro-1.png",
+    image: ["/images/Product/pro-1.png"],
     name: "Rhino 69 600K",
     category: "Male enhancement Supplement",
     quote: "Don't Quit ... ",
@@ -10,7 +10,7 @@ const people = [
   },
   {
     id: 2,
-    image: "/images/Product/pro-2.png",
+    image: ["/images/Product/pro-2.png"],
     name: "Rhino 69 1900K",
     category: "Male enhancement Supplement",
     quote: "Extra strength",
@@ -19,7 +19,7 @@ const people = [
   },
   {
     id: 3,
-    image: "/images/Product/pro-3.png",
+    image: ["/images/Product/pro-3.png"],
     name: "Rhino 69 2400K",
     category: "VIP Royal Honey",
     quote: "Honey for Extra Energy",
@@ -28,12 +28,48 @@ const people = [
   },
   {
     id: 4,
-    image: "/images/Product/pro-4.png",
+    image: ["/images/Product/pro-4.png"],
     name: "Rhino 69 10000K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
     quantity: "10 pcs",
     price: "$120",
+  },
+  {
+    id: 5,
+    image: ["/images/Product/pro-4.png"],
+    name: "Rhino 69 10000K",
+    category: "Dietary Supplement",
+    quote: "Discover the potential",
+    quantity: "10 pcs",
+    price: "$120",
+  },
+  {
+    id: 6,
+    image: ["/images/Product/pro-4.png"],
+    name: "Rhino 69 10000K",
+    category: "Dietary Supplement",
+    quote: "Discover the potential",
+    quantity: "10 pcs",
+    price: "$120",
+  },
+  {
+    id: 7,
+    image: ["/images/Product/pro-3.png"],
+    name: "Rhino 69 2400K",
+    category: "VIP Royal Honey",
+    quote: "Honey for Extra Energy",
+    quantity: "10pcs",
+    price: "$100",
+  },
+  {
+    id: 8,
+    image: ["/images/Product/pro-1.png"],
+    name: "Rhino 69 600K",
+    category: "Male enhancement Supplement",
+    quote: "Don't Quit ... ",
+    quantity: "10 pcs",
+    price: "$100",
   },
 ];
 

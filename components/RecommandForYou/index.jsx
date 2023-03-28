@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-import people from "../../utils/data-demo";
+import people from "../../utils/fav-demo-data";
 import CommonCard from "../CommonCard";
 
 const RecommendProduct = ({ top, className }) => {

@@ -55,14 +55,16 @@ const Categories = () => {
           );
         })}
       </div>
-      <div>
-        <button className={styles.prev} onClick={handlePreviousCategory}>
-          <FiChevronLeft />
-        </button>
-        <button className={styles.next} onClick={handleNextCategory}>
-          <FiChevronRight />
-        </button>
-      </div>
+      {category.length > 4 && (
+        <div>
+          <button className={styles.prev} onClick={handlePreviousCategory}>
+            <FiChevronLeft />
+          </button>
+          <button className={styles.next} onClick={handleNextCategory}>
+            <FiChevronRight />
+          </button>
+        </div>
+      )}
     </section>
   );
 };
