@@ -9,15 +9,15 @@ const RecommendProduct = ({ top, className }) => {
     <section
       className={`padding_inside relative ${
         top ? `top-${top}` : `top-36 md:top-48 `
-      }`}
+      } mt-10`}
     >
-      <h2 className="mb-0 ">JUST FOR YOU</h2>
-      <hr className="h-px my-8 bg-gray border-0 dark:bg-gray" />
+      <h2 className="mb-0 text-primary-red md:text-center">Just For You</h2>
+      <hr className="h-[2px] bg-gray border-0" />
       <div
         className={`${
           className
             ? `${className}`
-            : `grid grid-cols-2 md:grid-cols-4 gap-5 cursor-pointer`
+            : `grid grid-cols-2 md:grid-cols-5 gap-[10px] cursor-pointer pt-5`
         } `}
       >
         {people.map((item, index) => {

@@ -33,10 +33,10 @@ const Women = () => {
   };
 
   return (
-    <div className="relative top-36 md:top-48 grid md:grid-cols-2">
-      <section className="padding_inside w-full h-128 overflow-auto">
+    <div className="relative top-36 md:top-48 grid md:grid-cols-2 mt-16">
+      <section className="padding_inside w-full overflow-auto">
         <div className="flex justify-between items-center md:flex-col md:justify-start md:items-start">
-          <h2 className="mb-0">For Women</h2>
+          <h2 className="mb-0 text-primary-red ">For Women</h2>
           <div className="flex pt-8 md:pt-3 space-x-5 justify-between">
             {product &&
               product.submenu.map((submenu, index) => {
@@ -51,10 +51,10 @@ const Women = () => {
               })}
           </div>
         </div>
-        <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
-        <div className="relative">
+        <hr className="h-[2px]   bg-gray border-0" />
+        <div className="relative pt-5">
           <div>
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 sm:grid-cols-3 pb-5">
               {currentSubCategory &&
                 currentSubCategory.submenu.map((submenu, index) => {
                   return submenu.details.map((item, idx) => {
@@ -73,7 +73,7 @@ const Women = () => {
           </div>
         </div>
       </section>
-      <section className="padding_inside w-full h-128 overflow-hidden">
+      <section className="padding_inside w-full overflow-hidden">
         <h2 className="pt-2 md:pb-3">Buy More Save More</h2>
         <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
         <div className="w-full h-96 md:h-4/5">

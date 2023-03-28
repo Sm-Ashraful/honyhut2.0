@@ -1,16 +1,17 @@
 .bottom_container {
   overflow: hidden;
   position: fixed;
+  padding: 15px 13px;
   bottom: 0;
   left: 0;
   width: 100%;
   /* height: auto; */
-  height: 60px;
+  height: 55px;
   z-index: 999;
 }
 .bottom_home {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   display: block;
   background-image: url("../../Assets//HomeE.png");
   background-position: center;
@@ -18,8 +19,8 @@
   cursor: pointer;
 }
 .bottom_about {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   display: block;
   background-image: url("../../Assets/info.png");
   background-position: center;
@@ -27,8 +28,8 @@
   cursor: pointer;
 }
 .bottom_store {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   display: block;
 
   background-image: url("../../Assets/store.png");
@@ -37,8 +38,8 @@
   cursor: pointer;
 }
 .bottom_account {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   display: block;
   background-image: url("../../Assets/userprofile.png");
   background-position: center;
@@ -46,8 +47,8 @@
   cursor: pointer;
 }
 .favourite_cart {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   display: block;
   background-image: url("../../Assets/edited.svg");
   background-position: center;

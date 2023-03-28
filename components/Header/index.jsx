@@ -149,7 +149,7 @@ const Header = () => {
                 {/* whitelist section  end*/}
                 {/* total const section  */}
                 <div className="md:hidden text-xl text-secondary">
-                  <p>${totalCost}</p>
+                  <p>${totalCost.toFixed(2)}</p>
                 </div>
                 {/* total const section  */}
               </div>
