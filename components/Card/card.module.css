@@ -1,20 +1,20 @@
-.card {
+/* .card {
   width: 16rem;
   height: 20rem;
   position: relative;
   padding: 5px;
   border-radius: 1rem;
-}
+} */
 .percentage {
   position: absolute;
   top: 10px;
   right: 5px;
 }
-.productCard {
+/* .productCard {
   width: 16rem;
   position: relative;
   border-radius: 1rem;
-}
+} */
 /* @media screen and (min-width: 992px) {
   .productCard {
     min-width: 23rem;

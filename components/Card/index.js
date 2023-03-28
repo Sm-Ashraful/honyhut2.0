@@ -21,6 +21,8 @@ const Card = ({ product, percentage }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const favItems = useSelector(selectFavItems);
+  const MAX_LENGTH = 20;
+  const fontSize = product.name.length > MAX_LENGTH ? "1rem" : "1.125rem";
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -36,13 +38,13 @@ const Card = ({ product, percentage }) => {
   return (
     <>
       {
-        <div 
-          className={`${styles.productCard} shadow-hnx hover:scale-105 transition-all duration-300 bg-white`}
+        <div
+          className={`relative shadow-allIn hover:scale-105 transition-all duration-500 bg-white rounded `}
         >
-          <div className="rounded  cursor-pointer w-64 h-full">
-            <div className="w-full h-52 flex flex-col relative">
+          <div className="rounded w-[14.5rem]  cursor-pointer ">
+            <div className="w-full h-[10rem] flex flex-col relative">
               <div className="relative w-full h-full transition-all duration-500 hover:scale-110 rounded-md hover:skew-x-2 overflow-hidden">
-                <Image src={product.image} alt={product.name} fill contain />
+                <Image src={product.image[0]} alt={product.name} fill cover />
               </div>
               <div
                 className={`absolute w-full h-16  z-50 bottom-0 left-0  flex items-center gap-2 p-5`}
@@ -65,14 +67,17 @@ const Card = ({ product, percentage }) => {
               </div>
             )}
 
-            <div className="py-3 px-5 space-y-2">
+            <div className="py-3 px-5 space-y-2 leading-5">
               <div className="flex justify-between items-center text-sm">
                 <ReviewStar className={`flex text-honey`} />
                 <p>5 reviews</p>
               </div>
               <div className="">
-                <p className="text-sm md:text-lg text-black text-left">
-                  <strong>{product.name}</strong>
+                <p
+                  className="text-sm md:text-lg  text-black text-left font-semibold"
+                  style={{ fontSize: `${fontSize}` }}
+                >
+                  {product.name}
                 </p>
 
                 {/* ratting section  */}
@@ -85,8 +90,8 @@ const Card = ({ product, percentage }) => {
               </p>
 
               <p className="flex space-x-8">
-                <strong>Price: </strong>
-                <strong className=" font-bold text-xl">${product.price}</strong>
+                <strong className="text-sm">Price: </strong>
+                <strong className=" font-bold text-lg">${product.price}</strong>
               </p>
               {/* <div className="text-center pt-5 underline text-tertiary">
                 View

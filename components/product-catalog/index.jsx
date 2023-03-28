@@ -21,19 +21,16 @@ import { productInfo } from "../../utils/product-details";
 const ProductCatalog = ({ props }) => {
   const [index, setIndex] = useState(0);
 
-  const images = [props.image, photo2, photo3, photo4, photo5];
-
   useEffect(() => {
-    const lastIndex = images.length - 1;
+    const lastIndex = props.image.length - 1;
     if (index < 0) {
       setIndex(lastIndex);
     }
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index, images]);
+  }, [index, props]);
 
-  
   return (
     <section className="relative container top-2  bg-white">
       <div className="flex flex-wrap">
@@ -41,16 +38,18 @@ const ProductCatalog = ({ props }) => {
           <div
             className={`relative w-full h-96  flex justify-center items-center`}
           >
-            {images.map((pic, picIndex) => {
+            {props.image.map((pic, picIndex) => {
               let position = "nextSlide";
               if (picIndex === index) {
                 position = "activeSlide";
               }
-              if (
-                picIndex === index - 1 ||
-                (index === 0 && picIndex === images.length - 1)
-              ) {
-                position = "lastSlide";
+              if (props.image.length > 1) {
+                if (
+                  picIndex === index - 1 ||
+                  (index === 0 && picIndex === props.image.length - 1)
+                ) {
+                  position = "lastSlide";
+                }
               }
               return (
                 <article className={`${position}`}>
@@ -62,7 +61,7 @@ const ProductCatalog = ({ props }) => {
           </div>
 
           <div className="h-44 flex flex-nowrap scroll-smooth x-scrollable-content">
-            {images.map((pic, picIndex) => {
+            {props.image.map((pic, picIndex) => {
               return (
                 <div key={picIndex} className="relative w-40 h-full ">
                   <Image src={pic} alt={"Image"} fill cover />

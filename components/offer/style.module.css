@@ -1,6 +1,6 @@
 .offer_container {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   @apply text-sm;
   @apply bg-primary border-r-primary-red;
   border: 0.5px solid;

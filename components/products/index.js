@@ -11,41 +11,51 @@ import styles from "../Categories/style.module.css";
 const Products = () => {
   const [product, setProduct] = useState(productData);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [intervalId, setIntervalId] = useState(null);
   const cardBoxRef = useRef(null);
 
+  useEffect(() => {
+    setIntervalId(
+      setInterval(() => {
+        if (currentIndex < product.length - 3) {
+          setCurrentIndex(currentIndex + 1);
+          handleNextCategory();
+        } else {
+          setCurrentIndex(0);
+          cardBoxRef.current.scrollLeft = 0;
+        }
+      }, 5000)
+    );
+
+    return () => clearInterval(intervalId);
+  }, [currentIndex]);
+
   const handlePreviousCategory = (e) => {
+    clearInterval(intervalId);
+    setCurrentIndex(currentIndex - 1);
     let width = cardBoxRef.current.clientWidth;
     cardBoxRef.current.scrollLeft -= width;
   };
 
   const handleNextCategory = (e) => {
+    clearInterval(intervalId);
+    setCurrentIndex(currentIndex + 1);
     let width = cardBoxRef.current.clientWidth;
     cardBoxRef.current.scrollLeft += width;
   };
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (currentIndex < product.length - 3) {
-        setCurrentIndex(currentIndex + 1);
-        handleNextCategory();
-
-        // if(){}
-      } else {
-        setCurrentIndex(0);
-        cardBoxRef.current.scrollLeft = 0;
-      }
-    }, 5000);
-
-    return () => clearInterval(intervalId);
-  }, [currentIndex]);
+  function handleTouchStart(e) {
+    e.preventDefault();
+    clearInterval(intervalId);
+  }
 
   return (
-    <section className="padding_inside relative top-36 md:top-48 h-auto my-5">
-      <h2 className="mb-0 ">Top Products</h2>
-      <hr className="h-px my-8 bg-gray border-0 dark:bg-gray" />
+    <section className="padding_inside relative top-36 md:top-48 h-auto mt-16">
+      <h2 className="mb-0 text-primary-red md:text-center">Top Products</h2>
+      <hr className="h-[2px] mt-[5px] bg-gray border-0" />
       <div
-        className="flex items-center gap-3 justify-between p-6 scroll-smooth x-scrollable-content rounded-md"
+        className=" flex items-center pt-5 gap-[10px] scroll-smooth x-scrollable-content pb-5"
         ref={cardBoxRef}
+        onTouchStart={handleTouchStart}
       >
         {product.map((item, index) => {
           return (
