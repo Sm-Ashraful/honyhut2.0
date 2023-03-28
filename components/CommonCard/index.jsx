@@ -25,7 +25,6 @@ const CommonCard = ({ product, percentage }) => {
   const fontSize = product.name.length > MAX_LENGTH ? "1rem" : "1.125rem";
 
   const handleAddToCart = (e) => {
-    console.log("product : ", product);
     e.preventDefault();
     dispatch(addItemToCart(cartItems, product));
   };
@@ -76,7 +75,7 @@ const CommonCard = ({ product, percentage }) => {
           <div className={`absolute w-full h-16  z-50 top-2 left-2`}>
             <div className=" md:w-12 md:h-12 h-10 w-10  rounded-full text-center">
               <span
-                className={`w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-1000 ${
+                className={`w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ${
                   isFavorite && `border`
                 }`}
                 onClick={handleFavClick}
@@ -86,7 +85,7 @@ const CommonCard = ({ product, percentage }) => {
             </div>
           </div>
           {percentage && (
-            <div className={`absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-1000`}>
+            <div className={`absolute top-2 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}>
               <OfferPercent percentage={percentage} />
             </div>
           )}

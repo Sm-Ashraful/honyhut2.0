@@ -25,7 +25,6 @@ const Women = () => {
   }, []);
 
   useEffect(() => {
-    console.log("subCategory", currentSubCategory);
   }, [currentSubCategory]);
 
   const handleSubmenu = (submenu) => {
