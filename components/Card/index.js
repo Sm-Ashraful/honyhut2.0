@@ -36,7 +36,7 @@ const Card = ({ product, percentage }) => {
   return (
     <>
       {
-        <div
+        <div 
           className={`${styles.productCard} shadow-hnx hover:scale-105 transition-all duration-300 bg-white`}
         >
           <div className="rounded  cursor-pointer w-64 h-full">
