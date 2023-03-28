@@ -79,7 +79,7 @@ const Card = ({ product, percentage }) => {
               </div>
 
               <p className=" text-base">
-                <span>12 Poches Per Box</span>
+                <span>12 Pouches Per Box</span>
                 <br />
                 <span>48 Box Per Carton</span>
               </p>
