@@ -39,7 +39,9 @@ const CommonCard = ({ product, percentage }) => {
   return (
     <>
       {product && (
-        <div className={`relative bg-white pt-4`}>
+        <div
+          className={`relative bg-white pt-4 transition-all duration-300 hover:scale-95 cursor-pointer group`}
+        >
           <div className="w-full h-32 text-center flex justify-center items-center py-4">
             <div className="relative">
               <Image src={product.image[0]} width="140" height="140" cover />
@@ -74,7 +76,7 @@ const CommonCard = ({ product, percentage }) => {
           <div className={`absolute w-full h-16  z-50 top-2 left-2`}>
             <div className=" md:w-12 md:h-12 h-10 w-10  rounded-full text-center">
               <span
-                className={`w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full ${
+                className={`w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-1000 ${
                   isFavorite && `border`
                 }`}
                 onClick={handleFavClick}
@@ -84,7 +86,7 @@ const CommonCard = ({ product, percentage }) => {
             </div>
           </div>
           {percentage && (
-            <div className={`absolute top-2 right-2`}>
+            <div className={`absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-1000`}>
               <OfferPercent percentage={percentage} />
             </div>
           )}

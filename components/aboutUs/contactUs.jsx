@@ -98,7 +98,7 @@ export default function Checkout() {
               </div>
             </div>
             <div className="grid md:grid-cols-1 w-full">
-            <span className="text-primary-red">Mehedi Munna</span>
+            <span className="text-honey">Mehedi Munna</span>
             </div>
           </div>
         </div>

@@ -96,7 +96,7 @@ const ProductCatalog = ({ props }) => {
             </p>
           </div>
           <div className="flex justify-between items-center">
-            <Button className=" text-white bg-honey hover:text-white hover:bg-honey rounded-full shadow-hnx">
+            <Button className=" text-white bg-gray hover:text-black hover:bg-honey rounded-full shadow-hnx">
               <span className="flex space-x-3 items-center">
                 <span>
                   <HiOutlinePlusCircle />
@@ -104,7 +104,7 @@ const ProductCatalog = ({ props }) => {
                 <span>Add to Cart</span>
               </span>
             </Button>
-            <Button className="text-black bg-primary hover:text-white hover:bg-honey rounded-full shadow-hnx">
+            <Button className="text-white bg-gray hover:text-black hover:bg-honey rounded-full shadow-hnx">
               {/* <AiFillHeart/> */}
               <span className="flex space-x-3 items-center">
                 <span>
@@ -113,7 +113,7 @@ const ProductCatalog = ({ props }) => {
                 <span>Buy Now</span>
               </span>
             </Button>
-            <Button className="text-primary text-xl bg-secondary hover:text-white hover:bg-honey rounded-full shadow-hnx">
+            <Button className="text-primary text-xl bg-gray hover:text-white hover:bg-honey rounded-full shadow-hnx">
               <AiFillHeart />
             </Button>
           </div>
