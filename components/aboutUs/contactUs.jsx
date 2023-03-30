@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaCaretDown } from "react-icons/fa";
 
-export default function Checkout() {
+import { aboutInfo } from "../../utils/About-demo";
+
+const AboutUs = ({ props }) => {
+  const [index, setIndex] = useState(0);
+  const [headingText, setHeadingText] = useState("");
+
   return (
     <>
       <main className="bg-primary h-auto">
@@ -9,6 +15,7 @@ export default function Checkout() {
             CONTACT US
           </h2>
 
+          {/* contact us */}
           <div className="grid md:grid-cols-2 w-full">
             <div className="grid md:grid-cols-1 w-full">
               <div className="w-full">
@@ -97,12 +104,64 @@ export default function Checkout() {
                 </form>
               </div>
             </div>
-            <div className="grid md:grid-cols-1 w-full">
-            <span className="text-honey">Mehedi Munna</span>
+
+            {/* Info */}
+            <div className="w-full md:border md:border-r-0 md:border-t-0 md:border-b-0 md:ml-4 md:border-gray">
+              <div className="pl-4">
+                <h1 htmlFor="name" className="text-gray">
+                  INFORMATION QUESTIONS
+                </h1>
+                <h3
+                  htmlFor="name"
+                  className="block font-bold text-secondary mb-2"
+                >
+                  FREQUENTLY ASKED QUESTIONS
+                </h3>
+              </div>
+              <div className="padding_inside mt-8 w-full flex flex-col justify-between bg-white m-4">
+                <div className="mb-3  w-full flex flex-col">
+                  {aboutInfo.map((info, index) => {
+                    return (
+                      <div>
+                        <div
+                          onClick={() =>
+                            headingText !== info.title
+                              ? setHeadingText(info.title)
+                              : setHeadingText("")
+                          }
+                          className="flex justify-between items-center"
+                        >
+                          <h1 className="mb-0 mt-4 md:pr-10 font-semibold">
+                            {info.title}
+                          </h1>
+                          <span>
+                            <FaCaretDown />
+                          </span>
+                        </div>
+                        <p
+                          className={`${
+                            headingText === info.title ? "block" : "hidden"
+                          } leading-relaxed ml-5 text-lg `}
+                        >
+                          <ul className="list-disc">
+                            <li>
+                              <span className="text-ash text-xl font-medium">
+                                {info.details}
+                              </span>
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </main>
     </>
   );
-}
+};
+
+export default AboutUs;

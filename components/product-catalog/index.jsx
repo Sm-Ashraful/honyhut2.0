@@ -118,6 +118,7 @@ const ProductCatalog = ({ props }) => {
           </div>
           <div className="flex items-center py-2 border-gray border-b-2"></div>
           {/*end Product Information and button */}
+
           {/**Product avialibility stock information */}
           <div>
             <p className="text-lg title-font tracking-widest">
@@ -140,8 +141,10 @@ const ProductCatalog = ({ props }) => {
             </p>
           </div>
           {/**Product avialibility stock information end*/}
+
         </div>
         {/* Product Information and button end*/}
+
         {/* Product Information, shipping information */}
         <div className="padding_inside mt-8 w-full flex justify-between">
           <div className="mb-3  w-full mt-5 md:flex">
@@ -167,14 +170,12 @@ const ProductCatalog = ({ props }) => {
                       headingText === info.title ? "md:hidden" : "hidden"
                     } leading-relaxed ml-5 text-lg `}
                   >
-                    <span className="text-2xl">{props.name}</span>
                     <ul className="list-disc">
                       {info.details.map((productDetails) => {
                         return (
                           <li>
-                            <span className="text-lg font-bold">
+                            <span className="text-xl font-semibold">
                               {productDetails.title}
-                              <span> - </span>
                             </span>
                             <span>
                               {productDetails.description.map((des, idx) => {
@@ -196,7 +197,8 @@ const ProductCatalog = ({ props }) => {
           </div>
         </div>
         {/* Product Information, shipping information end*/}
-        {/* Product Information, shipping information for pc vie*/}
+
+        {/* Product Information, shipping information for pc view*/}
         <hr className="w-full h-[2px]  bg-gray border-0 hidden md:block" />
         <div className="hidden md:block">
           {productInfo.map((info, idx) => {
