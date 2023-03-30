@@ -40,8 +40,11 @@ const Products = () => {
   const handleNextCategory = (e) => {
     clearInterval(intervalId);
     setCurrentIndex(currentIndex + 1);
-    let width = cardBoxRef.current.clientWidth;
-    cardBoxRef.current.scrollLeft += width;
+    let width = cardBoxRef.current?.clientWidth; // Add a null check
+    if (width) {
+      // Add a check for null
+      cardBoxRef.current.scrollLeft += width;
+    }
   };
   function handleTouchStart(e) {
     e.preventDefault();

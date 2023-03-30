@@ -22,7 +22,7 @@ const Slider = () => {
   useEffect(() => {
     const heroContent = document.getElementsByClassName("hero-content");
     function isHeroContentInView() {
-      if (heroContent) {
+      if (heroContent && heroContent[0]) {
         const heroContentTop = heroContent[0].offsetTop;
         const heroContentBottom = heroContentTop + heroContent[0].offsetHeight;
         const viewportTop = window.pageYOffset;
@@ -50,7 +50,7 @@ const Slider = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [dispatch]);
+  }, [dispatch, router.pathname]);
 
   return (
     <section className={`w-full  relative top-36 md:top-52`}>

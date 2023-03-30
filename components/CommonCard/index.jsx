@@ -38,7 +38,7 @@ const CommonCard = ({ product, percentage }) => {
     <>
       {product && (
         <div
-          className={`relative bg-white pt-4 transition-all duration-300 hover:scale-95 cursor-pointer group`}
+          className={`relative bg-white pt-4 transition-all duration-300 hover:scale-95 cursor-pointer group w-[13.5rem] md:w-auto border border-y-secondary border-x-primary-red rounded-md`}
         >
           <div className="w-full h-32 text-center flex justify-center items-center py-4 overflow-hidden">
             <div className="relative ">
@@ -63,7 +63,7 @@ const CommonCard = ({ product, percentage }) => {
             </p>
             <p>
               <Button
-                className="w-full bg-primary text-black hover:bg-honey hover:text-black text-lg shadow-md"
+                className="w-full bg-primary text-black hover:bg-honey hover:text-black text-lg  border-t border-t-secondary"
                 onClick={handleAddToCart}
               >
                 Add To Cart
