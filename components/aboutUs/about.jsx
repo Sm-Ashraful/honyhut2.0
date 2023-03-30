@@ -10,7 +10,7 @@ import Delivery from "../../Assets/aboutUs/shipmaster.jpg";
 const About = () => {
   return (
     <div>
-      <div className="bg-gray w-full h-auto relative">
+      <div className="bg-gray w-full h-auto relative top-10">
         <div className="padding_inside grid grid-cols-2 md:grid-cols-4 ">
           <div className="p-4 justify-between items-center shadow-md">
             <div className="relative flex flex-col justify-center items-center">

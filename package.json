@@ -18,6 +18,7 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
+    "google-map-react": "^2.2.0",
     "leaflet": "^1.9.3",
     "link": "^1.5.1",
     "next": "13.1.6",
