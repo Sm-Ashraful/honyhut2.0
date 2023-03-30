@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-import RelProduct from "../../components/Card";
 import CommonCard from "@/components/CommonCard";
 import RelProductData from "../../utils/products-demo";
 import ProductCatalog from "../../components/product-catalog";
@@ -9,7 +8,7 @@ import RecommendProduct from "@/components/RecommandForYou";
 
 import { useRouter } from "next/router";
 
-import { getProductById } from "../../utils/products-demo";
+import { getProductById } from "../../utils/menu-item";
 
 const Product = () => {
   const [products, setProducts] = useState(RelProductData);

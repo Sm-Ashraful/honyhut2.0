@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaMinus, FaPlus, FaCaretDown } from "react-icons/fa";
-import { FiChevronDown } from "react-icons/fi";
+import { FaCaretDown } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 import Button from "../Button";
 import ReviewStar from "../Star/index";
@@ -9,17 +8,13 @@ import Image from "next/image";
 import { SiShopify } from "react-icons/si";
 import { HiOutlinePlusCircle } from "react-icons/hi2";
 
-import photo from "../../public/Products/Gold Honey/Gold Honey(3).jpeg";
-import photo2 from "../../public/Products/Gold Honey/Gold Honey(2).jpeg";
-import photo3 from "../../public/Products/Gold Honey/Gold Honey(5).jpeg";
-import photo4 from "../../public/Products/Gold Honey/Gold Honey(7).jpeg";
-import photo5 from "../../public/Products/Gold Honey/Gold Honey.jpeg";
 import LeftRightArrow from "../common/LeftRightArrow";
 
 import { productInfo } from "../../utils/product-details";
 
 const ProductCatalog = ({ props }) => {
   const [index, setIndex] = useState(0);
+  const [headingText, setHeadingText] = useState("");
 
   useEffect(() => {
     const lastIndex = props.image.length - 1;
@@ -123,7 +118,7 @@ const ProductCatalog = ({ props }) => {
           </div>
           <div className="flex items-center py-2 border-gray border-b-2"></div>
           {/*end Product Information and button */}
-          {/**Product Description and */}
+          {/**Product avialibility stock information */}
           <div>
             <p className="text-lg title-font tracking-widest">
               Availability:
@@ -144,21 +139,34 @@ const ProductCatalog = ({ props }) => {
               </span>
             </p>
           </div>
+          {/**Product avialibility stock information end*/}
         </div>
-
-        <div className="padding_inside mt-8 md:w-full md:flex justify-start md:space-x-5">
-          <div className="mb-3 md:mb-0">
+        {/* Product Information and button end*/}
+        {/* Product Information, shipping information */}
+        <div className="padding_inside mt-8 w-full flex justify-between">
+          <div className="mb-3  w-full mt-5 md:flex">
             {productInfo.map((info, index) => {
               return (
                 <div>
                   <div
-                    
-                    className="flex justify-between items-center md:border-x-2 md:px-5 md:bg-gray md:pt-5"
+                    onClick={() =>
+                      headingText !== info.title
+                        ? setHeadingText(info.title)
+                        : setHeadingText("")
+                    }
+                    className="flex justify-between items-center"
                   >
-                    <h3 className="mb-0 mt-4">{info.title}</h3>
-                    <FaCaretDown className="md:hidden" />
+                    <h3 className="mb-0 mt-4 md:pr-10">{info.title}</h3>
+                    <span>
+                      <FaCaretDown className="md:hidden" />
+                    </span>
                   </div>
-                  <p className="leading-relaxed ml-5 text-lg md:hidden">
+
+                  <p
+                    className={`${
+                      headingText === info.title ? "md:hidden" : "hidden"
+                    } leading-relaxed ml-5 text-lg `}
+                  >
                     <span className="text-2xl">{props.name}</span>
                     <ul className="list-disc">
                       {info.details.map((productDetails) => {
@@ -186,6 +194,45 @@ const ProductCatalog = ({ props }) => {
               );
             })}
           </div>
+        </div>
+        {/* Product Information, shipping information end*/}
+        {/* Product Information, shipping information for pc vie*/}
+        <hr className="w-full h-[2px]  bg-gray border-0 hidden md:block" />
+        <div className="hidden md:block">
+          {productInfo.map((info, idx) => {
+            if (idx === 0 && !headingText) {
+              setHeadingText(info.title);
+            }
+            return (
+              <div className="padding_inside mt-[10px]">
+                <ul className="list-disc ">
+                  {info.details.map((productDetails) => {
+                    return (
+                      <li
+                        className={`${
+                          headingText === info.title ? "md:block" : "hidden"
+                        } leading-relaxed ml-5 text-lg pt-5`}
+                      >
+                        <span className="text-lg font-bold">
+                          {productDetails.title}
+                          <span> - </span>
+                        </span>
+                        <span>
+                          {productDetails.description.map((des, idx) => {
+                            return (
+                              <span className="font-light text-ash">
+                                {des.des1}
+                              </span>
+                            );
+                          })}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

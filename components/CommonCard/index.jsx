@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./style.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -41,8 +40,8 @@ const CommonCard = ({ product, percentage }) => {
         <div
           className={`relative bg-white pt-4 transition-all duration-300 hover:scale-95 cursor-pointer group`}
         >
-          <div className="w-full h-32 text-center flex justify-center items-center py-4">
-            <div className="relative">
+          <div className="w-full h-32 text-center flex justify-center items-center py-4 overflow-hidden">
+            <div className="relative ">
               <Image src={product.image[0]} width="140" height="140" cover />
             </div>
           </div>
@@ -85,7 +84,9 @@ const CommonCard = ({ product, percentage }) => {
             </div>
           </div>
           {percentage && (
-            <div className={`absolute top-2 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}>
+            <div
+              className={`absolute top-2 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
+            >
               <OfferPercent percentage={percentage} />
             </div>
           )}

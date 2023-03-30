@@ -984,7 +984,7 @@ export const menuItem = [
               {
                 id: 71,
                 name: "Magnum Trojan Condom 3 in 1 Box",
-                image: ["/condoms/3pcs latex.jpeg"],
+                image: ["/condom/3pcs latex.jpeg"],
                 percentage: "20%",
                 unit: "3 latex Per Box",
                 price: 1200,
@@ -993,7 +993,7 @@ export const menuItem = [
               {
                 id: 72,
                 name: "Magnum Trojan Condom 40/48 in 1 Box",
-                image: ["/condoms/48pcs latex.jpeg"],
+                image: ["/condom/48pcs latex.jpeg"],
                 percentage: "20%",
                 unit: "40/48 Latex Per Box",
                 price: 1000,
@@ -1154,3 +1154,18 @@ export const menuItem = [
     ],
   },
 ];
+export const getProductById = (id) => {
+  for (let i = 0; i < menuItem.length; i++) {
+    const menu = menuItem[i];
+    for (let j = 0; j < menu.submenu.length; j++) {
+      const subCategory = menu.submenu[j];
+      const product = subCategory.submenu.find((product) =>
+        product.details.find((p) => p.id === Number(id))
+      );
+      if (product) {
+        return product.details.find((p) => p.id === Number(id));
+      }
+    }
+  }
+  return null; // product not found
+};
