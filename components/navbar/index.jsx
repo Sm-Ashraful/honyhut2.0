@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TiChevronRight } from "react-icons/ti";
 
 import { menuItem } from "../../utils/menu-item";
 
