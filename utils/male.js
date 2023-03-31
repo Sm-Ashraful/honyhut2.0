@@ -1,14 +1,8 @@
-export const menuItem = [
-  {
-    title: "Male Enhancement",
-    submenu: [
-      {
+export const MaleEnhancement = [
+    {
         title: "Honey",
-        submenu: [
-          {
-            title: "Royal Honey VIP",
-            details: [
-              {
+        products:[
+            {
                 id: 1,
                 name: "Royal Honey VIP 20g Sachet",
 
@@ -29,11 +23,6 @@ export const menuItem = [
                 MOQ: "280 Box",
                 percentage: "20%",
               },
-            ],
-          },
-          {
-            title: "Etumax",
-            details: [
               {
                 id: 3,
                 name: "Etumax Honey 20g Sachet",
@@ -54,11 +43,6 @@ export const menuItem = [
                 price: 38,
                 MOQ: "280 Box",
               },
-            ],
-          },
-          {
-            title: "Black Bull",
-            details: [
               {
                 id: 5,
                 name: "Black Bull Honey 22g Pouches",
@@ -79,11 +63,6 @@ export const menuItem = [
                 price: 38,
                 MOQ: "280 Box",
               },
-            ],
-          },
-          {
-            title: "Red Bull",
-            details: [
               {
                 id: 7,
                 name: "Red Bull Honey 22g Pouches",
@@ -104,11 +83,6 @@ export const menuItem = [
                 price: 38,
                 MOQ: "280 Box",
               },
-            ],
-          },
-          {
-            title: "Blue Bull",
-            details: [
               {
                 id: 9,
                 name: "Blue Bull Honey 22g Pouches",
@@ -129,11 +103,6 @@ export const menuItem = [
                 price: 38,
                 MOQ: "280 Box",
               },
-            ],
-          },
-          {
-            title: "Leopard Miracle",
-            details: [
               {
                 id: 11,
                 name: "Leopard Miracle Honey 15g Sachet",
@@ -156,11 +125,6 @@ export const menuItem = [
                 price: 38,
                 MOQ: "280 Box",
               },
-            ],
-          },
-          {
-            title: "Secret Miracle Honey",
-            details: [
               {
                 id: 13,
                 name: "Secret Miracle Honey 15g Sachet",
@@ -172,11 +136,6 @@ export const menuItem = [
                 price: 32,
                 MOQ: "80 Box",
               },
-            ],
-          },
-          {
-            title: "Vitamax Double Shot",
-            details: [
               {
                 id: 14,
                 name: "Vitamax Double Shot 20g Sachet",
@@ -187,18 +146,12 @@ export const menuItem = [
                 price: 37,
                 MOQ: "97 Box",
               },
-            ],
-          },
-        ],
-      },
-
-      {
+        ]
+    },
+    {
         title: "Liquid Shots",
-        submenu: [
-          {
-            title: "Rhino",
-            details: [
-              {
+        products:[
+            {
                 id: 15,
                 name: "Rhino 69 Liquid Shot ",
                 image: [
@@ -222,11 +175,6 @@ export const menuItem = [
                 price: 40,
                 MOQ: "20 Box",
               },
-            ],
-          },
-          {
-            title: "Hard Steel",
-            details: [
               {
                 id: 17,
                 name: "Hard Steel Liquid Shot",
@@ -239,11 +187,6 @@ export const menuItem = [
                 price: 40,
                 MOQ: "20 Box",
               },
-            ],
-          },
-          {
-            title: "Superman",
-            details: [
               {
                 id: 18,
                 name: "Super Man Liquid Shot",
@@ -256,17 +199,12 @@ export const menuItem = [
                 price: 40,
                 MOQ: "20 Box",
               },
-            ],
-          },
-        ],
-      },
-      {
+        ]
+    },
+    {
         title: "Pills",
-        submenu: [
-          {
-            title: "Gold",
-            details: [
-              {
+        products: [
+            {
                 id: 19,
                 name: "100k Gold",
                 image: [
@@ -302,11 +240,6 @@ export const menuItem = [
                 price: 800,
                 MOQ: "100 Bottles",
               },
-            ],
-          },
-          {
-            title: "Magnum",
-            details: [
               {
                 id: 22,
                 name: "Magnum-1000k",
@@ -346,11 +279,6 @@ export const menuItem = [
                 MOQ: "100 Bottles",
                 percentage: "20%",
               },
-            ],
-          },
-          {
-            title: "Spanish-fly-22000",
-            details: [
               {
                 id: 25,
                 name: "Spanish-fly-22000-Green",
@@ -375,11 +303,6 @@ export const menuItem = [
                 price: 900,
                 MOQ: "100 Pack",
               },
-            ],
-          },
-          {
-            title: "Bullet-3000",
-            details: [
               {
                 id: 27,
                 name: "Bullet-3000",
@@ -416,11 +339,6 @@ export const menuItem = [
                 price: 500,
                 MOQ: "96 Box",
               },
-            ],
-          },
-          {
-            title: "Rhino",
-            details: [
               {
                 id: 30,
                 name: "Rhino-69-1000k",
@@ -637,11 +555,6 @@ export const menuItem = [
                 price: 1800,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Premier ZEN",
-            details: [
               {
                 id: 48,
                 name: "Premier ZEN Gold 13000 Single Pack",
@@ -672,11 +585,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "SWAG",
-            details: [
               {
                 id: 51,
                 name: "SWAG 50 Red Single Pack",
@@ -697,11 +605,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "vRox",
-            details: [
               {
                 id: 53,
                 name: "vROX Gold Single Pack",
@@ -720,11 +623,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "7K",
-            details: [
               {
                 id: 55,
                 name: "7K Single Pack",
@@ -734,11 +632,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Trozan-X",
-            details: [
               {
                 id: 56,
                 name: "Trozan-X Single Pack",
@@ -750,11 +643,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Stiff ROX",
-            details: [
               {
                 id: 57,
                 name: "Stiff ROX Singlepack",
@@ -764,11 +652,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Strong Back",
-            details: [
               {
                 id: 58,
                 name: "Strong Back Singlepack",
@@ -778,11 +661,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Spanish Fly",
-            details: [
               {
                 id: 59,
                 name: "Spnanish Fly Twin Pack",
@@ -792,11 +670,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Hammer Stroke",
-            details: [
               {
                 id: 60,
                 name: "HAMMER Stroke Single Pack",
@@ -806,11 +679,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Jack Hammer",
-            details: [
               {
                 id: 61,
                 name: "Jack Hammer Single Pack",
@@ -822,11 +690,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "WET XXX",
-            details: [
               {
                 id: 62,
                 name: "WET XXX Single Pack",
@@ -838,11 +701,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "SEXSYNERGY",
-            details: [
               {
                 id: 63,
                 name: "SEXSYNERGY Single Pack",
@@ -854,11 +712,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Gold",
-            details: [
               {
                 id: 64,
                 name: "Gold 14K Single Pack",
@@ -868,11 +721,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Wow PantherJack Hammer",
-            details: [
               {
                 id: 65,
                 name: "Wow Panther Single Pack",
@@ -882,11 +730,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-          {
-            title: "Brahma",
-            details: [
               {
                 id: 66,
                 name: "Brahma Single Pack",
@@ -896,276 +739,6 @@ export const menuItem = [
                 price: 1000,
                 MOQ: "100 Box",
               },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Female Enhancement",
-    submenu: [
-      {
-        title: "Liquid Shots",
-        submenu: [
-          {
-            title: "Pink Pussy Cat",
-            details: [
-              {
-                id: 67,
-                name: "Pink Pussy Cat Liquid Shot ",
-                image: ["/Pills/Zesus-250k/Zesus-250k-Front-Side.png"],
-                percentage: "20%",
-                unit: "12 Bottles Per Box",
-                price: 2500,
-                MOQ: "20 Box",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: "Pills ",
-        submenu: [
-          {
-            title: "Kangaroo",
-            details: [
-              {
-                id: 68,
-                name: "Kangaroo Pink Single Pack Large Box",
-                image: ["/Pills/100k-Gold/100k-Gold-Front-Side.png"],
-                percentage: "20%",
-                unit: "36 Pack Per Box, 48 Box Per Carton",
-                price: 2500,
-                MOQ: "96 Box",
-              },
-            ],
-          },
-          {
-            title: "Pink Pussycat",
-            details: [
-              {
-                id: 69,
-                name: "Pink Pussycat Single Pack",
-                image: [
-                  "/Pills/Black-Panther-350k/Black-Panther-350k-Front-Side.png",
-                ],
-                percentage: "20%",
-                unit: "24 Pack 24 Pills Per Box",
-                price: 2500,
-                MOQ: "100 Box",
-              },
-              {
-                id: 70,
-                name: "Pink Pussycat Twin Pack",
-                image: [
-                  "/Pills/Magnum-Platinum-250k/Magnum-Platinum-250k-Front-Side.png",
-                ],
-                percentage: "20%",
-                unit: "24 Pack 48 Pills Per Box",
-                price: 2500,
-                MOQ: "100 Box",
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Condoms",
-    submenu: [
-      {
-        title: "Male Condoms",
-        submenu: [
-          {
-            title: "Magnum",
-            details: [
-              {
-                id: 71,
-                name: "Magnum Trojan Condom 3 in 1 Box",
-                image: ["/condom/3pcs latex.jpeg"],
-                percentage: "20%",
-                unit: "3 latex Per Box",
-                price: 1200,
-                MOQ: "1200 Box",
-              },
-              {
-                id: 72,
-                name: "Magnum Trojan Condom 40/48 in 1 Box",
-                image: ["/condom/48pcs latex.jpeg"],
-                percentage: "20%",
-                unit: "40/48 Latex Per Box",
-                price: 1000,
-                MOQ: "100 Box",
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Cannabies Accessories",
-    submenu: [
-      {
-        title: "Rolling Paper",
-        submenu: [
-          {
-            title: "RAW",
-            details: [
-              {
-                id: 73,
-                name: "RAW Classic Kingsize Slim Rolling Paper",
-                image: ["/Cannabies Accessories/1.png"],
-                percentage: "20%",
-                unit: "32 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
-                price: 1000,
-                MOQ: "100 Box",
-              },
-              {
-                id: 74,
-                name: "RAW Black Kingsize Slim Rolling Paper",
-                image: ["/Cannabies Accessories/2.png"],
-                percentage: "20%",
-                unit: "32 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
-                price: 1200,
-                MOQ: "100 Box",
-              },
-              {
-                id: 75,
-                name: "RAW Kingsize with Tips Rolling Paper",
-                image: ["/Cannabies Accessories/3.png"],
-                percentage: "20%",
-                unit: "32 Leaves Per Booklets, 24 Booklets Per Box, 40 Box Per Carton",
-                price: 1200,
-                MOQ: "100 Box",
-              },
-            ],
-          },
-          {
-            title: "OCB",
-            details: [
-              {
-                id: 76,
-                name: "OCB Premium Slim Rolling Paper",
-                image: ["/Cannabies Accessories/4.png"],
-                percentage: "20%",
-                unit: "32 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
-                price: 1000,
-                MOQ: "100 Box",
-              },
-              {
-                id: 77,
-                name: "OCB Premium Slim with Tips Rolling Paper",
-                image: ["/Cannabies Accessories/5.png"],
-                percentage: "20%",
-                unit: "32 Leaves Per Booklets, 32 Booklets Per Box, 24 Box Per Carton",
-                price: 1200,
-                MOQ: "100 Box",
-              },
-              {
-                id: 78,
-                name: "OCB Brown Slim Rolling Paper",
-                image: ["/Cannabies Accessories/6.png"],
-                percentage: "20%",
-                unit: "32 Leaves Per Booklets, 32 Booklets Per Box, 24 Box Per Carton",
-                price: 1200,
-                MOQ: "100 Box",
-              },
-            ],
-          },
-          {
-            title: "Big Bambu",
-            details: [
-              {
-                id: 79,
-                name: "Big Bambu Classic Rolling Paper",
-                image: ["/Cannabies Accessories/1.png"],
-                percentage: "20%",
-                unit: "33 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
-                price: 2000,
-                MOQ: "100 Box",
-              },
-              {
-                id: 80,
-                name: "Big Bambu Pure Hemp Paper",
-                image: ["/Cannabies Accessories/2.png"],
-                percentage: "20%",
-                unit: "33 Leaves Per Booklets, 50 Booklets Per Box, 50 Box Per Carton",
-                price: 2000,
-                MOQ: "100 Box",
-              },
-            ],
-          },
-          {
-            title: "Elements",
-            details: [
-              {
-                id: 81,
-                name: "Elements Kingsize Slim Papers",
-                image: ["/Cannabies Accessories/3.png"],
-                percentage: "20%",
-                unit: "33 Leaves Per Booklets, 50 Booklets Per Box",
-                price: 1000,
-                MOQ: "100 Box",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: "Cone Paper",
-        submenu: [
-          {
-            title: "RAW",
-            details: [
-              {
-                id: 82,
-                name: "RAW Cone 1 1/4 Classic 6PK",
-                image: ["/Cannabies Accessories/4.png"],
-                percentage: "20%",
-                unit: "32 Cones Per Pack, 6 Pack Per Box, 24 Box Per Carton",
-                price: 1000,
-                MOQ: "100 Box",
-              },
-              {
-                id: 83,
-                name: "RAW Cone 1 1/4 Classic 6PK",
-                image: ["/Cannabies Accessories/5.png"],
-                percentage: "20%",
-                unit: "32 Cones Per Pack, 3 Pack Per Box, 24 Box Per Carton",
-                price: 1000,
-                MOQ: "100 Box",
-              },
-              {
-                id: 84,
-                name: "RAW 32 11/4 Classic Cones",
-                image: ["/Cannabies Accessories/6.png"],
-                percentage: "20%",
-                unit: "32 Cones Per Pack, 3 Pack Per Box, 24 Box Per Carton",
-                price: 1000,
-                MOQ: "100 Box",
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-];
-export const getProductById = (id) => {
-  for (let i = 0; i < menuItem.length; i++) {
-    const menu = menuItem[i];
-    for (let j = 0; j < menu.submenu.length; j++) {
-      const subCategory = menu.submenu[j];
-      const product = subCategory.submenu.find((product) =>
-        product.details.find((p) => p.id === Number(id))
-      );
-      if (product) {
-        return product.details.find((p) => p.id === Number(id));
-      }
+        ]
     }
-  }
-  return null; // product not found
-};
+]
