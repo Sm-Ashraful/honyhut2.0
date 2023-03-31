@@ -3,7 +3,7 @@ import { FaCaretDown } from "react-icons/fa";
 
 import { aboutInfo } from "../../utils/About-demo";
 
-const AboutUs = ({ props }) => {
+const AboutUs = () => {
   const [index, setIndex] = useState(0);
   const [headingText, setHeadingText] = useState("");
 
