@@ -7,18 +7,12 @@ import categoryItem from "../../utils/category-demo-data";
 
 const AllProducts = () => {
   return (
-    <div className="padding_inside relative top-36 md:top-48">
-      <div className="grid grid-cols-4 gap-[10px] h-full relative">
-        <div
-          className="fixed mr-0"
-          style={{ width: `calc((100% / 4) - 10px)` }}
-        >
+    <div className="relative top-36 md:top-48 md:px-4">
+      <div className="md:grid md:grid-cols-4 w-full md:gap-[10px] h-full relative">
+        <div className="md:fixed w-full h-[6rem] md:mr-0 md:block grid-cols-width">
           <Products categories={categoryItem} />
         </div>
-        <div
-          className="col-span-3 relative w-full"
-          style={{ left: `calc((100% / 4))` }}
-        >
+        <div className="col-span-3 relative w-full grid-cols-left ">
           {allProducts.map((category, idx) => {
             return <MaleProducts category={category} key={idx} />;
           })}
@@ -27,5 +21,4 @@ const AllProducts = () => {
     </div>
   );
 };
-
 export default AllProducts;
