@@ -27,9 +27,9 @@ const BrandName = () => {
         <hr className="h-[2px] bg-secondary" />
         <div className="pt-5 pl-5">
           <p className="text-lg font-bold">
-            Related {product.details ? "Products" : "Categories"}
+            Related {product && product.details ? "Products" : "Categories"}
           </p>
-          {product.details
+          {product && product.details
             ? product.details.map((item: any, index: any) => {
                 console.log("");
                 return <p className="text-lg pl-5">{item.name}</p>;
