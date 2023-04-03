@@ -41,7 +41,7 @@ const Categories = () => {
       <h2 className="mb-0 text-primary-red md:text-center">Top Categories</h2>
       <hr className="h-[2px] mt-[5px]  bg-gray border-0" />
       <div
-        className="grid grid-cols-2 md:flex justify-evenly gap-[10px] rounded-md pt-5"
+        className="grid grid-cols-2 md:flex flex-wrap justify-center gap-[10px] rounded-md pt-5"
         ref={cardBoxRef}
       >
         {category.map((item, index) => {

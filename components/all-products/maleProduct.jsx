@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CommonCard from "../CommonCard";
 import people from "../../utils/fav-demo-data";
 
-const MaleProducts = ({ item }) => {
+const MaleProducts = ({ category }) => {
   const [currentProducts, setCurrentProducts] = useState(null);
   const [submenuToggle, setSubmenuToggle] = useState(-1);
 
@@ -21,75 +21,27 @@ const MaleProducts = ({ item }) => {
   };
 
   return (
-    <section className="h-auto my-10 pb-5 relative shadow-allIn max-w-full">
-      <div className="padding_inside w-auto">
-        <div className="shadow-sm">
-          <h3>{item.title}</h3>
-        </div>
-
-        <div className="md:pt-3 max-w-full">
-          {item.submenu.map((subCategory) => {
-            return (
-              <>
-                <div className="pt-5" key={subCategory.title}>
-                  <button className="text-xl md:text-2xl font-bold text-secondary hover:text-honey shadow-sm rounded hover:bg-white hover:rounded">
-                    {subCategory.title}
-                  </button>
-                </div>
-                <hr className="h-px my-2  bg-gray border-0 dark:bg-gray" />
-
-                <div className="w-full overflow-x-auto x-scrollable-content">
-                  <div className="flex w-full cursor-pointer">
-                    {subCategory.submenu.map((product, index) => {
-                      return (
-                        <div>
-                          <p
-                            className="mr-5 bg-primary-red text-primary p-2 rounded-full text-sm "
-                            key={index}
-                            style={{ whiteSpace: "nowrap" }}
-                            onClick={() => handleProduct(product, subCategory)}
-                          >
-                            {product.title}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                <div
-                  className="flex flex-wrap items-center "
-                  style={{ flexWrap: "wrap" }}
-                >
-                  {subCategory.submenu.map((products, idx) => {
-                    return (
-                      <div
-                        className={`pt-5 grow ${
-                          currentProducts &&
-                          currentProducts.title === products.title
-                            ? "order-1"
-                            : ""
-                        }`}
-                        key={idx}
-                      >
-                        <div className="flex flex-wrap justify-around items-center ">
-                          {products.details.map((item, idx) => {
-                            return (
-                              <span key={idx}>
-                                <CommonCard product={item} percentage="hot" />
-                              </span>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </>
-            );
-          })}
-        </div>
-      </div>
+    <section className="h-auto relative  max-w-full pt-4">
+      {category.subCategory.map((subCategory, idx) => {
+        return (
+          <div className="w-auto shadow-allIn  pb-10">
+            <div className="border-b-2 bg-secondary text-primary flex justify-center items-center py-[10px]">
+              <h3 className="uppercase text-center mb-0">
+                {subCategory.title}
+              </h3>
+            </div>
+            <div className="md:pt-3 max-w-full flex flex-wrap justify-center items-center gap-[2px] md:gap-[.75rem]">
+              {subCategory.items.map((product) => {
+                return (
+                  <span key={idx}>
+                    <CommonCard product={product} percentage="hot" />
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
     </section>
   );
 };
