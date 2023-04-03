@@ -18,6 +18,17 @@ const BrandName = () => {
   const productTitle = router.query;
   const product = getProductByBrandName(menuItem, productTitle);
 
+  interface ProductItem {
+    id: number;
+    name: string;
+    image: [];
+    percentage: string;
+    unit: string;
+    price: number;
+    MOQ: string;
+    // add other properties if necessary
+  }
+
   return (
     <div className="relative md:grid grid-cols-4 gap-[10px] top-36 md:top-48 md:grid-cols-4 w-full h-auto mb-10">
       <div className="col-span-1 bg-white">
@@ -31,32 +42,25 @@ const BrandName = () => {
           </p>
           {product && product.details
             ? product.details.map((item: any, index: any) => {
-                console.log("");
                 return <p className="text-lg pl-5">{item.name}</p>;
               })
-            : product.submenu.map((item: any) => (
+            : product &&
+              product.submenu.map((item: any) => (
                 <p className="text-lg pl-5">{item.title}</p>
               ))}
         </div>
       </div>
-      <div className="col-span-3">
-        <h2 className=" mb-2 text-primary-red">
-          <span>{product.title}</span>
-        </h2>
-        <hr className="h-[2px] bg-secondary" />
-        <div className="flex justify-start flex-wrap h-auto pt-[10px]">
-          {product.details
-            ? product.details.map((item: any, index: any) => {
-                return (
-                  <Link href={`/product/${item.id}`} className="pr-5">
-                    <CommonCard key={index} product={item} percentage={`20%`} />
-                  </Link>
-                );
-              })
-            : product.submenu.map((singleProduct: any, index: any) => {
-                return singleProduct.details.map((item: any, index: any) => {
+      {product && (
+        <div className="col-span-3">
+          <h2 className=" mb-2 text-primary-red">
+            <span>{product.title}</span>
+          </h2>
+          <hr className="h-[2px] bg-secondary" />
+          <div className="flex justify-start flex-wrap h-auto pt-[10px]">
+            {product.details
+              ? product.details.map((item: any, index: any) => {
                   return (
-                    <Link href={`/product/${item.id}`}>
+                    <Link href={`/product/${item.id}`} className="pr-5">
                       <CommonCard
                         key={index}
                         product={item}
@@ -64,10 +68,23 @@ const BrandName = () => {
                       />
                     </Link>
                   );
-                });
-              })}
+                })
+              : product.submenu.map((singleProduct: any, index: any) => {
+                  return singleProduct.details.map((item: any, index: any) => {
+                    return (
+                      <Link href={`/product/${item.id}`}>
+                        <CommonCard
+                          key={index}
+                          product={item}
+                          percentage={`20%`}
+                        />
+                      </Link>
+                    );
+                  });
+                })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
