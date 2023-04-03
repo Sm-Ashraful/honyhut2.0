@@ -46,15 +46,15 @@ const BrandName = () => {
         <hr className="h-[2px] bg-secondary" />
         <div className="flex justify-start flex-wrap h-auto pt-[10px]">
           {product.details
-            ? product.details.map((item, index) => {
+            ? product.details.map((item: any, index: any) => {
                 return (
                   <Link href={`/product/${item.id}`} className="pr-5">
                     <CommonCard key={index} product={item} percentage={`20%`} />
                   </Link>
                 );
               })
-            : product.submenu.map((singleProduct, index) => {
-                return singleProduct.details.map((item, index) => {
+            : product.submenu.map((singleProduct: any, index: any) => {
+                return singleProduct.details.map((item: any, index: any) => {
                   return (
                     <Link href={`/product/${item.id}`}>
                       <CommonCard
