@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { menuItem } from "../../utils/menu-item";
 
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+import Link from "next/link";
 
 const CategoryNav = () => {
   const [headingText, setHeadingText] = useState("");
@@ -72,9 +73,12 @@ const CategoryNav = () => {
                               {subLinks.submenu &&
                                 subLinks.submenu.map((subLink) => {
                                   return (
-                                    <a className="py-1 pl-20 text-black">
+                                    <Link
+                                      href={`/brand-name/${subLink.title}`}
+                                      className="py-1 pl-20 text-black"
+                                    >
                                       {subLink.title}
-                                    </a>
+                                    </Link>
                                   );
                                 })}
                             </div>

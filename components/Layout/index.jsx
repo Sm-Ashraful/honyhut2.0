@@ -7,7 +7,7 @@ import BottomMenu from "../Bottom-menu";
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       {children}
       <BottomMenu />

@@ -1177,3 +1177,21 @@ export const getProductById = (id) => {
   }
   return null; // product not found
 };
+export const getProductByBrandName = (menuItems, title) => {
+  const productTitle = title.productTitle;
+  for (const menuItem of menuItems) {
+    if (menuItem.submenu) {
+      for (const product of menuItem.submenu) {
+        if (product.title === productTitle) {
+          return product;
+        } else {
+          const subProduct = getProductByBrandName([product], title);
+          if (subProduct) {
+            return subProduct;
+          }
+        }
+      }
+    }
+  }
+  return null;
+};

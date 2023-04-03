@@ -64,17 +64,17 @@ const ProCategory = () => {
               selectCategory.submenu.map((subCategory, index) => {
                 return (
                   <div className="overflow-hidden">
-                    <p className="border-b">
+                    <p className="border-b mb-5">
                       <span>{subCategory.title}</span>
                     </p>
-                    <div className="flex flex-wrap justify-start">
+                    <div className="flex flex-wrap justify-start shadow-allIn">
                       {subCategory.submenu.map((item, index) => {
                         return (
-                          <div className=" p-5">
-                            <p className="border-b-2 border-b-honey">
+                          <div className="grid grid-cols-1 gap-2 py-5 px-2 ">
+                            <p className="border-b-2 mr-5 border-b-honey">
                               <strong className="">{item.title}</strong>
                             </p>
-                            <div className="flex justify-center space-x-5 gap-5 flex-wrap py-5">
+                            <div className="flex gap-[10px] pt-5 justify-between items-center">
                               {item.details.map((product, index) => {
                                 return (
                                   <Link href={`/product/${item.id}`}>

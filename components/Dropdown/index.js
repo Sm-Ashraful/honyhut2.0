@@ -2,6 +2,7 @@ import React from "react";
 import MenuItems from "../Menu-items";
 import DropdownModal from "../dropdownModal";
 import styles from "./style.module.css";
+import Link from "next/link";
 
 const Dropdown = ({ submenus, depthLevel, dropdown }) => {
   depthLevel = depthLevel + 1;
@@ -27,11 +28,16 @@ const Dropdown = ({ submenus, depthLevel, dropdown }) => {
             className={`py-5 px-5 flex flex-col h-full shadow-right ${width}`}
           >
             <div>
-            <span className=" text-primary-red border-b-2">
-              {dropMenu.title}
-            </span>
-            
+              <span className=" text-primary-red border-b-2">
+                {dropMenu.title}
+              </span>
             </div>
+            <Link
+              href={`/brand-name/${dropMenu.title}`}
+              className=" text-primary-red border-b-2"
+            >
+              {dropMenu.title}
+            </Link>
             <DropdownModal items={dropMenu} />
           </div>
         );
