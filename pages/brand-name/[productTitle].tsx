@@ -30,10 +30,11 @@ const BrandName = () => {
             Related {product.details ? "Products" : "Categories"}
           </p>
           {product.details
-            ? product.details.map((item, index) => {
+            ? product.details.map((item: any, index: any) => {
+                console.log("");
                 return <p className="text-lg pl-5">{item.name}</p>;
               })
-            : product.submenu.map((item) => (
+            : product.submenu.map((item: any) => (
                 <p className="text-lg pl-5">{item.title}</p>
               ))}
         </div>
