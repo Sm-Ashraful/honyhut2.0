@@ -9,6 +9,7 @@ import RecommendProduct from "@/components/RecommandForYou";
 import { useRouter } from "next/router";
 
 import { getProductById } from "../../utils/menu-item";
+import { FaHome } from "react-icons/fa";
 
 const Product = () => {
   const [products, setProducts] = useState(RelProductData);
@@ -16,13 +17,31 @@ const Product = () => {
   const router = useRouter();
   const productId = router.query.productId;
   const product = getProductById(productId);
-
+  const pathName = router.pathname;
+  const path = pathName.split("/");
+  const removeId = path.pop();
+  product && path.push(product.name);
   if (!product) {
     return <div className="w-screen h-screen text-center">Loading...</div>;
   }
 
   return (
     <div className="relative grid  top-36 md:top-48 md:grid-cols-4">
+      <div className="px-4 bg-white py-[10px] flex">
+        <p className="mb-0  text-xl font-bold">
+          <FaHome className="text-secondary" />
+        </p>
+        <p>
+          {path.map((linkName) => {
+            return (
+              <span>
+                <span className="mx-2"> {"/"} </span>{" "}
+                <span className="capitalize underline">{linkName}</span>
+              </span>
+            );
+          })}
+        </p>
+      </div>
       <div
         className="md:border-r border-gray dark:border-b-gray md:col-span-3"
         id="mainElement"
@@ -30,9 +49,7 @@ const Product = () => {
         <ProductCatalog props={product} />
         <RecommendProduct top={`0`} className={false} />
       </div>
-
       {/* you may also like section*/}
-
       <aside
         className="md:col-span-1 my-5 md:flex flex-col padding_inside items-center"
         id="asideElement"

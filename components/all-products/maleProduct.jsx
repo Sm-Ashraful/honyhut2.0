@@ -9,13 +9,17 @@ const MaleProducts = ({ category }) => {
     <section className="h-auto relative  max-w-full pt-4">
       {category.subCategory.map((subCategory, idx) => {
         return (
-          <div className="w-auto shadow-allIn  pb-10">
-            <div className="md:pt-3 max-w-full flex flex-wrap justify-center md:justify-start items-center gap-[2px] md:gap-[.75rem]">
+          <div className="pb-10">
+            <div className="md:pt-3 max-w-full grid grid-cols-2 md:grid-cols-5 gap-[5px] md:gap-[10px] mx-2">
               {subCategory.items.map((product) => {
                 return (
-                  <span key={idx} className="md:ml-5 md:mt-5 mt-2 mx-2">
+                  <Link
+                    href={`/product/${product.id}`}
+                    key={idx}
+                    className=" md:mt-5 mt-2"
+                  >
                     <CommonCard product={product} percentage="hot" />
-                  </span>
+                  </Link>
                 );
               })}
             </div>
