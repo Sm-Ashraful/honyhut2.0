@@ -40,6 +40,12 @@ body {
   body {
     font-size: 19px;
   }
+  .grid-cols-width {
+    width: calc((100% / 4) - 10px);
+  }
+  .grid-cols-left {
+    left: calc((100% / 3) + 10px);
+  }
 }
 .padding_inside {
   padding: 0 1rem;
