@@ -54,7 +54,21 @@ const CommonCard = ({ product, percentage }) => {
               {product.name}
             </p>
             <p className="md:text-xl font-bold text-center">
-              Price: {product.price}$
+              <span>Price: </span>
+              {typeof product.offer === "number" ? (
+                <>
+                  <span className={`${product.offer ? "line-through" : ""}`}>
+                    ${product.price}
+                  </span>
+                  {product.offer && (
+                    <span className="ml-3 text-primary-red">
+                      ${product.price - (product.price * product.offer) / 100}
+                    </span>
+                  )}
+                </>
+              ) : (
+                <span>${product.price}</span>
+              )}
             </p>
             <p className="w-full h-auto flex justify-center space-x-2 items-center">
               <ReviewStar
@@ -87,11 +101,11 @@ const CommonCard = ({ product, percentage }) => {
               </span>
             </div>
           </div>
-          {percentage && (
+          {product.offer && (
             <div
               className={`absolute top-2 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
             >
-              <OfferPercent percentage={percentage} />
+              <OfferPercent percentage={product.offer} />
             </div>
           )}
           <div className="absolute  bottom-1/2 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000">

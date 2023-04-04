@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { IoFilter, IoArrowDown } from "react-icons/io5";
-import { FaHome } from "react-icons/fa";
+
 import { useRouter } from "next/router";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -11,9 +11,7 @@ import Sidebar from "../Sidebar";
 
 const Products = ({ categories }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const route = useRouter();
-  const pathName = route.pathname;
-  const path = pathName.split("/");
+
   const dispatch = useDispatch();
 
   const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
@@ -42,21 +40,6 @@ const Products = ({ categories }) => {
             <span>
               <IoArrowDown />
             </span>
-          </p>
-        </div>
-        <div className="px-4 bg-white py-[10px] flex">
-          <p className="mb-0  text-xl font-bold">
-            <FaHome className="text-secondary" />
-          </p>
-          <p>
-            {path.map((linkName) => {
-              return (
-                <span>
-                  <span className="mx-2"> {"/"} </span>{" "}
-                  <span className="capitalize">{linkName}</span>
-                </span>
-              );
-            })}
           </p>
         </div>
       </div>

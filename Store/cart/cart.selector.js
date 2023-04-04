@@ -10,7 +10,12 @@ export const selectCartCount = (state) =>
 
 export const selectCartTotal = (state) =>
   state.cart.cartItems.reduce(
-    (total, cartItem) => total + cartItem.quantity * cartItem.price,
+    (total, cartItem) =>
+      total +
+      cartItem.quantity *
+        (typeof cartItem.offer === "number"
+          ? cartItem.price - (cartItem.price * cartItem.offer) / 100
+          : cartItem.price),
     0
   );
 
