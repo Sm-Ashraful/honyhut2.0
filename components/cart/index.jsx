@@ -20,7 +20,7 @@ const CartNav = ({ headingLine, view, goto }) => {
   return (
     <div>
       {isCartOpen && (
-        <div className="heightFullBody bg-white higherPriority absolute top-12 md:right-3 -right-6 flex justify-center md:w-96 w-72">
+        <div className="min-h-[60vh] max-h-auto bg-white higherPriority absolute top-12 md:right-3 -right-6 flex justify-center md:w-96 w-72">
           <div className="w-full">
             <div className="relative flex justify-center items-center p-6   ">
               <p className="text-2xl text-secondary font-bold border-b-2">
