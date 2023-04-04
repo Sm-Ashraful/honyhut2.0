@@ -4,6 +4,7 @@ export const menuItem = [
     submenu: [
       {
         title: "Honey",
+        
         submenu: [
           {
             title: "Royal Honey VIP",
@@ -12,7 +13,7 @@ export const menuItem = [
                 id: 1,
                 name: "Royal Honey VIP 20g Sachet",
 
-                image: ["/Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
+                image: ["/Honey/Royal Honey VIP/Royal Honey VIP.png"],
                 percentage: "20%",
                 unit: "12 Sachet Per Box, 48 Box Per Carton",
                 price: 27,
@@ -21,7 +22,6 @@ export const menuItem = [
               {
                 id: 2,
                 name: "Royal Honey VIP 22g Pouches",
-
                 image: ["/Honey/Royal Honey VIP/RoYAL hONEY.jpeg"],
                 percentage: "20%",
                 unit: "15 Pouches Per Box, 28 Box Per Carton",
@@ -37,7 +37,6 @@ export const menuItem = [
               {
                 id: 3,
                 name: "Etumax Honey 20g Sachet",
-
                 image: ["/Honey/Etumax Honey/Etumax(4).jpeg"],
                 percentage: "20%",
                 unit: "12 Sachet Per Box, 60 Box Per Carton",
@@ -46,6 +45,15 @@ export const menuItem = [
               },
               {
                 id: 4,
+                name: "Etumax Honey VIP",
+                image: ["/Honey/Etumax Honey/Etumax Honey.png"],
+                percentage: "20%",
+                unit: "12 Sachet Per Box, 60 Box Per Carton",
+                price: 27,
+                MOQ: "120 Box",
+              },
+              {
+                id: 5,
                 name: "Etumax Honey 22g Pouches",
 
                 image: ["/Honey/Etumax Honey/Etumax.jpeg"],
@@ -60,17 +68,17 @@ export const menuItem = [
             title: "Black Bull",
             details: [
               {
-                id: 5,
+                id: 6,
                 name: "Black Bull Honey 22g Pouches",
 
-                image: ["/Honey/Black Bull Honey/Black Bull Honey.jpg"],
+                image: ["/Honey/Black Bull Honey/Black Bull Honey.png"],
                 percentage: "20%",
                 unit: "12 Poches Per Box, 48 Box Per Carton",
                 price: 35,
                 MOQ: "96 Box",
               },
               {
-                id: 6,
+                id: 7,
                 name: "Black Bull Honey 22g Pouches",
                 image: ["/Honey/Black Bull Honey/Black Bull.jpeg"],
 
@@ -85,7 +93,7 @@ export const menuItem = [
             title: "Red Bull",
             details: [
               {
-                id: 7,
+                id: 8,
                 name: "Red Bull Honey 22g Pouches",
 
                 image: ["/Honey/Red Bull Honey/Red Bull Honey.jpeg"],
@@ -95,7 +103,7 @@ export const menuItem = [
                 MOQ: "80 Box",
               },
               {
-                id: 8,
+                id: 9,
                 name: "Red Bull Honey 22g Pouches",
 
                 image: ["/Honey/Red Bull Honey/Red Bull Honey.jpeg"],
@@ -110,7 +118,7 @@ export const menuItem = [
             title: "Blue Bull",
             details: [
               {
-                id: 9,
+                id: 10,
                 name: "Blue Bull Honey 22g Pouches",
 
                 image: ["/Honey/Blue Bull Honey/Blue Bull.jpeg"],
@@ -120,7 +128,7 @@ export const menuItem = [
                 MOQ: "80 Box",
               },
               {
-                id: 10,
+                id: 11,
                 name: "Blue Bull Honey 22g Pouches",
 
                 image: ["/Honey/Blue Bull Honey/Blue Bull.jpeg"],
@@ -135,10 +143,10 @@ export const menuItem = [
             title: "Leopard Miracle",
             details: [
               {
-                id: 11,
+                id: 12,
                 name: "Leopard Miracle Honey 15g Sachet",
                 image: [
-                  "/Honey/Leopard Miracle Honey VIP/Leopard Miracle VIP.jpeg",
+                  "/Honey/Leopard Miracle Honey VIP/Leopard Miracle VIP.png",
                 ],
                 percentage: "20%",
                 unit: "12 Sachet Per Box, 40 Box Per Carton",
@@ -146,7 +154,7 @@ export const menuItem = [
                 MOQ: "80 Box",
               },
               {
-                id: 12,
+                id: 13,
                 name: "Leopard Miracle Honey 22g Pouches",
                 image: [
                   "/Honey/Leopard Miracle Honey VIP/Leopard Miracle VIP.jpeg",
