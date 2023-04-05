@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import CommonCard from "../CommonCard";
-import people from "../../utils/fav-demo-data";
 import { FaHome } from "react-icons/fa";
 
 const MaleProducts = ({ category }) => {
@@ -30,15 +29,15 @@ const MaleProducts = ({ category }) => {
       {category.subCategory.map((subCategory, idx) => {
         return (
           <div className="pb-10">
-            <div className="md:pt-3 max-w-full grid grid-cols-2 md:grid-cols-5 gap-[5px] md:gap-[10px] mx-2">
-              {subCategory.items.map((product) => {
+            <div className="md:pt-3 max-w-full grid grid-cols-2 md:grid-cols-4 gap-[5px] md:gap-[10px] mx-2">
+              {subCategory.items.map((product, index) => {
                 return (
                   <Link
                     href={`/product/${product.id}`}
                     key={idx}
                     className=" md:mt-5 mt-2"
                   >
-                    <CommonCard product={product} percentage="hot" />
+                    <CommonCard key={index} product={product} />
                   </Link>
                 );
               })}

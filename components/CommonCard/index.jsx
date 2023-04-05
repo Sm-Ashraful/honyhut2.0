@@ -16,7 +16,7 @@ import OfferPercent from "../offer";
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { BsBagPlus, BsEyeFill } from "react-icons/bs";
 
-const CommonCard = ({ product, percentage }) => {
+const CommonCard = ({ product }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
@@ -41,7 +41,7 @@ const CommonCard = ({ product, percentage }) => {
         <div
           className={`relative bg-white px-[10px] py-4 transition-all duration-300 hover:scale-95 cursor-pointer group  md:w-auto shadow-allIn rounded-md`}
         >
-          <div className="w-full h-32 text-center flex justify-center items-center py-4 overflow-hidden">
+          <div className="w-full h-36 text-center flex justify-center items-center overflow-hidden ">
             <div className="relative ">
               <Image src={product.image[0]} width="140" height="140" cover />
             </div>
@@ -62,12 +62,16 @@ const CommonCard = ({ product, percentage }) => {
                   </span>
                   {product.offer && (
                     <span className="ml-3 text-primary-red">
-                      ${product.price - (product.price * product.offer) / 100}
+                      $
+                      {(
+                        product.price -
+                        (product.price * product.offer) / 100
+                      ).toFixed(2)}
                     </span>
                   )}
                 </>
               ) : (
-                <span>${product.price}</span>
+                <span>${product.price.toFixed(2)}</span>
               )}
             </p>
             <p className="w-full h-auto flex justify-center space-x-2 items-center">

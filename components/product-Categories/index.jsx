@@ -48,7 +48,7 @@ const ProCategory = () => {
 
   return (
     selectCategory && (
-      <>
+      <section className="h-auto relative  max-w-full ">
         <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center shadow-md">
           <p className="mb-0  text-xl font-bold">
             <FaHome className="text-secondary" />
@@ -64,32 +64,40 @@ const ProCategory = () => {
             })}
           </p>
         </div>
-        <div className="w-full grid md:grid-cols-5 gap-5">
-          <div className="col-span-1 bg-white hidden md:block"></div>
-          <div className="w-full md:col-span-4 ">
-            <h2 className="shadow-md">
+        <div className="w-full pb-10">
+          <div className="w-full">
+            <h2 className="shadow-hnx md:text-center text-secondary">
               <span className="">{selectCategory.title}</span>
             </h2>
             <div>
               {deptLevel > 0 ? (
-                <div>
+                <div className="pb-5">
                   {selectCategory.subCategory.map((subCategory, index) => {
                     return (
                       <div className="overflow-hidden">
                         <p className="border-b mb-5">
                           <span>{subCategory.title}</span>
                         </p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px]">
+                          {subCategory.items.map((product, idx) => {
+                            return <CommonCard product={product} key={idx} />;
+                          })}
+                        </div>
                       </div>
                     );
                   })}
                 </div>
               ) : (
-                <></>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px] pb-5">
+                  {selectCategory.items.map((product, idx) => {
+                    return <CommonCard product={product} key={idx} />;
+                  })}
+                </div>
               )}
             </div>
           </div>
         </div>
-      </>
+      </section>
     )
   );
 };

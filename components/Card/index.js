@@ -15,6 +15,7 @@ import { addItemToFav } from "../../Store/favorite/favorite.action";
 import { selectFavItems } from "@/Store/favorite/favorite.selector";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
+import { BsEyeFill, BsBagPlus } from "react-icons/bs";
 
 const Card = ({ product, percentage }) => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -41,13 +42,13 @@ const Card = ({ product, percentage }) => {
         <div
           className={`relative shadow-allIn hover:scale-105 transition-all duration-500 bg-white rounded `}
         >
-          <div className="rounded w-[14.5rem]  cursor-pointer ">
+          <div className="rounded w-[14.5rem]  cursor-pointer shadow-allIn">
             <div className="w-full h-[10rem] flex flex-col relative">
               <div className="relative w-full h-full transition-all duration-500 hover:scale-110 rounded-md hover:skew-x-2 overflow-hidden">
                 <Image src={product.image[0]} alt={product.name} fill cover />
               </div>
               <div
-                className={`absolute w-full h-16  z-50 bottom-0 left-0  flex items-center gap-2 p-5`}
+                className={`absolute w-full h-16  z-50 top-0 -left-3  flex items-center gap-2 p-5`}
               >
                 <div className=" w-12 h-12  rounded-full text-center">
                   <span
@@ -60,14 +61,23 @@ const Card = ({ product, percentage }) => {
                   </span>
                 </div>
               </div>
-            </div>
-            {percentage && (
-              <div className={`${styles.percentage}`}>
-                <OfferPercent percentage={percentage} />
+              {product.offer && (
+                <div
+                  className={`absolute top-2 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
+                >
+                  <OfferPercent percentage={product.offer} />
+                </div>
+              )}
+              <div className="absolute  bottom-0 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000">
+                <div className="md:w-12 md:h-12 h-10 w-10  rounded-full text-center bg-primary">
+                  <span className="w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000">
+                    <BsEyeFill />
+                  </span>
+                </div>
               </div>
-            )}
+            </div>
 
-            <div className="py-3 px-5 space-y-2 leading-5">
+            <div className="relative py-3 px-5 space-y-2 leading-5">
               <div className="flex justify-between items-center text-sm">
                 <ReviewStar className={`flex text-honey`} />
                 <p>5 reviews</p>
@@ -89,19 +99,35 @@ const Card = ({ product, percentage }) => {
                 <span>48 Box Per Carton</span>
               </p>
 
-              <p className="flex space-x-8">
-                <strong className="text-sm">Price: </strong>
-                <strong className=" font-bold text-lg">${product.price}</strong>
+              <p className="md:text-xl font-bold">
+                <span>Price: </span>
+                {typeof product.offer === "number" ? (
+                  <>
+                    <span className={`${product.offer ? "line-through" : ""}`}>
+                      ${product.price}
+                    </span>
+                    {product.offer && (
+                      <span className="ml-3 text-primary-red">
+                        ${product.price - (product.price * product.offer) / 100}
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  <span>${product.price}</span>
+                )}
               </p>
               {/* <div className="text-center pt-5 underline text-tertiary">
                 View
               </div> */}
               <div className="w-full">
                 <Button
-                  className="w-full bg-primary text-black hover:bg-honey hover:text-black text-lg shadow-md"
+                  className="w-full bg-secondary text-white hover:bg-honey hover:text-black text-lg shadow-md flex items-center justify-center"
                   onClick={handleAddToCart}
                 >
-                  Add to cart
+                  <span className="pr-2">
+                    <BsBagPlus />
+                  </span>
+                  <span> Add to cart</span>
                 </Button>
               </div>
             </div>

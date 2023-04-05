@@ -61,7 +61,7 @@ const ProductCatalog = ({ product }) => {
         <p className="mb-0  text-xl font-bold">
           <FaHome className="text-secondary" />
         </p>
-        <p>
+        <p className="text-lg">
           {path.map((linkName) => {
             return (
               <span>

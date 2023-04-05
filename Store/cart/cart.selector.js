@@ -7,6 +7,11 @@ export const selectCartCount = (state) =>
     (total, cartItem) => total + cartItem.quantity,
     0
   );
+export const selectCartTotalWithoutDiscount = (state) =>
+  state.cart.cartItems.reduce(
+    (total, cartItem) => total + cartItem.quantity * cartItem.price,
+    0
+  );
 
 export const selectCartTotal = (state) =>
   state.cart.cartItems.reduce(

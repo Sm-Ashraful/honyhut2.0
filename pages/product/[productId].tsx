@@ -7,6 +7,7 @@ import RelProductData, {
 } from "../../utils/products-demo";
 import ProductCatalog from "../../components/product-catalog";
 import RecommendProduct from "@/components/RecommandForYou";
+import people from "../../utils/fav-demo-data";
 
 import { useRouter } from "next/router";
 
@@ -41,7 +42,12 @@ const Product = () => {
           id="mainElement"
         >
           <ProductCatalog product={product} />
-          <RecommendProduct top={`0`} className={false} />
+          <RecommendProduct
+            top={`0`}
+            className={false}
+            products={people}
+            title={"Recommand For You"}
+          />
         </div>
       )}
       {/* you may also like section*/}
@@ -58,7 +64,7 @@ const Product = () => {
             if (index < 5) {
               return (
                 <Link href={`/product/${item.id}`}>
-                  <CommonCard key={index} product={item} percentage={`20%`} />
+                  <CommonCard key={index} product={item} />
                 </Link>
               );
             }

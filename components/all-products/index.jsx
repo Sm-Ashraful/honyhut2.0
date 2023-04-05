@@ -9,12 +9,8 @@ import { toggle } from "@/Store/slices/globalSlice";
 
 import Sidebar from "../Sidebar";
 
-const Products = ({ categories }) => {
+const FilterProducts = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const dispatch = useDispatch();
-
-  const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
 
   const handleMenuOnClick = (event) => {
     event.preventDefault();
@@ -47,4 +43,4 @@ const Products = ({ categories }) => {
   );
 };
 
-export default Products;
+export default FilterProducts;

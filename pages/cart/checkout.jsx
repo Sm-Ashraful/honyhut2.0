@@ -1,26 +1,102 @@
-import Head from "next/head";
-import Link from "next/link";
+import { useState } from "react";
+
+import { useRouter } from "next/router";
+import { FaHome } from "react-icons/fa";
+
 import CheckOut from "../../components/cart/cart";
 
 export default function Checkout() {
+  const [selected, setSelected] = useState("");
+  const route = useRouter();
+  const pathName = route.pathname;
+  const path = pathName.split("/");
+
+  const handleChange = (event) => {
+    setSelected(event.target.value);
+  };
+
   return (
     <>
-      <Head>
-        <title>Checkout</title>
-      </Head>
-
-      <main className="bg-primary h-auto relative top-36 md:top-48">
-        <div className="p-8 mx-8">
-          <h2 className="text-3xl font-bold mb-8 text-center bg-secondary text-white">
-            Checkout
-          </h2>
-
+      <main className="bg-primary h-auto relative top-36 md:top-52">
+        <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center shadow-md">
+          <p className="mb-0  text-xl font-bold">
+            <FaHome className="text-secondary" />
+          </p>
+          <p className="md:text-lg">
+            {path.map((linkName) => {
+              return (
+                <span>
+                  <span className="mx-2"> {"/"} </span>{" "}
+                  <span className="capitalize underline">{linkName}</span>
+                </span>
+              );
+            })}
+          </p>
+        </div>
+        <div className="flex justify-center items-center">
+          <div className="flex justify-between items-center my-6 mx-5 max-w-[580px] rounded-md ">
+            <label className="flex flex-col items-center text-lg relative h-4 bg-secondary rounded-md ">
+              <input
+                className="h-4 bg-secondary"
+                type="radio"
+                value="option1"
+                checked={selected === "option1"}
+                onChange={handleChange}
+              />
+              <span className="ml-2 text-gray">Shopping Cart</span>
+            </label>
+            <label className="flex flex-col items-center text-lg relative h-4 bg-secondary">
+              <input
+                className="h-4 bg-secondary"
+                type="radio"
+                value="option2"
+                checked={selected === "option2"}
+                onChange={handleChange}
+              />
+              <span className="ml-2 text-gray">Checkout</span>
+            </label>
+            <label className="flex flex-col items-center text-lg relative h-4 bg-secondary ">
+              <input
+                className="h-4 bg-secondary"
+                type="radio"
+                value="option3"
+                checked={selected === "option3"}
+                onChange={handleChange}
+              />
+              <span className="ml-2 text-gray">Shipping Address</span>
+            </label>
+            <label className="flex flex-col items-center text-lg relative h-4 bg-secondary  ">
+              <input
+                className="h-4 bg-secondary"
+                type="radio"
+                value="option4"
+                checked={selected === "option4"}
+                onChange={handleChange}
+              />
+              <span className="ml-2 text-gray">Payment</span>
+            </label>
+            <label className="flex flex-col items-center text-lg relative h-4 bg-secondary rounded-md ">
+              <input
+                className="h-4 bg-secondary"
+                type="radio"
+                value="option5"
+                checked={selected === "option5"}
+                onChange={handleChange}
+              />
+              <span className="ml-2 text-gray">Place Order</span>
+            </label>
+          </div>
+        </div>
+        <div className="mx-8">
           <div className="grid md:grid-cols-2 gap-8 w-full">
             <div className="w-full">
               <form className="space-y-2">
                 <div className="">
                   <div>
-                    <h1 htmlFor="name" className="block font-bold text-secondary mb-2">
+                    <h1
+                      htmlFor="name"
+                      className="block font-bold text-secondary mb-2"
+                    >
                       Billing Address
                     </h1>
                     <label htmlFor="name" className="block mb-2">
