@@ -18,7 +18,12 @@ const Products = ({ categories }) => {
 
   const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
 
-  const handleMenuOnClick = (event) => {
+  const handleFilterOnClick = (event) => {
+    event.preventDefault();
+    setIsOpen(true);
+  }; 
+
+  const handleShortOnClick = (event) => {
     event.preventDefault();
     setIsOpen(true);
   };
@@ -26,9 +31,10 @@ const Products = ({ categories }) => {
   return (
     <div>
       <div className=" w-full h-auto relative">
+
         <div className="md:border-b-2 bg-white w-full text-black  py-[10px] mb-2 flex justify-between px-5">
           <p
-            onClick={handleMenuOnClick}
+            onClick={handleFilterOnClick}
             className="mb-0  text-xl font-medium flex justify-center items-center gap-[5px]"
           >
             <Sidebar title={"Filter"} element={""} isOpen={isOpen} />
@@ -37,13 +43,18 @@ const Products = ({ categories }) => {
             </span>
             <span> Filter</span>
           </p>
-          <p className="mb-0  text-xl font-medium flex justify-center items-center gap-[5px]">
+
+          <p
+            onClick={handleShortOnClick}
+            className="mb-0  text-xl font-medium flex justify-center items-center gap-[5px]"
+          >
             <span>Short By</span>
             <span>
               <IoArrowDown />
             </span>
           </p>
         </div>
+
         <div className="px-4 bg-white py-[10px] flex">
           <p className="mb-0  text-xl font-bold">
             <FaHome className="text-secondary" />
