@@ -38,6 +38,7 @@ import {
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const isCartOpen = useSelector(selectCartOpen);
   const total = useSelector(selectCartCount);
@@ -53,6 +54,15 @@ const Header = () => {
   const favItems = useSelector(selectFavItems);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Change 768 to the breakpoint you're using in Tailwind CSS
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call the function initially to set the initial state
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -122,8 +132,9 @@ const Header = () => {
                 <div>
                   <div
                     className={styles.shopping_cart}
-                    onMouseEnter={handleCart}
-                    onMouseLeave={handleCart}
+                    onMouseEnter={!isMobile ? handleCart : undefined}
+                    onMouseLeave={!isMobile ? handleCart : undefined}
+                    onClick={isMobile ? handleCart : undefined}
                   >
                     <div className="relative mt-4 ml-1 text-3xl text-secondary">
                       <BsCart4 />

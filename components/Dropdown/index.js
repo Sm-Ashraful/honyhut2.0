@@ -27,11 +27,6 @@ const Dropdown = ({ submenus, depthLevel, dropdown }) => {
           <div
             className={`py-5 px-5 flex flex-col h-full shadow-right ${width}`}
           >
-            <div>
-              <span className=" text-primary-red border-b-2">
-                {dropMenu.title}
-              </span>
-            </div>
             <Link
               href={`/brand-name/${dropMenu.title}`}
               className=" text-primary-red border-b-2"

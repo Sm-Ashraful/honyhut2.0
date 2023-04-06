@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { IoFilter, IoArrowDown } from "react-icons/io5";
-import { FaHome } from "react-icons/fa";
+
 import { useRouter } from "next/router";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -9,14 +9,8 @@ import { toggle } from "@/Store/slices/globalSlice";
 
 import Sidebar from "../Sidebar";
 
-const Products = ({ categories }) => {
+const FilterProducts = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const route = useRouter();
-  const pathName = route.pathname;
-  const path = pathName.split("/");
-  const dispatch = useDispatch();
-
-  const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
 
   const handleFilterOnClick = (event) => {
     event.preventDefault();
@@ -55,6 +49,7 @@ const Products = ({ categories }) => {
           </p>
         </div>
 
+
         <div className="px-4 bg-white py-[10px] flex">
           <p className="mb-0  text-xl font-bold">
             <FaHome className="text-secondary" />
@@ -70,9 +65,10 @@ const Products = ({ categories }) => {
             })}
           </p>
         </div>
+
       </div>
     </div>
   );
 };
 
-export default Products;
+export default FilterProducts;

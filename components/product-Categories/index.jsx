@@ -1,24 +1,42 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
-import { menuItem } from "../../utils/menu-item";
+import { allProducts } from "../../utils/all-product";
 import CommonCard from "../CommonCard";
 import Link from "next/link";
+
+import { FaHome } from "react-icons/fa";
 
 const ProCategory = () => {
   const router = useRouter();
   const categoryName = router.query.categoryName;
   const [selectCategory, setSelectCategory] = useState(null);
   const [routeName, selectRouteName] = useState(categoryName);
+  const [deptLevel, setDeptLevel] = useState(0);
+  const pathName = router.pathname;
+  const path = pathName.split("/");
+  path.pop();
+  if (selectCategory) {
+    path.push(selectCategory.title);
+  }
 
   useEffect(() => {
-    menuItem.map((menu, index) => {
+    allProducts.map((menu, index) => {
       if (menu.title === categoryName) {
         setSelectCategory(menu);
+        setDeptLevel(1);
+      } else {
+        menu.subCategory.map((subCategory, idx) => {
+          if (subCategory.title === categoryName) {
+            setSelectCategory(subCategory);
+            setDeptLevel(0);
+          }
+        });
       }
     });
   }, []);
 
   useEffect(() => {
+    console.log("select categories: ", selectCategory);
     if (selectCategory) {
       selectRouteName(selectCategory.title);
     }
@@ -30,69 +48,56 @@ const ProCategory = () => {
 
   return (
     selectCategory && (
-      <div className="w-full grid md:grid-cols-5 gap-5">
-        <div className="col-span-1 bg-white hidden md:block">
-          <div className="px-3 py-10">
-            {menuItem.map((menu, index) => {
+      <section className="h-auto relative  max-w-full ">
+        <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center shadow-md">
+          <p className="mb-0  text-xl font-bold">
+            <FaHome className="text-secondary" />
+          </p>
+          <p>
+            {path.map((linkName) => {
               return (
-                <div key={index}>
-                  <p className="pb-5">
-                    <span onClick={() => setSelectCategory(menu)}>
-                      {menu.title}
-                    </span>
-                    <span>
-                      {menu.submenu.map((subCategories, index) => {
-                        return (
-                          <p className="pl-3">
-                            <span>{subCategories.title}</span>
-                          </p>
-                        );
-                      })}
-                    </span>
-                  </p>
-                </div>
+                <span>
+                  <span className="mx-2"> {"/"} </span>{" "}
+                  <span className="capitalize underline">{linkName}</span>
+                </span>
               );
             })}
+          </p>
+        </div>
+        <div className="w-full pb-10">
+          <div className="w-full">
+            <h2 className="shadow-hnx md:text-center text-secondary">
+              <span className="">{selectCategory.title}</span>
+            </h2>
+            <div>
+              {deptLevel > 0 ? (
+                <div className="pb-5">
+                  {selectCategory.subCategory.map((subCategory, index) => {
+                    return (
+                      <div className="overflow-hidden">
+                        <p className="border-b mb-5">
+                          <span>{subCategory.title}</span>
+                        </p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px]">
+                          {subCategory.items.map((product, idx) => {
+                            return <CommonCard product={product} key={idx} />;
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px] pb-5">
+                  {selectCategory.items.map((product, idx) => {
+                    return <CommonCard product={product} key={idx} />;
+                  })}
+                </div>
+              )}
+            </div>
           </div>
         </div>
-        <div className="w-full md:col-span-4 ">
-          <h2 className="text-center text-primary-red shadow-md">
-            <span className="border-b-2">{selectCategory.title}</span>
-          </h2>
-          <div>
-            {selectCategory &&
-              selectCategory.submenu.map((subCategory, index) => {
-                return (
-                  <div className="overflow-hidden">
-                    <p className="border-b mb-5">
-                      <span>{subCategory.title}</span>
-                    </p>
-                    <div className="flex flex-wrap justify-start shadow-allIn">
-                      {subCategory.submenu.map((item, index) => {
-                        return (
-                          <div className="grid grid-cols-1 gap-2 py-5 px-2 ">
-                            <p className="border-b-2 mr-5 border-b-honey">
-                              <strong className="">{item.title}</strong>
-                            </p>
-                            <div className="flex gap-[10px] pt-5 justify-between items-center">
-                              {item.details.map((product, index) => {
-                                return (
-                                  <Link href={`/product/${item.id}`}>
-                                    <CommonCard product={product} key={index} />
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
-      </div>
+      </section>
     )
   );
 };

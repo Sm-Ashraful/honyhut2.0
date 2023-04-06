@@ -5,6 +5,7 @@ import thunkMiddleware from "redux-thunk";
 import sidebarReducer from "./slices/globalSlice";
 import { cartReducer } from "./cart/cart.reducer";
 import { favReducer } from "./favorite/favorite.reducer";
+import { orderReducer } from "./customer/order/order.reducer";
 
 const makeStore = () =>
   configureStore({
@@ -12,6 +13,7 @@ const makeStore = () =>
       sidebar: sidebarReducer,
       cart: cartReducer,
       favorite: favReducer,
+      order: orderReducer,
     },
     devTools: true,
     middleware: (getDefaultMiddleware) =>
