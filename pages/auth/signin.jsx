@@ -1,14 +1,3 @@
-// This is account section
-{
-  /*//This section contains:
-  * sign in
-  * sign up
-  * forget password 
-  * 
-  Author: Munna 
-*/
-}
-
 import React from "react";
 
 import Link from "next/link";
@@ -27,7 +16,7 @@ const SignIn = () => {
         {/* Sign in section */}
         <div className="w-full py-5">
           <div className="text-center md:text-left  font-bold">
-            <span className="text-secondary">Hony</span>Hut
+            <span className="text-honey">Honey</span>Hut
             <span className="text-tertiary">.com</span>
           </div>
           <div>
@@ -39,19 +28,19 @@ const SignIn = () => {
             <div className="flex justify-center my-2">
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2"
+                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaFacebookF className="text-sm" />
               </a>
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2"
+                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaInstagram className="text-sm" />
               </a>
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2"
+                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaGoogle className="text-sm" />
               </a>
@@ -86,8 +75,8 @@ const SignIn = () => {
                   Remember me
                 </label>
                 <Link
-                  href="/forgotPass"
-                  className="text-sm md:text-base mt-1 cursor-pointer text-secondary"
+                  href="/auth/forgotPass"
+                  className="text-sm md:text-base mt-1 cursor-pointer text-secondary hover:text-honey"
                 >
                   Forgot your Password?
                 </Link>
@@ -95,18 +84,17 @@ const SignIn = () => {
 
               <Link
                 href="/auth/signin"
-                className=" border-2 border-secondary rounded-full px-12 py-2 inline-block font-semibold hover:bg-secondary hover:text-white"
+                className=" border-2 border-secondary rounded-full px-12 py-2 inline-block font-semibold hover:bg-honey"
               >
                 Sign In
               </Link>
               <div className=" flex ">
                 <p className="ml-2 py-4">
                   Don't you have account yet?
-                  <Link
-                    href="/auth/signup"
-                    className=" ml-2 px-4 py-4 text-secondary font-semibold"
-                  >
-                    Sign Up
+                  <Link href="/auth/signup">
+                    <button className=" ml-2 px-4 py-4 text-secondary font-semibold hover:text-honey">
+                      Sign Up
+                    </button>
                   </Link>
                 </p>
               </div>

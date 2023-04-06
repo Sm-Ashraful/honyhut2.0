@@ -127,6 +127,7 @@ const Header = () => {
                 >
                   <span className={`${styles.menu_button}`}></span>
                 </div>
+                
                 {/* cart section  */}
                 <div>
                   <div
