@@ -2,16 +2,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AiOutlineClose } from "react-icons/ai";
 
-const options = [
-  { value: "all", label: "All" },
-  { value: "Option 1", label: "Option 1" },
-  { value: "Option 2", label: "Option 2" },
-  { value: "Option 3", label: "Option 3" },
-];
 
-const FilterPage = () => {
+const FeaturedPage = () => {
   const [checkedItems, setCheckedItems] = useState({});
-  const [sliderValue, setSliderValue] = useState(0);
+
 
   const handleCheckboxChange = (event) => {
     setCheckedItems({
@@ -20,9 +14,6 @@ const FilterPage = () => {
     });
   };
 
-  const handleSliderChange = (event) => {
-    setSliderValue(event.target.value);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -42,7 +33,7 @@ const FilterPage = () => {
   }
 
   return (
-    <div className="bg-white higherPriority absolute left-0 top-0 bottom-0 p-8">
+    <div className="bg-white higherPriority absolute right-0 top-0 bottom-0 p-8">
         <form onSubmit={handleSubmit}>
 
           <div className="flex top-4 left-4 border border-l-0 border-r-0 border-t-0 pb-8">
@@ -50,7 +41,7 @@ const FilterPage = () => {
               SORT BY:
             </span>
             <p
-              className="absolute top-4 right-6 cursor-pointer hover:text-primary-red text-3xl"
+              className="absolute top-4 right-6 cursor-pointer hover:text-primary-red text-3xl transform transition-all hover:rotate-180 duration-700"
               onClick={close}
             >
               <AiOutlineClose />
@@ -58,90 +49,75 @@ const FilterPage = () => {
           </div>
 
             {/* Filter section  */}
-          <div className="flex flex-col mb-10 p-8">
+          <div className="flex flex-col mb-10 p-4">
 
-          {/* filter items  */}
-            <div className="flex flex-col mb-4 pb-8">
-              <span className="font-bold mb-2">Select Your items</span>
-              <label className="inline-flex items-center ml-2">
+          <label className="inline-flex items-center ml-2 cursor-pointer">
                 <input
-                  type="checkbox"
-                  className="form-checkbox h-5 w-5 text-gray"
-                  name="filterOption1"
-                  checked={checkedItems.filterOption1}
+                  type="radio"
+                  className="form-radio h-5 w-5 text-gray"
+                  name="filterOption"
+                  checked={checkedItems.filterOption}
                   onChange={handleCheckboxChange}
                 />
-                <span className="ml-2 text-gray">All</span>
+                <span className="ml-2 text-gray hover:text-honey">Featured</span>
               </label>
-              <label className="inline-flex items-center ml-2">
+              <label className="inline-flex items-center ml-2 cursor-pointer">
                 <input
-                  type="checkbox"
-                  className="form-checkbox h-5 w-5 text-gray"
-                  name="filterOption2"
-                  checked={checkedItems.filterOption2}
+                  type="radio"
+                  className="form-radio h-5 w-5 text-gray"
+                  name="filterOption"
+                  checked={checkedItems.filterOption}
                   onChange={handleCheckboxChange}
                 />
-                <span className="ml-2 text-gray">Men</span>
+                <span className="ml-2 text-gray hover:text-honey">Best Selling</span>
               </label>
-              <label className="inline-flex items-center ml-2">
+              <label className="inline-flex items-center ml-2 cursor-pointer">
                 <input
-                  type="checkbox"
-                  className="form-checkbox h-5 w-5 text-gray"
-                  name="filterOption3"
-                  checked={checkedItems.filterOption3}
+                  type="radio"
+                  className="form-radio h-5 w-5 text-gray"
+                  name="filterOption"
+                  checked={checkedItems.filterOption}
                   onChange={handleCheckboxChange}
                 />
-                <span className="ml-2 text-gray">Women</span>
+                <span className="ml-2 text-gray hover:text-honey">Alphabetically, A - Z</span>
               </label>
-            </div>
-
-
-            {/* categories */}
-            <div className="flex flex-col">
-              <span className="font-bold mb-2">Select By Category</span>
-
-              <select
-                className="rounded-lg border border-honey py-2 px-4 outline-honey"
-                value={selectedOption}
-                onChange={handleOptionChange}
-              >
-                {options.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-
-            </div>
-
-              {/* price range  */}
-            <div className="pt-10">
-              <span className="text-gray font-bold mb-2">Price</span>
-              <input
-                type="range"
-                min="20"
-                max="1000"
-                value={sliderValue}
-                onChange={handleSliderChange}
-                className="slider appearance w-full h-3 rounded-full bg-gray active:bg-secondary"
-              />
-              <span className="text-gray-700 font-bold text-sm mt-2">
-                {sliderValue}
-              </span>
-            </div>
-
-            {/* Button  */}
-            <button
-              type="submit"
-              className=" mt-10 bg-primary hover:bg-secondary text-black hover:text-white font-2xl py-2 px-20 rounded border border-gray"
-            >
-              Filter
-            </button>
+              <label className="inline-flex items-center ml-2 cursor-pointer">
+                <input
+                  type="radio"
+                  className="form-radio h-5 w-5 text-gray"
+                  name="filterOption"
+                  checked={checkedItems.filterOption}
+                  onChange={handleCheckboxChange}
+                />
+                <span className="ml-2 text-gray hover:text-honey">Alphabetically, Z - A</span>
+              </label>
+              <label className="inline-flex items-center ml-2 cursor-pointer">
+                <input
+                  type="radio"
+                  className="form-radio h-5 w-5 text-gray"
+                  name="filterOption"
+                  checked={checkedItems.filterOption}
+                  onChange={handleCheckboxChange}
+                />
+                <span className="ml-2 text-gray hover:text-honey">Price, low to high</span>
+              </label>
+              <label className="inline-flex items-center ml-2 cursor-pointer">
+                <input
+                  type="radio"
+                  className="form-radio h-5 w-5 text-gray"
+                  name="filterOption"
+                  checked={checkedItems.filterOption}
+                  onChange={handleCheckboxChange}
+                />
+                <span className="ml-2 text-gray hover:text-honey">Price, high to low</span>
+              </label>
+              
 
           </div>
+
         </form>
     </div>
   );
 };
 
-export default FilterPage;
+export default FeaturedPage;

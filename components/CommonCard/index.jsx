@@ -41,7 +41,7 @@ const CommonCard = ({ product, percentage }) => {
           className={`relative bg-white px-[10px] py-4 transition-all duration-300 hover:scale-95 cursor-pointer group w-[13.5rem] md:w-auto border border-y-secondary border-x-primary-red rounded-md`}
         >
           <div className="w-full h-32 text-center flex justify-center items-center py-4 overflow-hidden">
-            <div className="relative ">
+            <div className="relative group-hover:scale-125 transition-all  duration-1000">
               <Image src={product.image[0]} width="140" height="140" cover />
             </div>
           </div>

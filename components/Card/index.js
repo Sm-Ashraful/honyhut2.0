@@ -39,7 +39,7 @@ const Card = ({ product, percentage }) => {
     <>
       {
         <div
-          className={`relative shadow-allIn hover:scale-105 transition-all duration-500 bg-white rounded `}
+          className={`relative shadow-allIn hover:scale-105 transition-all duration-700 bg-white rounded `}
         >
           <div className="rounded w-[14.5rem]  cursor-pointer ">
             <div className="w-full h-[10rem] flex flex-col relative">

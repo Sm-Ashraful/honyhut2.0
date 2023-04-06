@@ -50,7 +50,7 @@ const FilterPage = () => {
               FILTER
             </span>
             <p
-              className="absolute top-4 right-6 cursor-pointer hover:text-primary-red text-3xl"
+              className="absolute top-4 right-6 cursor-pointer hover:text-primary-red text-3xl transform transition-all hover:rotate-180 duration-700"
               onClick={close}
             >
               <AiOutlineClose />
@@ -60,7 +60,7 @@ const FilterPage = () => {
             {/* Filter section  */}
           <div className="flex flex-col mb-10 p-8">
 
-          {/* filter items  */}
+            {/* filter items  */}
             <div className="flex flex-col mb-4 pb-8">
               <span className="font-bold mb-2">Select Your items</span>
               <label className="inline-flex items-center ml-2">
