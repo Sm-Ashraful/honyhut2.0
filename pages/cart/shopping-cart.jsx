@@ -22,6 +22,7 @@ import {
 import { FaHome } from "react-icons/fa";
 import RecommandForYou from "../../components/RecommandForYou";
 import people from "../../utils/fav-demo-data";
+import Button from "../../components/Button";
 
 const tableHeader = [" ", " ", "Name", "Price", "Quantity", "Sub Total"];
 
@@ -111,13 +112,15 @@ export default function Cart() {
                       key={item.id}
                       className="border border-l-0 border-r-0 border-gray "
                     >
-                      <td className="py-5 px-2 text-center flex justify-center items-center text-gray">
-                        <span
-                          className="mx-4 font-bold cursor-pointer hover:text-primary-red"
-                          onClick={() => handleRemoveFromCart(item)}
-                        >
-                          <MdClose />
-                        </span>
+                      <td className="py-5 px-2 text-center  text-gray">
+                        <div>
+                          <span
+                            className="mx-4 font-bold cursor-pointer hover:text-primary-red flex justify-center items-center"
+                            onClick={() => handleRemoveFromCart(item)}
+                          >
+                            <MdClose />
+                          </span>
+                        </div>
                       </td>
                       <td className="p-2 h-16 w-24 shadow-sm">
                         <img
@@ -238,16 +241,16 @@ export default function Cart() {
               </div>
               <div className="font-bold w-full text-primary-red">
                 <p className="text-end mr-10 font-bold text-xl">
-                  Total: ${totalWithShippingCost}
+                  Total: ${totalWithShippingCost.toFixed(2)}
                 </p>
               </div>
               <Link href={"../../cart/checkout"}>
-                <button
+                <Button
                   type="submit"
-                  className="bg-honey text-black font-bold rounded-md mx-2 py-2 px-2 w-full hover:bg-gray transition-colors border border-white mt-4"
+                  className="bg-secondary text-primary font-bold rounded-md text-lg  hover:bg-primary-red mt-4 w-full"
                 >
                   Checkout
-                </button>
+                </Button>
               </Link>
             </div>
           </div>
