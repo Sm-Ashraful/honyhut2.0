@@ -61,11 +61,7 @@ const BrandName = () => {
               ? product.details.map((item: any, index: any) => {
                   return (
                     <Link href={`/product/${item.id}`} className="pr-5">
-                      <CommonCard
-                        key={index}
-                        product={item}
-                        percentage={`20%`}
-                      />
+                      <CommonCard key={index} product={item} />
                     </Link>
                   );
                 })
@@ -73,11 +69,7 @@ const BrandName = () => {
                   return singleProduct.details.map((item: any, index: any) => {
                     return (
                       <Link href={`/product/${item.id}`}>
-                        <CommonCard
-                          key={index}
-                          product={item}
-                          percentage={`20%`}
-                        />
+                        <CommonCard key={index} product={item} />
                       </Link>
                     );
                   });
