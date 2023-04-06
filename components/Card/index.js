@@ -43,7 +43,7 @@ const Card = ({ product, percentage }) => {
         >
           <div className="rounded w-[14.5rem]  cursor-pointer ">
             <div className="w-full h-[10rem] flex flex-col relative">
-              <div className="relative w-full h-full transition-all duration-500 hover:scale-110 rounded-md hover:skew-x-2 overflow-hidden">
+              <div className="relative w-full h-full transform hover:scale-125 transition-all duration-1000 rounded-md hover:skew-x-2 overflow-hidden">
                 <Image src={product.image[0]} alt={product.name} fill cover />
               </div>
               <div

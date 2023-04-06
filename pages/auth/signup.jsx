@@ -15,7 +15,7 @@ const signup = () => {
         {/* Sign up section */}
         <div className="w-full p-5">
           <div className="text-center md:text-left  font-bold">
-            <span className="text-secondary">Hony</span>Hut
+            <span className="text-honey">Honey</span>Hut
             <span className="text-tertiary">.com</span>
           </div>
           <div>
@@ -27,19 +27,19 @@ const signup = () => {
             <div className="flex justify-center my-2">
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2"
+                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaFacebookF className="text-sm lg:text-base" />
               </a>
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2"
+                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaInstagram className="text-sm" />
               </a>
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2"
+                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaGoogle className="text-sm lg:text-base" />
               </a>
@@ -76,16 +76,16 @@ const signup = () => {
 
               <Link
                 href="/"
-                className=" border-2 border-secondary rounded-full px-12 py-2 inline-block font-semibold hover:bg-secondary hover:text-white"
+                className=" border-2 border-secondary rounded-full px-12 py-2 inline-block font-semibold hover:bg-honey"
               >
                 Sign Up
               </Link>
               <div className=" flex ">
                 <p className="ml-2 py-4">
-                  Already have account!
+                  Already have an account!
                   <Link
                     href="/auth/signin"
-                    className=" ml-2 px-4 py-4 text-secondary font-semibold"
+                    className=" ml-2 px-4 py-4 text-secondary hover:text-honey font-semibold"
                   >
                     Sign In
                   </Link>
