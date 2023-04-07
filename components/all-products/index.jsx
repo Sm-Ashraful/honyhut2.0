@@ -2,10 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { IoFilter, IoArrowDown } from "react-icons/io5";
 
-import { useRouter } from "next/router";
-
-import { useDispatch, useSelector } from "react-redux";
-import { toggle } from "@/Store/slices/globalSlice";
+import { FaHome } from "react-icons/fa";
 
 import Sidebar from "../Sidebar";
 
@@ -15,7 +12,7 @@ const FilterProducts = () => {
   const handleFilterOnClick = (event) => {
     event.preventDefault();
     setIsOpen(true);
-  }; 
+  };
 
   const handleShortOnClick = (event) => {
     event.preventDefault();
@@ -24,8 +21,7 @@ const FilterProducts = () => {
 
   return (
     <div>
-      <div className=" w-full h-auto relative">
-
+      <div className="w-full h-auto relative">
         <div className="md:border-b-2 bg-white w-full text-black  py-[10px] mb-2 flex justify-between px-5">
           <p
             onClick={handleFilterOnClick}
@@ -48,24 +44,6 @@ const FilterProducts = () => {
             </span>
           </p>
         </div>
-
-
-        <div className="px-4 bg-white py-[10px] flex">
-          <p className="mb-0  text-xl font-bold">
-            <FaHome className="text-secondary" />
-          </p>
-          <p>
-            {path.map((linkName) => {
-              return (
-                <span>
-                  <span className="mx-2"> {"/"} </span>{" "}
-                  <span className="capitalize">{linkName}</span>
-                </span>
-              );
-            })}
-          </p>
-        </div>
-
       </div>
     </div>
   );
