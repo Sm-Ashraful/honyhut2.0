@@ -31,6 +31,7 @@ module.exports = {
       gray: "#a0aec0",
       honey: "#f9c901",
       ash: "#B2BEB5",
+      order: "rgb(191,191,191)",
     },
   },
   plugins: [],
