@@ -42,10 +42,10 @@ const FilterPage = () => {
   }
 
   return (
-    <div className="bg-white higherPriority absolute left-0 top-0 bottom-0 p-8">
+    <div className="p-8">
         <form onSubmit={handleSubmit}>
 
-          <div className="flex top-4 left-4 border border-l-0 border-r-0 border-t-0 pb-8">
+          {/* <div className="flex top-4 left-4 border border-l-0 border-r-0 border-t-0 pb-8">
             <span className="font-semibold text-2xl absolute top-4 left-6">
               FILTER
             </span>
@@ -55,13 +55,13 @@ const FilterPage = () => {
             >
               <AiOutlineClose />
             </p>
-          </div>
+          </div> */}
 
             {/* Filter section  */}
-          <div className="flex flex-col mb-10 p-8">
+          <div className="flex flex-col">
 
             {/* filter items  */}
-            <div className="flex flex-col mb-4 pb-8">
+            <div className="flex flex-col">
               <span className="font-bold mb-2">Select Your items</span>
               <label className="inline-flex items-center ml-2">
                 <input
@@ -97,8 +97,8 @@ const FilterPage = () => {
 
 
             {/* categories */}
-            <div className="flex flex-col">
-              <span className="font-bold mb-2">Select By Category</span>
+            <div className="flex flex-col pt-4">
+              <p className="font-bold mb-2">Select By Category</p>
 
               <select
                 className="rounded-lg border border-honey py-2 px-4 outline-honey"
@@ -133,7 +133,7 @@ const FilterPage = () => {
             {/* Button  */}
             <button
               type="submit"
-              className=" mt-10 bg-primary hover:bg-secondary text-black hover:text-white font-2xl py-2 px-20 rounded border border-gray"
+              className=" mt-10 bg-secondary hover:bg-honey text-white hover:text-black font-2xl py-2 px-20 rounded border border-gray"
             >
               Filter
             </button>

@@ -33,31 +33,30 @@ const FeaturedPage = () => {
   }
 
   return (
-    <div className="bg-white higherPriority absolute right-0 top-0 bottom-0 p-8">
+    <div className="p-8">
         <form onSubmit={handleSubmit}>
 
-          <div className="flex top-4 left-4 border border-l-0 border-r-0 border-t-0 pb-8">
-            <span className="font-semibold text-2xl absolute top-4 left-6">
+          <div className="flex border border-l-0 border-r-0 border-t-0">
+            <span className="font-semibold text-2xl">
               SORT BY:
             </span>
-            <p
+            {/* <p
               className="absolute top-4 right-6 cursor-pointer hover:text-primary-red text-3xl transform transition-all hover:rotate-180 duration-700"
               onClick={close}
             >
               <AiOutlineClose />
-            </p>
+            </p> */}
           </div>
 
             {/* Filter section  */}
           <div className="flex flex-col mb-10 p-4">
 
-          <label className="inline-flex items-center ml-2 cursor-pointer">
+           <label className="inline-flex items-center ml-2 cursor-pointer">
                 <input
                   type="radio"
                   className="form-radio h-5 w-5 text-gray"
                   name="filterOption"
-                  checked={checkedItems.filterOption}
-                  onChange={handleCheckboxChange}
+                
                 />
                 <span className="ml-2 text-gray hover:text-honey">Featured</span>
               </label>
@@ -66,8 +65,7 @@ const FeaturedPage = () => {
                   type="radio"
                   className="form-radio h-5 w-5 text-gray"
                   name="filterOption"
-                  checked={checkedItems.filterOption}
-                  onChange={handleCheckboxChange}
+                
                 />
                 <span className="ml-2 text-gray hover:text-honey">Best Selling</span>
               </label>
@@ -76,8 +74,7 @@ const FeaturedPage = () => {
                   type="radio"
                   className="form-radio h-5 w-5 text-gray"
                   name="filterOption"
-                  checked={checkedItems.filterOption}
-                  onChange={handleCheckboxChange}
+                
                 />
                 <span className="ml-2 text-gray hover:text-honey">Alphabetically, A - Z</span>
               </label>
@@ -86,8 +83,7 @@ const FeaturedPage = () => {
                   type="radio"
                   className="form-radio h-5 w-5 text-gray"
                   name="filterOption"
-                  checked={checkedItems.filterOption}
-                  onChange={handleCheckboxChange}
+                
                 />
                 <span className="ml-2 text-gray hover:text-honey">Alphabetically, Z - A</span>
               </label>
@@ -96,8 +92,7 @@ const FeaturedPage = () => {
                   type="radio"
                   className="form-radio h-5 w-5 text-gray"
                   name="filterOption"
-                  checked={checkedItems.filterOption}
-                  onChange={handleCheckboxChange}
+                  
                 />
                 <span className="ml-2 text-gray hover:text-honey">Price, low to high</span>
               </label>
@@ -106,12 +101,10 @@ const FeaturedPage = () => {
                   type="radio"
                   className="form-radio h-5 w-5 text-gray"
                   name="filterOption"
-                  checked={checkedItems.filterOption}
-                  onChange={handleCheckboxChange}
+                  
                 />
                 <span className="ml-2 text-gray hover:text-honey">Price, high to low</span>
-              </label>
-              
+              </label>         
 
           </div>
 

@@ -83,7 +83,7 @@ const SignIn = () => {
               </div>
 
               <Link
-                href="/auth/signin"
+                href="/"
                 className=" border-2 border-secondary rounded-full px-12 py-2 inline-block font-semibold hover:bg-honey"
               >
                 Sign In

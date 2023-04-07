@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { IoFilter, IoArrowDown } from "react-icons/io5";
+import Filter from "../sidebarFilter/filter";
+import SortBy from "../sidebarFilter/featured";
 
 import { FaHome } from "react-icons/fa";
 
@@ -43,6 +45,14 @@ const FilterProducts = () => {
               <IoArrowDown />
             </span>
           </p>
+        </div>
+        <div className="md:flex md:flex-col">
+          <div>
+            <Filter />
+          </div>
+          <div>
+            <SortBy />
+          </div>
         </div>
       </div>
     </div>
