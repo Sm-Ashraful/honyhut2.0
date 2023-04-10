@@ -40,7 +40,7 @@ const CartNav = ({ headingLine, view, goto }) => {
             {cartItems && (
               <div className="w-full">
                 <p className="text-end text-lg font-bold pr-5 text-primary-red">
-                  Total ITem: {cartItems.length}
+                  Total Item: {cartItems.length}
                 </p>
               </div>
             )}
