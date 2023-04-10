@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isSidebarOpen: false,
-  isSticky: false,
+  isFilterOpen: false,
+  isShortByOpen: false,
   isModalOpen: false,
   isDepartmentOpen: false,
   isDropdownVisible: false,
@@ -16,6 +17,12 @@ export const sidebarSlice = createSlice({
   reducers: {
     toggle: (state) => {
       state.isSidebarOpen = !state.isSidebarOpen;
+    },
+    filterToggle: (state) => {
+      state.isFilterOpen = !state.isFilterOpen;
+    },
+    shortByToggle: (state) => {
+      state.isShortByOpen = !state.isShortByOpen;
     },
     stickyPosition: (state) => {
       state.isSticky = !state.isSticky;
@@ -36,7 +43,9 @@ export const sidebarSlice = createSlice({
 });
 export const {
   toggle,
+  filterToggle,
   stickyPosition,
+  shortByToggle,
   favToggle,
   cartToggle,
   allDepartmentToggle,

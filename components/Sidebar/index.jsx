@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import styles from "./sidebar.module.css";
 import CategoryNav from "../category-nav";
-import DropdownNavbar from "../navbar";
-// import CartNav from "../cart";
 
 import { menuItem } from "../../utils/menu-item";
 import { FaTimes } from "react-icons/fa";
@@ -15,7 +13,6 @@ const Sidebar = () => {
   const { isSidebarOpen } = useSelector((state) => state.sidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
-  const [menuData, setMenuData] = useState({});
 
   const handleMenuButton = (event) => {
     event.preventDefault();
