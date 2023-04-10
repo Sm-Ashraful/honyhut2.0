@@ -4,11 +4,11 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { FaHome } from "react-icons/fa";
 
-import CheckOut from "../../components/cart/cart";
-import Button from "../../components/Button";
+import CheckOut from "../../components/checkout";
 
-export default function Checkout() {
+export default function Checkout({ items }) {
   const [selected, setSelected] = useState("");
+
   const route = useRouter();
   const pathName = route.pathname;
   const path = pathName.split("/");
@@ -121,7 +121,13 @@ export default function Checkout() {
             })}
           </p>
         </div>
-
+        <div className="w-full md:hidden">
+          <div className="bg-order">
+            <div>
+              <CheckOut />
+            </div>
+          </div>
+        </div>
         <div className="mb-5">
           <div className="grid md:grid-cols-5 gap-8 w-full">
             <div className="w-full md:col-span-3">
@@ -621,7 +627,11 @@ export default function Checkout() {
                   </label>
                 </div>
               </div>
-              <div className="my-4 mx-5 ">
+              <div
+                className={`my-4 mx-5  ${
+                  isShippingSubmitComplete ? "" : "blur-[3px]"
+                }`}
+              >
                 <div>
                   <div className="">
                     <p
@@ -718,19 +728,41 @@ export default function Checkout() {
                       onChange={() => setIsPayByCard(true)}
                     />
                     <label for="paypal" className="pl-2 text-secondary">
-                      Paypal
+                      Cash On Delivery
                     </label>
                   </div>
                 </div>
               </div>
+              <div className="flex justify-end md:hidden">
+                <button
+                  disabled={!isShippingFormComplete}
+                  type="submit"
+                  className={`w-full hover:bg-secondaryTextColor rounded-lg text-primary py-5 text-2xl  bg-primary-red ${
+                    !isShippingFormComplete &&
+                    "opacity-50 text-gray cursor-not-allowed"
+                  }`}
+                >
+                  Proceed Order
+                </button>
+              </div>
             </div>
-
-            <div className="w-full px-5">
+            <div className="col-span-2 hidden md:block">
               <div className="bg-order">
-                <h2 className="text-center text-tertiary">Your Order</h2>
                 <div>
-                  <CheckOut />
+                  <CheckOut items={items} />
                 </div>
+              </div>
+              <div className="flex justify-end">
+                <button
+                  disabled={!isShippingFormComplete}
+                  type="submit"
+                  className={`w-full hover:bg-secondaryTextColor rounded-lg text-primary px-6 py-3  bg-primary-red ${
+                    !isShippingFormComplete &&
+                    "opacity-50 text-gray cursor-not-allowed"
+                  }`}
+                >
+                  Proceed Order
+                </button>
               </div>
             </div>
           </div>

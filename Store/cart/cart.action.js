@@ -1,4 +1,5 @@
 import { ActionReducer } from "../../utils/reducer/reducer.utils";
+import { cartReducer } from "./cart.reducer";
 import { CART_ACTION_TYPE } from "./cart.type";
 
 const addCartItem = (cartItems, productTodd) => {
@@ -51,4 +52,9 @@ export const removeItem = (cartItems, productToRemove) => {
   const newCartItems = removeItemFromCart(cartItems, productToRemove);
 
   return ActionReducer(CART_ACTION_TYPE.SET_ITEM_TO_CART, newCartItems);
+};
+
+export const addShippingCost = (shippingCost) => {
+  console.log("shipping action value: ", shippingCost);
+  return ActionReducer(CART_ACTION_TYPE.SET_SHIPPING_COST, shippingCost);
 };

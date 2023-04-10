@@ -1,4 +1,5 @@
 export const selectCartItems = (state) => state.cart.cartItems;
+export const selectShippingCost = (state) => state.cart.shippingCost;
 
 export const selectCartOpen = (state) => state.cart.isCartOpen;
 

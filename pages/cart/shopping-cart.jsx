@@ -18,6 +18,7 @@ import {
   removeItem,
   decreaseCartItem,
   addItemToCart,
+  addShippingCost,
 } from "../../Store/cart/cart.action";
 import { FaHome } from "react-icons/fa";
 import RecommandForYou from "../../components/RecommandForYou";
@@ -49,10 +50,13 @@ export default function Cart() {
 
   const handleShippingChange = (event) => {
     setShippingMethod(event.target.value);
+    const shippingValue = parseFloat(event.target.value);
+    console.log("shippingValue from cart: ", shippingValue);
+    dispatch(addShippingCost(shippingValue));
   };
 
   const handleDecreaseQuantity = (item) => {
-    dispatch(decreaseCartItem(cartItems, item));
+    dispatch(decreaseCartItem(shippingValue));
   };
 
   const handleIncreaseQuantity = (item) => {

@@ -3,6 +3,7 @@ import { CART_ACTION_TYPE } from "./cart.type";
 export const CART_INITIAL_STATE = {
   isCartOpen: false,
   cartItems: [],
+  shippingCost: 0,
 };
 export const cartReducer = (state = CART_INITIAL_STATE, action = {}) => {
   const { type, payload } = action;
@@ -17,6 +18,11 @@ export const cartReducer = (state = CART_INITIAL_STATE, action = {}) => {
       return {
         ...state,
         isCartOpen: payload,
+      };
+    case CART_ACTION_TYPE.SET_SHIPPING_COST:
+      return {
+        ...state,
+        shippingCost: payload,
       };
 
     default:
