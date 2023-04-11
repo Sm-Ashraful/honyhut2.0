@@ -72,6 +72,14 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
+              <div>
+                <span
+                  className="mr-3 font-bold cursor-pointer text-primary-red"
+                  onClick={() => handleRemoveFromCart(cartItem)}
+                >
+                  Remove
+                </span>
+              </div>
               <div className="">
                 <strong className="">
                   {typeof cartItem.offer === "number" ? (
@@ -79,9 +87,10 @@ export default function Cart() {
                       {cartItem.offer && (
                         <span>
                           {(
-                            cartItem.price -
-                            (cartItem.price * cartItem.offer) / 100
-                          ).toFixed(2)}{" "}
+                            (cartItem.price -
+                              (cartItem.price * cartItem.offer) / 100) *
+                            cartItem.quantity
+                          ).toFixed(2)}
                           $
                         </span>
                       )}
@@ -94,6 +103,11 @@ export default function Cart() {
             </div>
           ))
         )}
+      </div>
+      <hr className="w-full h-[2px]  bg-gray border-0" />
+      <div className="flex justify-between items-center px-5 text-xl font-bold text-primary-red">
+        <p>SubTotal</p>
+        <p>${cartTotal.toFixed(2)}</p>
       </div>
     </div>
   );
