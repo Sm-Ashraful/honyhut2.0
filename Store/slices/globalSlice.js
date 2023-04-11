@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isSidebarOpen: false,
   isFilterOpen: false,
-  isShortByOpen: false,
+  isShortOpen: false,
   isModalOpen: false,
   isDepartmentOpen: false,
   isDropdownVisible: false,
@@ -19,13 +19,11 @@ export const sidebarSlice = createSlice({
       state.isSidebarOpen = !state.isSidebarOpen;
     },
     filterToggle: (state) => {
+      console.log("Fileter toggole reducer called: ", state.isFilterOpen);
       state.isFilterOpen = !state.isFilterOpen;
     },
-    shortByToggle: (state) => {
-      state.isShortByOpen = !state.isShortByOpen;
-    },
-    stickyPosition: (state) => {
-      state.isSticky = !state.isSticky;
+    shortPosition: (state) => {
+      state.isShortOpen = !state.isShortOpen;
     },
     favToggle: (state) => {
       state.isModalOpen = !state.isModalOpen;
@@ -44,8 +42,7 @@ export const sidebarSlice = createSlice({
 export const {
   toggle,
   filterToggle,
-  stickyPosition,
-  shortByToggle,
+  shortPosition,
   favToggle,
   cartToggle,
   allDepartmentToggle,

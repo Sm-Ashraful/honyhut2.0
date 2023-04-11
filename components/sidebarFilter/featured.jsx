@@ -1,105 +1,93 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import styles from "./style.module.css";
+import { FaTimes } from "react-icons/fa";
+
+import { shortPosition } from "@/Store/slices/globalSlice";
 
 const FeaturedPage = () => {
-  const [checkedItems, setCheckedItems] = useState({});
-  const isShortByOpen = useSelector((state) => state.sidebar.isShortByOpen);
+  const isShortOpen = useSelector((state) => state.sidebar.isShortOpen);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log("short by clicked: ", isShortByOpen);
-  }, [isShortByOpen]);
-
-  const handleCheckboxChange = (event) => {
-    setCheckedItems({
-      ...checkedItems,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    // handle Featured submission here
   };
 
-  const close = () => {
-    dispatch(setIsOpen(!isOpen));
+  const handleCloseButton = (event) => {
+    event.stopPropagation();
+    dispatch(shortPosition());
   };
 
   return (
     <div
       className={` ${
-        isShortByOpen
+        isShortOpen
           ? `${styles.shortBy_container} ${styles.shortBy_container_show}`
           : `${styles.shortBy_container}`
-      } px-3 pt-5`}
+      } px-3 pt-5 z-50`}
     >
       <form onSubmit={handleSubmit}>
-        <div className="flex border border-l-0 border-r-0 border-t-0">
-          <span className="font-semibold text-2xl">SORT BY:</span>
+        <div className="flex w-full">
+          <span className="font-semibold text-2xl w-full">SORT BY:</span>
         </div>
-
+        <div
+          className="absolute w-[25px] h-[25px] top-3 right-2 text-primary-red text-2xl"
+          onClick={handleCloseButton}
+        >
+          <FaTimes />
+        </div>
         {/* Filter section  */}
-        <div className="flex flex-col mb-10 p-4">
+        <div className="flex flex-col mb-10 p-4 text-black">
           <label className="inline-flex items-center ml-2 cursor-pointer">
             <input
               type="radio"
-              className="form-radio h-5 w-5 text-gray"
+              className="form-radio h-5 w-5 "
               name="filterOption"
             />
-            <span className="ml-2 text-gray hover:text-honey">Featured</span>
+            <span className="ml-2  hover:text-honey">Featured</span>
           </label>
           <label className="inline-flex items-center ml-2 cursor-pointer">
             <input
               type="radio"
-              className="form-radio h-5 w-5 text-gray"
+              className="form-radio h-5 w-5 "
               name="filterOption"
             />
-            <span className="ml-2 text-gray hover:text-honey">
-              Best Selling
-            </span>
+            <span className="ml-2  hover:text-honey">Best Selling</span>
           </label>
           <label className="inline-flex items-center ml-2 cursor-pointer">
             <input
               type="radio"
-              className="form-radio h-5 w-5 text-gray"
+              className="form-radio h-5 w-5 "
               name="filterOption"
             />
-            <span className="ml-2 text-gray hover:text-honey">
+            <span className="ml-2  hover:text-honey">
               Alphabetically, A - Z
             </span>
           </label>
           <label className="inline-flex items-center ml-2 cursor-pointer">
             <input
               type="radio"
-              className="form-radio h-5 w-5 text-gray"
+              className="form-radio h-5 w-5 "
               name="filterOption"
             />
-            <span className="ml-2 text-gray hover:text-honey">
+            <span className="ml-2  hover:text-honey">
               Alphabetically, Z - A
             </span>
           </label>
           <label className="inline-flex items-center ml-2 cursor-pointer">
             <input
               type="radio"
-              className="form-radio h-5 w-5 text-gray"
+              className="form-radio h-5 w-5 "
               name="filterOption"
             />
-            <span className="ml-2 text-gray hover:text-honey">
-              Price, low to high
-            </span>
+            <span className="ml-2  hover:text-honey">Price, low to high</span>
           </label>
           <label className="inline-flex items-center ml-2 cursor-pointer">
             <input
               type="radio"
-              className="form-radio h-5 w-5 text-gray"
+              className="form-radio h-5 w-5 "
               name="filterOption"
             />
-            <span className="ml-2 text-gray hover:text-honey">
-              Price, high to low
-            </span>
+            <span className="ml-2  hover:text-honey">Price, high to low</span>
           </label>
         </div>
       </form>

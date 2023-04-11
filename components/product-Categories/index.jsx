@@ -4,7 +4,7 @@ import { allProducts } from "../../utils/all-product";
 import CommonCard from "../CommonCard";
 import Link from "next/link";
 
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaSearch } from "react-icons/fa";
 
 const ProCategory = () => {
   const router = useRouter();
@@ -49,11 +49,11 @@ const ProCategory = () => {
   return (
     selectCategory && (
       <section className="h-auto relative  max-w-full ">
-        <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center shadow-md">
+        <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center">
           <p className="mb-0  text-xl font-bold">
             <FaHome className="text-secondary" />
           </p>
-          <p>
+          <p className="text-lg">
             {path.map((linkName) => {
               return (
                 <span>
@@ -64,19 +64,40 @@ const ProCategory = () => {
             })}
           </p>
         </div>
-        <div className="w-full pb-10">
+        <div className="w-full pb-10 px-5">
           <div className="w-full">
-            <h2 className="shadow-hnx md:text-center text-secondary">
-              <span className="">{selectCategory.title}</span>
+            <h2
+              className={`text-center text-secondary ${
+                deptLevel === 0
+                  ? "border-b border-primary-red flex justify-between items-center text-[1.5rem]"
+                  : ""
+              }`}
+            >
+              <span>{selectCategory.title}</span>
+              {deptLevel === 0 && (
+                <span className="flex text-primary-red">
+                  <span className="text-sm mr-3">Search</span>
+                  <FaSearch />
+                </span>
+              )}
             </h2>
             <div>
               {deptLevel > 0 ? (
-                <div className="pb-5">
+                <div className="pb-5 ">
                   {selectCategory.subCategory.map((subCategory, index) => {
                     return (
-                      <div className="overflow-hidden">
-                        <p className="border-b mb-5">
-                          <span>{subCategory.title}</span>
+                      <div className="overflow-hidden mb-8">
+                        <p className="border-b mb-5 font-semibold text-[1.5rem] flex justify-between items-center">
+                          <span className="flex justify-center items-center">
+                            <span className="mb-2 md:mb-0 text-primary-red">
+                              &#8658;
+                            </span>
+                            <span>{subCategory.title}</span>
+                          </span>
+                          <span className="flex text-primary-red">
+                            <span className="text-sm mr-3">Search</span>
+                            <FaSearch />
+                          </span>
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px]">
                           {subCategory.items.map((product, idx) => {
@@ -88,7 +109,7 @@ const ProCategory = () => {
                   })}
                 </div>
               ) : (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px] pb-5">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px] pb-5 pt-[10px]">
                   {selectCategory.items.map((product, idx) => {
                     return <CommonCard product={product} key={idx} />;
                   })}
