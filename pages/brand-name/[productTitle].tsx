@@ -2,81 +2,100 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import CommonCard from "@/components/CommonCard";
-import RelProductData from "../../utils/products-demo";
-import ProductCatalog from "../../components/product-catalog";
-import RecommendProduct from "@/components/RecommandForYou";
 import { menuItem } from "@/utils/menu-item";
+
+import FilterProducts from "@/components/all-products";
 
 import { useRouter } from "next/router";
 
-import { getProductByBrandName } from "../../utils/menu-item";
+import { getProductByBrandName } from "../../utils/all-product";
+import { allProducts } from "@/utils/all-product";
+
+import { FaHome, FaSearch } from "react-icons/fa";
 
 const BrandName = () => {
-  const [products, setProducts] = useState(RelProductData);
-
   const router = useRouter();
   const productTitle = router.query;
-  const product = getProductByBrandName(menuItem, productTitle);
-
-  interface ProductItem {
-    id: number;
-    name: string;
-    image: [];
-    percentage: string;
-    unit: string;
-    price: number;
-    MOQ: string;
-    // add other properties if necessary
+  const product = getProductByBrandName(allProducts, productTitle);
+  const pathName = router.pathname;
+  const path = pathName.split("/");
+  path.pop();
+  if (product) {
+    path.push(product.title);
   }
 
+  useEffect(() => {
+    console.log(" That Products: ", product);
+  }, [product]);
+
   return (
-    <div className="relative md:grid grid-cols-4 gap-[10px] top-36 md:top-48 md:grid-cols-4 w-full h-auto mb-10">
-      <div className="col-span-1 bg-white">
-        <h4 className=" mb-2 text-primary-red pt-5 px-5">
-          <span>Filters</span>
-        </h4>
-        <hr className="h-[2px] bg-secondary" />
-        <div className="pt-5 pl-5">
-          <p className="text-lg font-bold">
-            Related {product && product.details ? "Products" : "Categories"}
-          </p>
-          {product && product.details
-            ? product.details.map((item: any, index: any) => {
-                return <p className="text-lg pl-5">{item.name}</p>;
-              })
-            : product &&
-              product.submenu.map((item: any) => (
-                <p className="text-lg pl-5">{item.title}</p>
-              ))}
+    <div className="relative top-36 md:top-52 md:px-4">
+      <div className="md:grid md:grid-cols-4 w-full md:gap-[10px] h-full relative">
+        <div className="w-full  md:mr-0 md:block ">
+          <FilterProducts />
         </div>
-      </div>
-      {product && (
-        <div className="col-span-3">
-          <h2 className=" mb-2 text-primary-red">
-            <span>{product.title}</span>
-          </h2>
-          <hr className="h-[2px] bg-secondary" />
-          <div className="flex justify-start flex-wrap h-auto pt-[10px]">
-            {product.details
-              ? product.details.map((item: any, index: any) => {
+        <section className="col-span-3 relative w-full">
+          <div className="px-4 text-xl bg-white py-[12px] flex md:px-5 justify-between items-center shadow-md">
+            <div className="flex justify-center items-center">
+              <p className="mb-0  text-xl font-bold">
+                <FaHome className="text-secondary" />
+              </p>
+              <p className="last:font-bold">
+                {path.map((linkName) => {
                   return (
-                    <Link href={`/product/${item.id}`} className="pr-5">
-                      <CommonCard key={index} product={item} />
-                    </Link>
+                    <span>
+                      <span className="mx-2"> {"/"} </span>{" "}
+                      <span className="capitalize ">{linkName}</span>
+                    </span>
                   );
-                })
-              : product.submenu.map((singleProduct: any, index: any) => {
-                  return singleProduct.details.map((item: any, index: any) => {
-                    return (
-                      <Link href={`/product/${item.id}`}>
-                        <CommonCard key={index} product={item} />
-                      </Link>
-                    );
-                  });
                 })}
+              </p>
+            </div>
+            <div>
+              <p className="text-sm md:text-lg">
+                Showing All {product.items.length} products
+              </p>
+            </div>
           </div>
-        </div>
-      )}
+          <div className="px-[5px]">
+            {product && (
+              <div className="col-span-3">
+                <h2 className=" mb-2 text-primary-red flex justify-between items-center">
+                  <span>{product.title}</span>
+                  <span className="flex text-sm gap-[5px] items-center pr-2">
+                    <span>Search</span>
+                    <span>
+                      <FaSearch />
+                    </span>
+                  </span>
+                </h2>
+                <hr className="h-[2px] bg-secondary" />
+                <div className="grid grid-cols-2 md:grid-cols-4 h-auto gap-[10px] py-5">
+                  {product.items
+                    ? product.items.map((item: any, index: any) => {
+                        return (
+                          <Link href={`/product/${item.id}`} className="">
+                            <CommonCard key={index} product={item} />
+                          </Link>
+                        );
+                      })
+                    : product.submenu.map((singleProduct: any, index: any) => {
+                        return singleProduct.details.map(
+                          (item: any, index: any) => {
+                            return (
+                              <Link href={`/product/${item.id}`}>
+                                <CommonCard key={index} product={item} />
+                              </Link>
+                            );
+                          }
+                        );
+                      })}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

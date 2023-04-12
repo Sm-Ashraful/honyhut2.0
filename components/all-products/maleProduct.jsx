@@ -27,6 +27,7 @@ const MaleProducts = ({ category }) => {
         </p>
       </div>
       {category.subCategory.map((subCategory, idx) => {
+        console.log("Subcategory Product: ", subCategory);
         return (
           <div className="pb-10">
             <div className="md:pt-3 max-w-full grid grid-cols-2 md:grid-cols-4 gap-[5px] md:gap-[10px] mx-2">

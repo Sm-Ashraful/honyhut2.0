@@ -940,3 +940,17 @@ export const allProducts = [
     ],
   },
 ];
+export const getProductByBrandName = (menuItems, title) => {
+  const productTitle = title.productTitle;
+  for (let subCategory of menuItems) {
+    const foundProduct = subCategory.subCategory.find(
+      (product) => product.title.toLowerCase() === productTitle.toLowerCase()
+    );
+    if (foundProduct) {
+      console.log("Product found: ", foundProduct);
+      return foundProduct;
+    }
+  }
+  console.log("Product not found");
+  return null;
+};

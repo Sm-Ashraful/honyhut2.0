@@ -5,6 +5,7 @@ const initialState = {
   isSidebarOpen: false,
   isFilterOpen: false,
   isShortOpen: false,
+  isMobileDropDownOpen: false,
   isModalOpen: false,
   isDepartmentOpen: false,
   isDropdownVisible: false,
@@ -25,6 +26,9 @@ export const sidebarSlice = createSlice({
     shortPosition: (state) => {
       state.isShortOpen = !state.isShortOpen;
     },
+    toggleMobileCategory: (state) => {
+      state.isMobileDropDownOpen = !state.isMobileDropDownOpen;
+    },
     favToggle: (state) => {
       state.isModalOpen = !state.isModalOpen;
     },
@@ -43,6 +47,7 @@ export const {
   toggle,
   filterToggle,
   shortPosition,
+  toggleMobileCategory,
   favToggle,
   cartToggle,
   allDepartmentToggle,

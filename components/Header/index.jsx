@@ -8,7 +8,7 @@ import {
   setIsDropdownVisible,
 } from "@/Store/slices/globalSlice";
 
-import { toggle } from "../../Store/slices/globalSlice";
+import { toggle, toggleMobileCategory } from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import {
   selectCartOpen,
@@ -37,7 +37,6 @@ import {
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const isCartOpen = useSelector(selectCartOpen);
@@ -82,7 +81,7 @@ const Header = () => {
   };
 
   const openCategoryMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    dispatch(toggleMobileCategory());
   };
   const openDepartment = (e) => {
     if (isHeroContentInView === false) {
@@ -206,11 +205,11 @@ const Header = () => {
         <div
           className={`w-full padding_inside flex justify-between items-center h-full`}
         >
-          <div className="flex justify-center items-center space-x-2 text-white md:hidden">
-            <div
-              className={`${styles.drp_menu}`}
-              onClick={openCategoryMenu}
-            ></div>
+          <div
+            onClick={openCategoryMenu}
+            className="flex justify-center items-center space-x-2 text-white md:hidden"
+          >
+            <div className={`${styles.drp_menu}`}></div>
             <p className="text-xl">Shop by category</p>
           </div>
 
@@ -279,11 +278,7 @@ const Header = () => {
 
       {/**header end */}
       {/**hader dropdown start */}
-      <div
-        className={`${styles.dropdownMenu} ${
-          isMenuOpen ? `${styles.open}` : ""
-        }`}
-      >
+      <div>
         <CategoryNav />
       </div>
 

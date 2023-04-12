@@ -5,13 +5,9 @@ import Products from "../components/products";
 import Women from "../components/products/womenSec";
 import Gallery from "../components/gallery";
 import RecommandForYou from "../components/RecommandForYou";
-import StoreProduct from "../components/storeProduct";
 import { MaleEnhancement } from "../utils/male";
 
 import people from "../utils/fav-demo-data";
-import { useEffect } from "react";
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -19,13 +15,14 @@ export default function Home() {
       <main>
         <ImageSlider />
         <Categories />
+        <Products />
         <RecommandForYou
           top={0}
           className={false}
           products={MaleEnhancement[0].products}
           title={`Honey`}
         />
-        <Products />
+
         <RecommandForYou
           top={0}
           className={false}
