@@ -16,7 +16,7 @@ const categories = [
     id: 3,
     image: "/Category/Condoms.jpeg",
     name: "Condoms",
-    icon: "/category-icon/romance.svg",
+    icon: "/category-icon/condom.svg",
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const categories = [
     id: 7,
     image: "/Category/Fmale.jpeg",
     name: "Female Enhancement",
-    icon: "/category-icon/romance.svg",
+    icon: "/category-icon/condom.svg",
   },
 
   {

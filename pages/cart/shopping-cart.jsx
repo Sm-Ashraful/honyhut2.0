@@ -18,7 +18,6 @@ import {
   removeItem,
   decreaseCartItem,
   addItemToCart,
-  addShippingCost,
 } from "../../Store/cart/cart.action";
 import { FaHome } from "react-icons/fa";
 import RecommandForYou from "../../components/RecommandForYou";
@@ -50,13 +49,10 @@ export default function Cart() {
 
   const handleShippingChange = (event) => {
     setShippingMethod(event.target.value);
-    const shippingValue = parseFloat(event.target.value);
-    console.log("shippingValue from cart: ", shippingValue);
-    dispatch(addShippingCost(shippingValue));
   };
 
   const handleDecreaseQuantity = (item) => {
-    dispatch(decreaseCartItem(shippingValue));
+    dispatch(decreaseCartItem(cartItems, item));
   };
 
   const handleIncreaseQuantity = (item) => {
@@ -174,8 +170,8 @@ export default function Cart() {
                         <td className="py-5 px-2 text-center pr-0">
                           {item.quantity *
                             (typeof item.offer === "number"
-                              ? item.price - (item.price * item.offer) / 100
-                              : item.price)}
+                              ? item.price.toFixed(2) - (item.price.toFixed(2) * item.offer) / 100
+                              : item.price.toFixed(2))}
                         </td>
                       </tr>
                     ))}
@@ -191,25 +187,6 @@ export default function Cart() {
                     </tr>
                   </tfoot>
                 </table>
-
-                <div className="flex justify-center items-center gap-8 w-full">
-                  <Link href={"/allproducts"}>
-                    <Button
-                      type="submit"
-                      className="bg-secondary text-primary font-bold rounded-md text-lg  hover:bg-primary-red mt-4"
-                    >
-                      Continue Shopping
-                    </Button>
-                  </Link>
-                  <Link href="#">
-                    <Button
-                      type="submit"
-                      className="bg-secondary text-primary font-bold rounded-md text-lg  hover:bg-primary-red mt-4"
-                    >
-                      Clear Cart
-                    </Button>
-                  </Link>
-                </div>
               </div>
 
               <div className=" md:col-span-1  border-gray md:border-l-2 px-4">
@@ -278,6 +255,7 @@ export default function Cart() {
                 </Link>
               </div>
             </div>
+
           </>
         )}
       </div>

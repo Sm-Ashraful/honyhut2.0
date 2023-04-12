@@ -101,21 +101,21 @@ export default function Cart() {
                     )}
                   </td>
                   <td className="py-5 px-2 text-center flex justify-center items-center m-2">
-                    <div className="flex justify-center items-center border border-gray rounded-full px-4 py-2 w-36">
-                      {item.quantity}
-                      <span
-                        className="mr-2 ml-12 font-bold cursor-pointer hover:text-secondary bg-gray rounded-lg"
-                        onClick={() => handleDecreaseQuantity(item)}
-                      >
-                        <AiOutlineMinus />
-                      </span>
-                      <span
-                        className="ml-2 font-bold cursor-pointer hover:text-secondary bg-gray rounded-full"
-                        onClick={() => handleIncreaseQuantity(item)}
-                      >
-                        <AiOutlinePlus />
-                      </span>
-                    </div>
+                   <div className="flex justify-center items-center border border-gray rounded-full px-6 py-2 ">
+                   {item.quantity}
+                    <span
+                      className="mr-2 ml-4 font-bold cursor-pointer hover:text-secondary bg-gray rounded-lg"
+                      onClick={() => handleDecreaseQuantity(item)}
+                    >
+                      <AiOutlineMinus />
+                    </span>
+                    <span
+                      className="ml-2 font-bold cursor-pointer hover:text-secondary bg-gray rounded-full"
+                      onClick={() => handleIncreaseQuantity(item)}
+                    >
+                      <AiOutlinePlus />
+                    </span>
+                   </div>
                   </td>
                 </tr>
               ))}
