@@ -4,7 +4,7 @@ export const allProducts = [
     name: "Royal Honey For Men – Gold (12 Sachets – 20 G)",
     image: ["/Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
     price: 31.99,
-    offer: 00,
+    offer: 20,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "12 Sachet Per Box",
@@ -18,7 +18,7 @@ export const allProducts = [
     name: "Royal Honey VIP 22g Pouches",
     image: ["/Honey/Royal Honey VIP/RoYAL hONEY.jpeg"],
     price: 38.99,
-    offer: 00,
+    offer: 10,
     quantity: "200 pcs",
     description:
       "Make the intimate moments with your partner last longer and feel better.",
@@ -33,7 +33,7 @@ export const allProducts = [
     name: "Etumax Honey 20g Sachet",
     image: ["/Honey/Etumax Honey/Etumax(4).jpeg"],
     price: 31.99,
-    offer: 00,
+    offer: 20,
     quantity: "200 pcs",
     description:
       "Make the intimate moments with your partner last longer and feel better.",
@@ -62,7 +62,7 @@ export const allProducts = [
     id: 5,
     name: "Black Bull Honey 22g Pouches",
     image: ["/Honey/Black Bull Honey/Black Bull Honey.jpg"],
-    offer: 00,
+    offer: 10,
     quantity: "200 pcs",
     description:
       "Make the intimate moments with your partner last longer and feel better.",
@@ -77,7 +77,7 @@ export const allProducts = [
     id: 6,
     name: "Black Bull Honey 20g Pouches",
     image: ["/Honey/Black Bull Honey/Black Bull.jpeg"],
-    offer: 00,
+    offer: 10,
     quantity: "200 pcs",
     description:
       "Make the intimate moments with your partner last longer and feel better.",
@@ -335,7 +335,7 @@ export const allProducts = [
     reviews: "4.5 reviews",
     category: "Pills",
     createdBy: "Munna",
-    updatedAt: "03/04/2023",
+    updatedAt: "03/04/2023", 
   },
   {
     id: 22,

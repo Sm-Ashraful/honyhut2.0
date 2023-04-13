@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
-import styles from "./category-nav.module.css";
-import { MdClose } from "react-icons/md";
+import Image from "next/image";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -16,8 +14,7 @@ import {
   decreaseCartItem,
   addItemToCart,
 } from "../../Store/cart/cart.action";
-
-const tableHeader = [" ", "image", " name", "price", " quantity"];
+import { FaTimes } from "react-icons/fa";
 
 export default function Cart() {
   const cartItems = useSelector(selectCartItems);
@@ -44,94 +41,73 @@ export default function Cart() {
 
   return (
     <div className="relative w-full">
-      <div className={`mx-4 w-full`}>
+      <div className={` w-full px-5 py-5`}>
         {cartItems.length < 1 ? (
           <div className="flex justify-center items-center w-full h-full text-2xl">
             <p className="text-center">Your Cart Is Empty</p>
           </div>
         ) : (
-          <table className={`${styles.table} w-full`}>
-            <thead>
-              <tr>
-                {tableHeader.map((header) => (
-                  <th
-                    className="p-2 text-center text-secondary capitalize"
-                    key={header}
-                  >
-                    {header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((item) => (
-                <tr
-                  key={item.id}
-                  className="border border-l-0 border-r-0 border-gray"
-                >
-                  <td className="py-5 px-2 text-center flex justify-center items-center text-gray">
+          cartItems.map((cartItem) => (
+            <div className="h-[64px] w-full flex mb-[15px] justify-between items-center relative">
+              <div className="flex h-full items-center">
+                <div className="h-full w-[64px] relative p-3 border bg-white border-fullAsh rounded-md overflow-hidden mr-5">
+                  <Image src={cartItem.image[0]} fill cover />
+                </div>
+                <div>
+                  <p className="font-semibold max-w-[100px]">{cartItem.name}</p>
+                  <div className="flex justify-center items-center border border-gray rounded-full px-4 py-2 w-32">
+                    {cartItem.quantity}
                     <span
-                      className="mx-4 font-bold cursor-pointer hover:text-primary-red"
-                      onClick={() => handleRemoveFromCart(item)}
-                    >
-                      <MdClose />
-                    </span>
-                  </td>
-                  <td className="p-2 h-16 w-24 shadow-sm">
-                    <img className="w-full h-full bg-center" src={item.image} />
-                  </td>
-                  <td className="py-5 px-2 text-center">
-                    {item.name.split(" ")[0]} {item.name.split(" ")[1]}
-                  </td>
-                  <td className="py-5 px-2 text-center">
-                    {typeof item.offer === "number" ? (
-                      <>
-                        {item.offer && (
-                          <span>
-                            $
-                            {(
-                              item.price -
-                              (item.price * item.offer) / 100
-                            ).toFixed(2)}
-                          </span>
-                        )}
-                      </>
-                    ) : (
-                      <span>${item.price.toFixed(2)}</span>
-                    )}
-                  </td>
-                  <td className="py-5 px-2 text-center flex justify-center items-center m-2">
-                   <div className="flex justify-center items-center border border-gray rounded-full px-6 py-2 ">
-                   {item.quantity}
-                    <span
-                      className="mr-2 ml-4 font-bold cursor-pointer hover:text-secondary bg-gray rounded-lg"
-                      onClick={() => handleDecreaseQuantity(item)}
+                      className="mr-2 ml-8 font-bold cursor-pointer hover:text-secondary bg-gray rounded-lg"
+                      onClick={() => handleDecreaseQuantity(cartItem)}
                     >
                       <AiOutlineMinus />
                     </span>
                     <span
                       className="ml-2 font-bold cursor-pointer hover:text-secondary bg-gray rounded-full"
-                      onClick={() => handleIncreaseQuantity(item)}
+                      onClick={() => handleIncreaseQuantity(cartItem)}
                     >
                       <AiOutlinePlus />
                     </span>
-                   </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-            <tfoot className="text-primary-red text-xl">
-              <tr>
-                <th></th>
-                <th></th>
-                <th>Total</th>
-                <th>${cartTotal.toFixed(2)}</th>
-
-                <th>{cartCount} pcs</th>
-              </tr>
-            </tfoot>
-          </table>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span
+                  className="mr-3 font-bold cursor-pointer text-primary-red"
+                  onClick={() => handleRemoveFromCart(cartItem)}
+                >
+                  Remove
+                </span>
+              </div>
+              <div className="">
+                <strong className="">
+                  {typeof cartItem.offer === "number" ? (
+                    <>
+                      {cartItem.offer && (
+                        <span>
+                          {(
+                            (cartItem.price -
+                              (cartItem.price * cartItem.offer) / 100) *
+                            cartItem.quantity
+                          ).toFixed(2)}
+                          $
+                        </span>
+                      )}
+                    </>
+                  ) : (
+                    <span>{cartItem.price.toFixed(2)} $</span>
+                  )}
+                </strong>
+              </div>
+            </div>
+          ))
         )}
+      </div>
+      <hr className="w-full h-[2px]  bg-gray border-0" />
+      <div className="flex justify-between items-center px-5 text-xl font-bold text-primary-red">
+        <p>SubTotal</p>
+        <p>${cartTotal.toFixed(2)}</p>
       </div>
     </div>
   );

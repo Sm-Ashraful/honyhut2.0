@@ -10,7 +10,7 @@ export const allProducts = [
             name: "Royal Honey VIP 20g Sachet",
 
             image: ["/Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
-            offer: 00,
+            offer: 10,
             unit: "12 Sachet Per Box",
             price: 31.99,
             MOQ: "96 Box",

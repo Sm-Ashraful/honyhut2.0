@@ -42,11 +42,9 @@ const Header = () => {
 
   const isCartOpen = useSelector(selectCartOpen);
   const total = useSelector(selectCartCount);
-  const cartItems = useSelector(selectCartItems);
+
   const totalCost = useSelector(selectCartTotal);
-  const isDropdownVisible = useSelector(
-    (state) => state.sidebar.isDropdownVisible
-  );
+
   const isHeroContentInView = useSelector(
     (state) => state.sidebar.isHeroContentInView
   );
@@ -127,15 +125,10 @@ const Header = () => {
                 >
                   <span className={`${styles.menu_button}`}></span>
                 </div>
-                
+
                 {/* cart section  */}
                 <div>
-                  <div
-                    className={styles.shopping_cart}
-                    onMouseEnter={!isMobile ? handleCart : undefined}
-                    onMouseLeave={!isMobile ? handleCart : undefined}
-                    onClick={isMobile ? handleCart : undefined}
-                  >
+                  <div className={styles.shopping_cart} onClick={handleCart}>
                     <div className="relative mt-4 ml-1 text-3xl text-secondary">
                       <BsCart4 />
                       <span className={styles.cart_count}>{total}</span>
