@@ -9,7 +9,6 @@ const initialState = {
   isModalOpen: false,
   isDepartmentOpen: false,
   isDropdownVisible: false,
-  isHeroContentInView: true,
 };
 
 export const sidebarSlice = createSlice({
@@ -27,6 +26,7 @@ export const sidebarSlice = createSlice({
       state.isShortOpen = !state.isShortOpen;
     },
     toggleMobileCategory: (state) => {
+      console.log("How i call twice");
       state.isMobileDropDownOpen = !state.isMobileDropDownOpen;
     },
     favToggle: (state) => {
@@ -37,9 +37,6 @@ export const sidebarSlice = createSlice({
     },
     setIsDropdownVisible: (state, action) => {
       state.isDropdownVisible = action.payload;
-    },
-    setHeroContentInView: (state, action) => {
-      state.isHeroContentInView = action.payload;
     },
   },
 });
@@ -52,7 +49,6 @@ export const {
   cartToggle,
   allDepartmentToggle,
   setIsDropdownVisible,
-  setHeroContentInView,
 } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

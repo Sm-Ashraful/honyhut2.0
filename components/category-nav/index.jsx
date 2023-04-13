@@ -12,6 +12,7 @@ import Image from "next/image";
 
 import styles from "./style.module.css";
 import { useSelector } from "react-redux";
+import { MdOutlineSendToMobile } from "react-icons/md";
 
 const CategoryNav = () => {
   const [headingText, setHeadingText] = useState("");
@@ -24,53 +25,50 @@ const CategoryNav = () => {
     (state) => state.sidebar.isMobileDropDownOpen
   );
 
-  function hideSidebar() {
+  function handleRouteChange() {
     dispatch(toggleMobileCategory());
+    console.log("Mobil drop down: handleRouteChange ", isMobileDropDownOpen);
   }
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        sidebarRef.current &&
-        event.target !== sidebarRef.current &&
-        !sidebarRef.current.contains(event.target)
-      ) {
-        hideSidebar();
-      }
-    }
+    if (!isMobileDropDownOpen) return;
+    // Add event listener to the document object
+    document.addEventListener("mousedown", handleClickOutside);
+    router.events.on("routeChangeComplete", handleRouteChange);
 
-    function handleRouteChange() {
-      hideSidebar();
-    }
-
-    function handleScroll() {
-      hideSidebar();
-    }
-
-    router.events.on("routeChangeStart", handleRouteChange);
-    window.addEventListener("scroll", handleScroll);
-
+    // Remove event listener when the component unmounts
     return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 
-  const handleHeadingClick = (category) => {
+  useEffect(() => {
+    router.events.on("routeChangeComplete", (url) => {
+      console.log(`completely routed to ${url}`);
+    });
+  }, []);
+
+  function handleClickOutside(event) {
+    event.preventDefault();
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      dispatch(toggleMobileCategory());
+      console.log("Click outside of the div: ", isMobileDropDownOpen);
+      //
+    }
+  }
+
+  const handleHeadingClick = (category, e) => {
+    e.preventDefault();
     return headingText !== category.name
       ? setHeadingText(category.name)
       : setHeadingText("");
-  };
-  const handleSubHeadingClick = (subLinks) => {
-    return subHeadingText !== subLinks.title
-      ? setSubHeadingText(subLinks.title)
-      : setSubHeadingText("");
   };
 
   return (
     <div
       ref={sidebarRef}
-      className={`overflow-y-scroll  ${styles.dropdownMenu} ${
+      className={`${styles.dropdownMenu} ${
         isMobileDropDownOpen ? `${styles.open}` : ""
       }`}
     >
@@ -80,7 +78,7 @@ const CategoryNav = () => {
             <div className="mt-3">
               <div
                 className="px-5 pt-4 font-bold text-xl flex justify-between items-center"
-                onClick={() => handleHeadingClick(category)}
+                onClick={(e) => handleHeadingClick(category, e)}
               >
                 <div className="flex justify-center items-center gap-[10px]">
                   <div className="relative w-[40px] h-[40px]">
@@ -97,7 +95,7 @@ const CategoryNav = () => {
                   </div>
                 </div>
 
-                <span className="text-tertiary">
+                <span className="text-tertiary  text-2xl">
                   {headingText === category.name ? (
                     <CiCircleChevUp />
                   ) : (
@@ -115,10 +113,7 @@ const CategoryNav = () => {
                     return (
                       <div>
                         <li>
-                          <div
-                            onClick={() => handleSubHeadingClick(subLinks)}
-                            className="py-5 pl-20 font-semibold  flex justify-between item-center px-5"
-                          >
+                          <div className="py-5 pl-20 font-semibold  flex justify-between item-center px-5">
                             <Link
                               href={`/brand-name/${subLinks.title}`}
                               className="flex justify-center items-center gap-[10px]"

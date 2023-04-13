@@ -1,9 +1,9 @@
 const categories = [
   {
     id: 1,
-    image: "/Category/Male.jpeg",
+    image: "/category-icon/11.jpg",
     name: "Male Enhancement",
-    icon: "/category-icon/male.svg",
+    icon: "/category-icon/11.jpg",
     totalItem: 70,
     subCategory: [
       {
@@ -25,7 +25,7 @@ const categories = [
   },
   {
     id: 2,
-    image: "/Category/Fmale.jpeg",
+    image: "/category-icon/22.jpg",
     name: "Female Enhancement",
     icon: "/category-icon/female.svg",
     totalItem: 9,
@@ -67,7 +67,7 @@ const categories = [
       {
         title: "Rolling Paper",
         items: 12,
-        icon: "/category-icon/cannabies.png",
+        icon: "/category-icon/1.png",
       },
     ],
   },

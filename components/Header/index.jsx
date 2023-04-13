@@ -3,10 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  setHeroContentInView,
-  setIsDropdownVisible,
-} from "@/Store/slices/globalSlice";
+import { setIsDropdownVisible } from "@/Store/slices/globalSlice";
 
 import { toggle, toggleMobileCategory } from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
@@ -44,9 +41,6 @@ const Header = () => {
 
   const totalCost = useSelector(selectCartTotal);
 
-  const isHeroContentInView = useSelector(
-    (state) => state.sidebar.isHeroContentInView
-  );
   const isMobileDropDownOpen = useSelector(
     (state) => state.sidebar.isMobileDropDownOpen
   );
@@ -78,9 +72,7 @@ const Header = () => {
     dispatch(toggleMobileCategory());
   };
   const openDepartment = (e) => {
-    if (isHeroContentInView === false) {
-      dispatch(setIsDropdownVisible(true));
-    }
+    dispatch(setIsDropdownVisible(true));
   };
 
   const closeDepartMent = () => {

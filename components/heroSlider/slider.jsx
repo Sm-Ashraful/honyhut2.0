@@ -19,39 +19,6 @@ const Slider = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  useEffect(() => {
-    const heroContent = document.getElementsByClassName("hero-content");
-    function isHeroContentInView() {
-      if (heroContent && heroContent[0]) {
-        const heroContentTop = heroContent[0].offsetTop;
-        const heroContentBottom = heroContentTop + heroContent[0].offsetHeight;
-        const viewportTop = window.pageYOffset;
-        const viewportBottom = viewportTop + window.innerHeight;
-
-        return (
-          heroContentTop <= viewportBottom && heroContentBottom >= viewportTop
-        );
-      }
-      return false;
-    }
-
-    function handleScroll() {
-      const isHeroInView = isHeroContentInView();
-      dispatch(setHeroContentInView(isHeroInView));
-    }
-    // if (router.pathname === "/") {
-    //   window.addEventListener("scroll", handleScroll);
-    // } else {
-    //   dispatch(setHeroContentInView(true));
-    // }
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [dispatch, router.pathname]);
-
   return (
     <section className={`w-full  relative top-36 md:top-52`}>
       <div

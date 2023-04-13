@@ -30,7 +30,7 @@ const PhotoSlider = ({ data, delayTime }) => {
   return (
     <div>
       {people.map((person, personIndex) => {
-        const { id, image, name, title, quote } = person;
+        const { id, image, name } = person;
         let position = "nextSlide";
         if (personIndex === index) {
           position = "activeSlide";
