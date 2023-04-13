@@ -71,25 +71,14 @@ const BrandName = () => {
                 </h2>
                 <hr className="h-[2px] bg-secondary" />
                 <div className="grid grid-cols-2 md:grid-cols-4 h-auto gap-[10px] py-5">
-                  {product.items
-                    ? product.items.map((item: any, index: any) => {
-                        return (
-                          <Link href={`/product/${item.id}`} className="">
-                            <CommonCard key={index} product={item} />
-                          </Link>
-                        );
-                      })
-                    : product.submenu.map((singleProduct: any, index: any) => {
-                        return singleProduct.details.map(
-                          (item: any, index: any) => {
-                            return (
-                              <Link href={`/product/${item.id}`}>
-                                <CommonCard key={index} product={item} />
-                              </Link>
-                            );
-                          }
-                        );
-                      })}
+                  {product.items &&
+                    product.items.map((item: any, index: any) => {
+                      return (
+                        <Link href={`/product/${item.id}`} className="">
+                          <CommonCard key={index} product={item} />
+                        </Link>
+                      );
+                    })}
                 </div>
               </div>
             )}

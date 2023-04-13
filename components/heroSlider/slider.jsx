@@ -55,16 +55,13 @@ const Slider = () => {
   return (
     <section className={`w-full  relative top-36 md:top-52`}>
       <div
-        className={` ${styles.section_slider} flex justify-center md:space-x-5 md:padding_inside hero-content`}
+        className={` ${styles.section_slider} flex justify-center hero-content px-5`}
       >
         {/* left section */}
-        <div className="w-1/5 hidden md:block ">
-          <DropdownNavbar />
-        </div>
 
         {/* middle heroslide section */}
         <div className={`${styles.section_center}  flex-1`}>
-          <PhotoSlider data={data} delayTime="5000" />
+          <PhotoSlider data={data} delayTime="8000" />
         </div>
 
         {/* right section */}

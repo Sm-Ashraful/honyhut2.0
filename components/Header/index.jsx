@@ -26,7 +26,8 @@ import CategoryNav from "../category-nav";
 import AllDepartNav from "../all-department-nav";
 import CartNav from "../cart";
 
-import { FaHome, FaStore, FaSearch } from "react-icons/fa";
+import { FaHome, FaStore, FaSearch, FaList, FaTimes } from "react-icons/fa";
+import { TfiViewListAlt } from "react-icons/tfi";
 import { BsInfoCircle, BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
 import {
@@ -37,7 +38,6 @@ import {
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const isCartOpen = useSelector(selectCartOpen);
   const total = useSelector(selectCartCount);
@@ -47,19 +47,13 @@ const Header = () => {
   const isHeroContentInView = useSelector(
     (state) => state.sidebar.isHeroContentInView
   );
+  const isMobileDropDownOpen = useSelector(
+    (state) => state.sidebar.isMobileDropDownOpen
+  );
 
   const favItems = useSelector(selectFavItems);
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Change 768 to the breakpoint you're using in Tailwind CSS
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Call the function initially to set the initial state
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -96,6 +90,11 @@ const Header = () => {
   const handleCart = (e) => {
     e.preventDefault();
     dispatch(setIsCartOpen(!isCartOpen));
+  };
+
+  const handleCloseMobilCategory = (e) => {
+    e.preventDefault();
+    dispatch(toggleMobileCategory());
   };
 
   return (
@@ -209,13 +208,25 @@ const Header = () => {
             onClick={openCategoryMenu}
             className="flex justify-center items-center space-x-2 text-white md:hidden"
           >
-            <div className={`${styles.drp_menu}`}></div>
+            <div className={`text-2xl ${isMobileDropDownOpen && "-rotate-90"}`}>
+              <TfiViewListAlt />
+            </div>
             <p className="text-xl">Shop by category</p>
           </div>
 
-          <div onClick={openSearchBar} className="md:hidden">
-            <div className={`${styles.search_icon} mr-5`}></div>
-          </div>
+          {isMobileDropDownOpen ? (
+            <div onClick={handleCloseMobilCategory} className="md:hidden">
+              <div className={`text-2xl text-primary mr-5`}>
+                <FaTimes />
+              </div>
+            </div>
+          ) : (
+            <div onClick={openSearchBar} className="md:hidden">
+              <div className={`text-2xl text-primary mr-5`}>
+                <FaSearch />
+              </div>
+            </div>
+          )}
           <div className="w-full hidden md:flex h-full">
             <div
               className={`w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}

@@ -48,14 +48,6 @@
   background-size: contain;
   cursor: pointer;
 }
-.drp_menu {
-  height: 28px;
-  width: 28px;
-  background-image: url("../../Assets/list.png");
-  background-position: center;
-  background-size: cover;
-  cursor: pointer;
-}
 
 .shopping_cart {
   height: 33px;

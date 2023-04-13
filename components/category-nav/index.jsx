@@ -24,36 +24,53 @@ const CategoryNav = () => {
     (state) => state.sidebar.isMobileDropDownOpen
   );
 
+  function hideSidebar() {
+    dispatch(toggleMobileCategory());
+  }
+
   useEffect(() => {
     function handleClickOutside(event) {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        dispatch(toggleMobileCategory());
+      if (
+        sidebarRef.current &&
+        event.target !== sidebarRef.current &&
+        !sidebarRef.current.contains(event.target)
+      ) {
+        hideSidebar();
       }
     }
 
     function handleRouteChange() {
-      dispatch(toggleMobileCategory());
+      hideSidebar();
     }
 
     function handleScroll() {
-      dispatch(toggleMobileCategory());
+      hideSidebar();
     }
 
-    document.addEventListener("click", handleClickOutside);
-    document.addEventListener("scroll", handleScroll);
     router.events.on("routeChangeStart", handleRouteChange);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
-      document.removeEventListener("scroll", handleScroll);
       router.events.off("routeChangeStart", handleRouteChange);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [router.events]);
+
+  const handleHeadingClick = (category) => {
+    return headingText !== category.name
+      ? setHeadingText(category.name)
+      : setHeadingText("");
+  };
+  const handleSubHeadingClick = (subLinks) => {
+    return subHeadingText !== subLinks.title
+      ? setSubHeadingText(subLinks.title)
+      : setSubHeadingText("");
+  };
 
   return (
-    <nav
+    <div
       ref={sidebarRef}
-      className={`${styles.dropdownMenu} ${
+      className={`overflow-y-scroll  ${styles.dropdownMenu} ${
         isMobileDropDownOpen ? `${styles.open}` : ""
       }`}
     >
@@ -63,11 +80,7 @@ const CategoryNav = () => {
             <div className="mt-3">
               <div
                 className="px-5 pt-4 font-bold text-xl flex justify-between items-center"
-                onClick={() =>
-                  headingText !== category.name
-                    ? setHeadingText(category.name)
-                    : setHeadingText("")
-                }
+                onClick={() => handleHeadingClick(category)}
               >
                 <div className="flex justify-center items-center gap-[10px]">
                   <div className="relative w-[40px] h-[40px]">
@@ -103,11 +116,7 @@ const CategoryNav = () => {
                       <div>
                         <li>
                           <div
-                            onClick={() =>
-                              subHeadingText !== subLinks.title
-                                ? setSubHeadingText(subLinks.title)
-                                : setSubHeadingText("")
-                            }
+                            onClick={() => handleSubHeadingClick(subLinks)}
                             className="py-5 pl-20 font-semibold  flex justify-between item-center px-5"
                           >
                             <Link
@@ -137,7 +146,7 @@ const CategoryNav = () => {
           );
         })}
       </ul>
-    </nav>
+    </div>
   );
 };
 
