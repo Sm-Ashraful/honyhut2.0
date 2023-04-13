@@ -48,7 +48,7 @@ const BrandName = () => {
             </div>
             <div>
               <p className="text-sm md:text-lg">
-                Showing All {product.items.length} products
+                Showing All {product && product.items.length} products
               </p>
             </div>
           </div>

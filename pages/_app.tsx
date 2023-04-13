@@ -6,7 +6,6 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, ...rest }: AppProps) {
-  console.log("Wrapper FOr: ", wrapper);
   const { store, props } = wrapper.useWrappedStore(rest);
   const { pageProps } = props;
   return (
