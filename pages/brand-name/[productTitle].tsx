@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import CommonCard from "@/components/CommonCard";
-import { menuItem } from "@/utils/menu-item";
 
 import FilterProducts from "@/components/all-products";
 
@@ -23,10 +22,6 @@ const BrandName = () => {
   if (product) {
     path.push(product.title);
   }
-
-  useEffect(() => {
-    console.log(" That Products: ", product);
-  }, [product]);
 
   return (
     <div className="relative top-36 md:top-52 md:px-4">
@@ -58,7 +53,7 @@ const BrandName = () => {
             </div>
           </div>
           <div className="px-[5px]">
-            {product && (
+            {product ? (
               <div className="col-span-3">
                 <h2 className=" mb-2 text-primary-red flex justify-between items-center">
                   <span>{product.title}</span>
@@ -71,17 +66,18 @@ const BrandName = () => {
                 </h2>
                 <hr className="h-[2px] bg-secondary" />
                 <div className="grid grid-cols-2 md:grid-cols-4 h-auto gap-[10px] py-5">
-                  {product.items &&
-                    product.items.map((item: any, index: any) => {
-                      return (
-                        <Link href={`/product/${item.id}`} className="">
-                          <CommonCard key={index} product={item} />
-                        </Link>
-                      );
-                    })}
+                  {product.items
+                    ? product.items.map((item: any, index: any) => {
+                        return (
+                          <Link href={`/product/${item.id}`} className="">
+                            <CommonCard key={index} product={item} />
+                          </Link>
+                        );
+                      })
+                    : null}
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
         </section>
       </div>
