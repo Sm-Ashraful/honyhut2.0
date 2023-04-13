@@ -101,7 +101,11 @@ const ProCategory = () => {
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px]">
                           {subCategory.items.map((product, idx) => {
-                            return <CommonCard product={product} key={idx} />;
+                            return (
+                              <Link href={`/product/${product.id}`} key={idx}>
+                                <CommonCard product={product} />
+                              </Link>
+                            );
                           })}
                         </div>
                       </div>
@@ -111,7 +115,11 @@ const ProCategory = () => {
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px] pb-5 pt-[10px]">
                   {selectCategory.items.map((product, idx) => {
-                    return <CommonCard product={product} key={idx} />;
+                    return (
+                      <Link href={`/product/${product.id}`} key={idx}>
+                        <CommonCard product={product} />
+                      </Link>
+                    );
                   })}
                 </div>
               )}

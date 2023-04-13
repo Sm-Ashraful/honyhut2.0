@@ -5,12 +5,29 @@ import { useRouter } from "next/router";
 import { FaHome } from "react-icons/fa";
 
 import CheckOut from "../../components/checkout";
+import { getProductByIdSecond } from "../../utils/products-demo";
+import { getProductById } from "../../utils/products";
+import { getProductByIdThird } from "@/utils/fav-demo-data";
 
 export default function Checkout({ items }) {
   const [selected, setSelected] = useState("");
+  const [product, setProduct] = useState(null);
 
   const route = useRouter();
+  const productId = route.query.productId;
   const pathName = route.pathname;
+
+  // if (productId) {
+  //   const newProduct =
+  //     Number(productId) > 84
+  //       ? Number(productId) > 102
+  //         ? getProductByIdThird(productId)
+  //         : getProductByIdSecond(productId)
+  //       : getProductById(productId);
+
+  //   setProduct(newProduct);
+  // }
+
   const path = pathName.split("/");
   const defaultFormValue = {
     firstName: "",
@@ -87,9 +104,8 @@ export default function Checkout({ items }) {
   }, [shippingFormValues]);
 
   useEffect(() => {
-    console.log("Shipping Values: ", shippingSubmittedValues);
-    console.log("Shipping shippingFormValues: ", shippingFormValues);
-  }, [shippingSubmittedValues]);
+    console.log("Products Values: ", productId);
+  }, []);
 
   const handleChange = (event) => {
     event.preventDefault();

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import Button from "../Button";
 import LeftRightArrow from "../common/LeftRightArrow";
@@ -51,11 +52,14 @@ const PhotoSlider = ({ data, delayTime }) => {
               className={styles.person_img}
             />
 
-            <div className={`${styles.slider_content} from-bottom`}>
-              <Button className="bg-secondary text-primary hover:bg-honey hover:text-black">
+            <Link
+              href={`/allproducts`}
+              className={`${styles.slider_content} from-bottom`}
+            >
+              <Button className="bg-secondaryTextColor text-black hover:bg-honey hover:text-black">
                 Shop Now
               </Button>
-            </div>
+            </Link>
           </article>
         );
       })}
