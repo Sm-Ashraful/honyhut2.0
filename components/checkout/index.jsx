@@ -1,24 +1,53 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
-import { useSelector } from "react-redux";
+import { getProductByIdSecond } from "../../utils/products-demo";
+import { getProductById } from "../../utils/products";
+import { getProductByIdThird } from "@/utils/fav-demo-data";
+import { useDispatch } from "react-redux";
 
 import {
-  selectCartItems,
-  selectCartTotal,
-  selectShippingCost,
-} from "../../Store/cart/cart.selector";
+  removeItem,
+  decreaseCartItem,
+  addItemToCart,
+  addShippingCost,
+} from "../../Store/cart/cart.action";
 
-export default function CheckoutItems() {
-  const cartItems = useSelector(selectCartItems);
-  const cartTotal = useSelector(selectCartTotal);
-  const shippingCost = useSelector(selectShippingCost);
+export default function CheckoutItems({
+  cartItems,
+  shippingCost = 0,
+  cartTotal = 0,
+}) {
   const [orderToggle, setOrderToggle] = useState(true);
+  const [checkoutCartItems, setCheckoutCartItems] = useState(cartItems);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const productId = router.query.productId;
+  const product = getProductById(productId);
+
+  useEffect(() => {
+    const exixting = cartItems.find((cartItem) => {
+      return cartItem.id === product.id;
+    });
+    if (!exixting) {
+      cartItems.push(product);
+    }
+  }, []);
+
+  const handleCheckoutCartItemDecrease = (cartItem) => {
+    dispatch(decreaseCartItem(cartItems, cartItem));
+  };
+
+  const handleCheckoutCartItemIncrease = (cartItem) => {
+    dispatch(addItemToCart(cartItems, cartItem));
+  };
 
   return (
     <div className="relative w-full px-5">
@@ -48,7 +77,16 @@ export default function CheckoutItems() {
           <p className="pl-5">Your Order Summary</p>
         </span>
         <span className="text-xl font-bold">
-          USD {(cartTotal + shippingCost).toFixed(2)} $
+          USD{" "}
+          {cartTotal === 0
+            ? typeof product.offer === "number"
+              ? (
+                  product.price -
+                  ((product.price * product.offer) / 100) * product.quantity
+                ).toFixed(2)
+              : (product.price * product.quantity).toFixed(2)
+            : (cartTotal + shippingCost).toFixed(2)}
+          $
         </span>
       </div>
       {orderToggle && (
@@ -68,11 +106,25 @@ export default function CheckoutItems() {
                     </div>
                     <div>
                       <p className="font-semibold">{cartItem.name}</p>
-                      <p className="text-lg">
-                        {(cartItem.category && cartItem.category) ||
-                          (cartItem.MOQ && cartItem.MOQ) ||
-                          (cartItem.unit && cartItem.unit)}
-                      </p>
+                      <div className="flex justify-center items-center border border-tertiary text-primary-red rounded-full py-2 w-40 bg-white">
+                        {cartItem.quantity}
+                        <span
+                          onClick={() =>
+                            handleCheckoutCartItemDecrease(cartItem)
+                          }
+                          className="mr-2 ml-12 font-bold cursor-pointer hover:text-primary-red  rounded-lg"
+                        >
+                          <AiOutlineMinus />
+                        </span>
+                        <span
+                          onClick={() =>
+                            handleCheckoutCartItemIncrease(cartItem)
+                          }
+                          className="ml-2 font-bold cursor-pointer hover:text-primary-red  rounded-full"
+                        >
+                          <AiOutlinePlus />
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <div className="">
@@ -101,22 +153,50 @@ export default function CheckoutItems() {
           })}
           <div>
             <hr className="w-full h-[2px]  bg-white border-0" />
-            <div className="flex justify-between pt-2">
-              <p>Subtotal: </p>
-              <p className="font-medium">USD {cartTotal.toFixed(2)}$</p>
-            </div>
-            <div className="flex justify-between">
-              <p>Shipping: </p>
-              {shippingCost === 0 ? (
-                <p className="font-medium">Free</p>
-              ) : (
-                <p className="font-medium">USD {shippingCost}$</p>
-              )}
-            </div>
-            <div className="flex justify-between items-center text-[1.5rem] text-primary-red py-2 font-semibold">
-              <p>Total: </p>
-              <p>USD {(cartTotal + shippingCost).toFixed(2)} $</p>
-            </div>
+            {
+              <>
+                <div className="flex justify-between pt-2">
+                  <p>Subtotal: </p>
+                  <p className="font-medium">
+                    USD{" "}
+                    {cartTotal === 0
+                      ? typeof product.offer === "number"
+                        ? (
+                            product.price -
+                            ((product.price * product.offer) / 100) *
+                              product.quantity
+                          ).toFixed(2)
+                        : (product.price * product.quantity).toFixed(2)
+                      : cartTotal.toFixed(2)}
+                    $
+                  </p>
+                </div>
+                <div className="flex justify-between">
+                  <p>Shipping: </p>
+                  {shippingCost === 0 ? (
+                    <p className="font-medium">Free</p>
+                  ) : (
+                    <p className="font-medium">USD {shippingCost}$</p>
+                  )}
+                </div>
+                <div className="flex justify-between items-center text-[1.5rem] text-primary-red py-2 font-semibold">
+                  <p>Total: </p>
+                  <p>
+                    USD{" "}
+                    {cartTotal === 0
+                      ? typeof product.offer === "number"
+                        ? (
+                            product.price -
+                            ((product.price * product.offer) / 100) *
+                              product.quantity
+                          ).toFixed(2)
+                        : (product.price * product.quantity).toFixed(2)
+                      : (cartTotal + shippingCost).toFixed(2)}{" "}
+                    $
+                  </p>
+                </div>
+              </>
+            }
           </div>
         </div>
       )}

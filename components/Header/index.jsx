@@ -72,11 +72,11 @@ const Header = () => {
     dispatch(toggleMobileCategory());
   };
   const openDepartment = (e) => {
-    dispatch(setIsDropdownVisible(true));
+    dispatch(setIsDropdownVisible());
   };
 
   const closeDepartMent = () => {
-    dispatch(setIsDropdownVisible(false));
+    dispatch(setIsDropdownVisible());
   };
 
   const handleCart = (e) => {
