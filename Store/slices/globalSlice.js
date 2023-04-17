@@ -35,8 +35,8 @@ export const sidebarSlice = createSlice({
     allDepartmentToggle: (state) => {
       state.isDepartmentOpen = !state.isDepartmentOpen;
     },
-    setIsDropdownVisible: (state, action) => {
-      state.isDropdownVisible = action.payload;
+    setIsDropdownVisible: (state) => {
+      state.isDropdownVisible = !state.isDropdownVisible;
     },
   },
 });
