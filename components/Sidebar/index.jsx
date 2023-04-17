@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "./sidebar.module.css";
 import CategoryNav from "../category-nav";
 import MenuBar from "./menubar";
@@ -25,11 +25,24 @@ const Sidebar = () => {
     dispatch(toggle());
   };
 
-  const handleClickOutside = (event) => {
+  useEffect(() => {
+    // Add event listener to the document object
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Remove event listener when the component unmounts
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  function handleClickOutside(event) {
+    console.log("event: ", event.target);
+    console.log("Hello: ", sidebarRef.current);
+    console.log("event target: ", sidebarRef.current.contains(event.target));
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
       dispatch(toggle());
     }
-  };
+  }
 
   return (
     <div

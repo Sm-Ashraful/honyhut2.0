@@ -37,9 +37,14 @@ const Categories = () => {
   // }, [currentIndex]);
 
   return (
-    <section className={`padding_inside relative top-36 md:top-48 mt-16`}>
-      <h2 className="mb-0 text-primary-red md:text-center">Top Categories</h2>
-      <hr className="h-[2px] mt-[5px]  bg-gray border-0" />
+    <section
+      className={`padding_inside relative top-36 md:top-48 mt-16 mb-16 md:mb-32`}
+    >
+      <h2 class="mb-0 text-primary-red text-center">
+        <span>Top Categories</span>
+        <hr class="w-[45px] my-[5px] border-2 mx-auto" />
+      </h2>
+
       <div
         className="grid grid-cols-2 md:grid-cols-4 gap-[10px] rounded-md pt-5"
         ref={cardBoxRef}
