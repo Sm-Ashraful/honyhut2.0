@@ -33,7 +33,7 @@ export default function Home() {
           top={0}
           className={false}
           products={MaleEnhancement[2].products}
-          title={`Sex Pills`}
+          title={`Enhancement Pills`}
         />
 
         <Women />
