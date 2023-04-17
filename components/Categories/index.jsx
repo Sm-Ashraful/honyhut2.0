@@ -3,38 +3,9 @@ import CategoryCard from "../Card/categoryCard";
 import categoryData from "../../utils/category-demo-data";
 import Link from "next/link";
 
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-
 const Categories = () => {
   const [category, setCategory] = useState(categoryData);
-  // const [currentIndex, setCurrentIndex] = useState(0);
   const cardBoxRef = useRef(null);
-
-  // const handlePreviousCategory = (e) => {
-  //   let width = cardBoxRef.current.clientWidth;
-  //   cardBoxRef.current.scrollLeft -= width;
-  // };
-
-  // const handleNextCategory = (e) => {
-  //   let width = cardBoxRef.current.clientWidth;
-  //   cardBoxRef.current.scrollLeft += width;
-  // };
-
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     if (currentIndex < category.length - 3) {
-  //       setCurrentIndex(currentIndex + 1);
-  //       handleNextCategory();
-
-  //       // if(){}
-  //     } else {
-  //       setCurrentIndex(0);
-  //       cardBoxRef.current.scrollLeft = 0;
-  //     }
-  //   }, 5000);
-
-  //   return () => clearInterval(intervalId);
-  // }, [currentIndex]);
 
   return (
     <section
