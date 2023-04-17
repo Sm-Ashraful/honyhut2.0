@@ -164,15 +164,6 @@ const Header = () => {
                       <span>Home</span>
                     </a>
                   </li>
-                  <li>
-                    <Link
-                      href="/about"
-                      className="flex flex-col justify-center items-center text-secondary"
-                    >
-                      <BsInfoCircle />
-                      <span>About</span>
-                    </Link>
-                  </li>
 
                   <li>
                     <Link
@@ -183,6 +174,17 @@ const Header = () => {
                       <span>Products</span>
                     </Link>
                   </li>
+
+                  <li>
+                    <Link
+                      href="/about"
+                      className="flex flex-col justify-center items-center text-secondary"
+                    >
+                      <BsInfoCircle />
+                      <span>About</span>
+                    </Link>
+                  </li>
+
                 </ul>
               </nav>
             </div>
