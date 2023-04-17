@@ -15,18 +15,16 @@ export const sidebarSlice = createSlice({
   name: "sidebar",
   initialState,
   reducers: {
-    toggle: (state) => {
-      state.isSidebarOpen = !state.isSidebarOpen;
+    toggle: (state, action) => {
+      state.isSidebarOpen = action.payload;
     },
     filterToggle: (state) => {
-      console.log("Fileter toggole reducer called: ", state.isFilterOpen);
       state.isFilterOpen = !state.isFilterOpen;
     },
     shortPosition: (state) => {
       state.isShortOpen = !state.isShortOpen;
     },
     toggleMobileCategory: (state) => {
-      console.log("How i call twice");
       state.isMobileDropDownOpen = !state.isMobileDropDownOpen;
     },
     favToggle: (state) => {

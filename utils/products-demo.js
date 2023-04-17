@@ -7,6 +7,7 @@ const people = [
     quote: "Don't Quit ... ",
     offer: 20,
     price: 100,
+    quantity: 1,
   },
   {
     id: 86,
@@ -16,6 +17,7 @@ const people = [
     quote: "Extra strength",
     price: 150,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 87,
@@ -34,6 +36,7 @@ const people = [
     quote: "Discover the potential",
     price: 80,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 89,
@@ -43,6 +46,7 @@ const people = [
     quote: "Discover the potential",
     price: 90,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 6,
@@ -61,6 +65,7 @@ const people = [
     quote: "Discover the potential",
     price: 20,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 91,
@@ -70,6 +75,7 @@ const people = [
     quote: "Discover the potential",
     price: 70,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 92,
@@ -88,6 +94,7 @@ const people = [
     quote: "Discover the potential",
     price: 24,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 12,
@@ -97,6 +104,7 @@ const people = [
     quote: "Discover the potential",
     price: 32,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 94,
@@ -106,6 +114,7 @@ const people = [
     quote: "Discover the potential",
     price: 43,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 95,
@@ -115,6 +124,7 @@ const people = [
     quote: "Discover the potential",
     price: 67,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 96,
@@ -124,6 +134,7 @@ const people = [
     quote: "Discover the potential",
     price: 23,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 97,
@@ -133,6 +144,7 @@ const people = [
     quote: "Discover the potential",
     price: 11,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 98,
@@ -142,6 +154,7 @@ const people = [
     quote: "Discover the potential",
     price: 3,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 99,
@@ -151,6 +164,7 @@ const people = [
     quote: "Discover the potential",
     price: 90,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 100,
@@ -160,6 +174,7 @@ const people = [
     quote: "Discover the potential",
     price: 88,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 101,
@@ -169,6 +184,7 @@ const people = [
     quote: "Discover the potential",
     price: 77,
     offer: 20,
+    quantity: 1,
   },
   {
     id: 102,
@@ -178,6 +194,7 @@ const people = [
     quote: "Discover the potential",
     price: 99,
     offer: 20,
+    quantity: 1,
   },
 ];
 

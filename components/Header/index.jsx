@@ -55,7 +55,8 @@ const Header = () => {
 
   const handleMenuOnClick = (event) => {
     event.preventDefault();
-    dispatch(toggle());
+    console.log("hey you click this");
+    dispatch(toggle(true));
   };
 
   const handleSubmit = (event) => {

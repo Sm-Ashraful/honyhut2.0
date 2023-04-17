@@ -650,9 +650,7 @@ export default function Checkout() {
                 </div>
               </div>
               <div
-                className={`my-4 mx-5  ${
-                  isShippingSubmitComplete ? "" : "blur-[3px]"
-                }`}
+                className={`my-4 mx-5  ${isSubmitComplete ? "" : "blur-[3px]"}`}
               >
                 <div>
                   <div className="">

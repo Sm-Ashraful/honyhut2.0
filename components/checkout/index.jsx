@@ -27,10 +27,19 @@ export default function CheckoutItems({
 }) {
   const [orderToggle, setOrderToggle] = useState(true);
   const [checkoutCartItems, setCheckoutCartItems] = useState(cartItems);
+  let product;
   const router = useRouter();
   const dispatch = useDispatch();
   const productId = router.query.productId;
-  const product = getProductById(productId);
+
+  if (productId) {
+    product =
+      Number(productId) > 84
+        ? Number(productId) > 102
+          ? getProductByIdThird(productId)
+          : getProductByIdSecond(productId)
+        : getProductById(productId);
+  }
 
   useEffect(() => {
     console.log("Products: ", product);
@@ -51,6 +60,11 @@ export default function CheckoutItems({
 
   const handleCheckoutCartItemIncrease = (cartItem) => {
     dispatch(addItemToCart(cartItems, cartItem));
+  };
+
+  const removeCheckoutItem = (cartItem, e) => {
+    e.preventDefault();
+    dispatch(removeItem(cartItems, cartItem));
   };
 
   return (
@@ -81,16 +95,7 @@ export default function CheckoutItems({
           <p className="pl-5">Your Order Summary</p>
         </span>
         <span className="text-xl font-bold">
-          USD{" "}
-          {product
-            ? typeof product.offer === "number"
-              ? (
-                  product.price -
-                  ((product.price * product.offer) / 100) * product.quantity
-                ).toFixed(2)
-              : (product.price * product.quantity).toFixed(2)
-            : (cartTotal + shippingCost).toFixed(2)}
-          $
+          USD {(cartTotal + shippingCost).toFixed(2)}$
         </span>
       </div>
       {orderToggle && (
@@ -131,17 +136,26 @@ export default function CheckoutItems({
                       </div>
                     </div>
                   </div>
-                  <div className="">
-                    <strong className="">
+                  <div className="basis-1/2 flex justify-end items-center">
+                    <span
+                      onClick={(e) => removeCheckoutItem(cartItem, e)}
+                      className="text-primary-red font-semibold cursor-pointer"
+                    >
+                      Remove
+                    </span>
+                    <strong className="pl-[45px]">
                       {typeof cartItem.offer === "number" ? (
                         <>
                           {cartItem.offer && (
                             <span>
-                              USD{" "}
-                              {(
-                                cartItem.price -
-                                (cartItem.price * cartItem.offer) / 100
-                              ).toFixed(2)}{" "}
+                              <span>{cartItem.quantity}</span>
+                              <span className="px-5 text-primary-red">X</span>
+                              <span>
+                                {(
+                                  cartItem.price -
+                                  (cartItem.price * cartItem.offer) / 100
+                                ).toFixed(2)}
+                              </span>
                               $
                             </span>
                           )}
@@ -161,19 +175,7 @@ export default function CheckoutItems({
               <>
                 <div className="flex justify-between pt-2">
                   <p>Subtotal: </p>
-                  <p className="font-medium">
-                    USD{" "}
-                    {product
-                      ? typeof product.offer === "number"
-                        ? (
-                            product.price -
-                            ((product.price * product.offer) / 100) *
-                              product.quantity
-                          ).toFixed(2)
-                        : (product.price * product.quantity).toFixed(2)
-                      : cartTotal.toFixed(2)}
-                    $
-                  </p>
+                  <p className="font-medium">USD {cartTotal.toFixed(2)}$</p>
                 </div>
                 <div className="flex justify-between">
                   <p>Shipping: </p>
@@ -183,21 +185,12 @@ export default function CheckoutItems({
                     <p className="font-medium">USD {shippingCost}$</p>
                   )}
                 </div>
+                <p className="flex justify-end">
+                  <hr className="w-[20%]  border-2 border-white" />
+                </p>
                 <div className="flex justify-between items-center text-[1.5rem] text-primary-red py-2 font-semibold">
                   <p>Total: </p>
-                  <p>
-                    USD{" "}
-                    {product
-                      ? typeof product.offer === "number"
-                        ? (
-                            product.price -
-                            ((product.price * product.offer) / 100) *
-                              product.quantity
-                          ).toFixed(2)
-                        : (product.price * product.quantity).toFixed(2)
-                      : (cartTotal + shippingCost).toFixed(2)}{" "}
-                    $
-                  </p>
+                  <p>USD {(cartTotal + shippingCost).toFixed(2)}$</p>
                 </div>
               </>
             }
