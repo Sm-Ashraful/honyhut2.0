@@ -10,8 +10,9 @@ const RecommendProduct = ({ title, products, top, className }) => {
         top ? `top-${top}` : `top-36 md:top-48 `
       } mt-10`}
     >
-      <h2 className="mb-0 text-primary-red md:text-center">{title}</h2>
-      <hr className="h-[2px] bg-gray border-0" />
+      <h2 className="text-primary-red md:text-center mb-0">{title}
+      <hr class="w-[60px] my-[5px] border-2 mx-auto" />
+      </h2>
       <div
         className={`${
           className

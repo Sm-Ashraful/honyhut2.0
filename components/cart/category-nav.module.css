@@ -28,17 +28,17 @@
   border-collapse: collapse;
 }
 .rightSidebar {
-  width: 320px;
-  height: 80vh;
+  width: 300px;
+  height: 100vh;
   position: absolute;
-  top: 3rem;
-  right: -1.5rem;
+  top: -9px;
+  bottom: 0;
+  right: -2.0rem;
   letter-spacing: 1px;
   line-height: 2;
   @apply bg-primary;
   @apply shadow-allIn;
-  border-right: 1px solid #638c28;
-  border-top: 1px solid #638c28;
+  border-left: 1px solid #638c28;
   z-index: 1000;
   transform: translateX(150%);
   transition: transform 0.3s ease-in-out;
@@ -54,7 +54,10 @@
 }
 @media screen and (min-width: 768px) {
   .rightSidebar {
-    height: 90vh;
+    height: 100vh;
+    width: 300px;
+    right: -1.3rem;
+    top: -21px;
   }
 }
 

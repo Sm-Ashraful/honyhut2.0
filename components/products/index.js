@@ -52,9 +52,13 @@ const Products = () => {
   }
 
   return (
-    <section className="padding_inside relative top-36 md:top-48 h-auto mt-16">
-      <h2 className="mb-0 text-primary-red md:text-center">Top Products</h2>
-      <hr className="h-[2px] mt-[5px] bg-gray border-0" />
+    <section className="padding_inside relative top-36 md:top-48 h-auto mt-16 mb-16 md:mb-32">
+      <h2 className="mb-0 text-primary-red text-center">
+      <span>
+      Top Products
+      </span>
+      <hr class="w-[45px] my-[5px] border-2 mx-auto" />
+      </h2>
       <div
         className=" flex items-center pt-5 gap-[10px] scroll-smooth x-scrollable-content pb-5"
         ref={cardBoxRef}
