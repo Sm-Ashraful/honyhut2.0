@@ -25,37 +25,29 @@ const CategoryNav = () => {
     (state) => state.sidebar.isMobileDropDownOpen
   );
 
-  function handleRouteChange() {
-    dispatch(toggleMobileCategory());
-    console.log("Mobil drop down: handleRouteChange ", isMobileDropDownOpen);
-  }
-
   useEffect(() => {
-    if (!isMobileDropDownOpen) return;
     // Add event listener to the document object
     document.addEventListener("mousedown", handleClickOutside);
     router.events.on("routeChangeComplete", handleRouteChange);
+    document.addEventListener("scroll", handleRouteChange);
 
     // Remove event listener when the component unmounts
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       router.events.off("routeChangeComplete", handleRouteChange);
+      document.removeEventListener("scroll", handleRouteChange);
     };
-  }, [router.events]);
-
-  useEffect(() => {
-    router.events.on("routeChangeComplete", (url) => {
-      console.log(`completely routed to ${url}`);
-    });
   }, []);
 
   function handleClickOutside(event) {
     event.preventDefault();
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-      dispatch(toggleMobileCategory());
-      console.log("Click outside of the div: ", isMobileDropDownOpen);
-      //
+      dispatch(toggleMobileCategory(false));
     }
+  }
+
+  function handleRouteChange() {
+    dispatch(toggleMobileCategory(false));
   }
 
   const handleHeadingClick = (category, e) => {

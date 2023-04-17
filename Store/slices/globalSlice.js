@@ -24,8 +24,8 @@ export const sidebarSlice = createSlice({
     shortPosition: (state) => {
       state.isShortOpen = !state.isShortOpen;
     },
-    toggleMobileCategory: (state) => {
-      state.isMobileDropDownOpen = !state.isMobileDropDownOpen;
+    toggleMobileCategory: (state, action) => {
+      state.isMobileDropDownOpen = action.payload;
     },
     favToggle: (state) => {
       state.isModalOpen = !state.isModalOpen;

@@ -56,7 +56,7 @@ const CommonCard = ({ product }) => {
     <>
       {product && (
         <div
-          className={`relative bg-white px-[10px] py-4 transition-all duration-300 hover:scale-95 cursor-pointer group  md:w-auto shadow-allIn rounded-md`}
+          className={`relative bg-white px-[5px] md:px-[10px] py-4 transition-all duration-300 hover:scale-95 cursor-pointer group  md:w-auto shadow-allIn rounded-md`}
         >
           <div className="w-full h-32 text-center flex justify-center items-center py-4 overflow-hidden">
             <div className="relative group-hover:scale-125 transition-all  duration-1000">
@@ -102,36 +102,34 @@ const CommonCard = ({ product }) => {
               <span className="text-secondaryTextColor"> Available</span>
             </p>
             <div
-              className="flex  w-full justify-between items-center gap-[5px]  py-2 text-sm"
+              className="flex  w-full justify-between items-center   py-2 text-sm"
               onClick={countClickHandler}
             >
-              <button className="w-1/2 min-w-[80px]  px-2 py-4 border-tertiary  rounded-md  border ">
-                <div className="flex justify-around items-center h-full w-full">
-                  <span
-                    className=" font-bold cursor-pointer text-tertiary hover:text-secondary"
-                    onClick={decreaseItem}
-                  >
-                    <AiOutlineMinus className="text-lg font-bold" />
-                  </span>
+              <button className="w-1/2 min-w-[80px] mx-[2px]  px-2 py-4 border-tertiary  rounded-md  border flex justify-around items-center">
+                <span
+                  className=" font-bold cursor-pointer text-tertiary hover:text-secondary "
+                  onClick={decreaseItem}
+                >
+                  <AiOutlineMinus className="text-lg font-bold" />
+                </span>
 
-                  <span>{count}</span>
+                <span>{count}</span>
 
-                  <span
-                    className="font-bold cursor-pointer text-tertiary hover:text-secondary "
-                    onClick={increaseItem}
-                  >
-                    <AiOutlinePlus className="text-lg font-bold" />
-                  </span>
-                </div>
+                <span
+                  className="font-bold cursor-pointer "
+                  onClick={increaseItem}
+                >
+                  <AiOutlinePlus className="text-lg font-bold" />
+                </span>
               </button>
               <button
-                className="w-1/2 min-w-[80px] flex justify-center items-center border border-secondaryTextColor bg-secondaryTextColor text-black hover:bg-honey hover:text-black px-2 py-4 text-sm rounded-md"
+                className="w-1/2 min-w-[80px] flex justify-center items-center border border-secondaryTextColor bg-secondaryTextColor text-black hover:bg-honey hover:text-black py-4 text-[10px] md:text-[14px] rounded-md"
                 onClick={handleAddToCart}
               >
-                <span className="pr-2">
+                <span className="pr-[2px]">
                   <BsBagPlus />
                 </span>
-                <span>Add To Cart</span>
+                <span className="text-center">Add To Cart</span>
               </button>
             </div>
           </div>

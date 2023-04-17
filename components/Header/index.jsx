@@ -70,7 +70,7 @@ const Header = () => {
   };
 
   const openCategoryMenu = () => {
-    dispatch(toggleMobileCategory());
+    dispatch(toggleMobileCategory(true));
   };
   const openDepartment = (e) => {
     dispatch(setIsDropdownVisible());
@@ -87,7 +87,7 @@ const Header = () => {
 
   const handleCloseMobilCategory = (e) => {
     e.preventDefault();
-    dispatch(toggleMobileCategory());
+    dispatch(toggleMobileCategory(false));
   };
 
   return (

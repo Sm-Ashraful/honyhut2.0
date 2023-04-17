@@ -73,7 +73,7 @@ const ProductCatalog = ({ product }) => {
           })}
         </p>
       </div>
-      <div className="flex flex-wrap md:pt-5">
+      <div className="flex flex-wrap px-[5px] md:pt-5">
         <div className="relative w-screen md:w-1/2 md:overflow-hidden  rounded flex flex-col justify-center items-center md:items-start md:justify-start md:space-x-5">
           <div
             className={`relative w-full h-96  flex justify-center items-center`}
@@ -112,7 +112,7 @@ const ProductCatalog = ({ product }) => {
         </div>
 
         {/* Product Information and button */}
-        <div className=" padding_inside w-full md:w-1/2 space-y-3 md:relative md:top-10 ">
+        <div className=" padding_inside w-full md:w-1/2  md:relative md:top-10 ">
           <h3 className="text-3xl font-medium">{product.name}</h3>
           <div className="mb-2">
             <span className="flex items-center">
@@ -152,29 +152,30 @@ const ProductCatalog = ({ product }) => {
               </ul>
             </p>
           </div>
-          <div className="flex justify-start items-center">
+          <div className="flex justify-between items-center">
             <Button
               onClick={handleAddToCart}
-              className="mr-10 text-xl text-white bg-secondary hover:text-white hover:bg-honey rounded-full shadow-hnx"
+              className=" text-white bg-secondary hover:text-white hover:bg-honey rounded-full shadow-hnx"
             >
-              <span className="flex space-x-3 items-center">
-                <span>
+              <span className="flex  items-center justify-center">
+                <span className="pr-[3px]">
                   <HiOutlinePlusCircle />
                 </span>
                 <span>Add to Cart</span>
               </span>
             </Button>
-            <Link href={`/cart/checkout?productId=${product.id}`}>
-              <Button className="mr-10 text-black  text-xl bg-honey hover:text-white hover:bg-honey rounded-full shadow-hnx">
+
+            <Button className=" text-black   bg-honey hover:text-white hover:bg-honey rounded-full shadow-hnx">
+              <Link href={`/cart/checkout?productId=${product.id}`}>
                 {/* <AiFillHeart/> */}
-                <span className="flex space-x-3 items-center">
-                  <span>
+                <span className="flex  items-center">
+                  <span className="pr-[3px]">
                     <SiShopify />
                   </span>
                   <span>Buy Now</span>
                 </span>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             <Button
               onClick={handleFavClick}
               className="mr-10 text-primary text-xl bg-secondary hover:text-white hover:bg-honey rounded-full shadow-hnx"
@@ -210,7 +211,7 @@ const ProductCatalog = ({ product }) => {
         {/* Product Information and button end*/}
 
         {/* Product Information, shipping information */}
-        <div className="padding_inside mt-8 w-full flex justify-between bg-primary">
+        <div className="px-5 mt-8 w-full flex justify-between bg-primary">
           <div className="mb-3  w-full mt-5 md:flex">
             {productInfo.map((info, index) => {
               return (

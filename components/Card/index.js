@@ -68,13 +68,6 @@ const Card = ({ product, percentage }) => {
                   <OfferPercent percentage={product.offer} />
                 </div>
               )}
-              <div className="absolute  bottom-0 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000">
-                <div className="md:w-12 md:h-12 h-10 w-10  rounded-full text-center bg-primary">
-                  <span className="w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000">
-                    <BsEyeFill />
-                  </span>
-                </div>
-              </div>
             </div>
 
             <div className="relative py-3 px-5 space-y-2 leading-5">
@@ -121,7 +114,7 @@ const Card = ({ product, percentage }) => {
               </div> */}
               <div className="w-full">
                 <Button
-                  className="w-full bg-secondary text-white hover:bg-honey hover:text-black text-lg shadow-md flex items-center justify-center"
+                  className="w-full bg-secondaryTextColor text-black hover:bg-honey hover:text-black text-lg shadow-md flex items-center justify-center"
                   onClick={handleAddToCart}
                 >
                   <span className="pr-2">
