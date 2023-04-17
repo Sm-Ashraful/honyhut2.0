@@ -6,6 +6,7 @@ import { TiContacts } from "react-icons/ti";
 import { BiShoppingBag } from "react-icons/bi";
 import { AiOutlineHome } from "react-icons/ai";
 
+
 const MenuBar = () => {
   return (
     <nav className="relative">
