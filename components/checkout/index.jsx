@@ -33,11 +33,15 @@ export default function CheckoutItems({
   const product = getProductById(productId);
 
   useEffect(() => {
-    const exixting = cartItems.find((cartItem) => {
-      return cartItem.id === product.id;
-    });
-    if (!exixting) {
-      cartItems.push(product);
+    console.log("Products: ", product);
+
+    if (product) {
+      const exixting = cartItems.find((cartItem) => {
+        return cartItem.id === product.id;
+      });
+      if (!exixting) {
+        cartItems.push(product);
+      }
     }
   }, []);
 
@@ -78,7 +82,7 @@ export default function CheckoutItems({
         </span>
         <span className="text-xl font-bold">
           USD{" "}
-          {cartTotal === 0
+          {product
             ? typeof product.offer === "number"
               ? (
                   product.price -
@@ -159,7 +163,7 @@ export default function CheckoutItems({
                   <p>Subtotal: </p>
                   <p className="font-medium">
                     USD{" "}
-                    {cartTotal === 0
+                    {product
                       ? typeof product.offer === "number"
                         ? (
                             product.price -
@@ -183,7 +187,7 @@ export default function CheckoutItems({
                   <p>Total: </p>
                   <p>
                     USD{" "}
-                    {cartTotal === 0
+                    {product
                       ? typeof product.offer === "number"
                         ? (
                             product.price -
