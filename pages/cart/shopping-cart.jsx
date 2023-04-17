@@ -49,6 +49,11 @@ export default function Cart() {
 
   const handleShippingChange = (event) => {
     setShippingMethod(event.target.value);
+
+
+    const shippingValue = parseFloat(event.target.value);
+    dispatch(addShippingCost(shippingValue));
+
   };
 
   const handleDecreaseQuantity = (item) => {
@@ -72,7 +77,7 @@ export default function Cart() {
               return (
                 <span>
                   <span className="mx-2"> {"/"} </span>{" "}
-                  <span className="capitalize underline">{linkName}</span>
+                  <span className="capitalize text-lg">{linkName}</span>
                 </span>
               );
             })}

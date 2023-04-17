@@ -5,6 +5,7 @@ import Button from "../Button";
 import ReviewStar from "../Star/index";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import { SiShopify } from "react-icons/si";
 import { HiOutlinePlusCircle } from "react-icons/hi2";
@@ -56,8 +57,8 @@ const ProductCatalog = ({ product }) => {
   }, [index, product]);
 
   return (
-    <section className="relative container top-2  bg-primary">
-      <div className="px-4 bg-white py-[10px] flex shadow-md justify-start items-center">
+    <section className="relative container top-2 bg-white  ">
+      <div className="px-4 bg-primary py-[10px] flex shadow-md justify-start items-center">
         <p className="mb-0  text-xl font-bold">
           <FaHome className="text-secondary" />
         </p>
@@ -111,7 +112,7 @@ const ProductCatalog = ({ product }) => {
         </div>
 
         {/* Product Information and button */}
-        <div className="padding_inside w-full md:w-1/2 space-y-3 md:relative md:top-10">
+        <div className=" padding_inside w-full md:w-1/2 space-y-3 md:relative md:top-10 ">
           <h3 className="text-3xl font-medium">{product.name}</h3>
           <div className="mb-2">
             <span className="flex items-center">
@@ -163,15 +164,17 @@ const ProductCatalog = ({ product }) => {
                 <span>Add to Cart</span>
               </span>
             </Button>
-            <Button className="mr-10 text-black  text-xl bg-honey hover:text-white hover:bg-honey rounded-full shadow-hnx">
-              {/* <AiFillHeart/> */}
-              <span className="flex space-x-3 items-center">
-                <span>
-                  <SiShopify />
+            <Link href={`/cart/checkout?productId=${product.id}`}>
+              <Button className="mr-10 text-black  text-xl bg-honey hover:text-white hover:bg-honey rounded-full shadow-hnx">
+                {/* <AiFillHeart/> */}
+                <span className="flex space-x-3 items-center">
+                  <span>
+                    <SiShopify />
+                  </span>
+                  <span>Buy Now</span>
                 </span>
-                <span>Buy Now</span>
-              </span>
-            </Button>
+              </Button>
+            </Link>
             <Button
               onClick={handleFavClick}
               className="mr-10 text-primary text-xl bg-secondary hover:text-white hover:bg-honey rounded-full shadow-hnx"
@@ -207,7 +210,7 @@ const ProductCatalog = ({ product }) => {
         {/* Product Information and button end*/}
 
         {/* Product Information, shipping information */}
-        <div className="padding_inside mt-8 w-full flex justify-between">
+        <div className="padding_inside mt-8 w-full flex justify-between bg-primary">
           <div className="mb-3  w-full mt-5 md:flex">
             {productInfo.map((info, index) => {
               return (

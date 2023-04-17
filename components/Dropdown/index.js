@@ -1,40 +1,37 @@
 import React from "react";
-import MenuItems from "../Menu-items";
-import DropdownModal from "../dropdownModal";
-import styles from "./style.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
-const Dropdown = ({ submenus, depthLevel, dropdown }) => {
+const Dropdown = ({ subCategory, depthLevel, dropdown }) => {
   depthLevel = depthLevel + 1;
 
-  return submenus ? (
+  return subCategory ? (
     <ul
-      style={{ width: `${submenus.length * 270}px` }}
-      className={`absolute top-0 left-full h-128 flex flex-col items-center flex-wrap bg-primary shadow-hnx ${
+      style={{ width: `270px`, minHeight: `370px` }}
+      className={`absolute top-0 left-full flex flex-col flex-wrap bg-primary shadow-hnx ${
         dropdown ? "block" : "hidden"
       }`}
     >
-      {submenus.map((dropMenu, index) => {
-        let width = "";
-        if (submenus.length === 2) {
-          width = "w-1/2";
-        } else if (submenus.length === 1) {
-          width = "w-full";
-        } else {
-          width = "w-1/3";
-        }
+      {subCategory.map((product, idx) => {
         return (
-          <div
-            className={`py-5 px-5 flex flex-col h-full shadow-right ${width}`}
-          >
-            <Link
-              href={`/brand-name/${dropMenu.title}`}
-              className=" text-primary-red border-b-2"
-            >
-              {dropMenu.title}
-            </Link>
-            <DropdownModal items={dropMenu} />
-          </div>
+          <li>
+            <div className="py-5  font-semibold  flex justify-between item-center mx-5">
+              <Link
+                href={`/brand-name/${product.title}`}
+                className="flex justify-start items-center gap-[10px]"
+              >
+                <div className="relative w-[40px] h-[40px]">
+                  <Image src={product.icon} fill cover />
+                </div>
+                <div>
+                  <p className="font-bold capitalize ">{product.title}</p>
+                  <p className="text-sm text-tertiary">
+                    {product.items} products
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </li>
         );
       })}
     </ul>

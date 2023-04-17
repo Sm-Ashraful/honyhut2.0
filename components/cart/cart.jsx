@@ -14,7 +14,6 @@ import {
   decreaseCartItem,
   addItemToCart,
 } from "../../Store/cart/cart.action";
-import { FaTimes } from "react-icons/fa";
 
 export default function Cart() {
   const cartItems = useSelector(selectCartItems);

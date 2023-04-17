@@ -5,6 +5,7 @@ export const allProducts = [
     image: ["/Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
     price: 31.99,
     offer: 20,
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "12 Sachet Per Box",
@@ -17,9 +18,11 @@ export const allProducts = [
     id: 2,
     name: "Royal Honey VIP 22g Pouches",
     image: ["/Honey/Royal Honey VIP/RoYAL hONEY.jpeg"],
-    price: 38.99,
-    offer: 10,
-    quantity: "200 pcs",
+
+    price: 38,
+    offer: 20,
+    quantity: 1,
+
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "15 Pouches Per Box",
@@ -34,7 +37,7 @@ export const allProducts = [
     image: ["/Honey/Etumax Honey/Etumax(4).jpeg"],
     price: 31.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "12 Sachet Per Box",
@@ -49,7 +52,7 @@ export const allProducts = [
     image: ["/Honey/Etumax Honey/Etumax.jpeg"],
     price: 38.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "15 Pouches Per Box",
@@ -62,8 +65,10 @@ export const allProducts = [
     id: 5,
     name: "Black Bull Honey 22g Pouches",
     image: ["/Honey/Black Bull Honey/Black Bull Honey.jpg"],
-    offer: 10,
-    quantity: "200 pcs",
+
+    offer: 20,
+    quantity: 1,
+
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "12 Poches Per Box",
@@ -77,8 +82,10 @@ export const allProducts = [
     id: 6,
     name: "Black Bull Honey 20g Pouches",
     image: ["/Honey/Black Bull Honey/Black Bull.jpeg"],
-    offer: 10,
-    quantity: "200 pcs",
+
+    offer: 20,
+    quantity: 1,
+
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "15 Pouches Per Box",
@@ -93,7 +100,7 @@ export const allProducts = [
     name: "Red Bull Honey 22g Pouches",
     image: ["/Honey/Red Bull Honey/Red Bull Honey.jpeg"],
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "12 Poches Per Box",
@@ -108,7 +115,7 @@ export const allProducts = [
     name: "Red Bull Honey 20g Pouches",
     image: ["/Honey/Red Bull Honey/Red Bull Honey.jpeg"],
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "15 Pouches Per Box",
@@ -123,7 +130,7 @@ export const allProducts = [
     name: "Blue Bull Honey 22g Pouches",
     image: ["/Honey/Blue Bull Honey/Blue Bull.jpeg"],
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "12 Poches Per Box",
@@ -138,7 +145,7 @@ export const allProducts = [
     name: "Blue Bull Honey 20g Pouches",
     image: ["/Honey/Blue Bull Honey/Blue Bull.jpeg"],
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "15 Pouches Per Box",
@@ -156,7 +163,7 @@ export const allProducts = [
     unit: "12 Sachet Per Box",
     price: 11.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -171,7 +178,7 @@ export const allProducts = [
     unit: "15 Pouches Per Box",
     price: 14.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -186,7 +193,7 @@ export const allProducts = [
     unit: "12 Pouches Per Box",
     price: 25.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -201,7 +208,7 @@ export const allProducts = [
     unit: "10 Pouches Per Box",
     price: 29.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -219,7 +226,7 @@ export const allProducts = [
     unit: "12 Bottles Per Box",
     price: 59.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -237,7 +244,7 @@ export const allProducts = [
     unit: "12 Bottles Per Box",
     price: 59.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -255,7 +262,7 @@ export const allProducts = [
     unit: "12 Bottles Per Box",
     price: 59.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -273,7 +280,7 @@ export const allProducts = [
     unit: "12 Bottles Per Box",
     price: 59.99,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -292,7 +299,7 @@ export const allProducts = [
     price: 60,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -310,7 +317,7 @@ export const allProducts = [
     unit: "24 Pcs Per Box",
     price: 50,
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -329,7 +336,7 @@ export const allProducts = [
     price: 800,
     MOQ: "100 Bottles",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -349,7 +356,7 @@ export const allProducts = [
     MOQ: "100 Box",
     percentage: "20%",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -369,7 +376,7 @@ export const allProducts = [
     MOQ: "100 Bottles",
     percentage: "20%",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -389,7 +396,7 @@ export const allProducts = [
     MOQ: "100 Bottles",
     percentage: "20%",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -408,7 +415,7 @@ export const allProducts = [
     price: 500,
     MOQ: "500 Bag",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -427,7 +434,7 @@ export const allProducts = [
     price: 900,
     MOQ: "100 Pack",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -446,7 +453,7 @@ export const allProducts = [
     price: 500,
     MOQ: "114 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -465,7 +472,7 @@ export const allProducts = [
     price: 500,
     MOQ: "114 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -484,7 +491,7 @@ export const allProducts = [
     price: 500,
     MOQ: "96 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -503,7 +510,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -522,7 +529,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -541,7 +548,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -560,7 +567,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -579,7 +586,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -598,7 +605,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -617,7 +624,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -636,7 +643,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -655,7 +662,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -674,7 +681,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -693,7 +700,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -712,7 +719,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -731,7 +738,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -750,7 +757,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -769,7 +776,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -788,7 +795,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -807,7 +814,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -826,7 +833,7 @@ export const allProducts = [
     price: 1800,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -845,7 +852,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -861,7 +868,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -877,7 +884,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -893,7 +900,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -909,7 +916,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -925,7 +932,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -941,7 +948,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -957,7 +964,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -973,7 +980,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -989,7 +996,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1005,7 +1012,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1021,7 +1028,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1037,7 +1044,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1053,7 +1060,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1069,7 +1076,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1085,7 +1092,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1101,7 +1108,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1117,7 +1124,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1133,7 +1140,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1149,7 +1156,7 @@ export const allProducts = [
     price: 2500,
     MOQ: "20 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1165,7 +1172,7 @@ export const allProducts = [
     price: 2500,
     MOQ: "96 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1181,7 +1188,7 @@ export const allProducts = [
     price: 2500,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1197,7 +1204,7 @@ export const allProducts = [
     price: 2500,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1213,7 +1220,7 @@ export const allProducts = [
     price: 1200,
     MOQ: "1200 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1229,7 +1236,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1245,7 +1252,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1261,7 +1268,7 @@ export const allProducts = [
     price: 1200,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1277,7 +1284,7 @@ export const allProducts = [
     price: 1200,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1293,7 +1300,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1309,7 +1316,7 @@ export const allProducts = [
     price: 1200,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1325,7 +1332,7 @@ export const allProducts = [
     price: 1200,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1341,7 +1348,7 @@ export const allProducts = [
     price: 2000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1357,7 +1364,7 @@ export const allProducts = [
     price: 2000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1373,7 +1380,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1389,7 +1396,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1405,7 +1412,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",
@@ -1421,7 +1428,7 @@ export const allProducts = [
     price: 1000,
     MOQ: "100 Box",
     offer: 20,
-    quantity: "200 pcs",
+    quantity: 1,
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     reviews: "4.5 reviews",

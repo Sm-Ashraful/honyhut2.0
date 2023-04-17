@@ -3,12 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  setHeroContentInView,
-  setIsDropdownVisible,
-} from "@/Store/slices/globalSlice";
+import { setIsDropdownVisible } from "@/Store/slices/globalSlice";
 
-import { toggle } from "../../Store/slices/globalSlice";
+import { toggle, toggleMobileCategory } from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import {
   selectCartOpen,
@@ -26,7 +23,8 @@ import CategoryNav from "../category-nav";
 import AllDepartNav from "../all-department-nav";
 import CartNav from "../cart";
 
-import { FaHome, FaStore, FaSearch } from "react-icons/fa";
+import { FaHome, FaStore, FaSearch, FaList, FaTimes } from "react-icons/fa";
+import { TfiViewListAlt } from "react-icons/tfi";
 import { BsInfoCircle, BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
 import {
@@ -37,30 +35,19 @@ import {
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const isCartOpen = useSelector(selectCartOpen);
   const total = useSelector(selectCartCount);
 
   const totalCost = useSelector(selectCartTotal);
 
-  const isHeroContentInView = useSelector(
-    (state) => state.sidebar.isHeroContentInView
+  const isMobileDropDownOpen = useSelector(
+    (state) => state.sidebar.isMobileDropDownOpen
   );
 
   const favItems = useSelector(selectFavItems);
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Change 768 to the breakpoint you're using in Tailwind CSS
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Call the function initially to set the initial state
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -82,21 +69,24 @@ const Header = () => {
   };
 
   const openCategoryMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    dispatch(toggleMobileCategory());
   };
   const openDepartment = (e) => {
-    if (isHeroContentInView === false) {
-      dispatch(setIsDropdownVisible(true));
-    }
+    dispatch(setIsDropdownVisible());
   };
 
   const closeDepartMent = () => {
-    dispatch(setIsDropdownVisible(false));
+    dispatch(setIsDropdownVisible());
   };
 
   const handleCart = (e) => {
     e.preventDefault();
     dispatch(setIsCartOpen(!isCartOpen));
+  };
+
+  const handleCloseMobilCategory = (e) => {
+    e.preventDefault();
+    dispatch(toggleMobileCategory());
   };
 
   return (
@@ -206,17 +196,29 @@ const Header = () => {
         <div
           className={`w-full padding_inside flex justify-between items-center h-full`}
         >
-          <div className="flex justify-center items-center space-x-2 text-white md:hidden">
-            <div
-              className={`${styles.drp_menu}`}
-              onClick={openCategoryMenu}
-            ></div>
+          <div
+            onClick={openCategoryMenu}
+            className="flex justify-center items-center space-x-2 text-white md:hidden"
+          >
+            <div className={`text-2xl ${isMobileDropDownOpen && "-rotate-90"}`}>
+              <TfiViewListAlt />
+            </div>
             <p className="text-xl">Shop by category</p>
           </div>
 
-          <div onClick={openSearchBar} className="md:hidden">
-            <div className={`${styles.search_icon} mr-5`}></div>
-          </div>
+          {isMobileDropDownOpen ? (
+            <div onClick={handleCloseMobilCategory} className="md:hidden">
+              <div className={`text-2xl text-primary mr-5`}>
+                <FaTimes />
+              </div>
+            </div>
+          ) : (
+            <div onClick={openSearchBar} className="md:hidden">
+              <div className={`text-2xl text-primary mr-5`}>
+                <FaSearch />
+              </div>
+            </div>
+          )}
           <div className="w-full hidden md:flex h-full">
             <div
               className={`w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}
@@ -279,11 +281,7 @@ const Header = () => {
 
       {/**header end */}
       {/**hader dropdown start */}
-      <div
-        className={`${styles.dropdownMenu} ${
-          isMenuOpen ? `${styles.open}` : ""
-        }`}
-      >
+      <div>
         <CategoryNav />
       </div>
 

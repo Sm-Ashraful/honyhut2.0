@@ -1,16 +1,39 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useRouter } from "next/router";
 import { FaHome } from "react-icons/fa";
 
 import CheckOut from "../../components/checkout";
+import {
+  selectCartItems,
+  selectCartTotal,
+  selectShippingCost,
+} from "../../Store/cart/cart.selector";
 
-export default function Checkout({ items }) {
+export default function Checkout() {
   const [selected, setSelected] = useState("");
+  const [product, setProduct] = useState(null);
 
   const route = useRouter();
+  const productId = route.query.productId;
   const pathName = route.pathname;
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+  const shippingCost = useSelector(selectShippingCost);
+
+  // if (productId) {
+  //   const newProduct =
+  //     Number(productId) > 84
+  //       ? Number(productId) > 102
+  //         ? getProductByIdThird(productId)
+  //         : getProductByIdSecond(productId)
+  //       : getProductById(productId);
+
+  //   setProduct(newProduct);
+  // }
+
   const path = pathName.split("/");
   const defaultFormValue = {
     firstName: "",
@@ -86,11 +109,6 @@ export default function Checkout({ items }) {
     setIsShippingFormComplete(isComplete);
   }, [shippingFormValues]);
 
-  useEffect(() => {
-    console.log("Shipping Values: ", shippingSubmittedValues);
-    console.log("Shipping shippingFormValues: ", shippingFormValues);
-  }, [shippingSubmittedValues]);
-
   const handleChange = (event) => {
     event.preventDefault();
     setSelected(event.target.value);
@@ -115,7 +133,7 @@ export default function Checkout({ items }) {
               return (
                 <span>
                   <span className="mx-2"> {"/"} </span>{" "}
-                  <span className="capitalize underline">{linkName}</span>
+                  <span className="capitalize text-sm">{linkName}</span>
                 </span>
               );
             })}
@@ -124,7 +142,11 @@ export default function Checkout({ items }) {
         <div className="w-full md:hidden">
           <div className="bg-order">
             <div>
-              <CheckOut />
+              <CheckOut
+                cartItems={cartItems}
+                cartTotal={cartTotal}
+                shippingCost={shippingCost}
+              />
             </div>
           </div>
         </div>
@@ -749,7 +771,11 @@ export default function Checkout({ items }) {
             <div className="col-span-2 hidden md:block">
               <div className="bg-order">
                 <div>
-                  <CheckOut items={items} />
+                  <CheckOut
+                    cartItems={cartItems}
+                    cartTotal={cartTotal}
+                    shippingCost={shippingCost}
+                  />
                 </div>
               </div>
               <div className="flex justify-end">

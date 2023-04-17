@@ -16,7 +16,7 @@ const RecommendProduct = ({ title, products, top, className }) => {
         className={`${
           className
             ? `${className}`
-            : `grid grid-cols-2 md:grid-cols-5 gap-[10px] cursor-pointer pt-5`
+            : `grid grid-cols-2 md:grid-cols-4 gap-[10px] cursor-pointer pt-5`
         } `}
       >
         {products.map((item, index) => {

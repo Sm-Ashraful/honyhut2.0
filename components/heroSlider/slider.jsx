@@ -19,52 +19,16 @@ const Slider = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  useEffect(() => {
-    const heroContent = document.getElementsByClassName("hero-content");
-    function isHeroContentInView() {
-      if (heroContent && heroContent[0]) {
-        const heroContentTop = heroContent[0].offsetTop;
-        const heroContentBottom = heroContentTop + heroContent[0].offsetHeight;
-        const viewportTop = window.pageYOffset;
-        const viewportBottom = viewportTop + window.innerHeight;
-
-        return (
-          heroContentTop <= viewportBottom && heroContentBottom >= viewportTop
-        );
-      }
-      return false;
-    }
-
-    function handleScroll() {
-      const isHeroInView = isHeroContentInView();
-      dispatch(setHeroContentInView(isHeroInView));
-    }
-    // if (router.pathname === "/") {
-    //   window.addEventListener("scroll", handleScroll);
-    // } else {
-    //   dispatch(setHeroContentInView(true));
-    // }
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [dispatch, router.pathname]);
-
   return (
     <section className={`w-full  relative top-36 md:top-52`}>
       <div
-        className={` ${styles.section_slider} flex justify-center md:space-x-5 md:padding_inside hero-content`}
+        className={` ${styles.section_slider} flex justify-center hero-content px-5`}
       >
         {/* left section */}
-        <div className="w-1/5 hidden md:block ">
-          <DropdownNavbar />
-        </div>
 
         {/* middle heroslide section */}
         <div className={`${styles.section_center}  flex-1`}>
-          <PhotoSlider data={data} delayTime="5000" />
+          <PhotoSlider data={data} delayTime="8000" />
         </div>
 
         {/* right section */}

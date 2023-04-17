@@ -15,9 +15,11 @@ import OfferPercent from "../offer";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { BsBagPlus, BsEyeFill } from "react-icons/bs";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const CommonCard = ({ product }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const favItems = useSelector(selectFavItems);
@@ -26,14 +28,29 @@ const CommonCard = ({ product }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    dispatch(addItemToCart(cartItems, product));
+    dispatch(addItemToCart(cartItems, product, count));
   };
 
   const handleFavClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     dispatch(addItemToFav(favItems, product));
     setIsFavorite(!isFavorite);
   };
+  function increaseItem(e) {
+    e.preventDefault();
+    setCount(count + 1);
+  }
+  function decreaseItem(e) {
+    e.preventDefault();
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  }
+
+  function countClickHandler(e) {
+    e.preventDefault();
+  }
 
   return (
     <>
@@ -80,17 +97,43 @@ const CommonCard = ({ product }) => {
               />
               <span className=" text-primary-red">(10)</span>
             </p>
-            <p>
-              <Button
-                className="flex justify-center items-center w-full bg-secondary text-primary hover:bg-honey hover:text-black text-lg  border-t border-t-secondary"
+            <p className="text-center text-black text-lg">
+              In stock:
+              <span className="text-secondaryTextColor"> Available</span>
+            </p>
+            <div
+              className="flex  w-full justify-between items-center gap-[5px]  py-2 text-sm"
+              onClick={countClickHandler}
+            >
+              <button className="w-1/2 min-w-[80px]  px-2 py-4 border-tertiary  rounded-md  border ">
+                <div className="flex justify-around items-center h-full w-full">
+                  <span
+                    className=" font-bold cursor-pointer text-tertiary hover:text-secondary"
+                    onClick={decreaseItem}
+                  >
+                    <AiOutlineMinus className="text-lg font-bold" />
+                  </span>
+
+                  <span>{count}</span>
+
+                  <span
+                    className="font-bold cursor-pointer text-tertiary hover:text-secondary "
+                    onClick={increaseItem}
+                  >
+                    <AiOutlinePlus className="text-lg font-bold" />
+                  </span>
+                </div>
+              </button>
+              <button
+                className="w-1/2 min-w-[80px] flex justify-center items-center border border-secondaryTextColor bg-secondaryTextColor text-black hover:bg-honey hover:text-black px-2 py-4 text-sm rounded-md"
                 onClick={handleAddToCart}
               >
                 <span className="pr-2">
                   <BsBagPlus />
                 </span>
                 <span>Add To Cart</span>
-              </Button>
-            </p>
+              </button>
+            </div>
           </div>
 
           <div className={`absolute w-full h-16  z-50 top-2 left-2`}>
@@ -112,13 +155,6 @@ const CommonCard = ({ product }) => {
               <OfferPercent percentage={product.offer} />
             </div>
           )}
-          <div className="absolute  bottom-1/2 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000">
-            <div className="md:w-12 md:h-12 h-10 w-10  rounded-full text-center bg-primary">
-              <span className="w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000">
-                <BsEyeFill />
-              </span>
-            </div>
-          </div>
         </div>
       )}
     </>
