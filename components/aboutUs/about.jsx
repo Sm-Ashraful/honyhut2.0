@@ -11,10 +11,11 @@ const About = () => {
   return (
     <div>
       <div className="bg-gray w-full h-auto relative top-10">
-        <div className="padding_inside grid grid-cols-2 md:grid-cols-4 ">
+        <div className="padding_inside grid grid-cols-4 md:grid-cols-4 ">
+        
           <div className="p-4 justify-between items-center shadow-md">
             <div className="relative flex flex-col justify-center items-center">
-              <div className=" pt-2 h-24 w-32 relative items-center">
+              <div className=" pt-2 h-[40px] w-[40px] md:h-24 md:w-32 relative items-center">
                 <Image fill cover src={Shipping} alt={"Image"}/>
               </div>
               <h1 className=" font-bold pt-7 ml-1 text-center">
@@ -26,7 +27,7 @@ const About = () => {
 
           <div className="p-5 justify-between items-center shadow-md">
             <div className="relative flex flex-col justify-center items-center">
-              <div className=" pt-2 h-24 w-32 relative items-center">
+              <div className=" pt-2 h-[40px] w-[40px] md:h-24 md:w-32 relative items-center">
                 <Image fill cover src={Support} alt={"Image"} />
               </div>
               <h1 className=" font-bold pt-7 ml-1 text-center">24/7 Support</h1>
@@ -35,7 +36,7 @@ const About = () => {
 
           <div className="p-5 justify-between items-center shadow-md">
             <div className="relative flex flex-col justify-center items-center">
-              <div className=" pt-2 h-24 w-32 relative items-center">
+              <div className=" pt-2 h-[40px] w-[40px] md:h-24 md:w-32 relative items-center">
                 <Image fill cover src={Payment} alt={"Image"} />
               </div>
               <h1 className=" font-bold pt-7 ml-1 text-center">
@@ -46,7 +47,7 @@ const About = () => {
 
           <div className="p-5 justify-between items-center shadow-md">
             <div className="relative flex flex-col justify-center items-center">
-              <div className=" pt-2 h-24 w-32 relative items-center">
+              <div className=" pt-2 h-[40px] w-[40px] md:h-24 md:w-32 relative items-center">
                 <Image fill cover src={Delivery} alt={"Image"} />
               </div>
               <h1 className=" font-bold pt-7 ml-1 text-center">

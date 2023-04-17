@@ -31,7 +31,7 @@ const CartNav = ({ headingLine, view, goto }) => {
       }`}
     >
       <div className="w-full h-auto scrollable-content mb-24">
-        <div className="relative flex justify-between items-center p-6   ">
+        <div className="relative flex justify-between items-center p-6">
           <p className="text-2xl text-secondary font-bold">{headingLine}</p>
           <p
             className="h-12 w-12 flex items-center justify-center cursor-pointer hover:text-primary-red text-xl  text-primary-red"
@@ -39,7 +39,7 @@ const CartNav = ({ headingLine, view, goto }) => {
           >
             <span>Close</span>
             <span className="ml-2">
-              <FaTimes />
+              <FaTimes/>
             </span>
           </p>
         </div>
@@ -52,12 +52,12 @@ const CartNav = ({ headingLine, view, goto }) => {
         )}
         <hr />
         <div className="relative left-2 h-5/6 w-full text-sm">
-          <CheckOut />
+          <CheckOut/>
         </div>
       </div>
 
-      <div className="absolute bottom-2 flex flex-col w-full">
-        <div className="cursor-pointer place-items-center w-full px-4">
+      <div className="absolute bottom-20 flex flex-col w-full">
+        <div className="cursor-pointer place-items-center w-full px-4 py-2">
           <Link href={"../../cart/shopping-cart"}>
             <div className="text-black bg-secondaryTextColor border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
               {view}

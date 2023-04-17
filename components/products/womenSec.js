@@ -73,7 +73,7 @@ const Women = () => {
         </div>
       </section>
       <section className="padding_inside w-full overflow-hidden">
-        <h2 className="pt-2 md:pb-3">Buy More Save More</h2>
+        <h2 className="pt-2 md:pb-3 text-primary-red">Buy More Save More</h2>
         <hr className="h-px mb-5  bg-gray border-0 dark:bg-gray" />
         <div className="w-full h-96 md:h-4/5">
           <ByMoreSection />
