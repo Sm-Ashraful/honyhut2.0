@@ -105,7 +105,7 @@ const CommonCard = ({ product }) => {
               className="flex  w-full justify-between items-center   py-2 text-sm"
               onClick={countClickHandler}
             >
-              <button className="w-1/2 min-w-[80px] mx-[2px]  px-2 py-4 border-tertiary  rounded-md  border flex justify-around items-center">
+              <button className="w-[50%] min-w-[80px] mx-[2px]  px-2 py-4 border-tertiary  rounded-md  border flex justify-around items-center">
                 <span
                   className=" font-bold cursor-pointer text-tertiary hover:text-secondary "
                   onClick={decreaseItem}
@@ -123,7 +123,7 @@ const CommonCard = ({ product }) => {
                 </span>
               </button>
               <button
-                className="w-1/2 min-w-[80px] flex justify-center items-center border border-secondaryTextColor bg-secondaryTextColor text-black hover:bg-honey hover:text-black py-4 text-[10px] md:text-[14px] rounded-md"
+                className="w-[50%] min-w-[80px] flex justify-center items-center border border-secondaryTextColor bg-secondary text-white hover:bg-honey hover:text-black py-4 text-[10px] md:text-[14px] rounded-md"
                 onClick={handleAddToCart}
               >
                 <span className="pr-[2px]">
