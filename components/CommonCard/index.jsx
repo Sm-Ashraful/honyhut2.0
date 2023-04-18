@@ -94,7 +94,7 @@ const CommonCard = ({ product }) => {
               <ReviewStar
                 className={`flex text-center text-honey text-sm md:text-lg`}
               />
-              <span className=" text-primary-red">(10)</span>
+              <span className=" text-primary-red">(4)</span>
             </p>
             <p className="text-center text-black text-lg">
               In stock:
