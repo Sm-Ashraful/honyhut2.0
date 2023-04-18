@@ -11,7 +11,7 @@ const Categories = () => {
     <section
       className={`padding_inside relative top-36 md:top-48 mt-16 mb-16 md:mb-32`}
     >
-      <h2 class="mb-0 text-primary-red text-center">
+      <h2 class="mb-0 text-honey text-center md:text-center">
         <span>Top Categories</span>
         <hr class="w-[45px] my-[5px] border-2 mx-auto" />
       </h2>
