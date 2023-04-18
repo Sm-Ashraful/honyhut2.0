@@ -33,6 +33,7 @@ module.exports = {
       ash: "#B2BEB5",
       order: "#bdc1c6",
       secondaryTextColor: "rgb(76,217,100)",
+      headingColor: "#f2782e",
       fullAsh: "hsl(0deg 0% 45% / 90%)",
     },
   },

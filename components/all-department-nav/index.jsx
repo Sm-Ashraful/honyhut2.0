@@ -7,7 +7,7 @@ const AllDepartNav = () => {
   return (
     <>
       {isDropdownVisible && (
-        <div className="w-full">
+        <div className="w-full h-auto">
           <DropdownNavbar />
         </div>
       )}

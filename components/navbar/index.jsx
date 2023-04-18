@@ -8,7 +8,7 @@ const DropdownNavbar = () => {
   const depthLevel = 0;
   return (
     <nav
-      className={`w-[20vw] h-full z-50 border-t-2 border-t-honey bg-primary text-secondary leftHight relative`}
+      className={`w-[20vw] h-auto z-50 border-t-2 border-t-honey bg-primary text-secondary leftHight relative`}
     >
       <ul className={`text-xl`}>
         {categories.map((menu, index) => {

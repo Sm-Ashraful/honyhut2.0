@@ -43,7 +43,10 @@
 .menu_button {
   height: 28px;
   width: 28px;
-  background-image: url("../../Assets/menu-btn.svg");
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-position: center;
   background-size: contain;
   cursor: pointer;
@@ -76,14 +79,13 @@
 .cart_count {
   height: 1.8rem;
   width: 1.8rem;
-  @apply bg-white text-black;
+  @apply bg-white text-secondary border-honey;
   position: absolute;
   font-size: 12px;
   left: 1rem;
   top: -0.75rem;
   border: 1px solid;
   border-radius: 50%;
-  border-color: seagreen;
 
   display: flex;
   align-items: center;

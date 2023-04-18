@@ -32,6 +32,7 @@ import {
   MdFavorite,
   MdOutlineFavoriteBorder,
 } from "react-icons/md";
+import { VscListSelection } from "react-icons/vsc";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
@@ -82,7 +83,8 @@ const Header = () => {
 
   const handleCart = (e) => {
     e.preventDefault();
-    dispatch(setIsCartOpen(!isCartOpen));
+    e.stopPropagation();
+    dispatch(setIsCartOpen(true));
   };
 
   const handleCloseMobilCategory = (e) => {
@@ -109,18 +111,23 @@ const Header = () => {
             </div>
             {/**cart */}
             <div className=" md:order-4 md:mr-3 relative">
-              <div className="flex justify-center items-center space-x-5">
+              <div className="flex justify-center items-center space-x-5 text-honey">
                 <div
                   className={`${styles.menu_button} md:hidden`}
                   onClick={handleMenuOnClick}
                 >
-                  <span className={`${styles.menu_button}`}></span>
+                  <span className={`${styles.menu_button} `}>
+                    <VscListSelection />
+                  </span>
                 </div>
 
                 {/* cart section  */}
                 <div>
-                  <div className={styles.shopping_cart} onClick={handleCart}>
-                    <div className="relative mt-4 ml-1 text-3xl text-secondary">
+                  <div
+                    className={styles.shopping_cart}
+                    onMouseDown={handleCart}
+                  >
+                    <div className="relative mt-4 ml-1 text-3xl ">
                       <BsCart4 />
                       <span className={styles.cart_count}>{total}</span>
                     </div>
@@ -133,7 +140,7 @@ const Header = () => {
                 </div>
                 {/* cart section  end */}
                 {/* whitelist section  */}
-                <div className="text-4xl text-secondary hidden md:block cursor-pointer">
+                <div className="text-4xl  hidden md:block cursor-pointer">
                   <Link href="/favorite">
                     {favItems.length > 0 ? (
                       <MdFavorite />
@@ -144,7 +151,7 @@ const Header = () => {
                 </div>
                 {/* whitelist section  end*/}
                 {/* total const section  */}
-                <div className="md:hidden text-xl text-secondary">
+                <div className="md:hidden text-xl ">
                   <p>${totalCost.toFixed(2)}</p>
                 </div>
                 {/* total const section  */}
@@ -157,7 +164,7 @@ const Header = () => {
                   <li>
                     <a
                       href="/"
-                      className="flex flex-col justify-center items-center text-secondary"
+                      className="flex flex-col justify-center items-center "
                     >
                       <span>
                         <FaHome />
@@ -169,7 +176,7 @@ const Header = () => {
                   <li>
                     <Link
                       href="/allproducts"
-                      className="flex flex-col justify-center items-center text-secondary"
+                      className="flex flex-col justify-center items-center "
                     >
                       <FaStore />
                       <span>Products</span>
@@ -179,13 +186,12 @@ const Header = () => {
                   <li>
                     <Link
                       href="/about"
-                      className="flex flex-col justify-center items-center text-secondary"
+                      className="flex flex-col justify-center items-center "
                     >
                       <BsInfoCircle />
                       <span>About</span>
                     </Link>
                   </li>
-
                 </ul>
               </nav>
             </div>

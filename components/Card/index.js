@@ -114,7 +114,7 @@ const Card = ({ product, percentage }) => {
               </div> */}
               <div className="w-full">
                 <Button
-                  className="w-full bg-secondaryTextColor text-black hover:bg-honey hover:text-black text-lg shadow-md flex items-center justify-center"
+                  className="w-full bg-secondary text-white hover:bg-honey  text-lg shadow-md flex items-center justify-center"
                   onClick={handleAddToCart}
                 >
                   <span className="pr-2">

@@ -10,7 +10,7 @@ const MenuItems = ({ items, depthLevel }) => {
     <li
       onMouseEnter={() => setDropdown(true)}
       onMouseLeave={() => setDropdown(false)}
-      className="py-5 px-9  w-full h-full flex items-center cursor-pointer hover:bg-white shadow-sm hover:shadow-hnx"
+      className="py-5 px-9  w-full h-atuo flex items-center cursor-pointer hover:bg-white shadow-sm hover:shadow-hnx"
     >
       <div className="flex justify-center items-center gap-[10px]">
         <div className="relative w-[40px] h-[40px]">

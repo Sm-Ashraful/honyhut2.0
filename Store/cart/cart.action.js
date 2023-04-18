@@ -37,8 +37,9 @@ const removeItemFromCart = (cartItems, productToRemove) => {
   return cartItems.filter((cartItem) => cartItem.id !== productToRemove.id);
 };
 
-export const setIsCartOpen = (bool) =>
-  ActionReducer(CART_ACTION_TYPE.SET_CART_OPEN, bool);
+export const setIsCartOpen = (bool) => {
+  return ActionReducer(CART_ACTION_TYPE.SET_CART_OPEN, bool);
+};
 
 export const addItemToCart = (cartItems, productTodd, count = 1) => {
   const newCartItems = addCartItem(cartItems, productTodd, count);
