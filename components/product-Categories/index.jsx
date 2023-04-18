@@ -36,7 +36,6 @@ const ProCategory = () => {
   }, []);
 
   useEffect(() => {
-    console.log("select categories: ", selectCategory);
     if (selectCategory) {
       selectRouteName(selectCategory.title);
     }
