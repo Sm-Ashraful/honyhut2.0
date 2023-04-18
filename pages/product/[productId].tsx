@@ -22,12 +22,7 @@ const Product = () => {
   const productId = router.query.productId;
 
   if (productId) {
-    product =
-      Number(productId) > 84
-        ? Number(productId) > 102
-          ? getProductByIdThird(productId)
-          : getProductByIdSecond(productId)
-        : getProductById(productId);
+    product = getProductById(productId);
   }
 
   if (!product) {

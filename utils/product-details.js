@@ -94,4 +94,33 @@ export const productInfo = [
       },
     ],
   },
+  {
+    title: "Reviews",
+    details: [
+      {
+        title: "Alex Hospot",
+        description: [
+          {
+            des1: "Great product, working well",
+          },
+        ],
+      },
+      {
+        title: " ",
+        description: [
+          {
+            des1: "I does not find any side effect",
+          },
+        ],
+      },
+      {
+        title: " ",
+        description: [
+          {
+            des1: "Friendly customer service",
+          },
+        ],
+      },
+    ],
+  },
 ];

@@ -49,7 +49,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 6,
+    id: 90,
     image: ["/images/Product/pro-6.png"],
     name: "Rhino 69 4750k",
     category: "Dietary Supplement",
@@ -58,7 +58,7 @@ const people = [
     offer: 20,
   },
   {
-    id: 90,
+    id: 91,
     image: ["/images/Product/pro-7.png"],
     name: "Rhino 69 15000K",
     category: "Dietary Supplement",
@@ -68,7 +68,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 91,
+    id: 92,
     image: ["/images/Product/pro-8.png"],
     name: "Rhino 69 3750K",
     category: "Dietary Supplement",
@@ -78,7 +78,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 92,
+    id: 93,
     image: ["/images/Product/pro-9.png"],
     name: "Rhino 69 23000K",
     category: "Dietary Supplement",
@@ -87,7 +87,7 @@ const people = [
     offer: 20,
   },
   {
-    id: 93,
+    id: 94,
     image: ["/images/Product/pro-10.png"],
     name: "Rhino 69 7500K",
     category: "Dietary Supplement",
@@ -97,7 +97,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 12,
+    id: 95,
     image: ["/images/Product/pro-12.png"],
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
@@ -107,7 +107,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 94,
+    id: 96,
     image: ["/images/Product/pro-13.png"],
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
@@ -117,7 +117,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 95,
+    id: 97,
     image: ["/images/Product/pro-14.png"],
     name: "Trojan MAGNUM",
     category: "Dietary Supplement",
@@ -127,7 +127,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 96,
+    id: 98,
     image: ["/images/Product/pro-15.png"],
     name: "BLACK BULL EXTREME",
     category: "Dietary Supplement",
@@ -137,7 +137,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 97,
+    id: 99,
     image: ["/images/Product/pro-16.png"],
     name: "Royal Honey VIP 20g Sachet",
     category: "Dietary Supplement",
@@ -147,7 +147,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 98,
+    id: 100,
     image: ["/images/Product/pro-17.png"],
     name: "Miracle of Honey 20g Sachet",
     category: "Dietary Supplement",
@@ -157,7 +157,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 99,
+    id: 101,
     image: ["/images/Product/pro-18.png"],
     name: "Leopard Miracle Honey 20g Sachet",
     category: "Dietary Supplement",
@@ -167,7 +167,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 100,
+    id: 102,
     image: ["/images/Product/pro-19.png"],
     name: "Red Bull",
     category: "Dietary Supplement",
@@ -177,7 +177,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 101,
+    id: 103,
     image: ["/images/Product/pro-20.png"],
     name: "VITA MAX Double Shot 20g Sachet",
     category: "Dietary Supplement",
@@ -187,7 +187,7 @@ const people = [
     quantity: 1,
   },
   {
-    id: 102,
+    id: 104,
     image: ["/images/Product/pro-21.png"],
     name: "ETUMA Royal Honey 20g Sachet",
     category: "Dietary Supplement",

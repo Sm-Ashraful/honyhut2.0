@@ -1,6 +1,6 @@
 const people = [
   {
-    id: 103,
+    id: 105,
     image: ["/images/Product/pro-1.png"],
     name: "Rhino 69 600K",
     category: "Male enhancement Supplement",
@@ -9,7 +9,7 @@ const people = [
     price: 100,
   },
   {
-    id: 104,
+    id: 106,
     image: ["/images/Product/pro-2.png"],
     name: "Rhino 69 1900K",
     category: "Male enhancement Supplement",
@@ -19,7 +19,7 @@ const people = [
     offer: 10,
   },
   {
-    id: 105,
+    id: 107,
     image: ["/images/Product/pro-3.png"],
     name: "Rhino 69 2400K",
     category: "VIP Royal Honey",
@@ -29,7 +29,7 @@ const people = [
     offer: 5,
   },
   {
-    id: 106,
+    id: 108,
     image: ["/images/Product/pro-4.png"],
     name: "Rhino 69 10000K",
     category: "Dietary Supplement",
@@ -39,7 +39,7 @@ const people = [
     offer: 15,
   },
   {
-    id: 107,
+    id: 109,
     image: ["/images/Product/pro-4.png"],
     name: "Rhino 69 10000K",
     category: "Dietary Supplement",
@@ -49,7 +49,7 @@ const people = [
     offer: 10,
   },
   {
-    id: 108,
+    id: 110,
     image: ["/images/Product/pro-4.png"],
     name: "Rhino 69 10000K",
     category: "Dietary Supplement",
@@ -59,7 +59,7 @@ const people = [
     offer: 2,
   },
   {
-    id: 109,
+    id: 111,
     image: ["/images/Product/pro-3.png"],
     name: "Rhino 69 2400K",
     category: "VIP Royal Honey",
@@ -69,7 +69,7 @@ const people = [
     offer: "hot",
   },
   {
-    id: 110,
+    id: 112,
     image: ["/images/Product/pro-1.png"],
     name: "Rhino 69 600K",
     category: "Male enhancement Supplement",
