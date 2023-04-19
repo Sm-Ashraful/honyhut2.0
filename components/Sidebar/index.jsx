@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styles from "./sidebar.module.css";
 import MenuBar from "./menubar";
 
-import { AiOutlineClose } from "react-icons/ai";
+import { FaTimes } from "react-icons/fa";
 
 import { ImFacebook2 } from "react-icons/im";
 import { FcGoogle } from "react-icons/fc";
@@ -13,17 +13,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "@/Store/slices/globalSlice";
 
 import { useRouter } from "next/router";
+import CategoryItem from "../category-nav/category";
 
 const Sidebar = () => {
+  const [selectedMenu, setSelectedMenu] = useState("menu");
   const { isSidebarOpen } = useSelector((state) => state.sidebar);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
   const router = useRouter();
-
-  const handleMenuButton = (event) => {
-    event.preventDefault();
-    dispatch(toggle(false));
-  };
 
   useEffect(() => {
     // Add event listener to the document object
@@ -39,6 +36,11 @@ const Sidebar = () => {
     };
   }, []);
 
+  const handleMenuButton = (event) => {
+    event.preventDefault();
+    dispatch(toggle(false));
+  };
+
   function handleClickOutside(event) {
     event.preventDefault();
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -47,6 +49,10 @@ const Sidebar = () => {
   }
   function handleRouteChange(event) {
     dispatch(toggle(false));
+  }
+
+  function handleMenuSection(menu) {
+    setSelectedMenu(menu);
   }
 
   return (
@@ -58,24 +64,43 @@ const Sidebar = () => {
       }`}
       ref={sidebarRef}
     >
-      <nav className="px-5 py-3">
-        <ul
-          className={`${styles.table_header} flex justify-between items-center`}
-        >
-          <li>
-            <a className="font-bold">Menu</a>
-          </li>
-          <li
-            className="hover:text-primary-red text-secondary cursor-pointer text-lg flex justify-between items-center"
+      <div className="flex items-center shadow-md w-full z-10">
+        <p className="w-full h-full text-2xl text-headingColor font-bold flex justify-between ">
+          <span className="flex-1 flex items-center h-full">
+            <span
+              onClick={() => handleMenuSection("menu")}
+              className={`basis-1/2 border-r text-center  h-full px-5 py-5  ${
+                selectedMenu === "menu" ? `${styles.isActive}` : `blur-[1px]`
+              }`}
+            >
+              Menu
+            </span>
+            <span
+              onClick={() => handleMenuSection("category")}
+              className={`basis-1/2 border-r text-center h-full px-5 py-5  ${
+                selectedMenu === "category"
+                  ? `${styles.isActive}`
+                  : `blur-[1px]`
+              }`}
+            >
+              Categories
+            </span>
+          </span>
+          <span
+            className="mr-3 ml-4 px-5 py-5 text-primary-red"
             onClick={handleMenuButton}
           >
-            <AiOutlineClose /> <span className=" pl-2">Close</span>
-          </li>
-        </ul>
-      </nav>
-      <hr className="text-gray font-bold mb-4" />
+            <FaTimes />
+          </span>
+        </p>
+      </div>
+
       <div>
-        <MenuBar />
+        {selectedMenu === "menu" ? (
+          <MenuBar />
+        ) : (
+          <CategoryItem handleClickOutside={handleClickOutside} />
+        )}
       </div>
 
       {/* social media */}

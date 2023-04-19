@@ -20,7 +20,7 @@ export default function Home() {
           top={0}
           className={false}
           products={MaleEnhancement[0].products}
-          title={`Honey`}
+          title={`New Items`}
         />
 
         <RecommandForYou

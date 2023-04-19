@@ -62,7 +62,7 @@ const CartNav = ({ headingLine, view, goto }) => {
           : `${styles.rightSidebar}`
       }`}
     >
-      <div className="w-full h-full  mb-24 relative overflow-">
+      <div className="w-full h-full  mb-24 relative">
         <div className="fixed top-5 px-5 py-5 flex justify-between items-center shadow-md w-full z-10">
           <p className="text-2xl text-headingColor font-bold">
             <span>{headingLine}</span>
