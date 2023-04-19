@@ -52,7 +52,7 @@ const Products = () => {
   }
 
   return (
-    <section className="padding_inside relative top-36 md:top-48 h-auto mt-16 mb-16 md:mb-32">
+    <section className="padding_inside relative top-36 md:top-48 h-auto mt-16 mb-10 md:mb-28">
       <h2 className="mb-0 text-honey text-center">
       <span>
       Top Products

@@ -1445,6 +1445,12 @@ export const allProducts = [
     offer: 20,
     price: 100,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 86,
@@ -1455,6 +1461,12 @@ export const allProducts = [
     price: 150,
     offer: 20,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 87,
@@ -1464,6 +1476,13 @@ export const allProducts = [
     quote: "Honey for Extra Energy",
     price: 70,
     offer: 20,
+    quantity:1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 88,
@@ -1474,6 +1493,12 @@ export const allProducts = [
     price: 80,
     offer: 20,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 89,
@@ -1484,6 +1509,12 @@ export const allProducts = [
     price: 90,
     offer: 20,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 90,
@@ -1493,6 +1524,13 @@ export const allProducts = [
     quote: "Discover the potential",
     price: 50,
     offer: 20,
+    quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 91,
@@ -1503,6 +1541,12 @@ export const allProducts = [
     price: 20,
     offer: 20,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 92,
@@ -1513,6 +1557,12 @@ export const allProducts = [
     price: 70,
     offer: 20,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 93,
@@ -1522,6 +1572,13 @@ export const allProducts = [
     quote: "Discover the potential",
     price: 22,
     offer: 20,
+    quantity: 1, 
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 94,
@@ -1532,6 +1589,12 @@ export const allProducts = [
     price: 24,
     offer: 20,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "10/04/2023",
   },
   {
     id: 95,
@@ -1542,6 +1605,12 @@ export const allProducts = [
     price: 32,
     offer: 20,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "01/04/2023",
   },
   {
     id: 96,
@@ -1552,6 +1621,12 @@ export const allProducts = [
     price: 43,
     offer: 20,
     quantity: 1,
+    description:
+      "Make the intimate moments with your partner last longer and feel better.",
+    reviews: "4.5 reviews",
+    category: "Cone Paper",
+    createdBy: "Munna",
+    updatedAt: "01/04/2023",
   },
   {
     id: 97,
@@ -1562,6 +1637,12 @@ export const allProducts = [
     price: 67,
     offer: 20,
     quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "01/04/2023",
   },
   {
     id: 98,
@@ -1572,6 +1653,12 @@ export const allProducts = [
     price: 23,
     offer: 20,
     quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "01/04/2023",
   },
   {
     id: 99,
@@ -1582,6 +1669,12 @@ export const allProducts = [
     price: 11,
     offer: 20,
     quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "01/04/2023",
   },
   {
     id: 100,
@@ -1592,6 +1685,12 @@ export const allProducts = [
     price: 3,
     offer: 20,
     quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "01/04/2023",
   },
   {
     id: 101,
@@ -1602,6 +1701,12 @@ export const allProducts = [
     price: 90,
     offer: 20,
     quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "01/04/2023",
   },
   {
     id: 102,
@@ -1612,6 +1717,12 @@ export const allProducts = [
     price: 88,
     offer: 20,
     quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 103,
@@ -1622,6 +1733,12 @@ export const allProducts = [
     price: 77,
     offer: 20,
     quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 104,
@@ -1632,6 +1749,12 @@ export const allProducts = [
     price: 99,
     offer: 20,
     quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 105,
@@ -1639,8 +1762,14 @@ export const allProducts = [
     name: "Rhino 69 600K",
     category: "Male enhancement Supplement",
     quote: "Don't Quit ... ",
-    quantity: "10 pcs",
     price: 100,
+    quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 106,
@@ -1648,9 +1777,15 @@ export const allProducts = [
     name: "Rhino 69 1900K",
     category: "Male enhancement Supplement",
     quote: "Extra strength",
-    quantity: "15 pcs",
     price: 150,
     offer: 10,
+    quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 107,
@@ -1658,9 +1793,15 @@ export const allProducts = [
     name: "Rhino 69 2400K",
     category: "VIP Royal Honey",
     quote: "Honey for Extra Energy",
-    quantity: "10pcs",
     price: 100,
     offer: 5,
+    quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 108,
@@ -1668,9 +1809,15 @@ export const allProducts = [
     name: "Rhino 69 10000K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
     price: 120,
     offer: 15,
+    quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 109,
@@ -1678,9 +1825,15 @@ export const allProducts = [
     name: "Rhino 69 10000K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
     price: 120,
     offer: 10,
+    quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 110,
@@ -1688,9 +1841,15 @@ export const allProducts = [
     name: "Rhino 69 10000K",
     category: "Dietary Supplement",
     quote: "Discover the potential",
-    quantity: "10 pcs",
     price: 12,
     offer: 2,
+    quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 111,
@@ -1698,9 +1857,15 @@ export const allProducts = [
     name: "Rhino 69 2400K",
     category: "VIP Royal Honey",
     quote: "Honey for Extra Energy",
-    quantity: "10pcs",
     price: 10,
     offer: "hot",
+    quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
   {
     id: 112,
@@ -1708,9 +1873,15 @@ export const allProducts = [
     name: "Rhino 69 600K",
     category: "Male enhancement Supplement",
     quote: "Don't Quit ... ",
-    quantity: "10 pcs",
     price: 100,
     offer: 5,
+    quantity: 1,
+    description:
+    "Make the intimate moments with your partner last longer and feel better.",
+  reviews: "4.5 reviews",
+  category: "Cone Paper",
+  createdBy: "Munna",
+  updatedAt: "14/04/2023",
   },
 ];
 export const getProductById = (id) => {
