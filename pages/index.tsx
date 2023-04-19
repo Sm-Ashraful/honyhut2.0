@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import Head from "next/head";
 import ImageSlider from "../components/heroSlider/slider";
 import Categories from "../components/Categories";
@@ -8,8 +10,12 @@ import RecommandForYou from "../components/RecommandForYou";
 import { MaleEnhancement } from "../utils/male";
 
 import people from "../utils/fav-demo-data";
+import { allProducts } from "@/utils/products";
+import getNewArrival from "@/utils/helper/getNewProducts";
 
 export default function Home() {
+  const newProducts = getNewArrival(allProducts);
+
   return (
     <>
       <main>
@@ -19,8 +25,8 @@ export default function Home() {
         <RecommandForYou
           top={0}
           className={false}
-          products={MaleEnhancement[0].products}
-          title={`New Items`}
+          products={newProducts}
+          title={`New Best Items`}
         />
 
         <RecommandForYou
@@ -29,6 +35,7 @@ export default function Home() {
           products={people}
           title={`Just For You`}
         />
+        <Women />
         <RecommandForYou
           top={0}
           className={false}
@@ -36,7 +43,6 @@ export default function Home() {
           title={`Enhancement Pills`}
         />
 
-        <Women />
         <Gallery />
       </main>
     </>
