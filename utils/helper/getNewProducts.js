@@ -1,6 +1,6 @@
 function getNewArrivals(allProducts) {
   const tenDaysAgo = new Date();
-  tenDaysAgo.setDate(tenDaysAgo.getDate() - 30);
+  tenDaysAgo.setDate(tenDaysAgo.getDate() - 50);
 
   const newArrivals = allProducts.filter((product) => {
     const updatedAtParts = product.updatedAt.split("/");
