@@ -59,8 +59,8 @@ const CategoryItem = ({ handleClickOutside }) => {
                     {category.name}
                   </p>
                   <p className="text-sm text-tertiary">
-                    {category.subCategory.length} subcategories,{" "}
-                    {category.totalItem} products
+                    {category.subCategory && category.subCategory.length}{" "}
+                    subcategories, {category.totalItem} products
                   </p>
                 </div>
               </div>
@@ -79,32 +79,33 @@ const CategoryItem = ({ handleClickOutside }) => {
               }`}
             >
               <div>
-                {category.subCategory.map((subLinks, index) => {
-                  return (
-                    <div>
-                      <li>
-                        <div className="py-5 pl-20 font-semibold  flex justify-between item-center px-5">
-                          <Link
-                            href={`/brand-name/${subLinks.title}`}
-                            className="flex justify-center items-center gap-[10px]"
-                          >
-                            <div className="relative w-[40px] h-[40px]">
-                              <Image src={subLinks.icon} fill cover />
-                            </div>
-                            <div>
-                              <p className="font-bold capitalize ">
-                                {subLinks.title}
-                              </p>
-                              <p className="text-sm text-tertiary">
-                                {subLinks.items} products
-                              </p>
-                            </div>
-                          </Link>
-                        </div>
-                      </li>
-                    </div>
-                  );
-                })}
+                {category.subCategory &&
+                  category.subCategory.map((subLinks, index) => {
+                    return (
+                      <div>
+                        <li>
+                          <div className="py-5 pl-20 font-semibold  flex justify-between item-center px-5">
+                            <Link
+                              href={`/brand-name/${subLinks.title}`}
+                              className="flex justify-center items-center gap-[10px]"
+                            >
+                              <div className="relative w-[40px] h-[40px]">
+                                <Image src={subLinks.icon} fill cover />
+                              </div>
+                              <div>
+                                <p className="font-bold capitalize ">
+                                  {subLinks.title}
+                                </p>
+                                <p className="text-sm text-tertiary">
+                                  {subLinks.items} products
+                                </p>
+                              </div>
+                            </Link>
+                          </div>
+                        </li>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>

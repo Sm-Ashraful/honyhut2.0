@@ -20,9 +20,9 @@ const Slider = () => {
   const router = useRouter();
 
   return (
-    <section className={`w-full  relative top-36 md:top-52`}>
+    <section className={`w-full  relative top-36 md:top-52 padding_inside`}>
       <div
-        className={` ${styles.section_slider} flex justify-center hero-content px-5`}
+        className={` ${styles.section_slider} flex justify-center hero-content `}
       >
         {/* left section */}
 

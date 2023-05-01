@@ -36,6 +36,9 @@ module.exports = {
       headingColor: "#f2782e",
       fullAsh: "hsl(0deg 0% 45% / 90%)",
     },
+    fontFamily: {
+      sans: ["Playfair Display", "sans-serif"],
+    },
   },
   plugins: [],
 };

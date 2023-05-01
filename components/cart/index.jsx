@@ -108,7 +108,7 @@ const CartNav = ({ headingLine, view, goto }) => {
                 </div>
 
                 <div className="cursor-pointer place-items-center w-full px-4">
-                  <Link href={"../../cart/checkout"}>
+                  <Link href={"../../checkout/checkout"}>
                     <button class="text-white bg-primary-red border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
                       {goto}
                     </button>

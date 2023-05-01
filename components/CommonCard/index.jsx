@@ -7,6 +7,7 @@ import { selectCartItems } from "../../Store/cart/cart.selector";
 
 import { addItemToFav } from "../../Store/favorite/favorite.action";
 import { selectFavItems } from "@/Store/favorite/favorite.selector";
+import { setIsCartOpen } from "@/Store/cart/cart.action";
 
 import Image from "next/image";
 import ReviewStar from "../Star";
@@ -28,6 +29,7 @@ const CommonCard = ({ product }) => {
   const handleAddToCart = (e) => {
     e.preventDefault();
     dispatch(addItemToCart(cartItems, product, count));
+    dispatch(setIsCartOpen(true));
   };
 
   const handleFavClick = (e) => {

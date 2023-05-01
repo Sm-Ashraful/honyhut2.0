@@ -19,7 +19,8 @@ const MenuItems = ({ items, depthLevel }) => {
         <div>
           <p className="font-bold capitalize text-[1.4rem]">{items.name}</p>
           <p className="text-sm text-tertiary">
-            {items.subCategory.length} subcategories, {items.totalItem} products
+            {items.subCategory && items.subCategory.length} subcategories,{" "}
+            {items.totalItem} products
           </p>
         </div>
       </div>

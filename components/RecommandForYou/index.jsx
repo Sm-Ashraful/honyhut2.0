@@ -19,6 +19,7 @@ const RecommendProduct = ({ title, products, top, className }) => {
       <h2 className="text-honey md:text-center text-center mb-0">
         {title}
         <hr class="w-[60px] my-[5px] border-2 mx-auto" />
+        <hr class="w-[30px] my-[5px] border-1 mx-auto" />
       </h2>
       <div
         className={`${
