@@ -14,6 +14,7 @@ import OfferPercent from "../offer";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { BsBagPlus, BsEyeFill } from "react-icons/bs";
+import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const CommonCard = ({ product }) => {
@@ -55,13 +56,46 @@ const CommonCard = ({ product }) => {
     <>
       {product && (
         <div
-          className={`relative bg-white px-[3px] md:px-[10px] py-4 transition-all duration-300 hover:scale-95 cursor-pointer group  md:w-auto shadow-allIn rounded-md`}
+          className={`relative flex flex-col justify-center items-center px-[3px] md:px-[10px] py-4 md:w-auto transition-all duration-300 cursor-pointer`}
         >
-          <div className="w-full h-32 text-center flex justify-center items-center py-4 overflow-hidden">
-            <div className="relative group-hover:scale-125 transition-all  duration-1000">
-              <Image src={product.image[0]} width="140" height="140" cover />
+          {/* image section  */}
+          <div className=" w-72 h-56  overflow-hidden shadow-allIn rounded-md text-center flex justify-center items-center group">
+
+            <div
+              className={`absolute md:w-12 md:h-12 h-10 w-10 z-50 top-28 left-40 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
+            >
+              <div className=" md:w-12 md:h-12 h-10 w-10  rounded-full text-center">
+                <span
+                  className={`w-full h-full flex items-center justify-center bg-white text-black hover:bg-black hover:text-white text-xl md:text-3xl rounded-md md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ${
+                    isFavorite && `border`
+                  }`}
+                  onClick={handleFavClick}
+                >
+                  {isFavorite ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
+                </span>
+              </div>
+            </div>
+
+            <div
+              className={`absolute md:w-12 md:h-12 h-10 w-10 z-50 top-28 right-40 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
+            >
+              <button
+                className="md:w-12 md:h-12 h-10 w-10 flex justify-center items-center bg-white text-black hover:bg-black hover:text-white py-4 text-[10px] md:text-[18px] rounded-md text-center"
+                onClick={handleAddToCart}
+              >
+                <span className="pr-[5px]">
+                  <FiShoppingCart />
+                </span>
+                {/* <span className="text-center">Cart</span> */}
+              </button>
+            </div>
+
+            <div className="w-full h-full relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
+              <Image src={product.image[0]} fill cover />
             </div>
           </div>
+
+          {/* description section  */}
           <div className="w-full pt-5">
             <p
               className="md:text-xl font-bold text-center"
@@ -103,8 +137,10 @@ const CommonCard = ({ product }) => {
             <div
               className="flex  w-full justify-between items-center md:px-5  py-2 text-sm"
               onClick={countClickHandler}
-            >
-              <button className="w-[40%] min-w-[80px] mx-[2px]  px-2 py-4 border-tertiary  rounded-md  border flex justify-around items-center">
+            ></div>
+          </div>
+
+          {/* <button className="w-[40%] min-w-[80px] mx-[2px]  px-2 py-4 border-tertiary  rounded-md  border flex justify-around items-center">
                 <span
                   className=" font-bold cursor-pointer text-tertiary hover:text-secondary "
                   onClick={decreaseItem}
@@ -120,35 +156,11 @@ const CommonCard = ({ product }) => {
                 >
                   <AiOutlinePlus className="text-md font-bold" />
                 </span>
-              </button>
-              <button
-                className="w-[60%] min-w-[80px] flex justify-center items-center border border-secondaryTextColor bg-secondary text-white hover:bg-honey hover:text-black py-4 text-[10px] md:text-[14px] rounded-md"
-                onClick={handleAddToCart}
-              >
-                <span className="pr-[5px]">
-                  <BsBagPlus />
-                </span>
-                <span className="text-center">Cart</span>
-              </button>
-            </div>
-          </div>
+              </button> */}
 
-          <div className={`absolute w-full h-16  z-50 top-2 left-2`}>
-            <div className=" md:w-12 md:h-12 h-10 w-10  rounded-full text-center">
-              <span
-                className={`w-full h-full flex items-center bg-primary justify-center text-xl md:text-3xl text-secondary rounded-full md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ${
-                  isFavorite && `border`
-                }`}
-                onClick={handleFavClick}
-              >
-                {isFavorite ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
-              </span>
-            </div>
-          </div>
+          {/* offer section  */}
           {product.offer && (
-            <div
-              className={`absolute top-2 right-2 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
-            >
+            <div className={`absolute top-2 right-16 opacity-100 `}>
               <OfferPercent percentage={product.offer} />
             </div>
           )}
