@@ -13,7 +13,6 @@ import ReviewStar from "../Star";
 import OfferPercent from "../offer";
 
 import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
-import { BsBagPlus, BsEyeFill } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
@@ -59,14 +58,14 @@ const CommonCard = ({ product }) => {
           className={`relative flex flex-col justify-center items-center px-[3px] md:px-[10px] py-4 md:w-auto transition-all duration-300 cursor-pointer`}
         >
           {/* image section  */}
-          <div className=" w-72 h-56  overflow-hidden shadow-allIn rounded-md text-center flex justify-center items-center group">
+          <div className=" w-72 h-56 bg-white overflow-hidden shadow-allIn rounded-md text-center flex justify-center items-center group">
 
             <div
               className={`absolute md:w-12 md:h-12 h-10 w-10 z-50 top-28 left-40 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
             >
               <div className=" md:w-12 md:h-12 h-10 w-10  rounded-full text-center">
                 <span
-                  className={`w-full h-full flex items-center justify-center bg-white text-black hover:bg-black hover:text-white text-xl md:text-3xl rounded-md md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ${
+                  className={`w-full h-full flex items-center justify-center bg-white text-black hover:bg-black hover:text-white border text-xl md:text-3xl rounded-md md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ${
                     isFavorite && `border`
                   }`}
                   onClick={handleFavClick}
@@ -80,7 +79,7 @@ const CommonCard = ({ product }) => {
               className={`absolute md:w-12 md:h-12 h-10 w-10 z-50 top-28 right-40 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
             >
               <button
-                className="md:w-12 md:h-12 h-10 w-10 flex justify-center items-center bg-white text-black hover:bg-black hover:text-white py-4 text-[10px] md:text-[18px] rounded-md text-center"
+                className="md:w-12 md:h-12 h-10 w-10 flex justify-center items-center bg-white text-black hover:bg-black hover:text-white border py-4 text-[10px] md:text-[18px] rounded-md text-center"
                 onClick={handleAddToCart}
               >
                 <span className="pr-[5px]">
@@ -160,7 +159,7 @@ const CommonCard = ({ product }) => {
 
           {/* offer section  */}
           {product.offer && (
-            <div className={`absolute top-2 right-16 opacity-100 `}>
+            <div className={`absolute top-2 right-16 opacity-100`}>
               <OfferPercent percentage={product.offer} />
             </div>
           )}
