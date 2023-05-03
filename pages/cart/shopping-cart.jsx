@@ -50,10 +50,8 @@ export default function Cart() {
   const handleShippingChange = (event) => {
     setShippingMethod(event.target.value);
 
-
     const shippingValue = parseFloat(event.target.value);
     dispatch(addShippingCost(shippingValue));
-
   };
 
   const handleDecreaseQuantity = (item) => {
@@ -175,7 +173,8 @@ export default function Cart() {
                         <td className="py-5 px-2 text-center pr-0">
                           {item.quantity *
                             (typeof item.offer === "number"
-                              ? item.price.toFixed(2) - (item.price.toFixed(2) * item.offer) / 100
+                              ? item.price.toFixed(2) -
+                                (item.price.toFixed(2) * item.offer) / 100
                               : item.price.toFixed(2))}
                         </td>
                       </tr>
@@ -250,7 +249,7 @@ export default function Cart() {
                     Total: ${totalWithShippingCost.toFixed(2)}
                   </p>
                 </div>
-                <Link href={"../../cart/checkout"}>
+                <Link href={"../../checkout/checkout"}>
                   <Button
                     type="submit"
                     className="bg-secondary text-primary font-bold rounded-md text-lg  hover:bg-primary-red mt-4 w-full"
@@ -260,7 +259,6 @@ export default function Cart() {
                 </Link>
               </div>
             </div>
-
           </>
         )}
       </div>

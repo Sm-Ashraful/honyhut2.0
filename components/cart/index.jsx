@@ -62,7 +62,7 @@ const CartNav = ({ headingLine, view, goto }) => {
           : `${styles.rightSidebar}`
       }`}
     >
-      <div className="w-full h-full  mb-24 relative overflow-">
+      <div className="w-full h-full  mb-24 relative">
         <div className="fixed top-5 px-5 py-5 flex justify-between items-center shadow-md w-full z-10">
           <p className="text-2xl text-headingColor font-bold">
             <span>{headingLine}</span>
@@ -108,7 +108,7 @@ const CartNav = ({ headingLine, view, goto }) => {
                 </div>
 
                 <div className="cursor-pointer place-items-center w-full px-4">
-                  <Link href={"../../cart/checkout"}>
+                  <Link href={"../../checkout/checkout"}>
                     <button class="text-white bg-primary-red border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
                       {goto}
                     </button>

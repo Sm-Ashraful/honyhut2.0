@@ -7,6 +7,22 @@ import Card from "../Card";
 
 import productData from "../../utils/products-demo";
 import styles from "../Categories/style.module.css";
+import Gallery from "../gallery/gallery";
+
+const addProduct = [
+  {
+    id: 1,
+    image: "/Category/Condoms.jpeg",
+    name: "Winter Sell",
+    quote: "OFF 50-70%",
+  },
+  {
+    id: 2,
+    image: "/Category/Condoms-2.jpeg",
+    name: "Winter Sell",
+    quote: "OFF 50-70%",
+  },
+];
 
 const Products = () => {
   const [product, setProduct] = useState(productData);
@@ -52,33 +68,35 @@ const Products = () => {
   }
 
   return (
+
     <section className="padding_inside relative top-36 md:top-48 h-auto mt-16 mb-10 md:mb-20">
+
       <h2 className="mb-0 text-honey text-center">
-      <span>
-      Top Products
-      </span>
-      <hr class="w-[45px] my-[5px] border-2 mx-auto" />
+        <span>Top Products</span>
+        <hr class="w-[45px] my-[5px] border-2 mx-auto" />
       </h2>
-      <div
-        className=" flex items-center pt-5 gap-[10px] scroll-smooth x-scrollable-content pb-5"
-        ref={cardBoxRef}
-        onTouchStart={handleTouchStart}
-      >
-        {product.map((item, index) => {
-          return (
-            <Link href={`/product/${item.id}`}>
-              <Card key={index} product={item} />
-            </Link>
-          );
-        })}
-      </div>
-      <div>
-        <button className={styles.prev} onClick={handlePreviousCategory}>
-          <FiChevronLeft />
-        </button>
-        <button className={styles.next} onClick={handleNextCategory}>
-          <FiChevronRight />
-        </button>
+      <div className="relative">
+        <div
+          className="flex items-center pt-5 gap-[10px] scroll-smooth x-scrollable-content pb-5"
+          ref={cardBoxRef}
+          onTouchStart={handleTouchStart}
+        >
+          {product.map((item, index) => {
+            return (
+              <Link href={`/product/${item.id}`}>
+                <Card key={index} product={item} />
+              </Link>
+            );
+          })}
+        </div>
+        <div>
+          <button className={styles.prev} onClick={handlePreviousCategory}>
+            <FiChevronLeft />
+          </button>
+          <button className={styles.next} onClick={handleNextCategory}>
+            <FiChevronRight />
+          </button>
+        </div>
       </div>
     </section>
   );

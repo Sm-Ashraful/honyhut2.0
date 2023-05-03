@@ -131,13 +131,13 @@ const Header = () => {
                       <BsCart4 />
                       <span className={styles.cart_count}>{total}</span>
                     </div>
-                    <CartNav
-                      headingLine={`Shopping Cart`}
-                      view={`View Cart`}
-                      goto={`Goto Checkout`}
-                    />
                   </div>
                 </div>
+                <CartNav
+                  headingLine={`Shopping Cart`}
+                  view={`View Cart`}
+                  goto={`Goto Checkout`}
+                />
                 {/* cart section  end */}
                 {/* whitelist section  */}
                 <div className="text-4xl  hidden md:block cursor-pointer">
@@ -258,7 +258,7 @@ const Header = () => {
                 />
               </form>
             </div>
-            <div className="w-1/5 flex justify-center space-x-5 items-center text-white text-4xl">
+            <div className="w-1/5 flex justify-center  items-center text-white text-4xl">
               <div>
                 <Link
                   href={{
@@ -270,7 +270,7 @@ const Header = () => {
                 </Link>
               </div>
 
-              <div className="hidden md:block text-xl ">
+              <div className="hidden md:block text-xl pl-5">
                 <p>$ {totalCost.toFixed(2)}</p>
               </div>
             </div>

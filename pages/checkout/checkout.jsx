@@ -60,8 +60,8 @@ export default function Checkout() {
   const [isPayByCard, setIsPayByCard] = useState(false);
 
   const handleInputChange = (e) => {
-    e.preventDefault();
     const { name, value } = e.target;
+    console.log("values: ", name, value);
     setFormValues((prevValues) => {
       return { ...prevValues, [name]: value };
     });
@@ -80,6 +80,7 @@ export default function Checkout() {
     setSubmittedValues(formValues);
     setIsSubmitCompleted(true);
     setFormValues(defaultFormValue);
+    console.log("form values", formValues);
   };
   const handleShippingFormSubmit = (e) => {
     e.preventDefault();
@@ -180,11 +181,7 @@ export default function Checkout() {
                         id="firstName"
                         name="firstName"
                         placeholder="First Name"
-                        value={
-                          submittedValues?.firstName ||
-                          formValues.firstName ||
-                          ""
-                        }
+                        value={formValues.firstName || ""}
                         required
                         className="border border-gray rounded-md p-2 w-full"
                         onChange={handleInputChange}
