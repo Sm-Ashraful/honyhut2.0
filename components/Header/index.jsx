@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { setIsDropdownVisible } from "@/Store/slices/globalSlice";
 
-import { toggle, toggleMobileCategory } from "../../Store/slices/globalSlice";
+import {
+  toggle,
+  toggleMobileCategory,
+  setIsHeaderSticky,
+} from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import {
   selectCartOpen,
@@ -24,7 +28,6 @@ import AllDepartNav from "../all-department-nav";
 import CartNav from "../cart";
 
 import { FaHome, FaStore, FaSearch, FaList, FaTimes } from "react-icons/fa";
-import { TfiViewListAlt } from "react-icons/tfi";
 import { BsInfoCircle, BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
 import {
@@ -36,9 +39,9 @@ import { VscListSelection } from "react-icons/vsc";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState(false);
-
-  const isCartOpen = useSelector(selectCartOpen);
+  const [lastScroll, setLastScroll] = useState(0);
   const total = useSelector(selectCartCount);
+  const isHeaderSticky = useSelector((state) => state.sidebar.isHeaderSticky);
 
   const totalCost = useSelector(selectCartTotal);
 
@@ -49,6 +52,32 @@ const Header = () => {
   const favItems = useSelector(selectFavItems);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
+      console.log("Current Scroll: ", currentScroll);
+      console.log("Last Scroll: ", lastScroll);
+
+      if (currentScroll > lastScroll && !isHeaderSticky) {
+        dispatch(setIsHeaderSticky(true));
+        console.log("This shit does not render as well");
+      } else if (currentScroll < lastScroll && isHeaderSticky) {
+        dispatch(setIsHeaderSticky(false));
+      }
+      setLastScroll(currentScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScroll, isHeaderSticky]);
+
+  useEffect(() => {
+    console.log("Is header sticky: ", isHeaderSticky);
+  }, [isHeaderSticky, lastScroll]);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -201,33 +230,25 @@ const Header = () => {
       {/**Header to end */}
 
       {/**Header bottom start */}
-      <div className={`${styles.header_bottom}`}>
+      <div className={`${styles.header_bottom} ${isHeaderSticky && "hidden"}`}>
         <div
           className={`w-full padding_inside flex justify-between items-center h-full`}
         >
-          <div
-            onClick={openCategoryMenu}
-            className="flex justify-center items-center space-x-2 text-white md:hidden"
-          >
-            <div className={`text-2xl ${isMobileDropDownOpen && "-rotate-90"}`}>
-              <TfiViewListAlt />
+          <div onClick={openSearchBar} className="md:hidden w-full">
+            <div className="relative w-full">
+              <form class="w-full flex items-center justify-center ">
+                <span className="absolute right-8 text-secondary cursor-pointer">
+                  <FaSearch />
+                </span>
+                <input
+                  type="text"
+                  placeholder="What are you looking for today ..."
+                  className="w-full shadow-md appearance-none bg-white text-base pl-10 py-4 pr-12 focus:outline-none rounded-full"
+                  onChange={handleChange}
+                />
+              </form>
             </div>
-            <p className="text-xl">Shop by category</p>
           </div>
-
-          {isMobileDropDownOpen ? (
-            <div onClick={handleCloseMobilCategory} className="md:hidden">
-              <div className={`text-2xl text-primary mr-5`}>
-                <FaTimes />
-              </div>
-            </div>
-          ) : (
-            <div onClick={openSearchBar} className="md:hidden">
-              <div className={`text-2xl text-primary mr-5`}>
-                <FaSearch />
-              </div>
-            </div>
-          )}
           <div className="w-full hidden md:flex h-full">
             <div
               className={`w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}
@@ -276,16 +297,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {searchTerm && (
-          <form className="md:hidden bg-primary h-16 w-full top-36 md:top-48 left-0 absolute">
-            <input
-              type="text"
-              placeholder={`What are you looking for today ...`}
-              className="shadow-md appearance-none bg-white  text-base pl-10 py-4 pr-12 w-full focus:outline-none"
-              onChange={handleChange}
-            />
-          </form>
-        )}
       </div>
 
       {/**header end */}

@@ -9,6 +9,7 @@ const initialState = {
   isModalOpen: false,
   isDepartmentOpen: false,
   isDropdownVisible: false,
+  isHeaderSticky: false,
 };
 
 export const sidebarSlice = createSlice({
@@ -36,6 +37,10 @@ export const sidebarSlice = createSlice({
     setIsDropdownVisible: (state) => {
       state.isDropdownVisible = !state.isDropdownVisible;
     },
+    setIsHeaderSticky: (state, action) => {
+      console.log("Is slice shit call");
+      state.isHeaderSticky = action.payload;
+    },
   },
 });
 export const {
@@ -47,6 +52,7 @@ export const {
   cartToggle,
   allDepartmentToggle,
   setIsDropdownVisible,
+  setIsHeaderSticky,
 } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

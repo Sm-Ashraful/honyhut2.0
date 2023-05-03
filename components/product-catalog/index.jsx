@@ -166,7 +166,7 @@ const ProductCatalog = ({ product }) => {
             </Button>
 
             <Button className=" text-black   bg-honey hover:text-white hover:bg-honey rounded-full shadow-hnx">
-              <Link href={`/cart/checkout?productId=${product.id}`}>
+              <Link href={`/checkout/checkout?productId=${product.id}`}>
                 {/* <AiFillHeart/> */}
                 <span className="flex  items-center">
                   <span className="pr-[3px]">
