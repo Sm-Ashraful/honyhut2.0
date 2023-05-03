@@ -124,7 +124,7 @@ const Header = () => {
   return (
     <div className={`${styles.header_container}`}>
       {/**header top started */}
-      <div className="padding_inside bg-primary h-1/2 md:h-3/5 w-full">
+      <div className="padding_inside bg-primary h-1/2 md:h-3/5 w-full shadow-hnx">
         <div
           id="myHeader"
           className="padding_inside flex justify-center items-center "
