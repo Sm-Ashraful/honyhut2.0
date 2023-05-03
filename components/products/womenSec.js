@@ -1,6 +1,3 @@
-// **Women Products Section
-// **Developed by Dev-2(Mehedi Hasan Munna)
-
 import React, { useEffect, useState } from "react";
 import productData from "../../utils/products-demo";
 import Link from "next/link";
@@ -68,7 +65,6 @@ const Women = () => {
                         <CommonCard
                           key={idx}
                           product={item}
-                          percentage={`Hot`}
                         />
                       </Link>
                     );
@@ -78,12 +74,13 @@ const Women = () => {
           </div>
         </div>
       </section>
+
+      {/* Buy More section  */}
       <section className="padding_inside w-full overflow-hidden">
         <h2 className="pt-2 md:pb-3 text-honey">
           <span> Buy More Save More</span>
           <hr class="w-[60px] my-[5px] border-2 ml-0" />
         </h2>
-
         <div className="w-full h-[280px]">
           <ByMoreSection />
         </div>
