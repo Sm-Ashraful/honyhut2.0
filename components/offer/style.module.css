@@ -1,20 +1,20 @@
 .offer_container {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   @apply text-sm;
-  @apply bg-primary border-r-primary-red;
+  @apply bg-primary-red;
   border: 0.5px solid;
 
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  @apply text-primary-red;
+  @apply text-primary;
 }
 @media screen and (min-width: 778px) {
   .offer_container {
-    width: 30px;
-    height: 30px;
-    @apply text-base;
+    width: 40px;
+    height: 40px;
+    @apply text-xl;
   }
 }
