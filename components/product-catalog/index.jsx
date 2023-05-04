@@ -134,7 +134,11 @@ const ProductCatalog = ({ product }) => {
                   </span>
                   {product.offer && (
                     <span className="ml-5 text-primary-red">
-                      ${product.price - (product.price * product.offer) / 100}
+                      $
+                      {(
+                        product.price -
+                        (product.price * product.offer) / 100
+                      ).toFixed(2)}
                     </span>
                   )}
                 </>
@@ -188,17 +192,17 @@ const ProductCatalog = ({ product }) => {
 
           {/**Product avialibility stock information */}
           <div>
-            <p className="text-lg title-font tracking-widest">
+            <p className="text-lg title-font tracking-widest text-gray-500">
               Availability:
               <span className="text-bold text-secondary"> In Stock</span>
             </p>
-            <p className="text-lg title-font tracking-widest">
+            <p className="text-lg title-font tracking-widest text-gray-500">
               Category:
               <span className="text-bold text-secondary">
                 {product.category}
               </span>
             </p>
-            <p className="text-lg title-font tracking-widest">
+            <p className="text-lg title-font tracking-widest text-gray-500">
               Brand:
               <span className="text-bold text-secondary">
                 {" "}
@@ -209,97 +213,73 @@ const ProductCatalog = ({ product }) => {
           {/**Product avialibility stock information end*/}
         </div>
         {/* Product Information and button end*/}
-
         {/* Product Information, shipping information */}
-        <div className="px-5 mt-8 w-full flex justify-between bg-primary">
-          <div className="mb-3  w-full mt-5 md:flex">
-            {productInfo.map((info, index) => {
-              return (
-                <div>
-                  <div
-                    onClick={() =>
-                      headingText !== info.title
-                        ? setHeadingText(info.title)
-                        : setHeadingText("")
-                    }
-                    className="flex justify-between items-center"
-                  >
-                    <h3 className="mb-0 mt-4 md:pr-10">{info.title}</h3>
-                    <span>
-                      <FaCaretDown className="md:hidden" />
-                    </span>
-                  </div>
 
-                  <div
-                    className={`${
-                      headingText === info.title ? "md:hidden" : "hidden"
-                    } leading-relaxed ml-5 text-lg `}
-                  >
-                    <ul className="list-disc">
-                      {info.details.map((productDetails) => {
-                        return (
-                          <li>
-                            <span className="text-xl font-semibold">
-                              {productDetails.title}
-                            </span>
-                            <span>
-                              {productDetails.description.map((des, idx) => {
-                                return (
-                                  <span className="font-light text-ash">
-                                    {des.des1}
-                                  </span>
-                                );
-                              })}
-                            </span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        {/* Product Information, shipping information end*/}
-
-        {/* Product Information, shipping information for pc view*/}
-        <hr className="w-full h-[2px]  bg-gray border-0 hidden md:block" />
-        <div className="hidden md:block">
-          {productInfo.map((info, idx) => {
-            if (idx === 0 && !headingText) {
-              setHeadingText(info.title);
-            }
-            return (
-              <div className="padding_inside mt-[10px]">
-                <ul className="list-disc ">
-                  {info.details.map((productDetails) => {
-                    return (
-                      <li
-                        className={`${
-                          headingText === info.title ? "md:block" : "hidden"
-                        } leading-relaxed ml-5 text-lg pt-5`}
-                      >
-                        <span className="text-lg font-bold">
-                          {productDetails.title}
-                          <span> - </span>
-                        </span>
-                        <span>
-                          {productDetails.description.map((des, idx) => {
-                            return (
-                              <span className="font-light text-ash">
-                                {des.des1}
-                              </span>
-                            );
-                          })}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
+        <div className="w-full">
+          {/* Product Information, shipping information */}
+          <div className="px-5 mt-8 w-full flex justify-between bg-gray-200">
+            <div className="mb-3  w-full mt-5 md:flex">
+              <div className="w-full flex justify-center items-center">
+                <button className="font-bold text-gray-500 hover:text-gray-600 px-4">
+                  Description
+                </button>
+                <button className="font-bold text-gray-500 hover:text-gray-600">
+                  Reviews
+                </button>
               </div>
-            );
-          })}
+            </div>
+          </div>
+          {/* Product Information, shipping information end*/}
+
+          {/* Product Information, shipping information for pc view*/}
+          <hr className="w-full h-[2px] bg-gray-700 border-0 hidden md:block" />
+          <div className="md:block m-4">
+            <span className="">
+              <h1 className="font-bold">
+                Vitamax Royal Honey For Her (10 Sachets - 20 G)
+              </h1>
+              <p className="text-gray-500 m-4">
+                Stay desirable and pleasure your partner with an enhanced
+                feminine touch. Each Vitamax Royal Honey is filled with nature’s
+                best herbs, bee pollen, and royal honey jelly, known to balance
+                female hormones and heighten sexual energies. With 20 grams of
+                decadent nectar, you’ll experience a more beautiful skin tone
+                and complexion free of spots and freckles. The boost of hormones
+                adds volume and shape to your breasts while increasing the
+                feminine vitality within you. <br /> Whether you are
+                experiencing a lack of sexual interest or an inability to enjoy
+                your intimate moments, this elixir will energize you and help
+                create the best memories with your partner. <br /> <br />
+                <p className="pb-2">Product Benefits:</p>
+                <ul className="text-xl list-disc ml-6">
+                  <li>Improves sexual pleasure</li>
+                  <li>Regulates menstrual cycle</li>
+                  <li>Enhances sexual activity in menopausal</li>
+                  <li>Tightens vaginal muscles</li>
+                  <li>
+                    Country of Origin:{" "}
+                    <span className="font-bold">MADE IN MALAYSIA</span>
+                  </li>
+                </ul>
+              </p>
+              <h1 className="font-bold">What’s Included?</h1>
+              <ul className="text-xl list-disc ml-10 text-gray-500 mb-4">
+                <li>10 sachets - 20 grams Each</li>
+              </ul>
+              <h1 className="font-bold">Our Promise To You:</h1>
+              <ul className="text-xl list-disc ml-10 text-gray-500 mb-4">
+                <li>Every product we sell is %100 Authentic & Top Quality.</li>
+                <li>
+                  Your Satisfaction is %100 Guaranteed or your money back.
+                </li>
+              </ul>
+              <h1 className="font-bold">Shipping:</h1>
+              <ul className="text-xl list-disc ml-10 text-gray-500">
+                <li>Free 5 Days delivery.</li>
+                <li>Express and Expedite Shipping Available.</li>
+              </ul>
+            </span>
+          </div>
         </div>
       </div>
     </section>
