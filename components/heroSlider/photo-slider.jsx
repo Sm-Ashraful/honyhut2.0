@@ -51,15 +51,6 @@ const PhotoSlider = ({ data, delayTime }) => {
               cover
               className={styles.person_img}
             />
-
-            <Link
-              href={`/allproducts`}
-              className={`${styles.slider_content} from-bottom`}
-            >
-              <Button className="bg-secondaryTextColor text-black hover:bg-honey hover:text-black">
-                Shop Now
-              </Button>
-            </Link>
           </article>
         );
       })}

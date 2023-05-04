@@ -1,8 +1,10 @@
 .section_slider {
   width: 100%;
-  height: 40vh;
+  height: 30vh;
   position: relative;
   transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
 }
 .section_center {
   margin: 0 auto;
@@ -11,16 +13,17 @@
   text-align: center;
   position: relative;
   display: flex;
+  justify-content: center;
   overflow: hidden;
 }
 
 @media screen and (min-width: 778px) {
   .section_slider {
-    height: 80vh;
-    width: 100%;
+    height: 65vh;
+    width: 75%;
   }
   .section_center {
-    width: 100%;
+    width: 75%;
   }
 }
 
@@ -56,13 +59,4 @@ article.nextSlide {
   line-height: 1;
   font-weight: 600;
   margin-bottom: 1rem;
-}
-
-@media screen and (min-width: 778px) {
-  .section_slider {
-    height: 80vh;
-  }
-  .section_center {
-    width: 100%;
-  }
 }

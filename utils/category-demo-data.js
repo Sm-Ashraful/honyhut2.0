@@ -1,7 +1,7 @@
 const categories = [
   {
     id: 1,
-    image: "/category-icon/02.webp",
+    image: "/category-icon/mmmm.jfif",
     name: "Male Enhancement",
     icon: "/category-icon/11.jpg",
     totalItem: 70,
@@ -45,7 +45,7 @@ const categories = [
 
   {
     id: 3,
-    image: "/category-icon/condom.jpg",
+    image: "/category-icon/cond.jfif",
     name: "Condoms",
     icon: "/category-icon/condom.svg",
     totalItem: 5,
@@ -59,7 +59,7 @@ const categories = [
   },
   {
     id: 4,
-    image: "/category-icon/canab.jpg",
+    image: "/category-icon/canacc.jfif",
     name: "Cannabies Accessories",
     icon: "/category-icon/cannabies.png",
     totalItem: 15,

@@ -20,7 +20,9 @@ const Slider = () => {
   const router = useRouter();
 
   return (
-    <section className={`w-full  relative top-36 md:top-52 padding_inside`}>
+    <section
+      className={`w-full  relative top-36 md:top-52 padding_inside flex justify-center`}
+    >
       <div
         className={` ${styles.section_slider} flex justify-center hero-content `}
       >
@@ -28,7 +30,9 @@ const Slider = () => {
 
         {/* middle heroslide section */}
         <div className={`${styles.section_center}  flex-1`}>
-          <PhotoSlider data={data} delayTime="8000" />
+          <Link href={`/allproducts`}>
+            <PhotoSlider data={data} delayTime="8000" />
+          </Link>
         </div>
 
         {/* right section */}

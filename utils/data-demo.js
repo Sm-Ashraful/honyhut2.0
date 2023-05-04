@@ -1,21 +1,21 @@
 const people = [
   {
     id: 1,
-    image: "/images/banner/banner-1.jpg",
+    image: "/images/banner/cover1.jfif",
     name: "VitMax Double short",
     title: "Energy Honey",
     quote: "Premium Instant Premix Honey With MACA",
   },
   {
     id: 2,
-    image: "/images/banner/banner-2.jpg",
+    image: "/images/banner/cover2.jfif",
     name: "VIP Honey",
     title: "Royal Honey",
     quote: "The Ultimate Power Source. 100% original and pure",
   },
   {
     id: 3,
-    image: "/images/banner/banner-3.jpg",
+    image: "/images/banner/cover3.jfif",
     name: "New Red Bull",
     title: "Male Enhancement Supplements",
     quote: "Don't Quit... Extra energy & Extra Strength",
