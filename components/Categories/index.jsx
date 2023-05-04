@@ -31,13 +31,14 @@ const Categories = () => {
     <section
       className={`padding_inside relative top-36 md:top-48 mt-16 mb-16 md:mb-32`}
     >
-      <h2 class="mb-0 text-honey text-center md:text-center">
+      <h2 class="mb-0 text-honey text-center md:text-center drop-shadow-md">
         <span>Top Categories</span>
-        <hr class="w-[45px] my-[5px] border-2 mx-auto" />
+        <hr class="w-[60px] my-[5px] border-2 mx-auto border-honey" />
+        <hr class="w-[40px] my-[5px] border-1 mx-auto border-honey" />
       </h2>
 
       <div
-        className="grid grid-cols-2 md:grid-cols-5 gap-[10px] rounded-md pt-5"
+        className="grid grid-cols-2 md:grid-cols-5 gap-[10px] rounded-md pt-5 "
         ref={cardBoxRef}
       >
         {category.map((item, personIndex) => {

@@ -5,16 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { setIsDropdownVisible } from "@/Store/slices/globalSlice";
 
-import {
-  toggle,
-  toggleMobileCategory,
-  setIsHeaderSticky,
-} from "../../Store/slices/globalSlice";
+import { toggle, setIsHeaderSticky } from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import {
-  selectCartOpen,
   selectCartCount,
-  selectCartItems,
   selectCartTotal,
 } from "../../Store/cart/cart.selector";
 
@@ -27,7 +21,7 @@ import CategoryNav from "../category-nav";
 import AllDepartNav from "../all-department-nav";
 import CartNav from "../cart";
 
-import { FaHome, FaStore, FaSearch, FaList, FaTimes } from "react-icons/fa";
+import { FaHome, FaStore, FaSearch } from "react-icons/fa";
 import { BsInfoCircle, BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
 import {
@@ -38,16 +32,12 @@ import {
 import { VscListSelection } from "react-icons/vsc";
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState(false);
+  const [searchText, setSearchText] = useState("");
   const [lastScroll, setLastScroll] = useState(0);
   const total = useSelector(selectCartCount);
   const isHeaderSticky = useSelector((state) => state.sidebar.isHeaderSticky);
 
   const totalCost = useSelector(selectCartTotal);
-
-  const isMobileDropDownOpen = useSelector(
-    (state) => state.sidebar.isMobileDropDownOpen
-  );
 
   const favItems = useSelector(selectFavItems);
 
@@ -56,12 +46,9 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.pageYOffset;
-      console.log("Current Scroll: ", currentScroll);
-      console.log("Last Scroll: ", lastScroll);
 
       if (currentScroll > lastScroll && !isHeaderSticky) {
         dispatch(setIsHeaderSticky(true));
-        console.log("This shit does not render as well");
       } else if (currentScroll < lastScroll && isHeaderSticky) {
         dispatch(setIsHeaderSticky(false));
       }
@@ -75,38 +62,27 @@ const Header = () => {
     };
   }, [lastScroll, isHeaderSticky]);
 
-  useEffect(() => {
-    console.log("Is header sticky: ", isHeaderSticky);
-  }, [isHeaderSticky, lastScroll]);
-
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchText(event.target.value);
   };
 
   const handleMenuOnClick = (event) => {
     event.preventDefault();
-    console.log("hey you click this");
     dispatch(toggle(true));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("Mobile search clicked: ", event);
+
     // Do something with the search term (e.g., perform a search)
   };
 
-  const openSearchBar = (event) => {
-    event.preventDefault();
-    setSearchTerm(!searchTerm);
-  };
-
-  const openCategoryMenu = () => {
-    dispatch(toggleMobileCategory(true));
-  };
   const openDepartment = (e) => {
     dispatch(setIsDropdownVisible());
   };
 
-  const closeDepartMent = () => {
+  const closeDepartMent = (e) => {
     dispatch(setIsDropdownVisible());
   };
 
@@ -116,9 +92,8 @@ const Header = () => {
     dispatch(setIsCartOpen(true));
   };
 
-  const handleCloseMobilCategory = (e) => {
-    e.preventDefault();
-    dispatch(toggleMobileCategory(false));
+  const searchFieldClick = (e) => {
+    console.log(e.target.value);
   };
 
   return (
@@ -234,17 +209,22 @@ const Header = () => {
         <div
           className={`w-full padding_inside flex justify-between items-center h-full`}
         >
-          <div onClick={openSearchBar} className="md:hidden w-full">
+          <div className="md:hidden w-full">
             <div className="relative w-full">
-              <form class="w-full flex items-center justify-center ">
+              <form
+                onSubmit={handleSubmit}
+                class="w-full flex items-center justify-center "
+              >
                 <span className="absolute right-8 text-secondary cursor-pointer">
                   <FaSearch />
                 </span>
                 <input
                   type="text"
                   placeholder="What are you looking for today ..."
-                  className="w-full shadow-md appearance-none bg-white text-base pl-10 py-4 pr-12 focus:outline-none rounded-full"
+                  defaultValue={searchText}
+                  className="w-full shadow-md  bg-white text-base pl-10 py-4 pr-12 focus:outline-none rounded-full"
                   onChange={handleChange}
+                  onClick={searchFieldClick}
                 />
               </form>
             </div>
@@ -267,7 +247,10 @@ const Header = () => {
             </div>
 
             <div class="flex-1 relative">
-              <form class="absolute inset-0 flex items-center justify-center ">
+              <form
+                onSubmit={handleSubmit}
+                class="absolute inset-0 flex items-center justify-center "
+              >
                 <span className="absolute right-8 text-secondary cursor-pointer">
                   <FaSearch />
                 </span>

@@ -57,9 +57,9 @@ const FilterProducts = () => {
               <IoFilter />
             </span>
             <span> Filter</span>
-            <div className="md:hidden">
+            <span className="md:hidden">
               <FilterPage />
-            </div>
+            </span>
           </p>
 
           <p
@@ -70,9 +70,9 @@ const FilterProducts = () => {
             <span>
               <IoArrowDown />
             </span>
-            <div className="md:hidden">
+            <span className="md:hidden">
               <FeaturedPage />
-            </div>
+            </span>
           </p>
         </div>
         <div className="hidden md:flex md:flex-col">

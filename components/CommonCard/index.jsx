@@ -26,7 +26,7 @@ const CommonCard = ({ product }) => {
               <div className="w-full h-full relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
                 <Image src={product.image[0]} fill cover />
               </div>
-              <div className="absolute bottom-2 md:top-[40%]">
+              <div className="absolute bottom-2 md:top-[40%] right-2  md:right-auto">
                 <CardButton product={product} />
               </div>
             </div>

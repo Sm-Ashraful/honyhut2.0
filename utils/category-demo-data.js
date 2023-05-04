@@ -1,7 +1,7 @@
 const categories = [
   {
     id: 1,
-    image: "/category-icon/s.jpg",
+    image: "/category-icon/02.webp",
     name: "Male Enhancement",
     icon: "/category-icon/11.jpg",
     totalItem: 70,
@@ -25,7 +25,7 @@ const categories = [
   },
   {
     id: 2,
-    image: "/category-icon/22.jpg",
+    image: "/category-icon/07.webp",
     name: "Female Enhancement",
     icon: "/category-icon/female.svg",
     totalItem: 9,

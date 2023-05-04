@@ -142,7 +142,7 @@ const ProductCatalog = ({ product }) => {
                 <span>${product.price}</span>
               )}
             </p>
-            <p className="leading-relaxed ml-5 text-lg text-gray">
+            <div className="leading-relaxed ml-5 text-lg text-gray">
               <ul className="list-disc">
                 <li>100% Organic Formula </li>
                 <li>Sugar & Caffeine FREE</li>
@@ -150,7 +150,7 @@ const ProductCatalog = ({ product }) => {
                 <li>Top Quality Guarantee</li>
                 <li>Fast Free Shipping From The US</li>
               </ul>
-            </p>
+            </div>
           </div>
           <div className="flex justify-between items-center">
             <Button
@@ -230,7 +230,7 @@ const ProductCatalog = ({ product }) => {
                     </span>
                   </div>
 
-                  <p
+                  <div
                     className={`${
                       headingText === info.title ? "md:hidden" : "hidden"
                     } leading-relaxed ml-5 text-lg `}
@@ -255,7 +255,7 @@ const ProductCatalog = ({ product }) => {
                         );
                       })}
                     </ul>
-                  </p>
+                  </div>
                 </div>
               );
             })}
