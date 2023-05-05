@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import categories from "@/utils/category-demo-data";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
 import { toggleMobileCategory } from "@/Store/slices/globalSlice";
@@ -12,17 +12,20 @@ import Image from "next/image";
 
 const CategoryItem = ({ handleClickOutside }) => {
   const [headingText, setHeadingText] = useState("");
-  const [subHeadingText, setSubHeadingText] = useState("");
   const router = useRouter();
+  const isMobileDropDownOpen = useSelector(
+    (state) => state.sidebar.isMobileDropDownOpen
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     // Add event listener to the document object
-    document.addEventListener("mousedown", handleClickOutside);
-    router.events.on("routeChangeComplete", handleRouteChange);
-    document.addEventListener("scroll", handleRouteChange);
-
+    if (isMobileDropDownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      router.events.on("routeChangeComplete", handleRouteChange);
+      document.addEventListener("scroll", handleRouteChange);
+    }
     // Remove event listener when the component unmounts
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);

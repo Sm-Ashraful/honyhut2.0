@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { setIsDropdownVisible } from "@/Store/slices/globalSlice";
 
-import { toggle, setIsHeaderSticky } from "../../Store/slices/globalSlice";
+import {
+  toggle,
+  setIsHeaderSticky,
+  setIsSearchModalOpen,
+} from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import {
   selectCartCount,
@@ -20,9 +24,11 @@ import Sidebar from "../Sidebar";
 import CategoryNav from "../category-nav";
 import AllDepartNav from "../all-department-nav";
 import CartNav from "../cart";
+import HeaderNav from "./header-nav";
+import SearchModal from "../search-modal";
 
-import { FaHome, FaStore, FaSearch } from "react-icons/fa";
-import { BsInfoCircle, BsCart4 } from "react-icons/bs";
+import { FaSearch } from "react-icons/fa";
+import { BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
 import {
   MdManageAccounts,
@@ -34,8 +40,13 @@ import { VscListSelection } from "react-icons/vsc";
 const Header = () => {
   const [searchText, setSearchText] = useState("");
   const [lastScroll, setLastScroll] = useState(0);
+  const [searchWidth, setSearchWidth] = useState(0);
   const total = useSelector(selectCartCount);
   const isHeaderSticky = useSelector((state) => state.sidebar.isHeaderSticky);
+  const isSearchModalOpen = useSelector(
+    (state) => state.sidebar.isSearchModalOpen
+  );
+  const searchBarRef = useRef(null);
 
   const totalCost = useSelector(selectCartTotal);
 
@@ -92,9 +103,17 @@ const Header = () => {
     dispatch(setIsCartOpen(true));
   };
 
-  const searchFieldClick = (e) => {
-    console.log(e.target.value);
+  const openSearchModal = (e) => {
+    dispatch(setIsSearchModalOpen(true));
   };
+
+  const closeSearchModal = (e) => {
+    dispatch(setIsSearchModalOpen(false));
+  };
+
+  useEffect(() => {
+    setSearchWidth(searchBarRef.current.offsetWidth);
+  }, []);
 
   return (
     <div className={`${styles.header_container}`}>
@@ -163,41 +182,7 @@ const Header = () => {
             </div>
             {/**Header Nav */}
             <div className="hidden md:block md:order-3 h-7 w-1/3">
-              <nav>
-                <ul className="flex justify-between items-center text-secondary">
-                  <li>
-                    <a
-                      href="/"
-                      className="flex flex-col justify-center items-center "
-                    >
-                      <span>
-                        <FaHome />
-                      </span>
-                      <span>Home</span>
-                    </a>
-                  </li>
-
-                  <li>
-                    <Link
-                      href="/allproducts"
-                      className="flex flex-col justify-center items-center "
-                    >
-                      <FaStore />
-                      <span>Products</span>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      href="/about"
-                      className="flex flex-col justify-center items-center "
-                    >
-                      <BsInfoCircle />
-                      <span>About</span>
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
+              <HeaderNav />
             </div>
           </div>
         </div>
@@ -224,7 +209,8 @@ const Header = () => {
                   defaultValue={searchText}
                   className="w-full shadow-md  bg-white text-base pl-10 py-4 pr-12 focus:outline-none rounded-full"
                   onChange={handleChange}
-                  onClick={searchFieldClick}
+                  onFocus={openSearchModal}
+                  onBlur={closeSearchModal}
                 />
               </form>
             </div>
@@ -246,7 +232,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div class="flex-1 relative">
+            <div class="flex-1 relative w-full" ref={searchBarRef}>
               <form
                 onSubmit={handleSubmit}
                 class="absolute inset-0 flex items-center justify-center "
@@ -259,18 +245,26 @@ const Header = () => {
                   placeholder="What are you looking for today ..."
                   class="shadow-md appearance-none bg-white text-base pl-10 py-4 pr-12 w-full focus:outline-none rounded-full"
                   onChange={handleChange}
+                  defaultValue={searchText}
+                  onFocus={openSearchModal}
+                  onBlur={closeSearchModal}
                 />
               </form>
+              <div className="relative">
+                {isSearchModalOpen && <SearchModal width={searchWidth} />}
+              </div>
             </div>
+
             <div className="w-1/5 flex justify-center  items-center text-white text-4xl">
-              <div>
+              <div className="px-5">
                 <Link
                   href={{
                     pathname: "/auth/signin",
                   }}
-                  className=""
+                  className="flex flex-col justify-center items-center"
                 >
                   <MdManageAccounts />
+                  <span className="text-sm">My Account</span>
                 </Link>
               </div>
 

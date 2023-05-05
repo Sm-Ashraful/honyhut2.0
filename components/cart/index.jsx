@@ -26,32 +26,34 @@ const CartNav = ({ headingLine, view, goto }) => {
 
   const dispatch = useDispatch();
   const closeCart = (event) => {
-    console.log("close event: ", event);
     event.preventDefault();
     dispatch(setIsCartOpen(false));
   };
 
   useEffect(() => {
-    // Add event listener to the document object
-    document.addEventListener("mousedown", handleClickOutside);
-    router.events.on("routeChangeComplete", handleRouteChange);
+    function handleClickOutside(event) {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        dispatch(setIsCartOpen(false));
+      }
+    }
 
-    // Remove event listener when the component unmounts
+    function handleRouteChange() {
+      dispatch(setIsCartOpen(false));
+    }
+
+    if (isCartOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      router.events.on("routeChangeComplete", handleRouteChange);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+      router.events.off("routeChangeComplete", handleRouteChange);
+    }
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, []);
-
-  function handleClickOutside(event) {
-    event.preventDefault();
-    if (cartRef.current && !cartRef.current.contains(event.target)) {
-      dispatch(setIsCartOpen(false));
-    }
-  }
-  function handleRouteChange(event) {
-    dispatch(setIsCartOpen(false));
-  }
+  }, [isCartOpen]);
 
   return (
     <div
@@ -66,8 +68,8 @@ const CartNav = ({ headingLine, view, goto }) => {
         <div className="fixed top-5 px-5 py-5 flex justify-between items-center shadow-md w-full z-10">
           <p className="text-2xl text-headingColor font-bold">
             <span>{headingLine}</span>
-            <hr class="w-[45px] my-[5px] border-2 " />
           </p>
+          <hr class="w-[45px] my-[5px] border-2 " />
           <p
             className="h-12 w-12 flex items-center justify-center cursor-pointer hover:text-primary-red text-xl  text-primary-red"
             onClick={closeCart}

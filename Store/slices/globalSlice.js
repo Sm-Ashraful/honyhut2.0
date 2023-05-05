@@ -9,6 +9,7 @@ const initialState = {
   isDepartmentOpen: false,
   isDropdownVisible: false,
   isHeaderSticky: false,
+  isSearchModalOpen: false,
 };
 
 export const sidebarSlice = createSlice({
@@ -37,8 +38,10 @@ export const sidebarSlice = createSlice({
       state.isDropdownVisible = !state.isDropdownVisible;
     },
     setIsHeaderSticky: (state, action) => {
-      console.log("Is slice shit call");
       state.isHeaderSticky = action.payload;
+    },
+    setIsSearchModalOpen: (state, action) => {
+      state.isSearchModalOpen = action.payload;
     },
   },
 });
@@ -52,6 +55,7 @@ export const {
   allDepartmentToggle,
   setIsDropdownVisible,
   setIsHeaderSticky,
+  setIsSearchModalOpen,
 } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

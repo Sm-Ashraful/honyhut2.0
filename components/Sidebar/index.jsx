@@ -24,9 +24,11 @@ const Sidebar = () => {
 
   useEffect(() => {
     // Add event listener to the document object
-    document.addEventListener("mousedown", handleClickOutside);
-    router.events.on("routeChangeComplete", handleRouteChange);
-    document.addEventListener("scroll", handleRouteChange);
+    if (isSidebarOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      router.events.on("routeChangeComplete", handleRouteChange);
+      document.addEventListener("scroll", handleRouteChange);
+    }
 
     // Remove event listener when the component unmounts
     return () => {
