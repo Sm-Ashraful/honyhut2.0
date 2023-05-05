@@ -60,7 +60,7 @@ const FilterProducts = () => {
             <div className="">
 
               <FilterPage />
-            </span>
+            </div>
           </p>
 
           <p
