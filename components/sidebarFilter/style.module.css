@@ -2,14 +2,14 @@
   width: 60%;
   height: 100vh;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 0px;
+  top: 0px;
   letter-spacing: 1px;
   line-height: 2;
   @apply bg-primary;
   @apply text-secondary;
   border-right: 1px solid #638c28;
-  border-top: 1px solid #638c28;
+  border-top: 1px solid;
   z-index: 1000;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
@@ -24,7 +24,18 @@
   -o-transition: transform 0.3s ease-in-out;
 }
 
+
+@media screen and (min-width: 778px) {
+  .filter_container{
+    width: 25%;
+    left: -10px;
+    top: -4px;
+  }
+}
+
+
 .filter_container_show {
+ 
   transform: translateX(0);
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
@@ -33,36 +44,35 @@
 }
 
 .shortBy_container {
-  width: 100%;
-  height: 0;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  width: 60%;
+  height: 100vh;
+  position: absolute;
+  right: 0px;
+  top: 0px;
   letter-spacing: 1px;
   line-height: 2;
   @apply bg-primary;
   @apply text-secondary;
-  border-right: 1px solid #638c28;
-  border-top: 1px solid #638c28;
+  border-left: 1px solid #638c28;
+  border-top: 1px solid;
   z-index: 1000;
-  transform: translateY(250%);
-  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
   overflow-x: hidden;
-  -webkit-transform: translateY(250%);
-  -moz-transform: translateY(250%);
-  -ms-transform: translateY(250%);
-  -o-transform: translateY(250%);
-  -webkit-transition: transform 0.5s ease-in-out;
-  -moz-transition: transform 0.5s ease-in-out;
-  -ms-transition: transform 0.5s ease-in-out;
-  -o-transition: transform 0.5s ease-in-out;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  -webkit-transition: transform 0.3s ease-in-out;
+  -moz-transition: transform 0.3s ease-in-out;
+  -ms-transition: transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
 }
 .shortBy_container_show {
-  height: 40vh;
-  bottom: auto;
-  transform: translateY(100%);
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
+  right: 4px;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
 }

@@ -11,7 +11,7 @@ const AllProducts = () => {
   const path = pathName.split("/");
   return (
     <div className="relative top-36 md:top-52 md:px-4">
-      <div className="md:grid md:grid-cols-4 w-full md:gap-[10px] h-full relative">
+      <div className=" w-full gap-[10px] h-full relative">
         <div className="w-full  md:mr-0 md:block col-span-1 z-0">
           <FilterProducts />
         </div>
