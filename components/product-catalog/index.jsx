@@ -146,7 +146,7 @@ const ProductCatalog = ({ product }) => {
                 <span>${product.price}</span>
               )}
             </p>
-            <p className="leading-relaxed ml-5 text-lg text-gray">
+            <div className="leading-relaxed ml-5 text-lg text-gray">
               <ul className="list-disc">
                 <li>100% Organic Formula </li>
                 <li>Sugar & Caffeine FREE</li>
@@ -154,7 +154,7 @@ const ProductCatalog = ({ product }) => {
                 <li>Top Quality Guarantee</li>
                 <li>Fast Free Shipping From The US</li>
               </ul>
-            </p>
+            </div>
           </div>
           <div className="flex justify-between items-center">
             <Button
@@ -170,7 +170,7 @@ const ProductCatalog = ({ product }) => {
             </Button>
 
             <Button className=" text-black   bg-honey hover:text-white hover:bg-honey rounded-full shadow-hnx">
-              <Link href={`/cart/checkout?productId=${product.id}`}>
+              <Link href={`/checkout/checkout?productId=${product.id}`}>
                 {/* <AiFillHeart/> */}
                 <span className="flex  items-center">
                   <span className="pr-[3px]">
@@ -213,6 +213,7 @@ const ProductCatalog = ({ product }) => {
           {/**Product avialibility stock information end*/}
         </div>
         {/* Product Information and button end*/}
+        {/* Product Information, shipping information */}
 
         <div className="w-full">
           {/* Product Information, shipping information */}
@@ -268,7 +269,9 @@ const ProductCatalog = ({ product }) => {
               <h1 className="font-bold">Our Promise To You:</h1>
               <ul className="text-xl list-disc ml-10 text-gray-500 mb-4">
                 <li>Every product we sell is %100 Authentic & Top Quality.</li>
-                <li>Your Satisfaction is %100 Guaranteed or your money back.</li>
+                <li>
+                  Your Satisfaction is %100 Guaranteed or your money back.
+                </li>
               </ul>
               <h1 className="font-bold">Shipping:</h1>
               <ul className="text-xl list-disc ml-10 text-gray-500">

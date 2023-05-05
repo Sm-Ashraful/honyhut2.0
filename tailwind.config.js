@@ -19,6 +19,43 @@ module.exports = {
         topx: "0px -1px 0px 3px rgba(249,201,1,0.58)",
         right: "2px 0px 3px 0px rgba(231,166,26,1)",
         allIn: "rgba(0, 0, 0, 0.35) 0px 2px 2px",
+        leftTop: "-8px -8px 0px -3px rgba(210,210,210,1)",
+      },
+      keyframes: {
+        moveFromLeft: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-10rem)",
+          },
+
+          "80%": {
+            transform: "translateX(1rem)",
+          },
+
+          "100%": {
+            opacity: "1",
+            transform: "translate(0)",
+          },
+        },
+        moveFromRight: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(10rem)",
+          },
+
+          "80%": {
+            transform: "translateX(-1rem)",
+          },
+
+          "100%": {
+            opacity: "1",
+            transform: "translate(0)",
+          },
+        },
+      },
+      animation: {
+        left: "moveFromLeft 3s ease-in-out",
+        right: "moveFromRight 3s ease-in-out",
       },
     },
     colors: {

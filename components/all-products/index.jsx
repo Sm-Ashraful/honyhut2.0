@@ -56,9 +56,11 @@ const FilterProducts = () => {
               <IoFilter />
             </span>
             <span> Filter</span>
+
             <div className="">
+
               <FilterPage />
-            </div>
+            </span>
           </p>
 
           <p
@@ -68,10 +70,12 @@ const FilterProducts = () => {
             {/* <button className=" ">Short By</button>
             <span>
               <IoArrowDown />
+
             </span> */}
             <div className="">
+
               <FeaturedPage />
-            </div>
+            </span>
           </p>
         </div>
       </div>

@@ -68,16 +68,15 @@ const Products = () => {
   }
 
   return (
-
     <section className="padding_inside relative top-36 md:top-48 h-auto mt-16 mb-10 md:mb-20">
-
-      <h2 className="mb-0 text-honey text-center">
+      <h2 className="mb-0 text-honey text-center drop-shadow-md">
         <span>Top Products</span>
-        <hr class="w-[45px] my-[5px] border-2 mx-auto" />
+        <hr class="w-[60px] my-[5px] border-2 mx-auto border-honey" />
+        <hr class="w-[40px] my-[5px] border-1 mx-auto border-honey" />
       </h2>
       <div className="relative">
         <div
-          className="flex items-center pt-5 gap-[10px] scroll-smooth x-scrollable-content pb-5"
+          className="flex items-center py-5 scroll-smooth x-scrollable-content"
           ref={cardBoxRef}
           onTouchStart={handleTouchStart}
         >

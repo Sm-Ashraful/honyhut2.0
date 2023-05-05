@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { setIsDropdownVisible } from "@/Store/slices/globalSlice";
 
-import { toggle, toggleMobileCategory } from "../../Store/slices/globalSlice";
+import {
+  toggle,
+  setIsHeaderSticky,
+  setIsSearchModalOpen,
+} from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import {
-  selectCartOpen,
   selectCartCount,
-  selectCartItems,
   selectCartTotal,
 } from "../../Store/cart/cart.selector";
 
@@ -22,10 +24,11 @@ import Sidebar from "../Sidebar";
 import CategoryNav from "../category-nav";
 import AllDepartNav from "../all-department-nav";
 import CartNav from "../cart";
+import HeaderNav from "./header-nav";
+import SearchModal from "../search-modal";
 
-import { FaHome, FaStore, FaSearch, FaList, FaTimes } from "react-icons/fa";
-import { TfiViewListAlt } from "react-icons/tfi";
-import { BsInfoCircle, BsCart4 } from "react-icons/bs";
+import { FaSearch } from "react-icons/fa";
+import { BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
 import {
   MdManageAccounts,
@@ -35,49 +38,62 @@ import {
 import { VscListSelection } from "react-icons/vsc";
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState(false);
-
-  const isCartOpen = useSelector(selectCartOpen);
+  const [searchText, setSearchText] = useState("");
+  const [lastScroll, setLastScroll] = useState(0);
+  const [searchWidth, setSearchWidth] = useState(0);
   const total = useSelector(selectCartCount);
+  const isHeaderSticky = useSelector((state) => state.sidebar.isHeaderSticky);
+  const isSearchModalOpen = useSelector(
+    (state) => state.sidebar.isSearchModalOpen
+  );
+  const searchBarRef = useRef(null);
 
   const totalCost = useSelector(selectCartTotal);
-
-  const isMobileDropDownOpen = useSelector(
-    (state) => state.sidebar.isMobileDropDownOpen
-  );
 
   const favItems = useSelector(selectFavItems);
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > lastScroll && !isHeaderSticky) {
+        dispatch(setIsHeaderSticky(true));
+      } else if (currentScroll < lastScroll && isHeaderSticky) {
+        dispatch(setIsHeaderSticky(false));
+      }
+      setLastScroll(currentScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScroll, isHeaderSticky]);
+
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    setSearchText(event.target.value);
   };
 
   const handleMenuOnClick = (event) => {
     event.preventDefault();
-    console.log("hey you click this");
     dispatch(toggle(true));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("Mobile search clicked: ", event);
+
     // Do something with the search term (e.g., perform a search)
   };
 
-  const openSearchBar = (event) => {
-    event.preventDefault();
-    setSearchTerm(!searchTerm);
-  };
-
-  const openCategoryMenu = () => {
-    dispatch(toggleMobileCategory(true));
-  };
   const openDepartment = (e) => {
     dispatch(setIsDropdownVisible());
   };
 
-  const closeDepartMent = () => {
+  const closeDepartMent = (e) => {
     dispatch(setIsDropdownVisible());
   };
 
@@ -87,15 +103,22 @@ const Header = () => {
     dispatch(setIsCartOpen(true));
   };
 
-  const handleCloseMobilCategory = (e) => {
-    e.preventDefault();
-    dispatch(toggleMobileCategory(false));
+  const openSearchModal = (e) => {
+    dispatch(setIsSearchModalOpen(true));
   };
+
+  const closeSearchModal = (e) => {
+    dispatch(setIsSearchModalOpen(false));
+  };
+
+  useEffect(() => {
+    setSearchWidth(searchBarRef.current.offsetWidth);
+  }, []);
 
   return (
     <div className={`${styles.header_container}`}>
       {/**header top started */}
-      <div className="padding_inside bg-primary h-1/2 md:h-3/5 w-full">
+      <div className="padding_inside bg-primary h-1/2 md:h-3/5 w-full shadow-hnx">
         <div
           id="myHeader"
           className="padding_inside flex justify-center items-center "
@@ -159,41 +182,7 @@ const Header = () => {
             </div>
             {/**Header Nav */}
             <div className="hidden md:block md:order-3 h-7 w-1/3">
-              <nav>
-                <ul className="flex justify-between items-center text-secondary">
-                  <li>
-                    <a
-                      href="/"
-                      className="flex flex-col justify-center items-center "
-                    >
-                      <span>
-                        <FaHome />
-                      </span>
-                      <span>Home</span>
-                    </a>
-                  </li>
-
-                  <li>
-                    <Link
-                      href="/allproducts"
-                      className="flex flex-col justify-center items-center "
-                    >
-                      <FaStore />
-                      <span>Products</span>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      href="/about"
-                      className="flex flex-col justify-center items-center "
-                    >
-                      <BsInfoCircle />
-                      <span>About</span>
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
+              <HeaderNav />
             </div>
           </div>
         </div>
@@ -201,33 +190,31 @@ const Header = () => {
       {/**Header to end */}
 
       {/**Header bottom start */}
-      <div className={`${styles.header_bottom}`}>
+      <div className={`${styles.header_bottom} ${isHeaderSticky && "hidden"}`}>
         <div
           className={`w-full padding_inside flex justify-between items-center h-full`}
         >
-          <div
-            onClick={openCategoryMenu}
-            className="flex justify-center items-center space-x-2 text-white md:hidden"
-          >
-            <div className={`text-2xl ${isMobileDropDownOpen && "-rotate-90"}`}>
-              <TfiViewListAlt />
+          <div className="md:hidden w-full">
+            <div className="relative w-full">
+              <form
+                onSubmit={handleSubmit}
+                class="w-full flex items-center justify-center "
+              >
+                <span className="absolute right-8 text-secondary cursor-pointer">
+                  <FaSearch />
+                </span>
+                <input
+                  type="text"
+                  placeholder="What are you looking for today ..."
+                  defaultValue={searchText}
+                  className="w-full shadow-md  bg-white text-base pl-10 py-4 pr-12 focus:outline-none rounded-full"
+                  onChange={handleChange}
+                  onFocus={openSearchModal}
+                  onBlur={closeSearchModal}
+                />
+              </form>
             </div>
-            <p className="text-xl">Shop by category</p>
           </div>
-
-          {isMobileDropDownOpen ? (
-            <div onClick={handleCloseMobilCategory} className="md:hidden">
-              <div className={`text-2xl text-primary mr-5`}>
-                <FaTimes />
-              </div>
-            </div>
-          ) : (
-            <div onClick={openSearchBar} className="md:hidden">
-              <div className={`text-2xl text-primary mr-5`}>
-                <FaSearch />
-              </div>
-            </div>
-          )}
           <div className="w-full hidden md:flex h-full">
             <div
               className={`w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}
@@ -245,8 +232,11 @@ const Header = () => {
               </div>
             </div>
 
-            <div class="flex-1 relative">
-              <form class="absolute inset-0 flex items-center justify-center ">
+            <div class="flex-1 relative w-full" ref={searchBarRef}>
+              <form
+                onSubmit={handleSubmit}
+                class="absolute inset-0 flex items-center justify-center "
+              >
                 <span className="absolute right-8 text-secondary cursor-pointer">
                   <FaSearch />
                 </span>
@@ -255,18 +245,26 @@ const Header = () => {
                   placeholder="What are you looking for today ..."
                   class="shadow-md appearance-none bg-white text-base pl-10 py-4 pr-12 w-full focus:outline-none rounded-full"
                   onChange={handleChange}
+                  defaultValue={searchText}
+                  onFocus={openSearchModal}
+                  onBlur={closeSearchModal}
                 />
               </form>
+              <div className="relative">
+                {isSearchModalOpen && <SearchModal width={searchWidth} />}
+              </div>
             </div>
+
             <div className="w-1/5 flex justify-center  items-center text-white text-4xl">
-              <div>
+              <div className="px-5">
                 <Link
                   href={{
                     pathname: "/auth/signin",
                   }}
-                  className=""
+                  className="flex flex-col justify-center items-center"
                 >
                   <MdManageAccounts />
+                  <span className="text-sm">My Account</span>
                 </Link>
               </div>
 
@@ -276,16 +274,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {searchTerm && (
-          <form className="md:hidden bg-primary h-16 w-full top-36 md:top-48 left-0 absolute">
-            <input
-              type="text"
-              placeholder={`What are you looking for today ...`}
-              className="shadow-md appearance-none bg-white  text-base pl-10 py-4 pr-12 w-full focus:outline-none"
-              onChange={handleChange}
-            />
-          </form>
-        )}
       </div>
 
       {/**header end */}

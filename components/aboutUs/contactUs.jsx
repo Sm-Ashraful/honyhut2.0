@@ -20,27 +20,26 @@ const AboutUs = () => {
             <div className="grid md:grid-cols-1 w-full">
               <div className="w-full">
                 <form className="space-y-2">
-                  <div className="">
-                    <div>
-                      <h1
-                        htmlFor="name"
-                        className="block font-bold text-secondary mb-2"
-                      >
-                        CONTACT US FOR ANY QUESTIONS
-                      </h1>
-                      <label htmlFor="name" className="block mb-2">
-                        Your Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your Name"
-                        required
-                        className="border border-gray rounded-md p-2 w-full"
-                      />
-                    </div>
+                  <div>
+                    <h1
+                      htmlFor="name"
+                      className="block font-bold text-secondary mb-2"
+                    >
+                      CONTACT US FOR ANY QUESTIONS
+                    </h1>
+                    <label htmlFor="name" className="block mb-2">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                      className="border border-gray rounded-md p-2 w-full"
+                    />
                   </div>
+
                   <div>
                     <label htmlFor="number" className="block mb-2">
                       Phone Number

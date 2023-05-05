@@ -19,8 +19,8 @@ const BottomMenu = () => {
   };
 
   return (
-    <nav className={`${styles.bottom_container} bg-secondary px-5 md:hidden`}>
-      <ul className="h-full w-full flex justify-between items-center text-primary text-bold text-lg">
+    <nav className={`${styles.bottom_container} bg-primary px-5 md:hidden`}>
+      <ul className="h-full w-full flex justify-between items-center text-secondary text-bold text-lg">
         <li className="">
           <Link
             href={{

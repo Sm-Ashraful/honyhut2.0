@@ -16,10 +16,10 @@ const RecommendProduct = ({ title, products, top, className }) => {
         top ? `top-${top}` : `top-36 md:top-48 `
       } mt-10`}
     >
-      <h2 className="text-honey md:text-center text-center mb-0">
+      <h2 className="text-honey md:text-center text-center drop-shadow-md">
         {title}
-        <hr class="w-[60px] my-[5px] border-2 mx-auto" />
-        <hr class="w-[30px] my-[5px] border-1 mx-auto" />
+        <hr class="w-[60px] my-[5px] border-2 mx-auto border-honey" />
+        <hr class="w-[40px] my-[5px] border-1 mx-auto border-honey" />
       </h2>
       <div
         className={`${
@@ -47,9 +47,9 @@ const RecommendProduct = ({ title, products, top, className }) => {
         })}
       </div>
       {products.length > 8 && (
-        <div className="w-full flex justify-center mt-8">
+        <div className="w-full flex justify-center ">
           <span
-            className="text-lg text-center underline text-primary-red font-semibold cursor-pointer
+            className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md bg-yellow-100 border border-transparent font-semibold text-yellow-500 hover:text-white hover:bg-yellow-500 focus:outline-none focus:ring-2 ring-offset-white focus:ring-yellow-500 focus:ring-offset-2 transition-all dark:focus:ring-offset-gray-800 cursor-pointer
         "
             onClick={handleSeeMore}
           >

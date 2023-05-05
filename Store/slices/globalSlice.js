@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -9,6 +8,8 @@ const initialState = {
   isModalOpen: false,
   isDepartmentOpen: false,
   isDropdownVisible: false,
+  isHeaderSticky: false,
+  isSearchModalOpen: false,
 };
 
 export const sidebarSlice = createSlice({
@@ -36,6 +37,12 @@ export const sidebarSlice = createSlice({
     setIsDropdownVisible: (state) => {
       state.isDropdownVisible = !state.isDropdownVisible;
     },
+    setIsHeaderSticky: (state, action) => {
+      state.isHeaderSticky = action.payload;
+    },
+    setIsSearchModalOpen: (state, action) => {
+      state.isSearchModalOpen = action.payload;
+    },
   },
 });
 export const {
@@ -47,6 +54,8 @@ export const {
   cartToggle,
   allDepartmentToggle,
   setIsDropdownVisible,
+  setIsHeaderSticky,
+  setIsSearchModalOpen,
 } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;
