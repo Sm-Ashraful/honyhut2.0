@@ -61,11 +61,11 @@ module.exports = {
     colors: {
       white: "#FFF",
       primary: "#FAF3ED",
-      secondary: "#005c96",
+      secondary: "#FFC117",
       tertiary: "#BE0EE2",
       "primary-red": "#F44141",
       black: "#000000",
-
+      yellowCustom: "#FFC117",
       honey: "#f2782e",
       ash: "#B2BEB5",
       order: "#bdc1c6",

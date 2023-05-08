@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setCurrentUser } from "../../Store/customer/user/user.action";
 
 import Link from "next/link";
 import {
@@ -12,10 +15,23 @@ import { MdLockOutline } from "react-icons/md";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+
+  const currentUser = {
+    email: email,
+    password: password,
+  };
+
+  const user = useSelector((state) => state.auth);
 
   const loginFormSubmit = (e) => {
     e.preventDefault();
+    dispatch(setCurrentUser(currentUser));
   };
+
+  useEffect(() => {
+    console.log("User: ", user);
+  }, [user]);
 
   return (
     <main className="relative top-36 md:top-48 w-full bg-primary md:flex md:justify-center overflow-visible md:items-center md:p-10">
@@ -78,12 +94,14 @@ const SignIn = () => {
                   <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                 </svg>
               </button>
-              <a
-                href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
+              <button
+                type="button"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                class="mx-1 h-9 w-9 rounded-full flex justify-center items-center bg-secondary uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
               >
                 <FaGoogle className="text-sm" />
-              </a>
+              </button>
             </div>
             <p className="my-6 uppercase">or</p>
             <form

@@ -16,9 +16,6 @@ import styles from "./slider.module.css";
 import { useDispatch } from "react-redux";
 
 const Slider = () => {
-  const dispatch = useDispatch();
-  const router = useRouter();
-
   return (
     <section
       className={`w-full  relative top-36 md:top-52 padding_inside flex justify-center`}

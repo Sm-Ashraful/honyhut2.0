@@ -6,9 +6,9 @@ import styles from "../Header/style.module.css";
 const Footer = () => {
   const [searchTerm, setSearchTerm] = useState("");
   return (
-    <footer className="bg-secondary padding_inside relative top-36 md:top-48 mb-56 md:mb-48 text-lg">
-      <div className="md:flex justify-between items-start md:pt-11">
-        <div className="p-5 text-primary">
+    <footer className="bg-honey text-black  relative top-36 md:top-48 mb-56 md:mb-48 text-lg">
+      <div className="md:flex justify-between items-start md:pt-11 padding_inside">
+        <div className="p-5 ">
           <h4 className="text-center from-left md:text-left">
             HONYHUT - for Mens and Women Enhancement
           </h4>
@@ -34,9 +34,9 @@ const Footer = () => {
             </div>
           </form>
         </div>
-        <div className="p-5 text-primary">
+        <div className="p-5 ">
           <h4 className="text-center from-left md:text-left">Information</h4>
-          <hr />
+
           <div className="pt-2 underline">
             <p>About Honey Hut</p>
             <p>Gift Card</p>
@@ -49,11 +49,11 @@ const Footer = () => {
             <p>Terms & Conditions</p>
           </div>
         </div>
-        <div className="p-5 text-primary">
+        <div className="p-5 ">
           <h4 className="text-center from-right md:text-left">
             Customer Services
           </h4>
-          <hr />
+
           <div className="pt-2 underline">
             <p>Returns & Exchange</p>
             <p>FAQs</p>
@@ -65,9 +65,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="p-5 text-primary">
+        <div className="p-5">
           <h4 className="text-center from-left md:text-left">Contact Us</h4>
-          <hr />
+
           <div className="pt-2">
             <p className="flex space-x-1 items-center">
               <IoCall />
@@ -80,8 +80,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div>
-        <p className="text-center py-4 text-primary">
+      <div className="bg-primary px-0">
+        <p className="text-center py-4 text-black">
           Copyright Notice &copy; 2015-2023 Mitali International Limited and/or
           its affiliates and licensors. All right reserve 2023 &trade;
         </p>

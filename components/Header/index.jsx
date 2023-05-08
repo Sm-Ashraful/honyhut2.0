@@ -51,6 +51,7 @@ const Header = () => {
   const totalCost = useSelector(selectCartTotal);
 
   const favItems = useSelector(selectFavItems);
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
   const dispatch = useDispatch();
 
@@ -118,7 +119,11 @@ const Header = () => {
   return (
     <div className={`${styles.header_container}`}>
       {/**header top started */}
-      <div className="padding_inside bg-primary h-1/2 md:h-3/5 w-full shadow-hnx">
+      <div
+        className={`padding_inside ${
+          isHeaderSticky ? "bg-secondary" : " bg-primary"
+        } bg-primary h-1/2 md:h-3/5 w-full shadow-hnx`}
+      >
         <div
           id="myHeader"
           className="padding_inside flex justify-center items-center "
@@ -134,7 +139,7 @@ const Header = () => {
             </div>
             {/**cart */}
             <div className=" md:order-4 md:mr-3 relative">
-              <div className="flex justify-center items-center space-x-5 text-honey">
+              <div className="flex justify-center items-center space-x-5 text-black">
                 <div
                   className={`${styles.menu_button} md:hidden`}
                   onClick={handleMenuOnClick}
@@ -200,7 +205,7 @@ const Header = () => {
                 onSubmit={handleSubmit}
                 class="w-full flex items-center justify-center "
               >
-                <span className="absolute right-8 text-secondary cursor-pointer">
+                <span className="absolute right-8 text-black cursor-pointer">
                   <FaSearch />
                 </span>
                 <input
@@ -221,7 +226,7 @@ const Header = () => {
               onMouseEnter={openDepartment}
               onMouseLeave={closeDepartMent}
             >
-              <p className="flex capitalize text-center font-bold text-white text-opacity-100 drop-shadow-xl cursor-pointer">
+              <p className="flex capitalize text-center font-bold text-black text-opacity-100 drop-shadow-xl cursor-pointer">
                 <span className="px-3">
                   <ImMenu3 />
                 </span>
@@ -237,7 +242,7 @@ const Header = () => {
                 onSubmit={handleSubmit}
                 class="absolute inset-0 flex items-center justify-center "
               >
-                <span className="absolute right-8 text-secondary cursor-pointer">
+                <span className="absolute right-8 text-black cursor-pointer">
                   <FaSearch />
                 </span>
                 <input
@@ -255,7 +260,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="w-1/5 flex justify-center  items-center text-white text-4xl">
+            <div className="w-1/5 flex justify-center  items-center text-black text-4xl">
               <div className="px-5">
                 <Link
                   href={{
@@ -264,7 +269,9 @@ const Header = () => {
                   className="flex flex-col justify-center items-center"
                 >
                   <MdManageAccounts />
-                  <span className="text-sm">My Account</span>
+                  <span className="text-sm text-rose-600">
+                    {currentUser.name ? currentUser.name : `My Account`}
+                  </span>
                 </Link>
               </div>
 

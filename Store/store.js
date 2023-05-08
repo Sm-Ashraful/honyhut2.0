@@ -9,6 +9,7 @@ import sidebarReducer from "./slices/globalSlice";
 import { cartReducer } from "./cart/cart.reducer";
 import { favReducer } from "./favorite/favorite.reducer";
 import { orderReducer } from "./customer/order/order.reducer";
+import { userReducer } from "./customer/user/user.reducer";
 
 const persistConfig = {
   key: "root",
@@ -23,6 +24,7 @@ const persistedReducer = persistReducer(
     cart: cartReducer,
     favorite: favReducer,
     order: orderReducer,
+    auth: userReducer,
   })
 );
 

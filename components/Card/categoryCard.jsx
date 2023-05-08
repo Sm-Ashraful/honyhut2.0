@@ -11,7 +11,7 @@ const CategoryCard = ({ animationClass, name, image, totalItem }) => {
       </div>
 
       <div className="py-[15px] px-[10px] flex flex-col justify-center items-center bg-honey  my-[3px] rounded">
-        <p className="text-[1rem] font-semibold text-white uppercase font-sans text-center ">
+        <p className="text-[.85rem] md:text-[1.2rem] font-semibold text-white uppercase font-sans text-center ">
           {name}
         </p>
         <p className="text-sm text-black">({totalItem} items)</p>

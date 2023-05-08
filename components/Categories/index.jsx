@@ -43,7 +43,6 @@ const Categories = () => {
         ref={cardBoxRef}
       >
         {category.map((item, personIndex) => {
-          console.log("The render effect");
           const animationClass =
             personIndex % 2 === 0 ? "animate-right" : "animate-left";
           return (

@@ -8,7 +8,7 @@ import { RiLoginBoxLine } from "react-icons/ri";
 const HeaderNav = () => {
   return (
     <nav>
-      <ul className="flex justify-between items-center text-secondary">
+      <ul className="flex justify-between items-center text-black">
         <li>
           <a href="/" className="flex flex-col justify-center items-center ">
             <span>
