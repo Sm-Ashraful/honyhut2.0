@@ -57,10 +57,9 @@ const FilterProducts = () => {
             </span>
             <span> Filter</span>
 
-            <div className="">
-
+            <span className="">
               <FilterPage />
-            </div>
+            </span>
           </p>
 
           <p
@@ -72,8 +71,7 @@ const FilterProducts = () => {
               <IoArrowDown />
 
             </span> */}
-            <div className="">
-
+            <span className="">
               <FeaturedPage />
             </span>
           </p>
