@@ -3,7 +3,7 @@
   height: 100vh;
   position: absolute;
   left: 0px;
-  top: 0px;
+  top: -20px;
   letter-spacing: 1px;
   line-height: 2;
   @apply bg-primary;
@@ -28,8 +28,8 @@
 @media screen and (min-width: 778px) {
   .filter_container{
     width: 25%;
-    left: -10px;
-    top: -4px;
+    left: -10rem;
+    top: -20px;
   }
 }
 
