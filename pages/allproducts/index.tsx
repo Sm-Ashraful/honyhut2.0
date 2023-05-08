@@ -10,32 +10,28 @@ const AllProducts = () => {
   const pathName = route.pathname;
   const path = pathName.split("/");
   return (
-    <div className="relative top-36 md:top-52 md:px-4">
+    <div className="relative w-full top-[110px] md:top-[153px] ">
       <div className=" w-full gap-[10px] h-full relative">
-        <div className="w-full  md:mr-0 md:block col-span-1 z-0">
+
+        <div className="w-full bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-[10px] flex justify-start items-center shadow-md">
+          <p className="mb-0 text-xxl text-white text-center w-full">
+          SEXUAL ENHANCEMENT
+          </p>
+        </div>
+
+        <div className="md:px-[8rem]">
+        <div className="w-full  md:mr-0 md:block col-span-1 z-0 py-[20px]">
           <FilterProducts />
         </div>
 
         <div className="col-span-3 relative w-full">
-          <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center shadow-md">
-            <p className="mb-0  text-xl font-bold">
-              <FaHome className="text-secondary" />
-            </p>
-            <p>
-              {path.map((linkName) => {
-                return (
-                  <span>
-                    <span className="mx-2"> {"/"} </span>{" "}
-                    <span className="capitalize underline">{linkName}</span>
-                  </span>
-                );
-              })}
-            </p>
-          </div>
           {allProducts.map((category, idx) => {
             return <MaleProducts category={category} key={idx} />;
           })}
         </div>
+        </div>
+
+        
       </div>
     </div>
   );

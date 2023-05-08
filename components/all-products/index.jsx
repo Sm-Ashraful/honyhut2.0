@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import FilterPage from "../sidebarFilter/filter";
 import FeaturedPage from "../sidebarFilter/featured";
 
-import { allProducts } from "@/utils/all-product";
+// import { allProducts } from "@/utils/all-product";
 
 const FilterProducts = () => {
   const dispatch = useDispatch();
@@ -66,11 +66,6 @@ const FilterProducts = () => {
             onClick={handleShortOnClick}
             className="mb-0  text-xl font-medium flex justify-center items-center gap-[5px]"
           >
-            {/* <button className=" ">Short By</button>
-            <span>
-              <IoArrowDown />
-
-            </span> */}
             <span className="">
               <FeaturedPage />
             </span>
