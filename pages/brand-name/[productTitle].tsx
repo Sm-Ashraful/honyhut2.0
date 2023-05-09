@@ -27,7 +27,7 @@ const BrandName = () => {
     <div className="relative top-36 md:top-[150px]">
       <div className="w-full bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-[10px] flex justify-start items-center shadow-md">
         <span className="mb-0 text-xxl text-white text-center w-full">
-          {product.title}
+          {product && product.title}
         </span>
       </div>
       <div className="w-full  md:mr-0 md:block z-0 pt-[20px]  md:px-[9rem]">
