@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   },
   authenticate: false,
   authenticating: false,
+  message: "",
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -19,7 +20,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         authenticating: true,
       };
-      break;
+
     case USER_ACTION_TYPE.SET_LOGIN_SUCCESS:
       return {
         ...state,
@@ -28,7 +29,26 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         authenticate: true,
         authenticating: false,
       };
-      break;
+    case USER_ACTION_TYPE.SET_SIGNOUT_REQUEST:
+      return {
+        ...INITIAL_STATE,
+      };
+
+    case USER_ACTION_TYPE.SET_SIGNUP_REQUEST:
+      return {
+        ...state,
+        authenticating: true,
+      };
+    case USER_ACTION_TYPE.SET_SIGNUP_SUCCESS:
+      return {
+        ...state,
+        token: payload.token,
+        currentUser: payload.user,
+        authenticate: true,
+        authenticating: false,
+        message: payload.message,
+      };
+
     default:
       return state;
   }

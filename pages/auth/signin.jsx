@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 import { setCurrentUser } from "../../Store/customer/user/user.action";
 
@@ -16,6 +17,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const currentUser = {
     email: email,
@@ -30,7 +32,9 @@ const SignIn = () => {
   };
 
   useEffect(() => {
-    console.log("User: ", user);
+    if (user.authenticate) {
+      router.push("/");
+    }
   }, [user]);
 
   return (
