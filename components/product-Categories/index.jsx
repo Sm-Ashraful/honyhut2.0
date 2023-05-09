@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { allProducts } from "../../utils/all-product";
 import CommonCard from "../CommonCard";
 import Link from "next/link";
+import FilterProducts from "@/components/all-products";
 
 import { FaHome, FaSearch } from "react-icons/fa";
 
@@ -47,8 +48,8 @@ const ProCategory = () => {
 
   return (
     selectCategory && (
-      <section className="h-auto relative  max-w-full ">
-        <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center">
+      <section className="h-auto relative max-w-full ">
+        {/* <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center">
           <p className="mb-0  text-xl font-bold">
             <FaHome className="text-secondary" />
           </p>
@@ -62,42 +63,32 @@ const ProCategory = () => {
               );
             })}
           </p>
-        </div>
-        <div className="w-full pb-10 px-5">
+        </div> */}
+        <div className="w-full pb-10">
           <div className="w-full">
-            <h2
-              className={`text-center text-secondary ${
-                deptLevel === 0
-                  ? "border-b border-primary-red flex justify-between items-center text-[1.5rem]"
-                  : ""
-              }`}
-            >
-              <span>{selectCategory.title}</span>
-              {deptLevel === 0 && (
-                <span className="flex text-primary-red">
-                  <span className="text-sm mr-3">Search</span>
-                  <FaSearch />
-                </span>
-              )}
-            </h2>
-            <div>
+            <div className="w-full bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-[10px] flex justify-start items-center shadow-md">
+              <span className="mb-0 text-xxl text-white text-center w-full">
+                {selectCategory.title}
+              </span>
+            </div>
+
+            <div className="w-full  md:mr-0 md:block z-0 pt-[20px]  md:px-[9rem]">
+              <FilterProducts />
+            </div>
+
+            {/* {deptLevel === 0 && (
+              <span className="flex text-primary-red">
+                <span className="text-sm mr-3">Search</span>
+                <FaSearch />
+              </span>
+            )} */}
+
+            <div className="md:px-[9rem] px-5">
               {deptLevel > 0 ? (
                 <div className="pb-5 ">
                   {selectCategory.subCategory.map((subCategory, index) => {
                     return (
-                      <div className="overflow-hidden mb-8">
-                        <p className="border-b mb-5 font-semibold text-[1.5rem] flex justify-between items-center">
-                          <span className="flex justify-center items-center">
-                            <span className="mb-2 md:mb-0 text-primary-red">
-                              &#8658;
-                            </span>
-                            <span>{subCategory.title}</span>
-                          </span>
-                          <span className="flex text-primary-red">
-                            <span className="text-sm mr-3">Search</span>
-                            <FaSearch />
-                          </span>
-                        </p>
+                      <div className="overflow-hidden mb-8 pt-8">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px]">
                           {subCategory.items.map((product, idx) => {
                             return (

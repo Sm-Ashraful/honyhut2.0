@@ -50,7 +50,7 @@ const FilterProducts = () => {
         <div className="w-full text-black  py-[13px] mb-2 flex justify-between px-5">
           <p
             onClick={handleFilterOnClick}
-            className="mb-0 text-xl font-medium flex justify-center items-center gap-[5px] border border-gray-300 px-6 py-2 rounded"
+            className="mb-0 text-xl font-medium flex justify-center items-center gap-[5px] border border-gray-300 px-8 py-2 rounded"
           >
             <span>
               <IoFilter />
