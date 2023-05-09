@@ -4,12 +4,12 @@ import FilterProducts from "@/components/all-products";
 
 const ProductsCategory = () => {
   return (
-    <div className="relative top-36 md:top-52 md:px-4">
-      <div className="md:grid md:grid-cols-4 w-full md:gap-[10px] h-full relative">
-        <div className="w-full  md:mr-0 md:block ">
+    <div className="relative top-36 md:top-[150px]">
+        {/* <div className="w-full  md:mr-0 md:block col-span-1 z-0 pt-[20px]">
           <FilterProducts />
-        </div>
-        <div className="col-span-3 relative w-full">
+        </div> */}
+      <div className="md:grid w-full md:gap-[10px] h-full relative">
+        <div className="relative w-full">
           <ProCategory />
         </div>
       </div>

@@ -24,47 +24,20 @@ const BrandName = () => {
   }
 
   return (
-    <div className="relative top-36 md:top-52 md:px-4">
-      <div className="md:grid md:grid-cols-4 w-full md:gap-[10px] h-full relative">
-        <div className="w-full  md:mr-0 md:block ">
-          <FilterProducts />
-        </div>
+    <div className="relative top-36 md:top-[150px]">
+      <div className="w-full bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% py-[10px] flex justify-start items-center shadow-md">
+        <span className="mb-0 text-xxl text-white text-center w-full">
+          {product.title}
+        </span>
+      </div>
+      <div className="w-full  md:mr-0 md:block z-0 pt-[20px]  md:px-[9rem]">
+        <FilterProducts />
+      </div>
+      <div className="md:grid md:grid-cols w-full md:gap-[10px] h-full relative md:px-[9rem]">
         <section className="col-span-3 relative w-full">
-          <div className="px-4 text-xl bg-white py-[12px] flex md:px-5 justify-between items-center shadow-md">
-            <div className="flex justify-center items-center">
-              <p className="mb-0  text-xl font-bold">
-                <FaHome className="text-secondary" />
-              </p>
-              <p className="last:font-bold">
-                {path.map((linkName) => {
-                  return (
-                    <span>
-                      <span className="mx-2"> {"/"} </span>{" "}
-                      <span className="capitalize ">{linkName}</span>
-                    </span>
-                  );
-                })}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm md:text-lg">
-                Showing All {product && product.items.length} products
-              </p>
-            </div>
-          </div>
-          <div className="px-[5px]">
+          <div className="px-[10px]">
             {product ? (
               <div className="col-span-3">
-                <h2 className=" mb-2 text-primary-red flex justify-between items-center">
-                  <span>{product.title}</span>
-                  <span className="flex text-sm gap-[5px] items-center pr-2">
-                    <span>Search</span>
-                    <span>
-                      <FaSearch />
-                    </span>
-                  </span>
-                </h2>
-                <hr className="h-[2px] bg-secondary" />
                 <div className="grid grid-cols-2 md:grid-cols-4 h-auto gap-[10px] py-5">
                   {product.items
                     ? product.items.map((item: any, index: any) => {

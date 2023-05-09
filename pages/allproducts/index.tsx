@@ -19,8 +19,8 @@ const AllProducts = () => {
           </p>
         </div>
 
-        <div className="md:px-[8rem]">
-        <div className="w-full  md:mr-0 md:block col-span-1 z-0 py-[20px]">
+        <div className="md:px-[10rem]">
+        <div className="w-full  md:mr-0 md:block col-span-1 z-0 pt-[20px]">
           <FilterProducts />
         </div>
 
@@ -30,8 +30,6 @@ const AllProducts = () => {
           })}
         </div>
         </div>
-
-        
       </div>
     </div>
   );
