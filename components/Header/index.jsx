@@ -124,11 +124,8 @@ const Header = () => {
           isHeaderSticky ? "bg-secondary" : " bg-primary"
         } bg-primary h-1/2 md:h-3/5 w-full shadow-hnx`}
       >
-        <div
-          id="myHeader"
-          className="padding_inside flex justify-center items-center "
-        >
-          <div className="flex  justify-between h-full w-full items-center flex-wrap py-3">
+        <div id="myHeader" className="flex justify-center items-center ">
+          <div className="flex  justify-between h-full w-full items-center flex-wrap pt-3 md:pt-4">
             {/**logo */}
             <div
               className={`${styles.logo_box} flex justify-center items-center`}
@@ -139,36 +136,17 @@ const Header = () => {
             </div>
             {/**cart */}
             <div className=" md:order-4 md:mr-3 relative">
-              <div className="flex justify-center items-center space-x-5 text-black">
+              <div className="flex justify-center items-center text-black">
                 <div
-                  className={`${styles.menu_button} md:hidden`}
+                  className={`${styles.menu_button} md:hidden mx-[10px]`}
                   onClick={handleMenuOnClick}
                 >
                   <span className={`${styles.menu_button} `}>
                     <VscListSelection />
                   </span>
                 </div>
-
-                {/* cart section  */}
-                <div>
-                  <div
-                    className={styles.shopping_cart}
-                    onMouseDown={handleCart}
-                  >
-                    <div className="relative mt-4 ml-1 text-3xl ">
-                      <BsCart4 />
-                      <span className={styles.cart_count}>{total}</span>
-                    </div>
-                  </div>
-                </div>
-                <CartNav
-                  headingLine={`Shopping Cart`}
-                  view={`View Cart`}
-                  goto={`Goto Checkout`}
-                />
-                {/* cart section  end */}
                 {/* whitelist section  */}
-                <div className="text-4xl  hidden md:block cursor-pointer">
+                <div className="text-4xl  hidden md:block cursor-pointer md:ml-[10px]">
                   <Link href="/favorite">
                     {favItems.length > 0 ? (
                       <MdFavorite />
@@ -177,16 +155,35 @@ const Header = () => {
                     )}
                   </Link>
                 </div>
+
+                {/* cart section  */}
+                <div className="md:mx-[10px]">
+                  <div
+                    className={styles.shopping_cart}
+                    onMouseDown={handleCart}
+                  >
+                    <div className="relative ml-1 text-3xl ">
+                      <BsCart4 />
+                      <span className={styles.cart_count}>{total}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden md:block text-xl pl-5">
+                  <p>$ {totalCost.toFixed(2)}</p>
+                </div>
+
+                {/* cart section  end */}
+
                 {/* whitelist section  end*/}
                 {/* total const section  */}
-                <div className="md:hidden text-xl ">
+                <div className="md:hidden text-xl ml-[10px] md:ml-[20px]">
                   <p>${totalCost.toFixed(2)}</p>
                 </div>
                 {/* total const section  */}
               </div>
             </div>
             {/**Header Nav */}
-            <div className="hidden md:block md:order-3 h-7 w-1/3">
+            <div className="hidden md:block md:order-3 w-1/3">
               <HeaderNav />
             </div>
           </div>
@@ -199,28 +196,26 @@ const Header = () => {
         <div
           className={`w-full padding_inside flex justify-between items-center h-full`}
         >
-          <div className="md:hidden w-full">
-            <div className="relative w-full">
-              <form
-                onSubmit={handleSubmit}
-                class="w-full flex items-center justify-center "
-              >
-                <span className="absolute right-8 text-black cursor-pointer">
-                  <FaSearch />
-                </span>
-                <input
-                  type="text"
-                  placeholder="What are you looking for today ..."
-                  defaultValue={searchText}
-                  className="w-full shadow-md  bg-white text-base pl-10 py-4 pr-12 focus:outline-none rounded-full"
-                  onChange={handleChange}
-                  onFocus={openSearchModal}
-                  onBlur={closeSearchModal}
-                />
-              </form>
-            </div>
+          <div className="md:hidden w-full relative">
+            <form
+              onSubmit={handleSubmit}
+              class="w-full flex items-center justify-center "
+            >
+              <span className="absolute right-8 text-black cursor-pointer">
+                <FaSearch />
+              </span>
+              <input
+                type="text"
+                placeholder="What are you looking for today ..."
+                defaultValue={searchText}
+                className="w-full shadow-md  bg-white text-base pl-[2rem] py-3  focus:outline-none rounded-full"
+                onChange={handleChange}
+                onFocus={openSearchModal}
+                onBlur={closeSearchModal}
+              />
+            </form>
           </div>
-          <div className="w-full hidden md:flex h-full">
+          <div className="w-full hidden md:flex justify-between h-full">
             <div
               className={`w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}
               onMouseEnter={openDepartment}
@@ -260,7 +255,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="w-1/5 flex justify-center  items-center text-black text-4xl">
+            <div className="w-1/5 flex justify-center  items-center text-black ">
               <div className="px-5">
                 <Link
                   href={{
@@ -268,15 +263,11 @@ const Header = () => {
                   }}
                   className="flex flex-col justify-center items-center"
                 >
-                  <MdManageAccounts />
-                  <span className="text-sm text-rose-600">
-                    {currentUser.name ? currentUser.name : `My Account`}
+                  <MdManageAccounts className="text-4xl" />
+                  <span className="text-sm lg:text-[1rem] text-black font-semibold">
+                    {currentUser.name ? currentUser.name : `Account`}
                   </span>
                 </Link>
-              </div>
-
-              <div className="hidden md:block text-xl pl-5">
-                <p>$ {totalCost.toFixed(2)}</p>
               </div>
             </div>
           </div>
@@ -291,6 +282,11 @@ const Header = () => {
 
       {/**Header dropdown end */}
       <Sidebar />
+      <CartNav
+        headingLine={`Shopping Cart`}
+        view={`View Cart`}
+        goto={`Goto Checkout`}
+      />
     </div>
   );
 };

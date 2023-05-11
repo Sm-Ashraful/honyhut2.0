@@ -6,10 +6,31 @@ import { ClassNames } from "@emotion/react";
 
 const Categories = () => {
   const [category, setCategory] = useState(categoryData);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [index, setIndex] = useState(0);
-  const [intervalId, setIntervalId] = useState(null);
-  const cardBoxRef = useRef(null);
+  const [selectedCardIndex, setSelectedCardIndex] = useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const containerRef = useRef(null);
+
+  const handleCardClick = (index) => {
+    setSelectedCardIndex(index);
+  };
+
+  const handleScroll = () => {
+    const containerWidth = containerRef.current.offsetWidth;
+    const cards = containerRef.current;
+    let closestDistance = Infinity;
+    let closestIndex = 0;
+
+    console.log("Card", cards);
+  };
+
+  // useEffect(() => {
+  //   containerRef.current.addEventListener("scroll", handleScroll);
+  //   handleScroll();
+
+  //   return () => {
+  //     containerRef.current.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   /** useEffect(() => {
     const lastIndex = categoryData.length - 1;
@@ -30,17 +51,18 @@ const Categories = () => {
 
   return (
     <section
-      className={`padding_inside relative top-36 md:top-48 mt-16 mb-16 md:mb-32`}
+      className={`padding_inside relative top-52 lg:top-56 mb-[5rem] mt-[2rem] md:mt-[4rem]`}
     >
       <h2 class="mb-0 text-honey text-center md:text-center drop-shadow-md">
-        <span>Top Categories</span>
+        <span>Product Categories</span>
         <hr class="w-[60px] my-[5px] border-2 mx-auto border-honey" />
         <hr class="w-[40px] my-[5px] border-1 mx-auto border-honey" />
       </h2>
 
       <div
-        className={`grid grid-cols-2 md:grid-cols-5 gap-[10px] rounded-md pt-5 transition-all delay-700`}
-        ref={cardBoxRef}
+        className={`flex flex-nowrap x-scrollable-content pb-[3rem] gap-[10px] rounded-md  transition-all delay-700`}
+        ref={containerRef}
+        style={{ scrollLeft: scrollPosition }}
       >
         {category.map((item, personIndex) => {
           const animationClass =

@@ -1,12 +1,13 @@
 .bottom_container {
   overflow: hidden;
   position: fixed;
-  padding: 15px 13px;
+  padding-top: 15px !important;
+  padding-bottom: 10px !important;
   bottom: 0;
   left: 0;
   width: 100%;
   /* height: auto; */
-  height: 55px;
+
   z-index: 99;
 }
 .bottom_home {

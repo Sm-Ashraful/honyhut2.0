@@ -22,7 +22,7 @@ const CommonCard = ({ product }) => {
         >
           {/* image section  */}
           <div className="relative w-full">
-            <div className="relative w-full h-52 md:h-64 bg-white overflow-hidden shadow-allIn rounded-md text-center flex justify-center items-center group">
+            <div className="relative w-full h-52 bg-white overflow-hidden shadow-photo rounded-md text-center flex justify-center items-center group">
               <div className="w-full h-full relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
                 <Image src={product.image[0]} fill cover />
               </div>
@@ -38,7 +38,9 @@ const CommonCard = ({ product }) => {
             {/* description section  */}
             <div className="w-full pt-5">
               <p className="md:text-xl text-center text-[17px] leading-6">
-                {product.name}
+                {product.name.length > 30
+                  ? `${product.name.slice(0, 30)}...}`
+                  : product.name}
               </p>
               <p className="md:text-xl font-bold text-center">
                 <span>Price: </span>

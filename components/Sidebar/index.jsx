@@ -67,11 +67,11 @@ const Sidebar = () => {
       ref={sidebarRef}
     >
       <div className="flex items-center shadow-md w-full z-10">
-        <p className="w-full h-full text-2xl text-headingColor font-bold flex justify-between ">
+        <p className="w-full h-full text-[1.3rem] text-black font-bold flex justify-between items-center">
           <span className="flex-1 flex items-center h-full">
             <span
               onClick={() => handleMenuSection("menu")}
-              className={`basis-1/2 border-r text-center  h-full px-5 py-5  ${
+              className={`basis-1/2 border-r text-center   h-full px-5 py-2  ${
                 selectedMenu === "menu" ? `${styles.isActive}` : `blur-[1px]`
               }`}
             >
@@ -79,7 +79,7 @@ const Sidebar = () => {
             </span>
             <span
               onClick={() => handleMenuSection("category")}
-              className={`basis-1/2 border-r text-center h-full px-5 py-5  ${
+              className={`basis-1/2 border-r text-center h-full px-5 py-2  ${
                 selectedMenu === "category"
                   ? `${styles.isActive}`
                   : `blur-[1px]`
@@ -89,7 +89,7 @@ const Sidebar = () => {
             </span>
           </span>
           <span
-            className="mr-3 ml-4 px-5 py-5 text-primary-red"
+            className="px-5 py-2 text-primary-red"
             onClick={handleMenuButton}
           >
             <FaTimes />

@@ -1,5 +1,5 @@
 .sidebar {
-  width: 78%;
+  width: 85%;
   height: 100vh;
   position: absolute;
   left: 0;
@@ -10,7 +10,7 @@
   @apply text-secondary;
   border-right: 1px solid #638c28;
   border-top: 1px solid #638c28;
-  z-index: 1000;
+  z-index: 101;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   overflow-x: hidden;
@@ -36,5 +36,5 @@
   -o-transform: translateX(0);
 }
 .isActive {
-  @apply bg-honey text-secondary;
+  @apply bg-honey text-black blur-0;
 }

@@ -65,11 +65,12 @@ const CartNav = ({ headingLine, view, goto }) => {
       }`}
     >
       <div className="w-full h-full  mb-24 relative">
-        <div className="fixed top-5 px-5 py-5 flex justify-between items-center shadow-md w-full z-10">
-          <p className="text-2xl text-headingColor font-bold">
+        <div className="fixed top-0 px-5 py-5 flex justify-between items-center shadow-md w-full z-10">
+          <p className="text-xl text-headingColor font-bold">
             <span>{headingLine}</span>
+            <hr class="w-[60px] my-[5px] border-2  border-honey" />
           </p>
-          <hr class="w-[45px] my-[5px] border-2 " />
+
           <p
             className="h-12 w-12 flex items-center justify-center cursor-pointer hover:text-primary-red text-xl  text-primary-red"
             onClick={closeCart}

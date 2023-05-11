@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import CommonCard from "../CommonCard";
 
-const RecommendProduct = ({ title, products, top, className }) => {
+const RecommendProduct = ({ title, products, className }) => {
   const [seeMore, setSeeMore] = useState(false);
 
   const handleSeeMore = (e) => {
@@ -12,9 +12,7 @@ const RecommendProduct = ({ title, products, top, className }) => {
   };
   return (
     <section
-      className={`padding_inside relative ${
-        top ? `top-${top}` : `top-36 md:top-48 `
-      } mt-10`}
+      className={`padding_inside relative top-52 lg:top-56 mb-[5rem] mt-[2rem] md:mt-[4rem] mt-10`}
     >
       <h2 className="text-honey md:text-center text-center drop-shadow-md">
         {title}

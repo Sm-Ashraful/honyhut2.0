@@ -9,6 +9,22 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "769px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1025px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1281px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
+    },
     extend: {
       height: {
         112: "65vh",
@@ -20,6 +36,7 @@ module.exports = {
         right: "2px 0px 3px 0px rgba(231,166,26,1)",
         allIn: "rgba(0, 0, 0, 0.35) 0px 2px 2px",
         leftTop: "-8px -8px 0px -3px rgba(210,210,210,1)",
+        photo: "0px 5px 18px 0px rgba(255,193,23,0.47)",
       },
       keyframes: {
         moveFromLeft: {
