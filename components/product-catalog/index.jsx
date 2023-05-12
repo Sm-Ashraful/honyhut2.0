@@ -58,19 +58,18 @@ const ProductCatalog = ({ product }) => {
 
   return (
     <section className="relative container top-2 bg-white  ">
-      <div className="px-4 bg-primary py-[10px] flex shadow-md justify-start items-center">
-        <p className="mb-0  text-xl font-bold">
+      <div className="px-4 bg-primary pb-[10px] flex justify-start items-center">
+        <p className="mb-0  text-xl font-bold flex justify-center items-center">
           <FaHome className="text-secondary" />
+          <span className="mx-[10px]">:</span>
         </p>
-        <p className="text-lg">
-          {path.map((linkName) => {
-            return (
-              <span>
-                <span className="mx-2"> {">"} </span>
-                <span className="capitalize underline">{linkName}</span>
-              </span>
-            );
-          })}
+        <p className="text-sm flex justify-center items-center">
+          {path.filter(Boolean).map((linkName, index) => (
+            <span key={index}>
+              {index > 0 && <span className="mx-2">{">"}</span>}
+              <span className="capitalize">{linkName}</span>
+            </span>
+          ))}
         </p>
       </div>
       <div className="flex flex-wrap px-[5px] md:pt-5">

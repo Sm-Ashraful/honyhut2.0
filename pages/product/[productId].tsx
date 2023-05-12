@@ -30,7 +30,7 @@ const Product = () => {
   }
 
   return (
-    <div className="relative grid  top-36 md:top-48 md:grid-cols-4">
+    <div className="relative grid  top-32 md:top-48 md:grid-cols-4">
       {product && (
         <div
           className="md:border-r border-gray dark:border-b-gray md:col-span-3"
