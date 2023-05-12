@@ -9,6 +9,8 @@ import FilterPage from "../sidebarFilter/filter";
 import FeaturedPage from "../sidebarFilter/featured";
 
 // import { allProducts } from "@/utils/all-product";
+import { HiViewGrid } from "react-icons/hi";
+import { MdViewStream } from "react-icons/md";
 
 const FilterProducts = () => {
   const dispatch = useDispatch();
@@ -31,10 +33,6 @@ const FilterProducts = () => {
     event.preventDefault();
   };
 
-  const handleShortOnClick = (event) => {
-    event.preventDefault();
-    dispatch(shortPosition());
-  };
   const handleFilterOnClick = (event) => {
     event.preventDefault();
     dispatch(filterToggle());
@@ -45,12 +43,12 @@ const FilterProducts = () => {
   }
 
   return (
-    <div>
+    <div className="shadow-md">
       <div className="w-full h-auto relative">
-        <div className="w-full text-black  py-[13px] mb-2 flex justify-between px-5">
+        <div className="w-full text-black  py-[13px] mb-2 flex justify-between">
           <p
             onClick={handleFilterOnClick}
-            className="mb-0 text-xl font-medium flex justify-center items-center gap-[5px] border border-gray-300 px-8 py-2 rounded"
+            className="mb-0 text-sm flex justify-center items-center gap-[5px] px-8 py-2"
           >
             <span>
               <IoFilter />
@@ -61,15 +59,20 @@ const FilterProducts = () => {
               <FilterPage />
             </span>
           </p>
-
-          <p
-            onClick={handleShortOnClick}
-            className="mb-0  text-xl font-medium flex justify-center items-center gap-[5px]"
-          >
-            <span className="">
-              <FeaturedPage />
-            </span>
-          </p>
+          <div className="flex justify-center items-center text-2xl">
+            <HiViewGrid className="ml-5" />
+            <MdViewStream className="ml-5" />
+          </div>
+          <div class="flex justify-center items-center">
+            <select className="text-sm pl-5 py-2 flex justify-center items-center  focus:outline-none">
+              <option>Sort By</option>
+              <option>Best Selling</option>
+              <option>Alphabetically, A - Z</option>
+              <option>Alphabetically, Z - A</option>
+              <option>Price, low to high</option>
+              <option>Price, high to low</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

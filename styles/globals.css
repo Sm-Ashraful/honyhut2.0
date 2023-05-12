@@ -301,3 +301,38 @@ article.nextSlide {
 .map {
   z-index: 0 !important;
 }
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+  border-radius: 25px 25px 0 25px;
+}
+.overlay::before,
+.overlay::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  bottom: -40px;
+  background-color: #4070f4;
+}
+
+.overlay::after {
+  border-radius: 0 15px 0 0;
+
+  /* background-color: red; */
+  @apply bg-primary;
+}
+select {
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+}
+.select-arrow::-ms-expand {
+  display: none;
+}

@@ -12,6 +12,7 @@ import { MaleEnhancement } from "../utils/male";
 import people from "../utils/fav-demo-data";
 import { allProducts } from "@/utils/products";
 import getNewArrival from "@/utils/helper/getNewProducts";
+import Review from "@/components/review";
 
 export default function Home() {
   const newProducts = getNewArrival(allProducts);
@@ -46,6 +47,7 @@ export default function Home() {
         />
 
         <Gallery />
+        <Review />
       </main>
     </>
   );

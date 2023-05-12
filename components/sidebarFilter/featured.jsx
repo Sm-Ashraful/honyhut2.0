@@ -19,20 +19,15 @@ const FeaturedPage = () => {
   };
 
   return (
-    <div class="flex ml-6 items-center">
-      <div class="relative">
-        <select class="text-xl font-medium rounded border appearance-none border-gray-300 py-2 pl-4 focus:outline-none focus:ring-2 focus:border-indigo-500">
-          <option>Short By</option>
-          <option>Best Selling</option>
-          <option>Alphabetically, A - Z</option>
-          <option>Alphabetically, Z - A</option>
-          <option>Price, low to high</option>
-          <option>Price, high to low</option>
-        </select>
-        <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-          <IoArrowDown />
-        </span>
-      </div>
+    <div class="flex justify-center items-center">
+      <select className="text-sm pl-5 py-2 flex justify-center items-center  focus:outline-none select-arrow">
+        <option>Sort By</option>
+        <option>Best Selling</option>
+        <option>Alphabetically, A - Z</option>
+        <option>Alphabetically, Z - A</option>
+        <option>Price, low to high</option>
+        <option>Price, high to low</option>
+      </select>
     </div>
   );
 };

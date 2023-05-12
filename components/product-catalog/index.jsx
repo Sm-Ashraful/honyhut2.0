@@ -66,7 +66,7 @@ const ProductCatalog = ({ product }) => {
           {path.map((linkName) => {
             return (
               <span>
-                <span className="mx-2"> {"/"} </span>{" "}
+                <span className="mx-2"> {">"} </span>
                 <span className="capitalize underline">{linkName}</span>
               </span>
             );

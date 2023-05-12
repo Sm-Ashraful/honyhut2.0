@@ -28,7 +28,7 @@
 }
 @media screen and (min-width: 640px) {
   .section_slider {
-    height: 45vh;
+    height: 50vh;
     width: 100%;
   }
   .section_center {
@@ -39,7 +39,7 @@
 
 @media screen and (min-width: 1024px) {
   .section_slider {
-    height: 55vh;
+    height: 65vh;
     width: 100%;
   }
   .section_center {
