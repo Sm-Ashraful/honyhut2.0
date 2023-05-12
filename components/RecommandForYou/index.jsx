@@ -12,7 +12,7 @@ const RecommendProduct = ({ title, products, className }) => {
   };
   return (
     <section
-      className={`padding_inside relative top-52 lg:top-56 mb-[5rem] mt-[2rem] md:mt-[4rem] mt-10`}
+      className={`padding_inside relative top-52 lg:top-56 mb-[5rem] mt-[2rem] md:mt-[4rem] lg:mt-10`}
     >
       <h2 className="text-honey md:text-center text-center drop-shadow-md">
         {title}

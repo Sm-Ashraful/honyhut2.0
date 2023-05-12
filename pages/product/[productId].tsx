@@ -38,7 +38,6 @@ const Product = () => {
         >
           <ProductCatalog product={product} />
           <RecommendProduct
-            top={`0`}
             className={false}
             products={people}
             title={"Recommand For You"}
