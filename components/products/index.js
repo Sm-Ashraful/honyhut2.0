@@ -68,7 +68,7 @@ const Products = () => {
   }
 
   return (
-    <section className="padding_inside relative top-36 md:top-48 h-auto mt-16 mb-10 md:mb-20">
+    <section className="padding_inside relative top-52 lg:top-56 mb-[5rem] mt-[2rem] md:mt-[4rem]">
       <h2 className="mb-0 text-honey text-center drop-shadow-md">
         <span>Top Products</span>
         <hr class="w-[60px] my-[5px] border-2 mx-auto border-honey" />

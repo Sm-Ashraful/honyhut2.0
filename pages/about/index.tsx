@@ -1,14 +1,20 @@
 import React from "react";
-import About from "../../components/aboutUs/about";
-import Contact from "../../components/aboutUs/contactUs";
+
+import HeroTop from "@/components/common/top-component";
+import About from "@/components/aboutUs";
+import AboutServey from "@/components/aboutUs/about-servay";
+import AboutProduct from "@/components/aboutUs/about-products";
 
 const AboutUs = () => {
-  const center = [51.505, -0.09];
-  const zoom = 13;
   return (
-    <div className="relative top-24 md:top-40 h-auto">
+    <div className="w-full  relative top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem]  ">
+      <HeroTop
+        title={`About Us`}
+        subTitle="Focus your passion, and success will follow you"
+      />
       <About />
-      <Contact />
+      <AboutServey />
+      <AboutProduct />
     </div>
   );
 };

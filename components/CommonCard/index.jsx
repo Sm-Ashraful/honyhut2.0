@@ -18,7 +18,7 @@ const CommonCard = ({ product }) => {
     <>
       {product && (
         <div
-          className={`relative w-[full]  flex flex-col justify-center items-center px-[3px] md:px-[10px] py-4 transition-all duration-300 cursor-pointer`}
+          className={`relative w-[full]  flex flex-col justify-center items-center px-[3px] md:px-[10px] pb-4 transition-all duration-300 cursor-pointer`}
         >
           {/* image section  */}
           <div className="relative w-full">
@@ -31,7 +31,7 @@ const CommonCard = ({ product }) => {
               </div>
             </div>
             {product.offer && (
-              <div className={`absolute -top-10 -right-3  opacity-100`}>
+              <div className={`absolute -top-2 -right-1  opacity-100`}>
                 <OfferPercent percentage={product.offer} />
               </div>
             )}

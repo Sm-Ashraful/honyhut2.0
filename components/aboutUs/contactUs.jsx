@@ -3,7 +3,7 @@ import { FaCaretDown } from "react-icons/fa";
 
 import { aboutInfo } from "../../utils/About-demo";
 
-const AboutUs = () => {
+const ContactUs = () => {
   const [index, setIndex] = useState(0);
   const [headingText, setHeadingText] = useState("");
 
@@ -163,4 +163,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default ContactUs;

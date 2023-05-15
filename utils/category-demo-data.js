@@ -71,13 +71,6 @@ const categories = [
       },
     ],
   },
-  {
-    id: 5,
-    image: "/category-icon/04.avif",
-    name: "Combos",
-    icon: "/category-icon/04.avif",
-    totalItem: 25,
-  },
 ];
 
 export default categories;

@@ -11,31 +11,28 @@
   border-right: 1px solid #638c28;
   border-top: 1px solid;
   z-index: 1000;
-  transform: translateX(-100%);
+  transform: translateX(-110%);
   transition: transform 0.3s ease-in-out;
   overflow-x: hidden;
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
+  -webkit-transform: translateX(-110%);
+  -moz-transform: translateX(-110%);
+  -ms-transform: translateX(-110%);
+  -o-transform: translateX(-110%);
   -webkit-transition: transform 0.3s ease-in-out;
   -moz-transition: transform 0.3s ease-in-out;
   -ms-transition: transform 0.3s ease-in-out;
   -o-transition: transform 0.3s ease-in-out;
 }
 
-
 @media screen and (min-width: 778px) {
-  .filter_container{
+  .filter_container {
     width: 25%;
     left: -10rem;
     top: -20px;
   }
 }
 
-
 .filter_container_show {
- 
   transform: translateX(0);
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
