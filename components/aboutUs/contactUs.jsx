@@ -1,94 +1,73 @@
 import React, { useState } from "react";
-import { FaCaretDown } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
+import { IoMdCall } from "react-icons/io";
+import { TfiEmail } from "react-icons/tfi";
+import { MdOutlineWatchLater } from "react-icons/md";
 
 import { aboutInfo } from "../../utils/About-demo";
 
-const ContactUs = () => {
+const Contact = () => {
   const [index, setIndex] = useState(0);
   const [headingText, setHeadingText] = useState("");
 
   return (
     <>
       <main className="bg-primary h-auto">
-        <div className="p-8 mx-8">
-          <h2 className="text-3xl font-bold mb-8 text-center bg-secondary text-white">
-            CONTACT US
-          </h2>
-
+        <div className="padding_inside mt-6 md:mt-12">
           {/* contact us */}
-          <div className="grid md:grid-cols-2 w-full">
-            <div className="grid md:grid-cols-1 w-full">
+          <div className="grid md:grid-cols-2 gap-[20px] w-full">
+            <div className="w-full">
+              <h3 className="font-bold text-black">
+                CONTACT US FOR ANY QUESTIONS
+              </h3>
               <div className="w-full">
-                <form className="space-y-2">
-                  <div>
-                    <h1
-                      htmlFor="name"
-                      className="block font-bold text-secondary mb-2"
-                    >
-                      CONTACT US FOR ANY QUESTIONS
-                    </h1>
-                    <label htmlFor="name" className="block mb-2">
+                <form className="text-sm font-jakarta">
+                  <div className="mb-[15px]">
+                    <label htmlFor="name" className="">
                       Your Name
                     </label>
                     <input
                       type="text"
                       id="name"
                       name="name"
-                      placeholder="Your Name"
                       required
                       className="border border-gray rounded-md p-2 w-full"
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="number" className="block mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="number"
-                      id="name"
-                      name="name"
-                      placeholder="Phone number with country code"
-                      required
-                      className="border border-gray rounded-md p-2 w-full"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block mb-2">
-                      Email
+                  <div className="mb-[15px]">
+                    <label htmlFor="email" className="block ">
+                      Your Email
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      placeholder="Email Address"
                       required
                       className="border border-gray rounded-md p-2 w-full"
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="text" className="block mb-2">
-                      Your Subject
+                  <div className="mb-[15px]">
+                    <label htmlFor="text" className="block ">
+                      Subject
                     </label>
                     <input
                       type="text"
                       id="text"
                       name="text"
-                      placeholder="Your Subject"
                       required
                       className="border border-gray rounded-md p-2 w-full"
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="address" className="block mb-2">
+                  <div className="mb-[15px]">
+                    <label htmlFor="address" className="block">
                       Your Message
                     </label>
                     <textarea
                       id="address"
                       name="address"
-                      placeholder="Write Here"
                       className="border border-gray rounded-md p-2 w-full"
                       rows="5"
                     ></textarea>
@@ -105,54 +84,49 @@ const ContactUs = () => {
             </div>
 
             {/* Info */}
-            <div className="w-full md:border md:border-r-0 md:border-t-0 md:border-b-0 md:ml-4 md:border-gray">
-              <div className="pl-4">
-                <h1 htmlFor="name" className="text-gray">
-                  INFORMATION QUESTIONS
-                </h1>
-                <h3
-                  htmlFor="name"
-                  className="block font-bold text-secondary mb-2"
-                >
-                  FREQUENTLY ASKED QUESTIONS
-                </h3>
-              </div>
-              <div className="padding_inside mt-8 w-full flex flex-col justify-between bg-white m-4">
-                <div className="mb-3  w-full flex flex-col">
-                  {aboutInfo.map((info, index) => {
-                    return (
-                      <div>
-                        <div
-                          onClick={() =>
-                            headingText !== info.title
-                              ? setHeadingText(info.title)
-                              : setHeadingText("")
-                          }
-                          className="flex justify-between items-center"
-                        >
-                          <h1 className="mb-0 mt-4 md:pr-10 font-semibold">
-                            {info.title}
-                          </h1>
-                          <span>
-                            <FaCaretDown />
-                          </span>
-                        </div>
-                        <p
-                          className={`${
-                            headingText === info.title ? "block" : "hidden"
-                          } leading-relaxed ml-5 text-lg `}
-                        >
-                          <ul className="list-disc">
-                            <li>
-                              <span className="text-ash text-xl font-medium">
-                                {info.details}
-                              </span>
-                            </li>
-                          </ul>
-                        </p>
-                      </div>
-                    );
-                  })}
+            <div className="w-full">
+              <h3 htmlFor="name" className="block font-bold text-black">
+                CONTACT INFORMATION
+              </h3>
+
+              <div className="w-full flex flex-col justify-between">
+                <div className="mb-3  w-full flex flex-col text-[#878787] ">
+                  <p className="removeTextShadow pb-4 leading-6 ">
+                    We value your feedback and welcome your thoughts on our
+                    customer service, merchandise, website, or any other topics
+                    you would like to share with us. We appreciate any comments
+                    and suggestions you may have, as they help us improve and
+                    provide a better experience for our customers. Your input is
+                    highly appreciated and will be taken into consideration.
+                    Thank you for taking the time to provide us with your
+                    valuable feedback.
+                  </p>
+                  <ul className="">
+                    <li className="flex pb-4">
+                      <span>
+                        <AiOutlineHome />
+                      </span>
+                      <span className="mx-[10px]">Home</span>
+                    </li>
+                    <li className="flex pb-4">
+                      <span>
+                        <IoMdCall />
+                      </span>
+                      <span className="mx-[10px]">800-392-3206</span>
+                    </li>
+                    <li className="flex pb-4">
+                      <span>
+                        <TfiEmail />
+                      </span>
+                      <span className="mx-[10px]">support@honyhut.com</span>
+                    </li>
+                    <li className="flex pb-4">
+                      <span>
+                        <MdOutlineWatchLater />
+                      </span>
+                      <span className="mx-[10px]">24/7 support</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -163,4 +137,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default Contact;

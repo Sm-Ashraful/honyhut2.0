@@ -49,7 +49,7 @@ const Review = () => {
     setCurrentIndex(currentIndex + 1);
     let width = 370;
 
-    if (width) {
+    if (ref.current && width) {
       ref.current.scrollLeft += width;
       if (currentIndex === product.length - 1) {
         setCurrentIndex(0);

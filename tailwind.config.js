@@ -357,6 +357,8 @@ module.exports = {
     fontFamily: {
       sans: ["Playfair Display", "sans-serif"],
       carmo: ["Cormorant Garamond", "serif"],
+      jakarta: ["Plus Jakarta Sans", "sans-serif"],
+      openSans: ["Open Sans", "sans-serif"],
     },
   },
   plugins: [],

@@ -5,15 +5,14 @@ const About = () => {
     <div className="padding_inside my-[3rem]">
       <div className="grid md:grid-cols-2 gap-[20px] font-carmo   my-[3rem]">
         <div className="">
-          <h3 className="uppercase tracking-[.2em]">Our Values</h3>
+          <h3 className="uppercase tracking-[.2em]">Our Mission</h3>
           <p className="text-lg leading-8">
-            We’re on a mission to press reset on everything you think you know
-            about sexual enhancements. Founded in 2019, we set out to be the
-            difference, creating a reality where sexual appetites are
-            insatiable, performances are off-the-charts, and ‘tired’ is no
-            longer a word in your vocabulary. It’s the Royal Honey way,
-            transforming good into great, minutes into hours, and ‘meh’ into
-            heck yeah.
+            We're out to turn everything you believe you know about sexual
+            enhancers back on. We set out to make a difference when we were
+            founded in 2019 by imagining a world in which sexual appetites are
+            insatiable, performances are out of this world, and the term "tired"
+            has no place in your lexicon. It's the Royal Honey method of turning
+            "meh" into "heck yeah," good into "great," and minutes into hours.
           </p>
         </div>
         <div className="">
