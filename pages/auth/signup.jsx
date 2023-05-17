@@ -36,7 +36,6 @@ const Signup = () => {
     if (user.authenticate) {
       router.push("/");
     }
-    console.log("user message", user.message);
   }, [user]);
 
   return (

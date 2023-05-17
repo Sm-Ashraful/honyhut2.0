@@ -7,10 +7,10 @@ const UsesInstruction = () => {
       <HeroTop title={`uses instruction`} />
       <div className="padding_inside mt-12">
         <div>
-          <h3>
+          <h3 className="uppercase tracking-[.2em] font-carmo">
             <span>How to use honey?</span>
           </h3>
-          <div className="font-sans text-[#878787] ml-3">
+          <div className=" text-[#878787] text-lg leading-8 font-openSans">
             <p className="pb-3 removeTextShadow">
               You can consume one sachet (packet) of the product daily or every
               other day, preferably after a meal. Many men prefer taking one
@@ -46,10 +46,10 @@ const UsesInstruction = () => {
           </div>
         </div>
         <div className=" mt-8">
-          <h3>
+          <h3 className="uppercase tracking-[.2em] font-carmo">
             <span>How Long Dose Royal Honey Last?</span>
           </h3>
-          <div className="font-sans text-[#878787] ml-3">
+          <div className="text-[#878787] text-lg leading-8 font-openSans">
             <p className="pb-3 removeTextShadow">
               The effectiveness of one sachet of Royal Honey can differ from
               person to person. While the effects may typically last for up to
@@ -73,7 +73,7 @@ const UsesInstruction = () => {
           </div>
         </div>
         <div className=" mt-8">
-          <h3>
+          <h3 className="uppercase tracking-[.2em] font-carmo">
             <span>How To Use Delay Spray?</span>
           </h3>
           <div className="font-sans text-[#878787] ml-3">

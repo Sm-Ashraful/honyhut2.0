@@ -71,6 +71,9 @@ body {
   .padding_inside {
     padding: 0 5rem;
   }
+  h3 {
+    font-size: 1.75rem;
+  }
 }
 /* @media screen and (min-width: 778px) {
   .padding_inside {
@@ -144,7 +147,7 @@ h2 {
 
 h3 {
   @apply font-sans;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 600;
   text-transform: capitalize;
   margin-bottom: 1rem;

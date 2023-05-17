@@ -85,7 +85,6 @@ const Header = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Mobile search clicked: ", event);
 
     // Do something with the search term (e.g., perform a search)
   };

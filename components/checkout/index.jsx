@@ -42,8 +42,6 @@ export default function CheckoutItems({
   }
 
   useEffect(() => {
-    console.log("Products: ", product);
-
     if (product) {
       const exixting = cartItems.find((cartItem) => {
         return cartItem.id === product.id;

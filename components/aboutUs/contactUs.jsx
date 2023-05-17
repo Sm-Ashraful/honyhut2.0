@@ -17,7 +17,7 @@ const Contact = () => {
           {/* contact us */}
           <div className="grid md:grid-cols-2 gap-[20px] w-full">
             <div className="w-full">
-              <h3 className="font-bold text-black">
+              <h3 className="font-bold text-black uppercase tracking-[.1em] font-carmo">
                 CONTACT US FOR ANY QUESTIONS
               </h3>
               <div className="w-full">
@@ -85,13 +85,16 @@ const Contact = () => {
 
             {/* Info */}
             <div className="w-full">
-              <h3 htmlFor="name" className="block font-bold text-black">
+              <h3
+                htmlFor="name"
+                className="block font-bold text-black uppercase tracking-[.2em] font-carmo"
+              >
                 CONTACT INFORMATION
               </h3>
 
               <div className="w-full flex flex-col justify-between">
-                <div className="mb-3  w-full flex flex-col text-[#878787] ">
-                  <p className="removeTextShadow pb-4 leading-6 ">
+                <div className="mb-3  w-full flex flex-col text-[#878787] font-jakarta">
+                  <p className="removeTextShadow pb-4 leading-8 text-lg">
                     We value your feedback and welcome your thoughts on our
                     customer service, merchandise, website, or any other topics
                     you would like to share with us. We appreciate any comments

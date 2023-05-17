@@ -38,7 +38,7 @@ const Faqs = () => {
                 <ul className="">
                   <li className="mb-5 ">
                     <span className="mr-3">&#8811;</span>
-                    <span className="text-[#777777] font-openSans text-sm font-medium removeTextShadow">
+                    <span className="text-[#777777] font-openSans text-lg font-medium removeTextShadow">
                       {info.details}
                     </span>
                   </li>

@@ -354,6 +354,7 @@ module.exports = {
         900: "#0f172a",
       },
     },
+
     fontFamily: {
       sans: ["Playfair Display", "sans-serif"],
       carmo: ["Cormorant Garamond", "serif"],

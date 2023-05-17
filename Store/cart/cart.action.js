@@ -56,6 +56,5 @@ export const removeItem = (cartItems, productToRemove) => {
 };
 
 export const addShippingCost = (shippingCost) => {
-  console.log("shipping action value: ", shippingCost);
   return ActionReducer(CART_ACTION_TYPE.SET_SHIPPING_COST, shippingCost);
 };

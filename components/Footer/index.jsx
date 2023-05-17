@@ -8,8 +8,6 @@ import styles from "../Header/style.module.css";
 const Footer = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log("Category demo: ", categoryData);
-
   return (
     <footer className="bg-honey text-black  relative top-36 md:top-48 mb-56 md:mb-48 text-lg font-carmo">
       <div className="md:flex justify-between items-start md:pt-11 padding_inside">
@@ -64,8 +62,12 @@ const Footer = () => {
             <Link href="/about" className="">
               About US
             </Link>
-            <p className="">Privacy Policy</p>
-            <p className="">Terms & Conditions</p>
+            <p className="">
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </p>
+            <p className="">
+              <Link href="/terms-and-condition">Terms & Conditions</Link>
+            </p>
           </div>
         </div>
         <div className="p-5 ">

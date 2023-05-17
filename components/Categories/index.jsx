@@ -19,8 +19,6 @@ const Categories = () => {
     const cards = containerRef.current;
     let closestDistance = Infinity;
     let closestIndex = 0;
-
-    console.log("Card", cards);
   };
 
   // useEffect(() => {
