@@ -1,27 +1,28 @@
+import Link from "next/link";
 import React from "react";
 
 const AboutServey = () => {
   return (
     <div
-      className="padding_inside h-[80vh] grid md:grid-cols-2 justify-center items-center"
+      className="padding_inside h-[40vh] md:h-[80vh] grid md:grid-cols-2 justify-center items-center"
       style={{
         backgroundImage: 'url("yellow b.avif")',
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}
     >
-      <h3 className="">
-        <span>
+      <h3 className="text-center">
+        <p className="py-4">
           When you talk for original, pure and natural, It is only us,{" "}
           <strong className="text-tertiary">HONYHUT</strong>
-        </span>
-        <hr class="w-[50%] my-[5px] border-2 border-white" />
-        <a
-          href="#_"
+        </p>
+
+        <Link
+          href="/allproducts"
           class="inline-block py-4 text-xl text-white bg-gray-800 px-7 hover:bg-gray-700 rounded-xl"
         >
           Visit Our Store
-        </a>
+        </Link>
       </h3>
       <div className="font-carmo">
         <div className="border-b border-b-white flex justify-center items-center text-2xl font-[500]">
