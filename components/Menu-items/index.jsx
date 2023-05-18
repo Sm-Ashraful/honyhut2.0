@@ -1,27 +1,36 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { BiChevronRight } from "react-icons/bi";
+import Link from "next/link";
 
 import Dropdown from "../Dropdown";
 
 const MenuItems = ({ items, depthLevel }) => {
   const [dropdown, setDropdown] = useState(false);
 
+  console.log("This is items: ", items);
+
   return (
     <li
       onMouseEnter={() => setDropdown(true)}
       onMouseLeave={() => setDropdown(false)}
-      className="py-5 px-9  w-full h-atuo flex items-center cursor-pointer hover:bg-white shadow-sm hover:shadow-hnx"
+      className="py-5 px-9 border-y  w-full h-auto flex items-center cursor-pointer hover:bg-white shadow-sm hover:shadow-hnx"
     >
-      <div className="flex justify-center items-center gap-[10px]">
-        <div className="relative w-[40px] h-[40px]">
-          <Image src={items.image} fill cover />
-        </div>
-        <div>
-          <p className="font-bold capitalize text-[1.4rem]">{items.name}</p>
-          <p className="text-sm text-tertiary">
-            {items.subCategory && items.subCategory.length} subcategories,{" "}
-            {items.totalItem} products
+      <div className="flex justify-center items-center gap-[10px] font-semibold w-full">
+        <div className="flex w-full justify-between items-center">
+          <p>
+            <Link
+              href={`/product-categories/${items.name}`}
+              className="uppercase text-sm"
+            >
+              {items.name}
+            </Link>
           </p>
+          {items.subCategory && (
+            <p className="text-end">
+              <BiChevronRight />
+            </p>
+          )}
         </div>
       </div>
 

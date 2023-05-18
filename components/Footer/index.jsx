@@ -16,38 +16,40 @@ const Footer = () => {
             SHOP
           </h4>
 
-          <div className="pt-2 tracking-wider cursor-pointer">
+          <ul className="pt-2 tracking-wider cursor-pointer">
             {categoryData.map((category, idx) => {
               return (
-                <Link key={idx} href={`/product-categories/${category.name}`}>
-                  <p>{category.name}</p>
-                </Link>
+                <li>
+                  <Link key={idx} href={`/product-categories/${category.name}`}>
+                    {category.name}
+                  </Link>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
         <div className="p-5 ">
           <h4 className="text-center from-right md:text-left text-primary">
             Customer Care
           </h4>
 
-          <div className="pt-2 tracking-wider cursor-pointer">
-            <p>
+          <ul className="pt-2 tracking-wider cursor-pointer ">
+            <li className="hover:text-primary hover:underline">
               <Link href="/contact/contact-us">Contact Us</Link>
-            </p>
-            <p>
+            </li>
+            <li className="hover:text-primary hover:underline">
               <Link href="/help/faqs">FAQs</Link>
-            </p>
-            <p>
+            </li>
+            <li className="hover:text-primary hover:underline">
               <Link href={"/uses-instruction"}>Uses Instruction</Link>
-            </p>
-            <p>
+            </li>
+            <li className="hover:text-primary hover:underline">
               <Link href={"/shipping-policy"}>Shipping Policy</Link>
-            </p>
-            <p>
+            </li>
+            <li className="hover:text-primary hover:underline">
               <Link href={`/return-policy`}>Return Policy</Link>
-            </p>
-          </div>
+            </li>
+          </ul>
           <div className="pt-8">
             <p>Customer service: + 46 (10) 7502423</p>
           </div>
@@ -58,17 +60,20 @@ const Footer = () => {
             Links
           </h4>
 
-          <div className="pt-2 tracking-wider cursor-pointer">
-            <Link href="/about" className="">
-              About US
-            </Link>
-            <p className="">
+          <ul className="pt-2 tracking-wider cursor-pointer">
+            <li>
+              <Link href="/about" className="">
+                About US
+              </Link>
+            </li>
+
+            <li className="">
               <Link href="/privacy-policy">Privacy Policy</Link>
-            </p>
-            <p className="">
+            </li>
+            <li className="">
               <Link href="/terms-and-condition">Terms & Conditions</Link>
-            </p>
-          </div>
+            </li>
+          </ul>
         </div>
         <div className="p-5 ">
           <h4 className="text-center from-left md:text-left text-primary">

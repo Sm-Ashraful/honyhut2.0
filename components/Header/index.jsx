@@ -216,7 +216,7 @@ const Header = () => {
           </div>
           <div className="w-full hidden md:flex justify-between h-full">
             <div
-              className={`w-1/5 h-full flex justify-center items-center mr-3 all-department relative`}
+              className={`w-1/4 h-full flex justify-center items-center mr-3 all-department relative`}
               onMouseEnter={openDepartment}
               onMouseLeave={closeDepartMent}
             >
@@ -226,7 +226,7 @@ const Header = () => {
                 </span>
                 All Department
               </p>
-              <div className="absolute top-20 left-0">
+              <div className="absolute top-[4.6rem] left-0">
                 <AllDepartNav />
               </div>
             </div>

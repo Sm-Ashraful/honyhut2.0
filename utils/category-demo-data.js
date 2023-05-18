@@ -9,17 +9,17 @@ const categories = [
       {
         title: "Honey",
         items: 14,
-        icon: "/category-icon/honey.png",
+        icon: "/Category/VIPHoney.jpeg",
       },
       {
         title: "Liquid shots",
         items: 4,
-        icon: "/category-icon/liquid.png",
+        icon: "/category-icon/mmmm.jfif",
       },
       {
         title: "Pills",
         items: 48,
-        icon: "/category-icon/pill.png",
+        icon: "/Category/MaleEnhancement (1).jpeg",
       },
     ],
   },
@@ -33,12 +33,12 @@ const categories = [
       {
         title: "Liquid shots",
         items: 1,
-        icon: "/category-icon/liquid.png",
+        icon: "/category-icon/07.webp",
       },
       {
         title: "Pills",
         items: 3,
-        icon: "/category-icon/pill.png",
+        icon: "/Category/Fmale.jpeg",
       },
     ],
   },
@@ -49,27 +49,13 @@ const categories = [
     name: "Condoms",
     icon: "/category-icon/condom.svg",
     totalItem: 5,
-    subCategory: [
-      {
-        title: "Male Condoms",
-        item: 2,
-        icon: "/category-icon/maleCondom.jpeg",
-      },
-    ],
   },
   {
     id: 4,
     image: "/category-icon/canacc.jfif",
-    name: "Cannabies Accessories",
+    name: "Rolling Paper",
     icon: "/category-icon/cannabies.png",
     totalItem: 15,
-    subCategory: [
-      {
-        title: "Rolling Paper",
-        items: 12,
-        icon: "/category-icon/1.png",
-      },
-    ],
   },
 ];
 

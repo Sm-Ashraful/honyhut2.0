@@ -202,7 +202,7 @@ img {
 ul li a:hover,
 ul li a:focus,
 ul li a:active {
-  @apply text-honey;
+  @apply text-honey underline;
 }
 
 @media screen and (min-width: 778px) {
@@ -344,4 +344,8 @@ select {
 }
 .removeTextShadow {
   text-shadow: none;
+}
+.bottomBtnActive {
+  text-decoration: underline;
+  color: #ffff;
 }

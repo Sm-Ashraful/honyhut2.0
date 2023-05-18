@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FaCaretDown } from "react-icons/fa";
-import { AiFillHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import Button from "../Button";
 import ReviewStar from "../Star/index";
 import Image from "next/image";
-import { useRouter } from "next/router";
+
 import Link from "next/link";
 
 import { SiShopify } from "react-icons/si";
@@ -12,33 +12,29 @@ import { HiOutlinePlusCircle } from "react-icons/hi2";
 
 import LeftRightArrow from "../common/LeftRightArrow";
 
-import { productInfo } from "../../utils/product-details";
-import { FaHome } from "react-icons/fa";
-
 import { addItemToCart } from "@/Store/cart/cart.action";
 import { addItemToFav } from "@/Store/favorite/favorite.action";
 
 import { selectCartItems } from "@/Store/cart/cart.selector";
 import { selectFavItems } from "@/Store/favorite/favorite.selector";
 
+import BtnOutlineCounter from "../Button/BtnOutlineCounter";
+import BtnSolid from "../Button/BtnSolid";
+
 import { useDispatch, useSelector } from "react-redux";
 
 const ProductCatalog = ({ product }) => {
+  const [count, setCount] = useState(1);
   const [index, setIndex] = useState(0);
   const [headingText, setHeadingText] = useState("");
   const dispatch = useDispatch();
 
   const cartItems = useSelector(selectCartItems);
   const favItems = useSelector(selectFavItems);
-  const router = useRouter();
-  const pathName = router.pathname;
-  const path = pathName.split("/");
-  const removeId = path.pop();
-  product && path.push(product.name);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    dispatch(addItemToCart(cartItems, product));
+    dispatch(addItemToCart(cartItems, product, count));
   };
 
   const handleFavClick = (e) => {
@@ -57,25 +53,11 @@ const ProductCatalog = ({ product }) => {
   }, [index, product]);
 
   return (
-    <section className="relative container top-2 bg-white  ">
-      <div className="px-4 bg-primary pb-[10px] flex justify-start items-center">
-        <p className="mb-0  text-xl font-bold flex justify-center items-center">
-          <FaHome className="text-secondary" />
-          <span className="mx-[10px]">:</span>
-        </p>
-        <p className="text-sm flex justify-center items-center">
-          {path.filter(Boolean).map((linkName, index) => (
-            <span key={index}>
-              {index > 0 && <span className="mx-2">{">"}</span>}
-              <span className="capitalize">{linkName}</span>
-            </span>
-          ))}
-        </p>
-      </div>
+    <section className="relative bg-white  ">
       <div className="flex flex-wrap px-[5px] md:pt-5">
-        <div className="relative w-screen md:w-1/2 md:overflow-hidden  rounded flex flex-col justify-center items-center md:items-start md:justify-start md:space-x-5">
+        <div className="relative w-screen md:w-1/2 md:overflow-hidden  rounded flex flex-col justify-center items-center">
           <div
-            className={`relative w-full h-96  flex justify-center items-center`}
+            className={`relative w-full h-96   flex justify-center items-center`}
           >
             {product.image.map((pic, picIndex) => {
               let position = "nextSlide";
@@ -111,8 +93,8 @@ const ProductCatalog = ({ product }) => {
         </div>
 
         {/* Product Information and button */}
-        <div className=" padding_inside w-full md:w-1/2  md:relative md:top-10 ">
-          <h3 className="text-3xl font-medium">{product.name}</h3>
+        <div className="md:pl-12  w-full md:w-1/2  md:relative ">
+          <h3 className="text-3xl font-bold">{product.name}</h3>
           <div className="mb-2">
             <span className="flex items-center">
               <ReviewStar className={`flex text-honey`} />
@@ -122,13 +104,14 @@ const ProductCatalog = ({ product }) => {
             </span>
           </div>
           <div>
-            <p className="text-lg font-bold tracking-widest ">
-              12 Sachet Per Box, 48 Box Per Carton
-            </p>
             <p className=" font-extrabold text-2xl py-4 title-font tracking-widest">
               {typeof product.offer === "number" ? (
                 <>
-                  <span className={`${product.offer ? "line-through" : ""}`}>
+                  <span
+                    className={`text-blue-600 ${
+                      product.offer ? "line-through" : ""
+                    }`}
+                  >
                     ${product.price}
                   </span>
                   {product.offer && (
@@ -145,66 +128,56 @@ const ProductCatalog = ({ product }) => {
                 <span>${product.price}</span>
               )}
             </p>
-            <div className="leading-relaxed ml-5 text-lg text-gray">
+            <div className="leading-relaxed ml-5 text-lg text-[#878787]">
               <ul className="list-disc">
-                <li>100% Organic Formula </li>
-                <li>Sugar & Caffeine FREE</li>
-                <li>100% Authentic</li>
-                <li>Top Quality Guarantee</li>
-                <li>Fast Free Shipping From The US</li>
+                <li className="removeTextShadow">100% Organic Formula </li>
+
+                <li className="removeTextShadow">100% Authentic</li>
+                <li className="removeTextShadow">Top Quality Guarantee</li>
+                <li className="removeTextShadow">
+                  Fast Free Shipping From The US
+                </li>
               </ul>
             </div>
           </div>
-          <div className="flex justify-between items-center">
-            <Button
-              onClick={handleAddToCart}
-              className=" text-white bg-secondary hover:text-white hover:bg-honey rounded-full shadow-hnx"
-            >
-              <span className="flex  items-center justify-center">
-                <span className="pr-[3px]">
-                  <HiOutlinePlusCircle />
-                </span>
-                <span>Add to Cart</span>
-              </span>
-            </Button>
-
-            <Button className=" text-black   bg-honey hover:text-white hover:bg-honey rounded-full shadow-hnx">
-              <Link href={`/checkout/checkout?productId=${product.id}`}>
-                {/* <AiFillHeart/> */}
-                <span className="flex  items-center">
-                  <span className="pr-[3px]">
-                    <SiShopify />
-                  </span>
-                  <span>Buy Now</span>
-                </span>
-              </Link>
-            </Button>
-            <Button
-              onClick={handleFavClick}
-              className="mr-10 text-primary text-xl bg-secondary hover:text-white hover:bg-honey rounded-full shadow-hnx"
-            >
-              <AiFillHeart />
-            </Button>
+          <div className="pt-8 flex items-center">
+            <span className="pr-5">
+              <BtnOutlineCounter count={count} setCount={setCount} />
+            </span>
+            <span onClick={handleAddToCart}>
+              <BtnSolid
+                btnText={"Add to Cart"}
+                btnImage={<HiOutlinePlusCircle />}
+              />
+            </span>
           </div>
           <div className="flex items-center py-2 border-gray border-b-2"></div>
+          <div>
+            <Button
+              onClick={handleFavClick}
+              className=" text-black  text-xl flex items-center  rounded-full"
+            >
+              <AiOutlineHeart />
+              <span className="px-2">Add to whitelist</span>
+            </Button>
+          </div>
           {/*end Product Information and button */}
 
           {/**Product avialibility stock information */}
-          <div>
+          <div className="pt-8">
             <p className="text-lg title-font tracking-widest text-gray-500">
               Availability:
-              <span className="text-bold text-secondary"> In Stock</span>
+              <span className="text-bold text-blue-500 pl-2"> In Stock</span>
             </p>
             <p className="text-lg title-font tracking-widest text-gray-500">
               Category:
-              <span className="text-bold text-secondary">
+              <span className="text-bold text-blue-500 pl-2">
                 {product.category}
               </span>
             </p>
             <p className="text-lg title-font tracking-widest text-gray-500">
               Brand:
-              <span className="text-bold text-secondary">
-                {" "}
+              <span className="text-bold text-blue-500 pl-2">
                 Royal Honey, Malaysia
               </span>
             </p>

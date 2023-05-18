@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 
 import { getProductById } from "../../utils/products";
 import { getProductByIdThird } from "@/utils/fav-demo-data";
+import RouteLink from "@/components/common/route-link";
 
 const Product = () => {
   const [products, setProducts] = useState(RelProductData);
@@ -20,9 +21,13 @@ const Product = () => {
 
   const router = useRouter();
   const productId = router.query.productId;
+  const pathName = router.pathname;
+  const path = pathName.split("/");
+  const removeId = path.pop();
 
   if (productId) {
     product = getProductById(productId);
+    product && path.push(product.name);
   }
 
   if (!product) {
@@ -30,41 +35,23 @@ const Product = () => {
   }
 
   return (
-    <div className="relative grid  top-32 md:top-48 md:grid-cols-4">
+    <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem] ">
       {product && (
-        <div
-          className="md:border-r border-gray dark:border-b-gray md:col-span-3"
-          id="mainElement"
-        >
-          <ProductCatalog product={product} />
-          <RecommendProduct
-            className={false}
-            products={people}
-            title={"Recommand For You"}
-          />
-        </div>
+        <>
+          <div className="py-5">
+            <RouteLink path={path} />
+          </div>
+          <div className="padding_inside bg-white">
+            <ProductCatalog product={product} />
+            <RecommendProduct
+              className={false}
+              products={people}
+              title={"Recommand For You"}
+            />
+          </div>
+        </>
       )}
       {/* you may also like section*/}
-      <aside
-        className="md:col-span-1 my-5 md:my-0 md:mb-1 md:flex flex-col padding_inside items-center"
-        id="asideElement"
-      >
-        <h2 className="md:text-center text-primary-red shadow-md font-bold w-full">
-          <span>Related Product</span>
-        </h2>
-
-        <div className="grid grid-cols-2  gap-[10px] md:grid-cols-1 w-full">
-          {products.map((item, index) => {
-            if (index < 5) {
-              return (
-                <Link href={`/product/${item.id}`}>
-                  <CommonCard key={index} product={item} />
-                </Link>
-              );
-            }
-          })}
-        </div>
-      </aside>
     </div>
   );
 };
