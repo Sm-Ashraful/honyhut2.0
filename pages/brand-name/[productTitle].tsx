@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 
 import CommonCard from "@/components/CommonCard";
@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 import { getProductByBrandName } from "../../utils/all-product";
 import { allProducts } from "@/utils/all-product";
 
-import { FaHome, FaSearch } from "react-icons/fa";
 import HeroTop from "@/components/common/top-component";
 
 const BrandName = () => {
@@ -21,12 +20,13 @@ const BrandName = () => {
   const path = pathName.split("/");
   path.pop();
   if (product) {
+    console.log("product title: ", product.title);
     path.push(product.title);
   }
 
   return (
     <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem]">
-      <HeroTop title={product.title} />
+      <HeroTop title={product && product.title} />
       <div className="padding_inside">
         <div className="w-full  md:mr-0 md:block z-0 pt-[20px]">
           <FilterProducts />
