@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
-import { IoFilter, IoArrowDown } from "react-icons/io5";
+import { useState } from "react";
+import { IoFilter } from "react-icons/io5";
 
-import { filterToggle } from "../../Store/slices/globalSlice";
-import { shortPosition } from "../../Store/slices/globalSlice";
+import { filterToggle, setViewProperty } from "../../Store/slices/globalSlice";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FilterPage from "../sidebarFilter/filter";
-import FeaturedPage from "../sidebarFilter/featured";
 
-// import { allProducts } from "@/utils/all-product";
 import { HiViewGrid } from "react-icons/hi";
 import { MdViewStream } from "react-icons/md";
 
@@ -17,6 +14,9 @@ const FilterProducts = () => {
   const [checkedItems, setCheckedItems] = useState({});
   const [sliderValue, setSliderValue] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState({});
+
+  const viewProperty = useSelector((state) => state.sidebar.isViewProperty);
+  console.log("State view property: ", viewProperty);
 
   const handleCheckboxChange = (event) => {
     setCheckedItems({
@@ -42,28 +42,36 @@ const FilterProducts = () => {
     setSelectedCategory(event.target.value);
   }
 
+  console.log("View property: ", viewProperty);
+
   return (
     <div className="mt-[1.5rem]">
-      <div className="w-full h-auto relative">
-        <div className="px-4  py-[10px] w-full text-black mb-2 flex justify-between">
-          <p
+      <div className="w-full h-auto">
+        <div className=" px-4  py-[10px] w-full text-black mb-2 flex justify-between">
+          <button
             onClick={handleFilterOnClick}
             className="mb-0 text-sm flex justify-center items-center cursor-pointer gap-[5px] px-8 py-2 border border-primary hover:border-ash"
           >
-            <span>
-              <IoFilter />
-            </span>
-            <span> Filter</span>
+            <IoFilter />
 
-            <span className="">
-              <FilterPage />
-            </span>
-          </p>
+            <span> Filter</span>
+          </button>
+          <FilterPage />
           <div className="flex justify-center items-center  text-2xl md:text-4xl">
-            <span className="border">
+            <span
+              className={`border mx-[5px] md:mx-[13px] cursor-pointer ${
+                viewProperty === "grid" ? "text-black" : "text-warmGray-400"
+              }`}
+              onClick={() => dispatch(setViewProperty("grid"))}
+            >
               <HiViewGrid className="" />
             </span>
-            <span className="border text-warmGray-400">
+            <span
+              className={`border cursor-pointer ${
+                viewProperty === "list" ? "text-black" : "text-warmGray-400"
+              }`}
+              onClick={() => dispatch(setViewProperty("list"))}
+            >
               <MdViewStream />
             </span>
           </div>

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AiOutlineClose } from "react-icons/ai";
+import { useRouter } from "next/router";
+
 import { FaTimes } from "react-icons/fa";
 
 import styles from "./style.module.css";
@@ -13,6 +14,8 @@ const FilterPage = () => {
   const [sliderValue, setSliderValue] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState({});
   const dispatch = useDispatch();
+  const ref = useRef(null);
+  const router = useRouter();
 
   const isFilterOpen = useSelector((state) => state.sidebar.isFilterOpen);
   const handleCheckboxChange = (event) => {
@@ -39,8 +42,34 @@ const FilterPage = () => {
     setSelectedCategory(event.target.value);
   }
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        dispatch(filterToggle(false));
+      }
+    }
+
+    function handleRouteChange() {
+      dispatch(filterToggle(false));
+    }
+
+    if (isFilterOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      router.events.on("routeChangeComplete", handleRouteChange);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+      router.events.off("routeChangeComplete", handleRouteChange);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [isFilterOpen]);
+
   return (
     <div
+      ref={ref}
       className={` ${
         isFilterOpen
           ? `${styles.filter_container} ${styles.filter_container_show}`
@@ -52,9 +81,10 @@ const FilterPage = () => {
         <div className="flex flex-col">
           {/* filter items  */}
           <div className="flex flex-col ">
-            <span className="font-bold mb-2 text-secondary">
-              Select Your items
-            </span>
+            <h4 className="text-left font-bold text-honey">
+              Filter items
+              <hr class="w-[60px] my-[5px] border-2  border-honey" />
+            </h4>
             <label className="inline-flex items-center ml-2 text-lg">
               <input
                 type="checkbox"
@@ -87,69 +117,18 @@ const FilterPage = () => {
             </label>
           </div>
 
-          {/* categories */}
-          <div className="flex flex-col pt-4">
-            <p className="font-bold mb-2 text-secondary">Select By Category</p>
-            <div className="text-lg">
-              {allProducts.map((category, index) => {
-                return (
-                  <div>
-                    <label
-                      className="inline-flex items-center ml-2"
-                      key={index}
-                    >
-                      <input
-                        type="checkbox"
-                        className="form-checkbox h-5 w-5 text-black"
-                        name={category.title}
-                        value={category.title} // Set the value attribute
-                        onChange={handleChange} // Add the onChange handler
-                        checked={selectedCategory === category.title}
-                      />
-                      <span className="ml-2 text-black">{category.title}</span>
-                    </label>
-                    <div className="ml-10">
-                      {category.title === selectedCategory &&
-                        category.subCategory.map((subCategory, index) => {
-                          return (
-                            <div>
-                              <label
-                                className="inline-flex items-center ml-2"
-                                key={index}
-                              >
-                                <input
-                                  type="checkbox"
-                                  className="form-checkbox h-5 w-5 "
-                                  name={category.title}
-                                  value={category.title} // Set the value attribute
-                                  // Add the onChange handler
-                                />
-                                <span className="ml-2 ">
-                                  {subCategory.title}
-                                </span>
-                              </label>
-                            </div>
-                          );
-                        })}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
           {/* price range  */}
-          <div className="pt-10">
-            <span className="text-secondary font-bold mb-2">
+          <div className="pt-10 text-primary-red">
+            <p className="text-black font-bold text-[14px] mb-2 text-left">
               Select By Price Range
-            </span>
+            </p>
             <input
               type="range"
               min="20"
               max="150"
               value={sliderValue}
               onChange={handleSliderChange}
-              className="slider appearance w-full h-3 rounded-full bg-gray active:bg-secondary"
+              className="slider appearance w-full h-3 rounded-full bg-gray active:bg-primary-red"
             />
             <span className="-700 font-bold text-sm mt-2">{sliderValue}$</span>
           </div>
@@ -159,7 +138,7 @@ const FilterPage = () => {
             type="submit"
             className=" mt-10 bg-secondaryTextColor hover:bg-honey text-black hover:text-black font-2xl py-2 px-20 rounded border border-gray"
           >
-            Filter
+            Filter Now
           </button>
         </div>
         <div

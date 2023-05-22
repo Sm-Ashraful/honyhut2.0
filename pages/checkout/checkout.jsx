@@ -677,16 +677,36 @@ export default function Checkout() {
                     </div>
                     <div className="flex">
                       <div className="w-[32px] max-h-[40px] relative mr-2">
-                        <Image src="/logos/visa.svg" fill cover />
+                        <Image
+                          src="/logos/visa.svg"
+                          alt="visa img"
+                          fill
+                          cover
+                        />
                       </div>
                       <div className="w-[32px] max-h-[40px] relative mr-2">
-                        <Image src="/logos/mastercard.svg" fill cover />
+                        <Image
+                          src="/logos/mastercard.svg"
+                          alt="mastercard img"
+                          fill
+                          cover
+                        />
                       </div>
                       <div className="w-[32px]  max-h-[40px] relative mr-2">
-                        <Image src="/logos/discover.svg" fill cover />
+                        <Image
+                          src="/logos/discover.svg"
+                          alt="discover"
+                          fill
+                          cover
+                        />
                       </div>
                       <div className="w-[32px] max-h-[40px] relative">
-                        <Image src="/logos/amex.svg" fill cover />
+                        <Image
+                          src="/logos/amex.svg"
+                          alt="amex img"
+                          fill
+                          cover
+                        />
                       </div>
                     </div>
                   </div>

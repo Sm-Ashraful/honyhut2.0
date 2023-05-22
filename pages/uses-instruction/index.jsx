@@ -78,13 +78,13 @@ const UsesInstruction = () => {
           </h3>
           <div className="font-sans text-[#878787] ml-3">
             <p>
-              <img src="/spray/Rub.png" alt="" />
+              <img src="/spray/Rub.png" alt="name" />
             </p>
             <p>
-              <img src="/spray/Spray.png" alt="" />
+              <img src="/spray/Spray.png" alt="img name" />
             </p>
             <p>
-              <img src="/spray/wait-10-minutes.png" alt="" />
+              <img src="/spray/wait-10-minutes.png" alt="img name" />
             </p>
           </div>
         </div>

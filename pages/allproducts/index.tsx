@@ -14,7 +14,7 @@ const AllProducts = () => {
     <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem] ">
       <HeroTop title={"All Products"} />
 
-      <div className=" w-full gap-[10px] h-full relative padding_inside">
+      <div className=" w-full gap-[10px] h-full  padding_inside">
         <div className="w-full">
           <FilterProducts />
         </div>

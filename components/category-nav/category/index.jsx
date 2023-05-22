@@ -55,7 +55,7 @@ const CategoryItem = ({ handleClickOutside }) => {
             >
               <div className="flex justify-center items-center gap-[10px]">
                 <div className="relative w-[40px] h-[40px]">
-                  <Image src={category.image} fill cover />
+                  <Image src={category.image} alt={category.name} fill cover />
                 </div>
                 <div>
                   <p className="font-bold capitalize text-[1.7rem]">
@@ -93,7 +93,12 @@ const CategoryItem = ({ handleClickOutside }) => {
                               className="flex justify-center items-center gap-[10px]"
                             >
                               <div className="relative w-[40px] h-[40px]">
-                                <Image src={subLinks.icon} fill cover />
+                                <Image
+                                  src={subLinks.icon}
+                                  alt={subLinks.title}
+                                  fill
+                                  cover
+                                />
                               </div>
                               <div>
                                 <p className="font-bold capitalize ">

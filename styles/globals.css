@@ -12,7 +12,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  text-shadow: 0 0.04em #ffc117;
+  text-shadow: 0 0.01em #ffc117;
 }
 html {
   font-size: 83%;
@@ -348,4 +348,10 @@ select {
 .bottomBtnActive {
   text-decoration: underline;
   color: #ffff;
+}
+
+.vector-background {
+  background-image: url(/heroTop.jpg);
+  background-blend-mode: multiply;
+  background-color: rgba(255, 193, 23, 0.1);
 }

@@ -44,7 +44,7 @@ export default function Cart() {
           <div className="h-[64px] w-full flex mb-[15px] justify-between items-center relative shadow-sm text-black">
             <div className="flex h-full items-center">
               <div className="h-full w-[64px] relative p-3 border bg-white border-fullAsh rounded-md overflow-hidden mr-5">
-                <Image src={cartItem.image[0]} fill cover />
+                <Image src={cartItem.image[0]} alt={cartItem.name} fill cover />
               </div>
               <div>
                 <p className="font-semibold max-w-[100px]">{cartItem.name}</p>

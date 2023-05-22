@@ -50,7 +50,7 @@ const CardButton = ({ product }) => {
       >
         <div className="w-full h-full  rounded-full text-center">
           <span
-            className={`w-full h-full flex items-center justify-center bg-white text-black hover:bg-black hover:text-white border text-xl md:text-3xl rounded-md md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ${
+            className={`w-full h-full flex items-center justify-center bg-white opacity-70 text-black hover:bg-black hover:text-white border text-xl md:text-3xl rounded-md md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ${
               isFavorite && `border`
             }`}
             onClick={handleFavClick}
@@ -63,14 +63,20 @@ const CardButton = ({ product }) => {
       <div className="flex ">
         {/* cart count*/}
         <div className="md:w-32 h-12  w-28 z-50 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ">
-          <button className="w-full h-full flex justify-around   items-center bg-white text-black hover:bg-black hover:text-white border py-4 text-[10px] md:text-[18px] rounded-md text-center">
-            <span className=" font-bold cursor-pointer" onClick={decreaseItem}>
+          <button className="w-full h-full flex justify-around   items-center bg-white opacity-70 text-black  border py-4 text-[10px] md:text-[18px] rounded-md text-center">
+            <span
+              className=" font-bold cursor-pointer hover:text-honey"
+              onClick={decreaseItem}
+            >
               <AiOutlineMinus className="text-md font-bold" />
             </span>
 
             <span>{count}</span>
 
-            <span className="font-bold cursor-pointer " onClick={increaseItem}>
+            <span
+              className="font-bold cursor-pointer hover:text-honey"
+              onClick={increaseItem}
+            >
               <AiOutlinePlus className="text-md font-bold" />
             </span>
           </button>
@@ -81,7 +87,7 @@ const CardButton = ({ product }) => {
           className={`w-12 h-12  z-50 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
         >
           <button
-            className="w-full h-full flex justify-center items-center bg-white text-black hover:bg-black hover:text-white border py-4 text-[10px] md:text-[18px] rounded-md text-center"
+            className="w-full h-full flex justify-center items-center bg-white opacity-70 text-black hover:bg-black hover:text-white border py-4 text-[10px] md:text-[18px] rounded-md text-center"
             onClick={handleAddToCart}
           >
             <span className="pr-[5px]">

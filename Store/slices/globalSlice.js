@@ -10,6 +10,7 @@ const initialState = {
   isDropdownVisible: false,
   isHeaderSticky: false,
   isSearchModalOpen: false,
+  isViewProperty: "grid",
 };
 
 export const sidebarSlice = createSlice({
@@ -43,6 +44,9 @@ export const sidebarSlice = createSlice({
     setIsSearchModalOpen: (state, action) => {
       state.isSearchModalOpen = action.payload;
     },
+    setViewProperty: (state, action) => {
+      state.isViewProperty = action.payload;
+    },
   },
 });
 export const {
@@ -56,6 +60,7 @@ export const {
   setIsDropdownVisible,
   setIsHeaderSticky,
   setIsSearchModalOpen,
+  setViewProperty,
 } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

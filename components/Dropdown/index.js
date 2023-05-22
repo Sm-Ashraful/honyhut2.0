@@ -19,7 +19,7 @@ const Dropdown = ({ subCategory, depthLevel, dropdown }) => {
               <Link href={`/brand-name/${product.title}`}>
                 <div className=" flex flex-col justify-start items-center gap-[10px]">
                   <div className="relative w-[140px] h-[120px]">
-                    <Image src={product.icon} fill cover />
+                    <Image src={product.icon} alt={product.title} fill cover />
                   </div>
                   <div>
                     <p className="font-bold capitalize text-center">
