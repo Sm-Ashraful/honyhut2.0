@@ -215,7 +215,6 @@ const Header = () => {
                 onBlur={closeSearchModal}
               />
             </form>
-            <SearchModal width={searchWidth} />
           </div>
           <div className="w-full hidden md:flex justify-between h-full">
             <div
