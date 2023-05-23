@@ -197,7 +197,7 @@ const Header = () => {
         <div
           className={`w-full padding_inside flex justify-between items-center h-full`}
         >
-          <div className="md:hidden w-full relative">
+          <div className="md:hidden w-full relative" ref={searchBarRef}>
             <form
               onSubmit={handleSubmit}
               class="w-full flex items-center justify-center "
@@ -215,6 +215,7 @@ const Header = () => {
                 onBlur={closeSearchModal}
               />
             </form>
+            <SearchModal width={searchWidth} />
           </div>
           <div className="w-full hidden md:flex justify-between h-full">
             <div
@@ -251,9 +252,8 @@ const Header = () => {
                   onBlur={closeSearchModal}
                 />
               </form>
-              <div className="relative">
-                {isSearchModalOpen && <SearchModal width={searchWidth} />}
-              </div>
+
+              <SearchModal width={searchWidth} />
             </div>
 
             <div className="w-1/5 flex justify-center  items-center text-black ">

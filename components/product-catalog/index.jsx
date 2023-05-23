@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FaCaretDown } from "react-icons/fa";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import Button from "../Button";
 import ReviewStar from "../Star/index";
 import Image from "next/image";
 
-import Link from "next/link";
-
-import { SiShopify } from "react-icons/si";
 import { HiOutlinePlusCircle } from "react-icons/hi2";
 
 import LeftRightArrow from "../common/LeftRightArrow";
@@ -26,7 +22,6 @@ import { useDispatch, useSelector } from "react-redux";
 const ProductCatalog = ({ product }) => {
   const [count, setCount] = useState(1);
   const [index, setIndex] = useState(0);
-  const [headingText, setHeadingText] = useState("");
   const dispatch = useDispatch();
 
   const cartItems = useSelector(selectCartItems);
@@ -131,7 +126,6 @@ const ProductCatalog = ({ product }) => {
             <div className="leading-relaxed ml-5 text-lg text-[#878787]">
               <ul className="list-disc">
                 <li className="removeTextShadow">100% Organic Formula </li>
-
                 <li className="removeTextShadow">100% Authentic</li>
                 <li className="removeTextShadow">Top Quality Guarantee</li>
                 <li className="removeTextShadow">
