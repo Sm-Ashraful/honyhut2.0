@@ -24,7 +24,9 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/account.js",
-    "pages/product/[productId].js"
+    "pages/product/[productId].js",
+    "pages/allproducts/index.jsx",
+    "pages/product-categories/[categoryName].jsx"
   ],
   "exclude": ["node_modules"]
 }

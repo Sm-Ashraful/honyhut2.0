@@ -5,11 +5,13 @@ import { useRouter } from "next/router";
 
 import { allProducts } from "../../utils/all-product";
 import { FaHome } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const AllProducts = () => {
   const route = useRouter();
   const pathName = route.pathname;
   const path = pathName.split("/");
+  const viewProperty = useSelector((state) => state.sidebar.isViewProperty);
   return (
     <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem] ">
       <HeroTop title={"All Products"} />
@@ -21,7 +23,13 @@ const AllProducts = () => {
 
         <div className="relative w-full">
           {allProducts.map((category, idx) => {
-            return <MaleProducts category={category} key={idx} />;
+            return (
+              <MaleProducts
+                category={category}
+                viewProperty={viewProperty}
+                key={idx}
+              />
+            );
           })}
         </div>
       </div>

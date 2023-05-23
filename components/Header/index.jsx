@@ -9,6 +9,7 @@ import {
   toggle,
   setIsHeaderSticky,
   setIsSearchModalOpen,
+  setSearchValue,
 } from "../../Store/slices/globalSlice";
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import {
@@ -49,6 +50,7 @@ const Header = () => {
   const searchBarRef = useRef(null);
 
   const totalCost = useSelector(selectCartTotal);
+  const searchValue = useSelector((state) => state.sidebar.searchValue);
 
   const favItems = useSelector(selectFavItems);
   const currentUser = useSelector((state) => state.auth.currentUser);
@@ -75,7 +77,7 @@ const Header = () => {
   }, [lastScroll, isHeaderSticky]);
 
   const handleChange = (event) => {
-    setSearchText(event.target.value);
+    dispatch(setSearchValue(event.target.value));
   };
 
   const handleMenuOnClick = (event) => {
@@ -206,7 +208,7 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="What are you looking for today ..."
-                defaultValue={searchText}
+                defaultValue={searchValue}
                 className="w-full shadow-md  bg-white text-base pl-[2rem] py-3  focus:outline-none rounded-full"
                 onChange={handleChange}
                 onFocus={openSearchModal}

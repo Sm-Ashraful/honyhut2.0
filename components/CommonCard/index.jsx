@@ -3,7 +3,7 @@ import React from "react";
 import CardButton from "../common/card-button";
 
 import Image from "next/image";
-import ReviewStar from "../Star";
+import { renderStars } from "@/utils/render-star";
 import OfferPercent from "../offer";
 
 const CommonCard = ({ product }) => {
@@ -19,7 +19,7 @@ const CommonCard = ({ product }) => {
         >
           {/* image section  */}
           <div className="relative w-full">
-            <div className="relative w-full h-52 bg-white overflow-hidden shadow-photo rounded-md text-center flex justify-center items-center group">
+            <div className="relative w-full h-44 md:h-52 bg-white overflow-hidden shadow-photo rounded-md text-center flex justify-center items-center group">
               <div className="w-full h-full relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
                 <Image src={product.image[0]} alt="product Image" fill cover />
               </div>
@@ -33,13 +33,12 @@ const CommonCard = ({ product }) => {
               </div>
             )}
             {/* description section  */}
-            <div className="w-full pt-5 shadow-sm">
-              <p className=" text-center text-[17px] leading-6">
-                {product.name.length > 30
-                  ? `${product.name.slice(0, 30)}...}`
-                  : product.name}
+            <div className="w-full pt-5 shadow-sm px-2 pb-3">
+              <p className="text-[15px]   pb-2 font-bold">{product.name}</p>
+              <p className="w-full h-auto flex pb-2 text-primary-red">
+                {renderStars(product.star)}
               </p>
-              <p className=" font-bold text-center">
+              <p className="text-[13px] font-bold pb-2 md:pb-3">
                 <span>Price: </span>
                 {typeof product.offer === "number" ? (
                   <>
@@ -60,18 +59,13 @@ const CommonCard = ({ product }) => {
                   <span>${product.price.toFixed(2)}</span>
                 )}
               </p>
-              <p className="w-full h-auto flex justify-center space-x-2 items-center">
-                <ReviewStar
-                  className={`flex text-center text-honey text-sm md:text-lg`}
-                />
-                <span className=" text-primary-red">(4)</span>
-              </p>
-              <p className="text-center text-black text-lg">
+
+              <p className=" text-black text-[14px]">
                 In stock:
                 <span className="text-secondaryTextColor"> Available</span>
               </p>
               <div
-                className="flex  w-full justify-between items-center md:px-5  py-2 text-sm"
+                className="flex  w-full justify-between items-center md:px-5"
                 onClick={countClickHandler}
               ></div>
             </div>

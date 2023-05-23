@@ -5,23 +5,31 @@ import CardButton from "../common/card-button";
 import Image from "next/image";
 import ReviewStar from "../Star";
 import OfferPercent from "../offer";
+import { renderStars } from "@/utils/render-star";
 
 const ListView = ({ product }) => {
-  const MAX_LENGTH = 20;
-  const fontSize = product.name.length > MAX_LENGTH ? "1rem" : "1.125rem";
-
   function countClickHandler(e) {
     e.preventDefault();
   }
+
+  const text =
+    "100% authentic honey sachets, formulated from the highest-quality Malaysian ingredients";
+  const isSmallScreen = window.innerWidth < 640; // Adjust the breakpoint as needed
+
+  let truncatedText = text;
+  if (isSmallScreen && text.length > 25) {
+    truncatedText = text.substring(0, 25) + "...";
+  }
+
   return (
     <>
       {product && (
         <div
-          className={`relative shadow-md w-full    transition-all duration-300 cursor-pointer`}
+          className={`relative border w-full    transition-all duration-300 cursor-pointer`}
         >
           {/* image section  */}
-          <div className="relative w-full flex">
-            <div className="relative basis-full md:basis-[80%] md:h-64 h-52  overflow-hidden shadow-photo rounded-md text-center flex justify-center items-center group">
+          <div className="relative w-full flex p-3">
+            <div className="relative basis-full md:basis-[80%] md:h-72 h-44  overflow-hidden rounded-md text-center flex justify-center items-center group">
               <div className="w-full h-full relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
                 <Image src={product.image[0]} alt="product Image" fill cover />
               </div>
@@ -35,9 +43,12 @@ const ListView = ({ product }) => {
               </div>
             )}
             {/* description section  */}
-            <div className="w-full ml-8">
-              <p className=" text-[15px] md:text-[18px] leading-6 md:leading-8 pb-3 md:pb-5 font-bold">
+            <div className="w-full ml-5 md:ml-8">
+              <p className=" text-[15px] md:text-[18px]  md:leading-8 pb-2 md:pb-5 font-bold">
                 {product.name}
+              </p>
+              <p className="w-full h-auto flex pb-2 text-primary-red text-[10px]">
+                {renderStars(product.star)}
               </p>
               <p className="text-[13px] md:text-[17px] font-bold pb-2 md:pb-3">
                 <span>Price: </span>
@@ -63,17 +74,10 @@ const ListView = ({ product }) => {
               <p className="text-[13px] md:text-[16px] font-bold pb-2 md:pb-3">
                 {product.unit}
               </p>
-              <p className="text-[12px] leading-4 md:leading-6 md:text-[16px] pb-2 md:pb-3">
-                100% authentic honey sachets, formulated from the
-                highest-quality Malaysian ingredients
+              <p className="text-[12px]  md:leading-6 md:text-[16px] pb-2 md:pb-3">
+                {truncatedText}
               </p>
 
-              <p className="w-full h-auto flex md:pb-3">
-                <ReviewStar
-                  className={`flex text-center text-honey text-sm md:text-lg`}
-                />
-                <span className=" text-primary-red">(4)</span>
-              </p>
               <p className=" text-black text-lg">
                 In stock:
                 <span className="text-secondaryTextColor"> Available</span>

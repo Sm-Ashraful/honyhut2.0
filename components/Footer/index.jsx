@@ -9,8 +9,8 @@ const Footer = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <footer className="bg-honey text-black  relative top-36 md:top-48 mb-56 md:mb-48 text-lg font-carmo">
-      <div className="md:flex justify-between items-start md:pt-11 padding_inside">
+    <footer className="bg-honey text-black  relative top-36 md:top-48 mb-56 md:mb-48 text-base font-carmo">
+      <div className="md:flex justify-between items-start md:pt-11 padding_inside font-openSans">
         <div className="p-5 ">
           <h4 className="text-center from-left md:text-left text-primary">
             SHOP

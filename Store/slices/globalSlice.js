@@ -9,8 +9,9 @@ const initialState = {
   isDepartmentOpen: false,
   isDropdownVisible: false,
   isHeaderSticky: false,
-  isSearchModalOpen: false,
+  isSearchModalOpen: true,
   isViewProperty: "grid",
+  searchValue: null,
 };
 
 export const sidebarSlice = createSlice({
@@ -46,6 +47,9 @@ export const sidebarSlice = createSlice({
     },
     setViewProperty: (state, action) => {
       state.isViewProperty = action.payload;
+    },
+    setSearchValue: (state, action) => {
+      state.searchValue = action.payload;
     },
   },
 });

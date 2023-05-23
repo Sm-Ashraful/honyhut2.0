@@ -8,8 +8,6 @@ import Dropdown from "../Dropdown";
 const MenuItems = ({ items, depthLevel }) => {
   const [dropdown, setDropdown] = useState(false);
 
-  console.log("This is items: ", items);
-
   return (
     <li
       onMouseEnter={() => setDropdown(true)}
