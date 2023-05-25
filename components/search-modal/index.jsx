@@ -1,57 +1,34 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
-const SearchModal = ({ width }) => {
-  const [modalWidth, setModalWidth] = useState(0);
-
-  useEffect(() => {
-    setModalWidth(width);
-  }, []);
-
+const SearchModal = ({ searchResults }) => {
   const isSearchModalOpen = useSelector(
     (state) => state.sidebar.isSearchModalOpen
   );
   return (
     <>
       {isSearchModalOpen ? (
-        <>
-          {modalWidth && (
-            <div
-              style={{ width: `${modalWidth}px` }}
-              className={`h-80 bg-white flex overflow-x-hidden overflow-y-auto fixed top-[28%] z-50 outline-none focus:outline-none `}
-            >
-              <div className="px-[2rem] py-[1.5rem] flex flex-col  ">
-                <p className="text-lg tracking-wider">
-                  Royal Honey VIP 20g Sachet
-                </p>
-                <p className="text-lg tracking-wider">
-                  Royal Honey VIP 22g Pouches
-                </p>
-                <p className="text-lg tracking-wider">
-                  Etumax Honey 20g Sachet
-                </p>
-                <p className="text-lg tracking-wider">
-                  Etumax Honey 22g Pouches
-                </p>
-                <p className="text-lg tracking-wider">
-                  Black Bull Honey 22g Pouches
-                </p>
-                <p className="text-lg tracking-wider">
-                  Black Bull Honey 22g Pouches
-                </p>
-                <p className="text-lg tracking-wider">
-                  Red Bull Honey 22g Pouches
-                </p>
-                <p className="text-lg tracking-wider">
-                  Red Bull Honey 22g Pouches
-                </p>
-                <p className="text-lg tracking-wider">
-                  Blue Bull Honey 22g Pouches
-                </p>
-              </div>
-            </div>
-          )}
-        </>
+        <div
+          className={`h-80 w-[605px] bg-white flex overflow-x-hidden overflow-y-scroll fixed left-[29%] top-[28%] rounded-md z-50 outline-none focus:outline-none `}
+        >
+          <div className="px-[2rem] py-[1.5rem] flex flex-col">
+            {searchResults.map((searchItem, idx) => {
+              return (
+                <Link href={`/product/${searchItem.id}`} key={idx}>
+                  <div className="flex items-center">
+                    <span className="w-[5rem] h-[5rem]">
+                      <img src={searchItem.image[0]} alt="" />
+                    </span>
+                    <p className="pl-5 hover:text-headingColor cursor-pointer">
+                      {searchItem.name}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       ) : null}
     </>
   );

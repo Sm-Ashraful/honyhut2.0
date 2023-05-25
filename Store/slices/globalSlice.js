@@ -65,6 +65,7 @@ export const {
   setIsHeaderSticky,
   setIsSearchModalOpen,
   setViewProperty,
+  setSearchValue,
 } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

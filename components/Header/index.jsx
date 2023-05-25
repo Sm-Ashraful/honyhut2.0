@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
+import getProductFromSearch from "@/utils/helper/searchText";
+
 import { setIsDropdownVisible } from "@/Store/slices/globalSlice";
 
 import {
@@ -37,11 +39,12 @@ import {
   MdOutlineFavoriteBorder,
 } from "react-icons/md";
 import { VscListSelection } from "react-icons/vsc";
+import { allProducts } from "@/utils/products";
 
 const Header = () => {
-  const [searchText, setSearchText] = useState("");
   const [lastScroll, setLastScroll] = useState(0);
   const [searchWidth, setSearchWidth] = useState(0);
+  const [searchResults, setSearchResults] = useState([]);
   const total = useSelector(selectCartCount);
   const isHeaderSticky = useSelector((state) => state.sidebar.isHeaderSticky);
   const isSearchModalOpen = useSelector(
@@ -116,6 +119,10 @@ const Header = () => {
   useEffect(() => {
     setSearchWidth(searchBarRef.current.offsetWidth);
   }, []);
+
+  useEffect(() => {
+    setSearchResults(getProductFromSearch(allProducts, searchValue));
+  }, [searchValue]);
 
   return (
     <div className={`${styles.header_container}`}>
@@ -246,15 +253,13 @@ const Header = () => {
                   placeholder="What are you looking for today ..."
                   class="shadow-md appearance-none bg-white text-base pl-10 py-4 pr-12 w-full focus:outline-none rounded-full"
                   onChange={handleChange}
-                  defaultValue={searchText}
+                  defaultValue={searchValue}
                   onFocus={openSearchModal}
                   onBlur={closeSearchModal}
                 />
               </form>
-
-              <SearchModal width={searchWidth} />
             </div>
-
+            <SearchModal width={searchWidth} searchResults={searchResults} />
             <div className="w-1/5 flex justify-center  items-center text-black ">
               <div className="px-5">
                 <Link
