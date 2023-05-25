@@ -7,7 +7,7 @@ const HeroTop = ({ title, subTitle = "" }) => {
         <p className="font-jakarta   mb-0 text-2xl uppercase font-bold tracking-widest text-white text-center w-full">
           {title}
         </p>
-        <p className="text-primary">{subTitle}</p>
+        <p className="text-primary text-center">{subTitle}</p>
       </div>
     </div>
   );
