@@ -10,7 +10,7 @@ const SearchModal = ({ searchResults }) => {
     <>
       {isSearchModalOpen ? (
         <div
-          className={`h-80 w-[605px] bg-white flex overflow-x-hidden overflow-y-scroll fixed left-[29%] top-[28%] rounded-md z-50 outline-none focus:outline-none `}
+          className={`h-80 w-[604px] bg-white flex overflow-x-hidden overflow-y-scroll fixed left-[29%] top-[25%] rounded-md z-50 outline-none focus:outline-none `}
         >
           <div className="px-[2rem] py-[1.5rem] flex flex-col">
             {searchResults.map((searchItem, idx) => {
