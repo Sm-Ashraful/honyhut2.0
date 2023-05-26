@@ -9,7 +9,7 @@ const initialState = {
   isDepartmentOpen: false,
   isDropdownVisible: false,
   isHeaderSticky: false,
-  isSearchModalOpen: true,
+  isSearchModalOpen: false,
   isViewProperty: "grid",
   searchValue: null,
 };
