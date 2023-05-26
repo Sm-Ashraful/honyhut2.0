@@ -109,6 +109,7 @@ const Header = () => {
   };
 
   const openSearchModal = (e) => {
+    e.preventDefault();
     dispatch(setIsSearchModalOpen(true));
   };
 
@@ -259,7 +260,9 @@ const Header = () => {
                 />
               </form>
             </div>
-            <SearchModal width={searchWidth} searchResults={searchResults} />
+            {searchWidth && (
+              <SearchModal width={searchWidth} searchResults={searchResults} />
+            )}
             <div className="w-1/5 flex justify-center  items-center text-black ">
               <div className="px-5">
                 <Link

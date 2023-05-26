@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const SearchModal = ({ searchResults }) => {
+const SearchModal = ({ searchResults, width }) => {
   const isSearchModalOpen = useSelector(
     (state) => state.sidebar.isSearchModalOpen
   );
@@ -10,7 +10,8 @@ const SearchModal = ({ searchResults }) => {
     <>
       {isSearchModalOpen ? (
         <div
-          className={`h-80 w-[604px] bg-white flex overflow-x-hidden overflow-y-scroll fixed left-[29%] top-[25%] rounded-md z-50 outline-none focus:outline-none `}
+          style={{ width: `${width}px` }}
+          className={`h-80 bg-white flex overflow-x-hidden overflow-y-scroll fixed left-[29%] top-[28%] rounded-md z-50 outline-none focus:outline-none `}
         >
           <div className="px-[2rem] py-[1.5rem] flex flex-col">
             {searchResults.map((searchItem, idx) => {
