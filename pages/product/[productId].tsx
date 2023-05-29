@@ -44,6 +44,7 @@ const Product = () => {
           <div className="padding_inside bg-white">
             <ProductCatalog product={product} />
             <RecommendProduct
+              top={false}
               className={false}
               products={people}
               title={"Recommand For You"}
