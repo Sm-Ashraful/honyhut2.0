@@ -260,9 +260,9 @@ const Header = () => {
                 />
               </form>
             </div>
-            {searchWidth && (
+            {searchWidth ? (
               <SearchModal width={searchWidth} searchResults={searchResults} />
-            )}
+            ) : null}
             <div className="w-1/5 flex justify-center  items-center text-black ">
               <div className="px-5">
                 <Link

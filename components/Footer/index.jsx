@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import categoryData from "@/utils/category-demo-data";
+import Image from "next/image";
 
 import Link from "next/link";
 
@@ -146,11 +147,30 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-primary px-0">
-        <p className="text-center py-4 text-black">
+      <div className="bg-primary px-0 flex justify-between items-center padding_inside">
+        <p className="text-center py-4 text-black text-[12px]">
           Copyright Notice &copy; 2015-2023 HK YIYING and/or its affiliates and
           licensors. All right reserve 2023 &trade;
         </p>
+        <div className="flex">
+          <div className="w-[35px] h-[35px] relative mr-2">
+            <Image src="/logos/visa.svg" alt="visa img" fill cover />
+          </div>
+          <div className="w-[35px] h-[35px] relative mr-2">
+            <Image
+              src="/logos/mastercard.svg"
+              alt="mastercard img"
+              fill
+              cover
+            />
+          </div>
+          <div className="w-[35px] h-[35px]  relative mr-2">
+            <Image src="/logos/discover.svg" alt="discover" fill cover />
+          </div>
+          <div className="w-[35px] h-[35px] relative">
+            <Image src="/logos/amex.svg" alt="amex img" fill cover />
+          </div>
+        </div>
       </div>
     </footer>
   );

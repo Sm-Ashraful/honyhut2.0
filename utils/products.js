@@ -1,7 +1,57 @@
 export const allProducts = [
   {
     id: 1,
-    name: "Royal Honey For Men – Gold (12 Sachets – 20 G)",
+    name: "Royal Honey VIP",
+    boxStyle: [
+      {
+        title: "regular",
+        boxDetails: {
+          unitDetails: "20g/Sachet, 12 Sachets/Box",
+          price: 19,
+          image: [],
+        },
+      },
+      {
+        title: "special",
+        boxDetails: {
+          unitDetails: "22mg/Pouch, 15 Pouches/Box",
+          price: 30,
+          image: [],
+        },
+      },
+      {
+        title: "Gift",
+        boxDetails: {
+          unitDetails: "15mg/Sachet, 12 Sachets/Box",
+          price: 19,
+          image: [],
+        },
+      },
+      {
+        title: "Hexagonal",
+        boxDetails: {
+          unitDetails: "20mg/Sachet, 24 Sachets/Box",
+          price: 30,
+          image: [],
+        },
+      },
+      {
+        title: "Spoon",
+        boxDetails: {
+          unitDetails: "12g/Spoon, 12 Spoons/Box",
+          price: 25,
+          image: [],
+        },
+      },
+      {
+        title: "Nozzle",
+        boxDetails: {
+          unitDetails: "22g(15ml)/Pouch, 12 Pouches/Box",
+          price: 25,
+          image: [],
+        },
+      },
+    ],
     image: ["/Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
     price: 19.99,
     offer: 20,
@@ -9,10 +59,27 @@ export const allProducts = [
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "12 Sachet Per Box",
-    reviews: "5 reviews",
-    category: "Honey",
-    createdBy: "Munna",
+    reviews: 5,
+    brand: "Royal Honey",
+    Subcategory: "Honey",
+    Category: "Male Enhancement",
+    createdBy: "Developer 1",
     updatedAt: "13/04/2023",
+    details: {
+      title:
+        "Royal Honey enriches your body with a sudden boost of vitality and stamina so you can enjoy your romantic pleasures without the struggles of burnout or an unwelcoming early climax.",
+      ProductBenefits: [
+        "PREMIUM SEXUAL STIMULANT: Royal honey is an all-natural way to stimulate sexual appetite and spark desire between you and your loved one, or any partner you want to attract.",
+        "MAXIMIZE ENDURANCE: Unleash your inner alpha male and discover endurance without exhaustion",
+        "STRONGER ERECTIONS: Never get tired in the bedroom and enjoy unbounded peak performance",
+        "NATURAL INGREDIENTS: Fuel your body from the inside out to naturally boost your testosterone levels",
+        "IMPROVES CONFIDENCE: Skyrocket your sexual performance and become a king in the bedroom",
+      ],
+      Origin: "MADE IN MALAYSIA",
+      included:
+        "100% authentic honey sachets, formulated from the highest-quality Malaysian ingredients Two Boxes of 12 sachets, 20 grams each",
+      support: "Guaranteed Satisfaction!",
+    },
   },
   {
     id: 2,
@@ -24,10 +91,27 @@ export const allProducts = [
     description:
       "Make the intimate moments with your partner last longer and feel better.",
     unit: "15 Pouches Per Box",
-    reviews: "4.5 reviews",
-    category: "Honey",
-    createdBy: "Munna",
-    updatedAt: "03/04/2023",
+    reviews: 4,
+    brand: "Royal Honey",
+    Subcategory: "Honey",
+    Category: "Male Enhancement",
+    createdBy: "Developer 1",
+    updatedAt: "13/04/2023",
+    details: {
+      title:
+        "Royal Honey enriches your body with a sudden boost of vitality and stamina so you can enjoy your romantic pleasures without the struggles of burnout or an unwelcoming early climax.",
+      ProductBenefits: [
+        "PREMIUM SEXUAL STIMULANT: Royal honey is an all-natural way to stimulate sexual appetite and spark desire between you and your loved one, or any partner you want to attract.",
+        "MAXIMIZE ENDURANCE: Unleash your inner alpha male and discover endurance without exhaustion",
+        "STRONGER ERECTIONS: Never get tired in the bedroom and enjoy unbounded peak performance",
+        "NATURAL INGREDIENTS: Fuel your body from the inside out to naturally boost your testosterone levels",
+        "IMPROVES CONFIDENCE: Skyrocket your sexual performance and become a king in the bedroom",
+      ],
+      Origin: "MADE IN MALAYSIA",
+      included:
+        "100% authentic honey sachets, formulated from the highest-quality Malaysian ingredients Two Boxes of 12 sachets, 20 grams each",
+      support: "Guaranteed Satisfaction!",
+    },
   },
   {
     id: 3,
