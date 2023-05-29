@@ -23,24 +23,28 @@ export default function Home() {
         <ImageSlider />
         <Categories />
         <RecommandForYou
+          top={false}
           className={false}
           products={newProducts}
           title={`Trending Royal Honey`}
         />
         <Products />
         <RecommandForYou
+          top={false}
           className={false}
           products={newProducts}
           title={`New Best Items`}
         />
 
         <RecommandForYou
+          top={false}
           className={false}
           products={people}
           title={`Just For You`}
         />
         <Women />
         <RecommandForYou
+          top={false}
           className={false}
           products={MaleEnhancement[2].products}
           title={`Enhancement Pills`}
