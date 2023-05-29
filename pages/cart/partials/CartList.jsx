@@ -7,13 +7,14 @@ import Link from "next/link";
 import { HiShoppingBag } from "react-icons/hi";
 
 import Button from "@/components/Button";
+const tableHeader = [" ", " ", "Product", "Price", "Quantity", "Sub Total"];
 
 const CartList = (props) => {
-  const tableHeader = [" ", " ", "Product", "Price", "Quantity", "Sub Total"];
   const {
     handleDecreaseQuantity,
     handleIncreaseQuantity,
     handleRemoveFromCart,
+    data,
   } = props;
   return (
     <div className="h-auto my-5 grid">
@@ -29,7 +30,7 @@ const CartList = (props) => {
             </tr>
           </thead>
           <tbody className="text-sm md:text-lg bg-gray-50">
-            {props.data.map((item) => (
+            {data.map((item) => (
               <tr
                 key={item.id}
                 className="border border-l-0 border-r-0 border-gray "
