@@ -59,18 +59,19 @@ const CartList = (props) => {
                   <td className="py-5 px-2 text-end border-r">
                     {typeof item.offer === "number" ? (
                       <>
-                        {item.offer && (
-                          <span>
-                            $
-                            {(
-                              item.price -
-                              (item.price * item.offer) / 100
-                            ).toFixed(2)}
-                          </span>
-                        )}
+                        {item.offer &&
+                          item.price(
+                            <span>
+                              $
+                              {(
+                                item.price -
+                                (item.price * item.offer) / 100
+                              ).toFixed(2)}
+                            </span>
+                          )}
                       </>
                     ) : (
-                      <span>${item.price.toFixed(2)}</span>
+                      <span>${item.price && item.price.toFixed(2)}</span>
                     )}
                   </td>
                   <td className="py-5 px-2 flex justify-end items-center ml-2 border-r">
