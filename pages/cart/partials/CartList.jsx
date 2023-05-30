@@ -66,7 +66,7 @@ const CartList = (props) => {
                         )}
                       </>
                     ) : (
-                      <span>${item.price.toFixed(2)}</span>
+                      <span>${item.price}</span>
                     )}
                   </td>
                   <td className="py-5 px-2 flex justify-end items-center ml-2 border-r">
