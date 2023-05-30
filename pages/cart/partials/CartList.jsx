@@ -61,12 +61,16 @@ const CartList = (props) => {
                       <>
                         {item.offer && item.price && (
                           <span>
-                            ${item.price - (item.price * item.offer) / 100}
+                            $
+                            {(
+                              item.price -
+                              (item.price * item.offer) / 100
+                            ).toFixed(2)}
                           </span>
                         )}
                       </>
                     ) : (
-                      <span>${item.price}</span>
+                      <span>${item.price.toFixed(2)}</span>
                     )}
                   </td>
                   <td className="py-5 px-2 flex justify-end items-center ml-2 border-r">
@@ -91,7 +95,8 @@ const CartList = (props) => {
                     {item.quantity *
                       (typeof item.offer === "number"
                         ? item.price - (item.price * item.offer) / 100
-                        : item.price)}
+                        : item.price
+                      ).toFixed(2)}
                   </td>
                 </tr>
               ))}
@@ -114,7 +119,9 @@ const CartList = (props) => {
             ></textarea>
           </div>
           <div className="flex flex-col justify-center items-center mt-12 md:mt-0">
-            <h2 className="mb-2">Subtotal: {props.cartTotal.toFixed(2)} $</h2>
+            <h2 className="mb-2">
+              Subtotal: {props.cartTotal && props.cartTotal.toFixed(2)} $
+            </h2>
             <p>All Taxes and shipping included</p>
             <Link href={"../../checkout/checkout"}>
               <Button
