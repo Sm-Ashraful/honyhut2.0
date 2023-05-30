@@ -92,12 +92,14 @@ const CartList = (props) => {
                   </td>
                   <td className="py-5 px-2 text-end">
                     ${" "}
-                    {(
-                      item.quantity *
-                      (typeof item.offer === "number"
-                        ? item.price - (item.price * item.offer) / 100
-                        : item.price)
-                    ).toFixed(2)}
+                    {item.quantity &&
+                      item.price &&
+                      (
+                        item.quantity *
+                        (typeof item.offer === "number"
+                          ? item.price - (item.price * item.offer) / 100
+                          : item.price)
+                      ).toFixed(2)}
                   </td>
                 </tr>
               ))}
