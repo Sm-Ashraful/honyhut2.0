@@ -97,8 +97,7 @@ const CartList = (props) => {
                       item.quantity *
                         (typeof item.offer === "number"
                           ? item.price - (item.price * item.offer) / 100
-                          : item.price
-                        ).toFixed(2)}
+                          : item.price)}
                   </td>
                 </tr>
               ))}
