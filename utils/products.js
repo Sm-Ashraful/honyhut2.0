@@ -2,56 +2,6 @@ export const allProducts = [
   {
     id: 1,
     name: "Royal Honey VIP",
-    boxStyle: [
-      {
-        title: "regular",
-        boxDetails: {
-          unitDetails: "20g/Sachet, 12 Sachets/Box",
-          price: 19,
-          image: [],
-        },
-      },
-      {
-        title: "special",
-        boxDetails: {
-          unitDetails: "22mg/Pouch, 15 Pouches/Box",
-          price: 30,
-          image: [],
-        },
-      },
-      {
-        title: "Gift",
-        boxDetails: {
-          unitDetails: "15mg/Sachet, 12 Sachets/Box",
-          price: 19,
-          image: [],
-        },
-      },
-      {
-        title: "Hexagonal",
-        boxDetails: {
-          unitDetails: "20mg/Sachet, 24 Sachets/Box",
-          price: 30,
-          image: [],
-        },
-      },
-      {
-        title: "Spoon",
-        boxDetails: {
-          unitDetails: "12g/Spoon, 12 Spoons/Box",
-          price: 25,
-          image: [],
-        },
-      },
-      {
-        title: "Nozzle",
-        boxDetails: {
-          unitDetails: "22g(15ml)/Pouch, 12 Pouches/Box",
-          price: 25,
-          image: [],
-        },
-      },
-    ],
     image: ["/Honey/Royal Honey VIP/Royal Honey VIP.jpeg"],
     price: 19.99,
     offer: 20,

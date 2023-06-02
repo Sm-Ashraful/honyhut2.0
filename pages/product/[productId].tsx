@@ -33,8 +33,6 @@ const Product = () => {
     return <div className="w-screen h-screen text-center">Loading...</div>;
   }
 
-  console.log("Products: ", product);
-
   return (
     <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem] ">
       <div className="relative">
@@ -48,13 +46,17 @@ const Product = () => {
       {product && (
         <>
           <div className="padding_inside bg-white">
-            <ProductCatalog product={product} />
-            <RecommendProduct
-              top={"0"}
-              className={false}
-              products={people}
-              title={"Recommand For You"}
-            />
+            {product && (
+              <>
+                <ProductCatalog product={product} />
+                <RecommendProduct
+                  top={"0"}
+                  className={false}
+                  products={people}
+                  title={"Recommand For You"}
+                />
+              </>
+            )}
           </div>
         </>
       )}
