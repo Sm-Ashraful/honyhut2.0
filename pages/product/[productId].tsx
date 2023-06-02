@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RelProductData from "../../utils/products-demo";
-import ProductCatalog from "./partials/product-catalog";
+import ProductCatalog from "../../components/product-catalog";
 import RecommendProduct from "@/components/RecommandForYou";
 import people from "../../utils/fav-demo-data";
 import HeroTop from "@/components/common/top-component";
@@ -43,23 +43,17 @@ const Product = () => {
           <RouteLink path={path} background="transparent" />
         </div>
       </div>
-      {product && (
-        <>
-          <div className="padding_inside bg-white">
-            {product && (
-              <>
-                <ProductCatalog product={product} />
-                <RecommendProduct
-                  top={"0"}
-                  className={false}
-                  products={people}
-                  title={"Recommand For You"}
-                />
-              </>
-            )}
-          </div>
-        </>
-      )}
+
+      <div className="padding_inside bg-white">
+        <ProductCatalog product={product} />
+        <RecommendProduct
+          top={"0"}
+          className={false}
+          products={people}
+          title={"Recommand For You"}
+        />
+      </div>
+
       {/* you may also like section*/}
     </div>
   );
