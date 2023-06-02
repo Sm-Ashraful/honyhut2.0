@@ -377,3 +377,18 @@ select {
   background-blend-mode: multiply;
   background-color: rgba(255, 193, 23, 0.1);
 }
+
+.zoomed {
+  transform: scale(1.5);
+}
+
+.preview {
+  position: absolute;
+  background: #ffc117;
+  border: 1px solid black;
+  width: 360px;
+  height: 360px;
+  background-repeat: no-repeat;
+  right: -380px;
+  top: 0;
+}

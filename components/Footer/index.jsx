@@ -10,7 +10,7 @@ const Footer = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <footer className="bg-honey text-black  relative top-36 md:top-48 mb-56 md:mb-48 text-base font-carmo">
+    <footer className="bg-honey text-black  relative top-32 md:top-48 mb-56 md:mb-48 text-base font-carmo">
       <div className="md:flex justify-between items-start md:pt-11 padding_inside font-openSans">
         <div className="p-5 ">
           <h4 className="text-center from-left md:text-left text-primary">
@@ -147,16 +147,16 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-primary px-0 flex justify-between items-center padding_inside">
-        <p className="text-center py-4 text-black text-[12px]">
+      <div className="bg-primary px-0 md:flex justify-between items-center padding_inside">
+        <p className="text-center py-4 text-black text-[11px]">
           Copyright Notice &copy; 2015-2023 HK YIYING and/or its affiliates and
           licensors. All right reserve 2023 &trade;
         </p>
-        <div className="flex">
-          <div className="w-[35px] h-[35px] relative mr-2">
+        <div className="flex justify-center md:justify-start ">
+          <div className=" w-[20px] h-[20px] md:w-[35px] md:h-[35px] relative mr-2">
             <Image src="/logos/visa.svg" alt="visa img" fill cover />
           </div>
-          <div className="w-[35px] h-[35px] relative mr-2">
+          <div className="w-[20px] h-[20px] md:w-[35px] md:h-[35px] relative mr-2">
             <Image
               src="/logos/mastercard.svg"
               alt="mastercard img"
@@ -164,10 +164,10 @@ const Footer = () => {
               cover
             />
           </div>
-          <div className="w-[35px] h-[35px]  relative mr-2">
+          <div className="w-[20px] h-[20px] md:w-[35px] md:h-[35px]  relative mr-2">
             <Image src="/logos/discover.svg" alt="discover" fill cover />
           </div>
-          <div className="w-[35px] h-[35px] relative">
+          <div className="w-[20px] h-[20px] md:w-[35px] md:h-[35px] relative">
             <Image src="/logos/amex.svg" alt="amex img" fill cover />
           </div>
         </div>

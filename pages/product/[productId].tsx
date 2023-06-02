@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-
-import CommonCard from "@/components/CommonCard";
-import RelProductData, {
-  getProductByIdSecond,
-} from "../../utils/products-demo";
-import ProductCatalog from "../../components/product-catalog";
+import React, { useState } from "react";
+import RelProductData from "../../utils/products-demo";
+import ProductCatalog from "./partials/product-catalog";
 import RecommendProduct from "@/components/RecommandForYou";
 import people from "../../utils/fav-demo-data";
+import HeroTop from "@/components/common/top-component";
 
 import { useRouter } from "next/router";
 
 import { getProductById } from "../../utils/products";
-import { getProductByIdThird } from "@/utils/fav-demo-data";
 import RouteLink from "@/components/common/route-link";
 
 const Product = () => {
@@ -29,22 +24,33 @@ const Product = () => {
     product = getProductById(productId);
     product && path.push(product.name);
   }
+  // if (product.category) {
+  //    path.unshift(product?.categoryName);
+  //    path.unshift(product?.Subcategory)
+  // }
 
   if (!product) {
     return <div className="w-screen h-screen text-center">Loading...</div>;
   }
 
+  console.log("Products: ", product);
+
   return (
     <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem] ">
+      <div className="relative">
+        <div>
+          <HeroTop title="" />
+        </div>
+        <div className="absolute md:top-0 left-0  bottom-1">
+          <RouteLink path={path} background="transparent" />
+        </div>
+      </div>
       {product && (
         <>
-          <div className="py-5">
-            <RouteLink path={path} />
-          </div>
           <div className="padding_inside bg-white">
             <ProductCatalog product={product} />
             <RecommendProduct
-              top={false}
+              top={"0"}
               className={false}
               products={people}
               title={"Recommand For You"}

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
-import Button from "../Button";
-import ReviewStar from "../Star/index";
+import Button from "@/components/Button";
+import ReviewStar from "@/components/Star";
 import Image from "next/image";
+import ReactImageMagnify from "react-image-magnify";
 
 import { HiOutlinePlusCircle } from "react-icons/hi2";
 
-import LeftRightArrow from "../common/LeftRightArrow";
+import LeftRightArrow from "@/components/common/LeftRightArrow";
 
 import { addItemToCart } from "@/Store/cart/cart.action";
 import { addItemToFav } from "@/Store/favorite/favorite.action";
@@ -14,15 +15,18 @@ import { addItemToFav } from "@/Store/favorite/favorite.action";
 import { selectCartItems } from "@/Store/cart/cart.selector";
 import { selectFavItems } from "@/Store/favorite/favorite.selector";
 
-import BtnOutlineCounter from "../Button/BtnOutlineCounter";
-import BtnSolid from "../Button/BtnSolid";
+import BtnOutlineCounter from "@/components/Button/BtnOutlineCounter";
+import BtnSolid from "@/components/Button/BtnSolid";
 
 import { useDispatch, useSelector } from "react-redux";
 
 const ProductCatalog = ({ product }) => {
   const [count, setCount] = useState(1);
   const [index, setIndex] = useState(0);
+  const [zoom, setZoom] = useState(false);
   const dispatch = useDispatch();
+
+  const imageRef = useRef(null);
 
   const cartItems = useSelector(selectCartItems);
   const favItems = useSelector(selectFavItems);
@@ -47,35 +51,53 @@ const ProductCatalog = ({ product }) => {
     }
   }, [index, product]);
 
+  const handleMouseMove = (event) => {
+    const { left, top, width, height } =
+      imageRef.current.getBoundingClientRect();
+    const x = (event.pageX - left) / width;
+    const y = (event.pageY - top) / height;
+
+    imageRef.current.style.transformOrigin = `${x * 100}% ${y * 100}%`;
+    setZoom(true);
+  };
+
+  const handleMouseLeave = () => {
+    setZoom(false);
+  };
+
   return (
     <section className="relative bg-white  ">
       <div className="flex flex-wrap px-[5px] md:pt-5">
-        <div className="relative w-screen md:w-1/2 md:overflow-hidden  rounded flex flex-col justify-center items-center">
-          <div
-            className={`relative w-full h-96   flex justify-center items-center`}
-          >
-            {product.image.map((pic, picIndex) => {
-              let position = "nextSlide";
-              if (picIndex === index) {
-                position = "activeSlide";
-              }
-              if (product.image.length > 1) {
-                if (
-                  picIndex === index - 1 ||
-                  (index === 0 && picIndex === product.image.length - 1)
-                ) {
-                  position = "lastSlide";
+        <div className="relative w-screen md:w-1/2   rounded flex flex-col justify-center items-center">
+          <div className="relative overflow-hidden w-full h-full">
+            <div
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className={`relative flex justify-center h-96 items-center overflow-hidden`}
+            >
+              {product.image.map((pic, picIndex) => {
+                let position = "nextSlide";
+                if (picIndex === index) {
+                  position = "activeSlide";
                 }
-              }
-              return (
-                <article className={`${position}`}>
-                  <Image src={pic} alt={"Image"} fill cover />
-                </article>
-              );
-            })}
-            <LeftRightArrow setIndex={setIndex} index={index} />
+                if (product.image.length > 1) {
+                  if (
+                    picIndex === index - 1 ||
+                    (index === 0 && picIndex === product.image.length - 1)
+                  ) {
+                    position = "lastSlide";
+                  }
+                }
+                return (
+                  <article className={`${position} `} ref={imageRef}>
+                    <Image src={pic} alt={"Image"} fill cover />
+                  </article>
+                );
+              })}
+              <LeftRightArrow setIndex={setIndex} index={index} />
+            </div>
           </div>
-
+          <div className="preview z-50 hidden"></div>
           <div className="h-44 flex flex-nowrap scroll-smooth x-scrollable-content">
             {product.image.map((pic, picIndex) => {
               return (
@@ -88,7 +110,7 @@ const ProductCatalog = ({ product }) => {
         </div>
 
         {/* Product Information and button */}
-        <div className="md:pl-12  w-full md:w-1/2  md:relative ">
+        <div className="md:pl-12  w-full md:w-1/2  md:relative">
           <h3 className="text-3xl font-bold">{product.name}</h3>
           <div className="mb-2">
             <span className="flex items-center">

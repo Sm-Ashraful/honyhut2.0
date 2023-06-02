@@ -30,6 +30,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Submitted Sign up");
     dispatch(signup(signupUser));
   };
   useEffect(() => {

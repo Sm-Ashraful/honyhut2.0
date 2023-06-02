@@ -51,6 +51,7 @@ const Header = () => {
     (state) => state.sidebar.isSearchModalOpen
   );
   const searchBarRef = useRef(null);
+  const searchBarMobilRef = useRef(null);
 
   const totalCost = useSelector(selectCartTotal);
   const searchValue = useSelector((state) => state.sidebar.searchValue);
@@ -205,28 +206,9 @@ const Header = () => {
         <div
           className={`w-full padding_inside flex justify-between items-center h-full`}
         >
-          <div className="md:hidden w-full relative" ref={searchBarRef}>
-            <form
-              onSubmit={handleSubmit}
-              class="w-full flex items-center justify-center "
-            >
-              <span className="absolute right-8 text-black cursor-pointer">
-                <FaSearch />
-              </span>
-              <input
-                type="text"
-                placeholder="What are you looking for today ..."
-                defaultValue={searchValue}
-                className="w-full shadow-md  bg-white text-base pl-[2rem] py-3  focus:outline-none rounded-full"
-                onChange={handleChange}
-                onFocus={openSearchModal}
-                onBlur={closeSearchModal}
-              />
-            </form>
-          </div>
-          <div className="w-full hidden md:flex justify-between h-full">
+          <div className="w-full md:flex justify-between h-full">
             <div
-              className={`w-1/4 h-full flex justify-center items-center mr-3 all-department relative`}
+              className={`w-1/4 h-full hidden md:flex justify-center items-center mr-3 all-department relative`}
               onMouseEnter={openDepartment}
               onMouseLeave={closeDepartMent}
             >
@@ -241,7 +223,12 @@ const Header = () => {
               </div>
             </div>
 
-            <div class="flex-1 relative w-full" ref={searchBarRef}>
+            <div
+              class="flex-1 relative w-full mt-[1.85rem] md:mt-0"
+              ref={searchBarRef}
+              onMouseEnter={openSearchModal}
+              onMouseLeave={closeSearchModal}
+            >
               <form
                 onSubmit={handleSubmit}
                 class="absolute inset-0 flex items-center justify-center "
@@ -255,15 +242,17 @@ const Header = () => {
                   class="shadow-md appearance-none bg-white text-base pl-10 py-4 pr-12 w-full focus:outline-none rounded-full"
                   onChange={handleChange}
                   defaultValue={searchValue}
-                  onFocus={openSearchModal}
-                  onBlur={closeSearchModal}
                 />
               </form>
+              {searchWidth ? (
+                <SearchModal
+                  width={searchWidth}
+                  searchResults={searchResults}
+                />
+              ) : null}
             </div>
-            {searchWidth ? (
-              <SearchModal width={searchWidth} searchResults={searchResults} />
-            ) : null}
-            <div className="w-1/5 flex justify-center  items-center text-black ">
+
+            <div className="w-1/5 hidden md:flex justify-center  items-center text-black ">
               <div className="px-5">
                 <Link
                   href={{
