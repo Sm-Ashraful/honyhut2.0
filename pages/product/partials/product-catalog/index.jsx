@@ -75,25 +75,26 @@ const ProductCatalog = ({ product }) => {
               onMouseLeave={handleMouseLeave}
               className={`relative flex justify-center h-96 items-center overflow-hidden`}
             >
-              {product.image.map((pic, picIndex) => {
-                let position = "nextSlide";
-                if (picIndex === index) {
-                  position = "activeSlide";
-                }
-                if (product.image.length > 1) {
-                  if (
-                    picIndex === index - 1 ||
-                    (index === 0 && picIndex === product.image.length - 1)
-                  ) {
-                    position = "lastSlide";
+              {product &&
+                product.image.map((pic, picIndex) => {
+                  let position = "nextSlide";
+                  if (picIndex === index) {
+                    position = "activeSlide";
                   }
-                }
-                return (
-                  <article className={`${position} `} ref={imageRef}>
-                    <Image src={pic} alt={"Image"} fill cover />
-                  </article>
-                );
-              })}
+                  if (product.image.length > 1) {
+                    if (
+                      picIndex === index - 1 ||
+                      (index === 0 && picIndex === product.image.length - 1)
+                    ) {
+                      position = "lastSlide";
+                    }
+                  }
+                  return (
+                    <article className={`${position} `} ref={imageRef}>
+                      <Image src={pic} alt={"Image"} fill cover />
+                    </article>
+                  );
+                })}
               <LeftRightArrow setIndex={setIndex} index={index} />
             </div>
           </div>
