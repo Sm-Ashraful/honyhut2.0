@@ -52,7 +52,7 @@ const Footer = () => {
             </li>
           </ul>
           <div className="pt-8">
-            <p>Customer service: + 46 (10) 7502423</p>
+            <p>Customer service: +1 250 555 0199</p>
           </div>
         </div>
 
@@ -82,10 +82,10 @@ const Footer = () => {
           </h4>
           <div className="pt-2">
             <p className=" md:max-w-lg">
-              Honyhut was founded in 2006 with vision of building the best
-              online store in the Nordics for children clothing. We want to
-              inspire by offering an exclusive shopping experience and excellent
-              customer service with the best mixture of high-quality brands.
+              Honyhut was founded in 2017 with vision of building the best
+              online store in the Medical Products. We want to inspire by
+              offering an exclusive shopping experience and excellent customer
+              service with the best mixture of high-quality brands.
             </p>
           </div>
           <ul className="flex items-center py-5">
@@ -148,28 +148,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-primary px-0 md:flex justify-between items-center padding_inside">
-        <p className="text-center py-4 text-black text-[11px]">
-          Copyright Notice &copy; 2015-2023 HK YIYING and/or its affiliates and
-          licensors. All right reserve 2023 &trade;
+        <p className="text-center py-4 text-black text-[11px] md:text-[15px]">
+          Copyright Notice &copy; Mash Enterprise Inc. All right reserve &trade;
+          2023
         </p>
         <div className="flex justify-center md:justify-start ">
-          <div className=" w-[20px] h-[20px] md:w-[35px] md:h-[35px] relative mr-2">
-            <Image src="/logos/visa.svg" alt="visa img" fill cover />
-          </div>
-          <div className="w-[20px] h-[20px] md:w-[35px] md:h-[35px] relative mr-2">
-            <Image
-              src="/logos/mastercard.svg"
-              alt="mastercard img"
-              fill
-              cover
-            />
-          </div>
-          <div className="w-[20px] h-[20px] md:w-[35px] md:h-[35px]  relative mr-2">
-            <Image src="/logos/discover.svg" alt="discover" fill cover />
-          </div>
-          <div className="w-[20px] h-[20px] md:w-[35px] md:h-[35px] relative">
-            <Image src="/logos/amex.svg" alt="amex img" fill cover />
-          </div>
+          <img src="/images/payment.png" alt="" />
         </div>
       </div>
     </footer>
