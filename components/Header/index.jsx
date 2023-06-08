@@ -226,8 +226,7 @@ const Header = () => {
             <div
               class="flex-1 relative w-full mt-[1.85rem] md:mt-0"
               ref={searchBarRef}
-              onMouseEnter={openSearchModal}
-              onMouseLeave={closeSearchModal}
+              onClick={openSearchModal}
             >
               <form
                 onSubmit={handleSubmit}

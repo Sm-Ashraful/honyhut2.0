@@ -1,15 +1,52 @@
-import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
+import { setIsSearchModalOpen } from "@/Store/slices/globalSlice";
+import { useRouter } from "next/router";
+
 const SearchModal = ({ searchResults, width }) => {
+  const dispatch = useDispatch();
+  const searchbarRef = useRef(null);
+
+  const router = useRouter();
+
   const isSearchModalOpen = useSelector(
     (state) => state.sidebar.isSearchModalOpen
   );
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        searchbarRef.current &&
+        !searchbarRef.current.contains(event.target)
+      ) {
+        dispatch(setIsSearchModalOpen(false));
+      }
+    }
+    function handleRouteChange(event) {
+      dispatch(setIsSearchModalOpen(false));
+    }
+    // Add event listener to the document object
+    if (isSearchModalOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      router.events.on("routeChangeComplete", handleRouteChange);
+      document.addEventListener("scroll", handleRouteChange);
+    }
+
+    // Remove event listener when the component unmounts
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      router.events.off("routeChangeComplete", handleRouteChange);
+      document.removeEventListener("scroll", handleRouteChange);
+    };
+  }, []);
+
   return (
     <>
       {isSearchModalOpen ? (
         <div
+          ref={searchbarRef}
           style={{ width: `${width}px` }}
           className={`h-96 bg-white flex overflow-x-hidden overflow-y-scroll fixed top-[8rem] md:left-[29%] md:top-[28%] rounded-md z-50 outline-none focus:outline-none border border-honey !border-t-0`}
         >
