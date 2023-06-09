@@ -5,7 +5,7 @@ const About = () => {
     <div className="padding_inside my-[3rem]">
       <div className="grid md:grid-cols-2 gap-[20px] font-carmo   my-[3rem]">
         <div className="">
-          <h3 className="uppercase tracking-[.2em]">Our Mission</h3>
+          <h3 className="uppercase ">Our Mission</h3>
           <p className="leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">
             We're out to turn everything you believe you know about sexual
             enhancers back on. We set out to make a difference when we were
@@ -16,7 +16,7 @@ const About = () => {
           </p>
         </div>
         <div className="">
-          <h3 className="uppercase tracking-[.2em]">Our Story</h3>
+          <h3 className="uppercase ">Our Story</h3>
           <p className="leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">
             Simply put, we’re different. Undeniably so. Creating a line of
             products packed with benefits, oozing quality, and built to make you
@@ -27,7 +27,7 @@ const About = () => {
           </p>
         </div>
         <div className="">
-          <h3 className="uppercase tracking-[.2em]">Our Promise</h3>
+          <h3 className="uppercase ">Our Promise</h3>
           <p className="leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">
             We pledge to always do the right thing; not the easiest, quickest,
             most cost-efficient thing. From manufacturing our formulas under the
@@ -38,7 +38,7 @@ const About = () => {
           </p>
         </div>
         <div className="">
-          <h3 className="uppercase tracking-[.2em]">Empowering Sellers</h3>
+          <h3 className="uppercase ">Empowering Sellers</h3>
           <p className="leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">
             To our team, it’s never been about how many orders we can get
             through our virtual doors. It’s about being on your side in the

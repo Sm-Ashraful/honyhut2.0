@@ -13,7 +13,7 @@ const ShippingPolicy = () => {
           flawless.
         </p>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.2em] font-carmo">Processing</h3>
+          <h3 className="uppercase font-jakarta">Processing</h3>
           <p className="removeTextShadow text-[#878787] text-lg leading-8 font-openSans">
             Order processing takes place during normal business hours, Monday
             through Friday. please allow 1-2 days for processing. Orders
@@ -22,7 +22,7 @@ const ShippingPolicy = () => {
           </p>
         </div>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.2em] font-carmo">Shipping</h3>
+          <h3 className="uppercase font-jakarta">Shipping</h3>
           <p className="removeTextShadow text-[#878787] text-lg leading-8 font-openSans">
             The 48 adjacent states are where we domestically ship. The length of
             shipping depends on where you are in the USA. You'll receive it

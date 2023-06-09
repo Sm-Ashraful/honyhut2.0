@@ -17,7 +17,7 @@ const Contact = () => {
           {/* contact us */}
           <div className="grid md:grid-cols-2 gap-[20px] w-full">
             <div className="w-full">
-              <h3 className="font-bold text-black uppercase tracking-[.1em] font-carmo">
+              <h3 className="font-bold text-black uppercase font-jakarta">
                 CONTACT US FOR ANY QUESTIONS
               </h3>
               <div className="w-full">
@@ -87,7 +87,7 @@ const Contact = () => {
             <div className="w-full">
               <h3
                 htmlFor="name"
-                className="block font-bold text-black uppercase tracking-[.2em] font-carmo"
+                className="block font-bold text-black uppercase font-jakarta"
               >
                 CONTACT INFORMATION
               </h3>

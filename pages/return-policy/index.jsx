@@ -13,9 +13,7 @@ const ReturnPolicy = () => {
           any reason. I have no questions! No costs for returns
         </p>
         <div className="mt-12 ">
-          <h3 className="uppercase tracking-[.1em] font-carmo">
-            WITH ORIGINAL PACKAGING
-          </h3>
+          <h3 className="uppercase  font-jakarta">WITH ORIGINAL PACKAGING</h3>
           <p className="leading-8 text-lg md:text-sm removeTextShadow text-[#878787] font-openSans">
             Send us an email at Support <strong>support@honyhut.com</strong>{" "}
             with your order number if we shipped you the wrong item, a damaged,
@@ -24,7 +22,7 @@ const ReturnPolicy = () => {
           </p>
         </div>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.1em] font-carmo">
+          <h3 className="uppercase  font-jakarta">
             NOT SATISFIED WITH YOUR PRODUCT?
           </h3>
           <p className="leading-8 text-lg md:text-sm removeTextShadow text-[#878787] font-openSans">
@@ -41,10 +39,10 @@ const ReturnPolicy = () => {
           </p>
         </div>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.1em] font-carmo">
+          <h3 className="uppercase  font-jakarta">
             Exceptions / non-returnable items
           </h3>
-          <div className="font-carmo leading-8 text-lg">
+          <div className="font-jakarta leading-8 text-lg">
             <p className="pb-3 leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">
               All wholesale transactions are final, and nothing can be exchanged
               or refunded unless you get an item that is broken, faulty, or
@@ -82,7 +80,7 @@ const ReturnPolicy = () => {
           </div>
         </div>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.1em] font-carmo">REFUNDS</h3>
+          <h3 className="uppercase  font-jakarta">REFUNDS</h3>
 
           <ul className=" list-disc pl-6 leading-8">
             <li>

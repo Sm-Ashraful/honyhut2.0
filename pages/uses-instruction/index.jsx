@@ -7,7 +7,7 @@ const UsesInstruction = () => {
       <HeroTop title={`uses instruction`} />
       <div className="padding_inside mt-12">
         <div>
-          <h3 className="uppercase tracking-[.2em] font-carmo">
+          <h3 className="uppercase font-jakarta">
             <span>How to use honey?</span>
           </h3>
           <div className=" text-[#878787] text-lg leading-8 font-openSans">
@@ -46,7 +46,7 @@ const UsesInstruction = () => {
           </div>
         </div>
         <div className=" mt-8">
-          <h3 className="uppercase tracking-[.2em] font-carmo">
+          <h3 className="uppercase font-jakarta">
             <span>How Long Dose Royal Honey Last?</span>
           </h3>
           <div className="text-[#878787] text-lg leading-8 font-openSans">
@@ -73,7 +73,7 @@ const UsesInstruction = () => {
           </div>
         </div>
         <div className=" mt-8">
-          <h3 className="uppercase tracking-[.2em] font-carmo">
+          <h3 className="uppercase font-jakarta">
             <span>How To Use Delay Spray?</span>
           </h3>
           <div className="font-sans text-[#878787] ml-3">

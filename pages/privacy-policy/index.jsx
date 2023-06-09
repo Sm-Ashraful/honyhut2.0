@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
           information as outlined in this Privacy Policy.
         </p>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.1em] font-carmo">
+          <h3 className="uppercase ">
             Collecting and Using Your Personal Data
           </h3>
           <div className="mt-6">
@@ -424,9 +424,7 @@ const PrivacyPolicy = () => {
           </div>
         </div>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.1em] font-carmo">
-            Disclosure of Your Personal Data
-          </h3>
+          <h3 className="uppercase ">Disclosure of Your Personal Data</h3>
           <div className="mt-6">
             <h4 className="">Business Transactions</h4>
             <div className="font-openSans text-lg md:text-base leading-8">
@@ -500,7 +498,7 @@ const PrivacyPolicy = () => {
           </div>
         </div>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.1em] font-carmo">
+          <h3 className="uppercase ">
             Detailed Information on the Processing of Your Personal Data
           </h3>
           <p className="text-center leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">

@@ -2,16 +2,32 @@ import HeroTop from "@/components/common/top-component";
 import React from "react";
 
 const TermsAndCondition = () => {
+  const currentDate = new Date();
+  const fiveDaysAgo = new Date();
+
+  fiveDaysAgo.setDate(currentDate.getDate() - 8);
+
+  const options = {
+    day: "numeric", // Display the day with leading zero if necessary
+    month: "long", // Display the full month name
+    year: "numeric", // Display the year
+  };
+
+  const formattedDate = fiveDaysAgo.toLocaleDateString("en-US", options);
   return (
     <div className="w-full  relative top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem]">
       <HeroTop title={`Terms & Conditions`} />
+
       <div className="mt-6 md:mt-12 padding_inside">
         <p className="text-center leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">
           Before using Our Service, please take the time to thoroughly read
           these terms and conditions.
         </p>
+        <div className="w-full text-end leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">
+          Last Update: {formattedDate}
+        </div>
         <div className="mt-12">
-          <h3 className="uppercase tracking-[.1em] font-carmo text-center">
+          <h3 className="uppercase  text-center">
             Definitions and Interpretation
           </h3>
           <div className="mt-6">
