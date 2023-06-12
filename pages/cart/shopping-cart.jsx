@@ -57,7 +57,7 @@ export default function Cart() {
   const totalWithShippingCost = cartTotal + parseFloat(shippingMethod);
 
   return (
-    <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem] ">
+    <div className="relative w-full top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
       <div className="relative">
         <div>
           <HeroTop title={"Shopping Cart"} />

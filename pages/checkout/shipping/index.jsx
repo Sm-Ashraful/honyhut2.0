@@ -2,7 +2,7 @@ import React from "react";
 
 const ShippingAddress = () => {
   return (
-    <div className="relative top-36 md:top-52">
+    <div className="relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
       <div className="my-4 mx-5">
         <p htmlFor="name" className="block font-bold text-tertiary mb-0 ">
           Shipping Address

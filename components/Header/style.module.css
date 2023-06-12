@@ -29,10 +29,10 @@
     width: 7.5rem;
   }
   .header_container {
-    height: 130px;
+    height: 120px;
   }
   .header_bottom {
-    height: 40%;
+    height: 42%;
   }
   .cart_count {
     left: 2.8rem;
@@ -42,10 +42,10 @@
 @media screen and (min-width: 768px) {
   .logo_box {
     height: auto;
-    width: 10rem;
+    width: 9rem;
   }
   .header_container {
-    height: 160px;
+    height: 132px;
   }
   .header_bottom {
     height: 40%;
@@ -58,10 +58,10 @@
 @media screen and (min-width: 1024px) {
   .logo_box {
     height: auto;
-    width: 11rem;
+    width: 9rem;
   }
   .header_container {
-    height: 160px;
+    height: 132px;
   }
   .header_bottom {
     height: 44%;
@@ -71,7 +71,7 @@
   }
 }
 
-.menu_button {
+/* .menu_button {
   height: 28px;
   width: 28px;
   font-size: 2rem;
@@ -81,15 +81,14 @@
   background-position: center;
   background-size: contain;
   cursor: pointer;
-}
+} */
 
-.shopping_cart {
+/* .shopping_cart {
   height: 33px;
   width: 30px;
-  /* background-image: url("../../Assets/shopping.png"); */
 
   cursor: pointer;
-}
+} */
 
 .search_icon {
   height: 25px;
@@ -107,9 +106,9 @@
 } */
 
 .cart_count {
-  height: 1.8rem;
-  width: 1.8rem;
-  @apply bg-white text-black border-black;
+  height: 1.5rem;
+  width: 1.5rem;
+  @apply bg-honey text-white border-black;
   position: absolute;
   font-size: 12px;
   left: 1rem;

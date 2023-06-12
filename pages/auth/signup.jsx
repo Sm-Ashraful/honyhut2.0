@@ -40,36 +40,32 @@ const Signup = () => {
   }, [user]);
 
   return (
-    <main className="relative top-36 md:top-48 w-full bg-primary md:flex md:justify-center md:items-center md:p-10">
+    <main className="relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem] w-full bg-primary md:flex md:justify-center md:items-center">
       <div className="bg-white flex justify-center items-center  w-full text-center md:rounded-2xl md:shadow-2xl md:px-16 md:flex md:w-3/5 md:max-w-4xl">
         {/* Sign up section */}
         <div className="w-full p-5">
-          <div className="text-center md:text-left  font-bold">
-            <span className="text-honey">Honey</span>Hut
-            <span className="text-tertiary">.com</span>
-          </div>
           <div>
-            <h2 className="text-4xl font-bold text-secondary mb-2 uppercase">
-              Create An Account
+            <h2 className="text-3xl font-bold mb-2 uppercase">
+              Create an Account
             </h2>
-            <div className="border-2 w-10 border-secondary inline-block mb-2"></div>
+            <div className="border-2 w-10 border-black inline-block mb-2"></div>
             {/* social login section */}
             <div className="flex justify-center my-2">
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaFacebookF className="text-sm lg:text-base" />
               </a>
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaInstagram className="text-sm" />
               </a>
               <a
                 href="#"
-                className="border-2 border-secondary rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
               >
                 <FaGoogle className="text-sm lg:text-base" />
               </a>
@@ -113,7 +109,7 @@ const Signup = () => {
                 />
               </div>
 
-              <button className=" border-2 border-secondary rounded-full px-12 py-2 inline-block font-semibold hover:bg-honey">
+              <button className=" border-2 border-black rounded-full px-12 py-2 inline-block font-semibold hover:bg-honey">
                 Sign Up
               </button>
               <div className=" flex ">

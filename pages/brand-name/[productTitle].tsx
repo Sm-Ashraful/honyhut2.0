@@ -25,7 +25,7 @@ const BrandName = () => {
   }
 
   return (
-    <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem]">
+    <div className="relative w-full top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
       <HeroTop title={product && product.title} />
       <div className="padding_inside">
         <div className="w-full  md:mr-0 md:block z-0 pt-[20px]">

@@ -6,10 +6,10 @@ import styles from "./slider.module.css";
 const Slider = () => {
   return (
     <section
-      className={`w-full  relative top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem] md:px-[4rem]   flex justify-center`}
+      className={`w-full  relative top-[8.09rem] sm:top-[8.2rem] md:top-[9.4rem] lg:top-[9.3rem] md:px-[3rem] lg:px-[4rem] xl:px-[5rem]   flex justify-center`}
     >
       <div className={` ${styles.section_slider} flex justify-center`}>
-        <div className={`${styles.section_center}  flex-1`}>
+        <div className={`${styles.section_center}`}>
           <PhotoSlider data={data} delayTime="8000" />
         </div>
       </div>

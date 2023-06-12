@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
 import getProductFromSearch from "@/utils/helper/searchText";
+import { allProducts } from "@/utils/products";
 
 import { setIsDropdownVisible } from "@/Store/slices/globalSlice";
-
 import {
   toggle,
   setIsHeaderSticky,
@@ -18,47 +18,37 @@ import {
   selectCartCount,
   selectCartTotal,
 } from "../../Store/cart/cart.selector";
-
 import { selectFavItems } from "../../Store/favorite/favorite.selector";
 
-import styles from "./style.module.css";
 import logo from "../../Assets/honeyhut logo.png";
 import Sidebar from "../Sidebar";
 import CategoryNav from "../category-nav";
 import AllDepartNav from "../all-department-nav";
 import CartNav from "../cart";
-import HeaderNav from "./header-nav";
+import HeaderNav from "./partials/header-nav";
 import SearchModal from "../search-modal";
+
+import styles from "./style.module.css";
 
 import { FaSearch } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
-import {
-  MdManageAccounts,
-  MdFavorite,
-  MdOutlineFavoriteBorder,
-} from "react-icons/md";
+import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { VscListSelection } from "react-icons/vsc";
-import { allProducts } from "@/utils/products";
 
 const Header = () => {
   const [lastScroll, setLastScroll] = useState(0);
   const [searchWidth, setSearchWidth] = useState(0);
   const [searchResults, setSearchResults] = useState([]);
+
   const total = useSelector(selectCartCount);
   const isHeaderSticky = useSelector((state) => state.sidebar.isHeaderSticky);
-  const isSearchModalOpen = useSelector(
-    (state) => state.sidebar.isSearchModalOpen
-  );
-  const searchBarRef = useRef(null);
-  const searchBarMobilRef = useRef(null);
-
   const totalCost = useSelector(selectCartTotal);
   const searchValue = useSelector((state) => state.sidebar.searchValue);
-
   const favItems = useSelector(selectFavItems);
   const currentUser = useSelector((state) => state.auth.currentUser);
 
+  const searchBarRef = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -148,15 +138,13 @@ const Header = () => {
             <div className=" md:order-4 md:mr-3 relative">
               <div className="flex justify-center items-center text-black">
                 <div
-                  className={`${styles.menu_button} md:hidden mx-[10px]`}
+                  className={`text-2xl font-extrabold md:hidden mx-[10px]`}
                   onClick={handleMenuOnClick}
                 >
-                  <span className={`${styles.menu_button} `}>
-                    <VscListSelection />
-                  </span>
+                  <VscListSelection />
                 </div>
                 {/* whitelist section  */}
-                <div className="text-4xl  hidden md:block cursor-pointer md:ml-[10px]">
+                <div className="text-2xl  hidden md:block cursor-pointer md:ml-[10px]">
                   <Link href="/favorite">
                     {favItems.length > 0 ? (
                       <MdFavorite />
@@ -167,12 +155,9 @@ const Header = () => {
                 </div>
 
                 {/* cart section  */}
-                <div className="md:mx-[10px]">
-                  <div
-                    className={styles.shopping_cart}
-                    onMouseDown={handleCart}
-                  >
-                    <div className="relative ml-1 text-3xl ">
+                <div className="mx-[10px]">
+                  <div onMouseDown={handleCart}>
+                    <div className="relative ml-1 text-2xl ">
                       <BsCart4 />
                       <span className={styles.cart_count}>{total}</span>
                     </div>
@@ -194,7 +179,10 @@ const Header = () => {
             </div>
             {/**Header Nav */}
             <div className="hidden md:block md:order-3 w-1/3">
-              <HeaderNav />
+              <HeaderNav
+                currentUser={currentUser}
+                isHeaderSticky={isHeaderSticky}
+              />
             </div>
           </div>
         </div>
@@ -251,20 +239,8 @@ const Header = () => {
               ) : null}
             </div>
 
-            <div className="w-1/5 hidden md:flex justify-center  items-center text-black ">
-              <div className="px-5">
-                <Link
-                  href={{
-                    pathname: "/auth/signin",
-                  }}
-                  className="flex flex-col justify-center items-center"
-                >
-                  <MdManageAccounts className="text-4xl" />
-                  <span className="text-sm lg:text-[1rem] text-black font-semibold">
-                    {currentUser.name ? currentUser.name : `Account`}
-                  </span>
-                </Link>
-              </div>
+            <div className="w-1/5 hidden md:flex justify-end  items-center text-black ">
+              <p className="font-semibold ">support@honyhut.com</p>
             </div>
           </div>
         </div>

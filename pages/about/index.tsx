@@ -7,7 +7,7 @@ import AboutProduct from "@/components/aboutUs/about-products";
 
 const AboutUs = () => {
   return (
-    <div className="w-full  relative top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem]  ">
+    <div className="w-full  relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]  ">
       <HeroTop
         title={`About Us`}
         subTitle="Focus your passion, and success will follow you"

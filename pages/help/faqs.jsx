@@ -7,7 +7,7 @@ const Faqs = () => {
   const [index, setIndex] = useState(0);
   const [headingText, setHeadingText] = useState("");
   return (
-    <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem]">
+    <div className="relative w-full top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
       <HeroTop title={`Frequently Ask Questions`} />
       <div className="padding_inside ">
         {aboutInfo.map((info, index) => {

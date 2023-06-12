@@ -18,7 +18,7 @@ const FavSection = () => {
   }, [faItems]);
 
   return (
-    <section className="padding_inside relative top-36 md:top-48 h-auto my-5">
+    <section className="padding_inside relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem] h-auto my-5">
       <h2 className="mb-0 w-full text-center">My Favorite Items</h2>
       <hr className="h-px my-8 bg-gray border-0 dark:bg-gray" />
       {faItems.length === 0 ? (
@@ -26,15 +26,15 @@ const FavSection = () => {
           <h3 className="text-gray">Your Favorite Item Is Empty </h3>
         </div>
       ) : (
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5" ref={cardBoxRef}>
-        {faItems.map((item, index) => {
-          return (
-            <Link href={`/product/${product.id}`}>
-              <CommonCard key={index} product={item} percentage={`20%`} />
-            </Link>
-          );
-        })}
-      </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5" ref={cardBoxRef}>
+          {faItems.map((item, index) => {
+            return (
+              <Link href={`/product/${product.id}`}>
+                <CommonCard key={index} product={item} percentage={`20%`} />
+              </Link>
+            );
+          })}
+        </div>
       )}
     </section>
   );

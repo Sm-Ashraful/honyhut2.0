@@ -3,7 +3,7 @@ import HeroTop from "../../components/common/top-component";
 
 const UsesInstruction = () => {
   return (
-    <div className="relative w-full top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem] ">
+    <div className="relative w-full top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
       <HeroTop title={`uses instruction`} />
       <div className="padding_inside mt-12">
         <div>
