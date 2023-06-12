@@ -7,13 +7,14 @@ const TermsAndCondition = () => {
 
   fiveDaysAgo.setDate(currentDate.getDate() - 8);
 
-  const options = {
-    day: "numeric", // Display the day with leading zero if necessary
-    month: "long", // Display the full month name
-    year: "numeric", // Display the year
+  const options: Intl.DateTimeFormatOptions = {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
   };
 
   const formattedDate = fiveDaysAgo.toLocaleDateString("en-US", options);
+
   return (
     <div className="w-full  relative top-[8.3rem] sm:top-[10.3rem] md:top-[11.4rem] lg:top-[11.1rem]">
       <HeroTop title={`Terms & Conditions`} />
