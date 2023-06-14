@@ -11,12 +11,18 @@ import {
 import { FaHome, FaStore } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
 
+import { selectFavItems } from "@/Store/favorite/favorite.selector";
+import { useSelector } from "react-redux";
+
 const BottomMenu = () => {
   const router = useRouter();
+
+  const favItems = useSelector(selectFavItems);
 
   const isActive = (href) => {
     return router.pathname === href ? "active" : "";
   };
+  console.log("Fav ITems: ", favItems);
 
   return (
     <nav
@@ -36,7 +42,7 @@ const BottomMenu = () => {
             <span>Profile</span>
           </Link>
         </li>
-        <li>
+        <li className="relative">
           <Link
             href="/favorite"
             className={`flex flex-col items-center justify-center ${isActive(
@@ -46,6 +52,9 @@ const BottomMenu = () => {
             <MdOutlineFavoriteBorder className="text-4xl" />
             <span>Favorite</span>
           </Link>
+          <span className="absolute w-[1.5rem] h-[1.5rem] left-9 -top-2 bg-honey rounded-full flex justify-center items-center text-white text-[12px]">
+            {favItems.length}
+          </span>
         </li>
         <li className="">
           <a

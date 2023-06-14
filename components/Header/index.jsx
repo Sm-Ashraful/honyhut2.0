@@ -35,6 +35,7 @@ import { BsCart4 } from "react-icons/bs";
 import { ImMenu3 } from "react-icons/im";
 import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 import { VscListSelection } from "react-icons/vsc";
+import { GrMail } from "react-icons/gr";
 
 const Header = () => {
   const [lastScroll, setLastScroll] = useState(0);
@@ -144,7 +145,7 @@ const Header = () => {
                   <VscListSelection />
                 </div>
                 {/* whitelist section  */}
-                <div className="text-2xl  hidden md:block cursor-pointer md:ml-[10px]">
+                <div className="relative text-2xl  hidden md:block cursor-pointer md:mx-[10px]">
                   <Link href="/favorite">
                     {favItems.length > 0 ? (
                       <MdFavorite />
@@ -152,6 +153,7 @@ const Header = () => {
                       <MdOutlineFavoriteBorder />
                     )}
                   </Link>
+                  <span className={styles.fav_count}>{favItems.length}</span>
                 </div>
 
                 {/* cart section  */}
@@ -206,7 +208,7 @@ const Header = () => {
                 </span>
                 All Department
               </p>
-              <div className="absolute top-[4.6rem] left-0">
+              <div className="absolute top-[4rem] left-0">
                 <AllDepartNav />
               </div>
             </div>
@@ -240,7 +242,10 @@ const Header = () => {
             </div>
 
             <div className="w-1/5 hidden md:flex justify-end  items-center text-black ">
-              <p className="font-semibold ">support@honyhut.com</p>
+              <p className="font-semibold flex justify-center items-center gap-2">
+                <GrMail />
+                support@honyhut.com
+              </p>
             </div>
           </div>
         </div>
