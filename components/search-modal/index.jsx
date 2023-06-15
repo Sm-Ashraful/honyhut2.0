@@ -14,7 +14,7 @@ const SearchModal = ({ searchResults, width }) => {
   const isSearchModalOpen = useSelector(
     (state) => state.sidebar.isSearchModalOpen
   );
-
+  console.log("isSearchModalOpen", isSearchModalOpen);
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -47,8 +47,8 @@ const SearchModal = ({ searchResults, width }) => {
       {isSearchModalOpen ? (
         <div
           ref={searchbarRef}
-          style={{ width: `${width}px` }}
-          className={`h-96 bg-white flex overflow-x-hidden overflow-y-scroll fixed top-[8rem] md:left-[29%] md:top-[28%] rounded-md z-50 outline-none focus:outline-none border border-honey !border-t-0`}
+          style={{ width: `${width - 40}px` }}
+          className={`h-96 bg-white flex overflow-x-hidden overflow-y-scroll fixed top-[6rem] md:left-[30%] md:top-[24%] rounded-md z-50 outline-none focus:outline-none border border-honey !border-t-0`}
         >
           <div className="px-[2rem] py-[1.5rem] flex flex-col">
             {searchResults.map((searchItem, idx) => {

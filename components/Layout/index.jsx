@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>HonyHut</title>
+        <title>honyhut</title>
         <meta
           name="description"
           content="Hony hut is for Honey, Pill, Liquid Shots, Condoms, Raw paper etc."

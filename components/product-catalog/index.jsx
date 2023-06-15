@@ -3,7 +3,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Button from "@/components/Button";
 import ReviewStar from "@/components/Star";
 import Image from "next/image";
-import ReactImageMagnify from "react-image-magnify";
+// import ReactImageMagnify from "react-image-magnify";
 
 import { HiOutlinePlusCircle } from "react-icons/hi2";
 
