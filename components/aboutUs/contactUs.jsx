@@ -109,13 +109,15 @@ const Contact = () => {
                       <span>
                         <AiOutlineHome />
                       </span>
-                      <span className="mx-[10px]">Home</span>
+                      <span className="mx-[10px]">
+                        4301 Pleasantdale Rd, Unit G Doraville, GA 30340
+                      </span>
                     </li>
                     <li className="flex pb-4">
                       <span>
                         <IoMdCall />
                       </span>
-                      <span className="mx-[10px]">800-392-3206</span>
+                      <span className="mx-[10px]">+1-0392-3206</span>
                     </li>
                     <li className="flex pb-4">
                       <span>
