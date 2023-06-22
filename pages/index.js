@@ -18,37 +18,37 @@ import { useDispatch } from "react-redux";
 
 import axios from "@/utils/helper/axios";
 
-export async function getServerSideProps() {
-  // const dispatch = useDispatch();
+// export async function getServerSideProps() {
+//   // const dispatch = useDispatch();
 
-  const res = await axios.get("/category/getcategory");
-  if (res.status === 200) {
-    const { categoryList } = res.data;
+//   const res = await axios.get("/category/getcategory");
+//   if (res.status === 200) {
+//     const { categoryList } = res.data;
 
-    return {
-      props: {
-        categoryList,
-      },
-    };
-  } else {
-    return {
-      props: {
-        error: res.data.error,
-      },
-    };
-  }
-}
+//     return {
+//       props: {
+//         categoryList,
+//       },
+//     };
+//   } else {
+//     return {
+//       props: {
+//         error: res.data.error,
+//       },
+//     };
+//   }
+// }
 
-export default function Home({ categoryList }) {
+export default function Home() {
   const newProducts = getNewArrival(allProducts);
 
-  console.log("App Category list: ", categoryList);
+  // console.log("App Category list: ", categoryList);
 
   return (
     <>
       <main>
         <ImageSlider />
-        <Categories categories={categoryList} />
+        <Categories />
         <RecommandForYou
           top={false}
           className={false}
