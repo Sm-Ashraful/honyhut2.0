@@ -1,10 +1,10 @@
 import { USER_ACTION_TYPE } from "./user.type";
-import axios from "axios";
+import axios from "../../../utils/helper/axios";
 
 export const setCurrentUser = (user) => {
   return (dispatch) => {
     axios
-      .post("/api/auth/signin", { ...user })
+      .post("/signin", { ...user })
       .then((res) => {
         if (res.status === 200) {
           const { token, user } = res.data;
@@ -47,7 +47,7 @@ export const signout = () => {
 export const signup = (user) => {
   return (dispatch) => {
     axios
-      .post("/api/auth/signup", { ...user })
+      .post("/signup", { ...user })
       .then((res) => {
         if (res.status === 201) {
           const { token, user, message } = res.data;

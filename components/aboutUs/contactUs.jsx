@@ -117,7 +117,7 @@ const Contact = () => {
                       <span>
                         <IoMdCall />
                       </span>
-                      <span className="mx-[10px]">+1-0392-3206</span>
+                      <span className="mx-[10px]">+1 931 422 8003</span>
                     </li>
                     <li className="flex pb-4">
                       <span>

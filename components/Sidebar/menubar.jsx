@@ -5,6 +5,7 @@ import { BsPeople } from "react-icons/bs";
 import { TiContacts } from "react-icons/ti";
 import { BiShoppingBag } from "react-icons/bi";
 import { AiOutlineHome } from "react-icons/ai";
+import { GrMail } from "react-icons/gr";
 
 const MenuBar = () => {
   return (
@@ -45,6 +46,13 @@ const MenuBar = () => {
               <span className="  pl-2">Login / Register</span>
             </li>
           </Link>
+          <a
+            href="mailto:support@honyhut.com"
+            className="font-semibold flex  items-center gap-2 py-4 pl-4"
+          >
+            <GrMail />
+            support@honyhut.com
+          </a>
         </ul>
       </div>
     </nav>

@@ -4,18 +4,36 @@ import Image from "next/image";
 
 import Link from "next/link";
 
+import { GrMail } from "react-icons/gr";
+
 import styles from "../Header/style.module.css";
+import { BsTelephoneForwardFill } from "react-icons/bs";
 
 const Footer = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
+  function copyPhoneNumber() {
+    const phoneNumber = "+1 931 422 8003";
+
+    navigator.clipboard
+      .writeText(phoneNumber)
+      .then(() => {
+        console.log("Phone number copied to clipboard: " + phoneNumber);
+        alert("Phone number copied to clipboard: " + phoneNumber);
+      })
+      .catch((error) => {
+        console.error("Failed to copy phone number: ", error);
+        alert("Failed to copy phone number. Please try again.");
+      });
+  }
+
   return (
     <footer className="bg-honey text-black  relative top-32 md:top-48 mb-56 md:mb-48 text-base font-carmo">
-      <div className="md:flex justify-between items-start md:pt-11 padding_inside font-openSans">
+      <div className="md:flex justify-between items-start md:pt-11 padding_inside font-openSans relative">
         <div className="p-5 ">
-          <h4 className="text-center from-left md:text-left text-primary">
+          <h5 className="text-center from-left md:text-left text-primary">
             SHOP
-          </h4>
+          </h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer">
             {categoryData.map((category, idx) => {
@@ -29,10 +47,10 @@ const Footer = () => {
             })}
           </ul>
         </div>
-        <div className="p-5 ">
-          <h4 className="text-center from-right md:text-left text-primary">
+        <div className="p-5">
+          <h5 className="text-center from-right md:text-left text-primary">
             Customer Care
-          </h4>
+          </h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer ">
             <li className="hover:text-primary hover:underline">
@@ -51,15 +69,29 @@ const Footer = () => {
               <Link href={`/return-policy`}>Return Policy</Link>
             </li>
           </ul>
-          <div className="pt-8">
-            <p>Customer service: +1 250 555 0199</p>
+          <div className="flex md:hidden">
+            <p>Customer service phone:</p>
+            <p onClick={copyPhoneNumber}>
+              <span className="pl-3 text-sm font-jakarta font-semibold">
+                +1 931 422 8003
+              </span>
+            </p>
+          </div>
+          <div className="flex md:hidden">
+            <p>Customer service email:</p>
+            <a
+              href="mailto:support@honyhut.com"
+              className="pl-3 font-semibold flex justify-center items-center gap-2"
+            >
+              support@honyhut.com
+            </a>
           </div>
         </div>
 
         <div className="p-5 tracking-wider cursor-pointer">
-          <h4 className="text-center from-left md:text-left text-primary">
+          <h5 className="text-center from-left md:text-left text-primary">
             Links
-          </h4>
+          </h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer">
             <li>
@@ -77,9 +109,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className="p-5 ">
-          <h4 className="text-center from-left md:text-left text-primary">
+          <h5 className="text-center from-left md:text-left text-primary">
             HONYHUT - for Mens and Women Enhancement
-          </h4>
+          </h5>
           <div className="pt-2">
             <p className=" md:max-w-lg">
               Honyhut was founded in 2017 with vision of building the best
@@ -145,6 +177,14 @@ const Footer = () => {
               </a>
             </li>
           </ul>
+        </div>
+        <div className="md:flex hidden absolute left-[24%] bottom-8">
+          <p>Customer service phone:</p>
+          <p onClick={copyPhoneNumber}>
+            <span className="pl-3 text-sm font-jakarta font-semibold">
+              +1 931 422 8003
+            </span>
+          </p>
         </div>
       </div>
       <div className="bg-primary px-0 md:flex justify-between items-center padding_inside">

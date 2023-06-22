@@ -14,14 +14,41 @@ import { allProducts } from "@/utils/products";
 import getNewArrival from "@/utils/helper/getNewProducts";
 import Review from "@/components/review";
 
-export default function Home() {
+import { useDispatch } from "react-redux";
+
+import axios from "@/utils/helper/axios";
+
+export async function getServerSideProps() {
+  // const dispatch = useDispatch();
+
+  const res = await axios.get("/category/getcategory");
+  if (res.status === 200) {
+    const { categoryList } = res.data;
+
+    return {
+      props: {
+        categoryList,
+      },
+    };
+  } else {
+    return {
+      props: {
+        error: res.data.error,
+      },
+    };
+  }
+}
+
+export default function Home({ categoryList }) {
   const newProducts = getNewArrival(allProducts);
+
+  console.log("App Category list: ", categoryList);
 
   return (
     <>
       <main>
         <ImageSlider />
-        <Categories />
+        <Categories categories={categoryList} />
         <RecommandForYou
           top={false}
           className={false}

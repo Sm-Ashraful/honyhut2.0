@@ -1,18 +1,21 @@
-import CATEGORIES_ACTION_TYPE from "./categories.type";
+import { CATEGORIES_ACTION_TYPE } from "./categories.type";
+import axios from "@/utils/helper/axios";
 
 export const CATEGORY_INITIAL_STATE = {
-  categoriesData: [],
+  categories: [],
+  loading: false,
+  error: null,
 };
-export const cartReducer = (state = CATEGORY_INITIAL_STATE, action = {}) => {
+export const categoryReducer = (state = CATEGORY_INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case CATEGORIES_ACTION_TYPE.SET_CATEGORY_DATA:
+    case CATEGORIES_ACTION_TYPE.GET_ALL_CATEGORIES_SUCCESS:
+      console.log("payload.categories", payload);
       return {
         ...state,
-        categoriesData: payload,
+        categories: payload,
       };
-
     default:
       return state;
   }

@@ -26,7 +26,8 @@
     "pages/account.js",
     "pages/product/[productId].js",
     "pages/allproducts/index.jsx",
-    "pages/product-categories/[categoryName].jsx"
+    "pages/product-categories/[categoryName].jsx",
+    "pages/index.js"
   ],
   "exclude": ["node_modules"]
 }

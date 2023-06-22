@@ -242,10 +242,13 @@ const Header = () => {
             </div>
 
             <div className="w-1/5 hidden md:flex justify-end  items-center text-black ">
-              <p className="font-semibold flex justify-center items-center gap-2">
+              <a
+                href="mailto:support@honyhut.com"
+                className="font-semibold flex justify-center items-center gap-2"
+              >
                 <GrMail />
                 support@honyhut.com
-              </p>
+              </a>
             </div>
           </div>
         </div>

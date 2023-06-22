@@ -2,10 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import CategoryCard from "../Card/categoryCard";
 import categoryData from "../../utils/category-demo-data";
 import Link from "next/link";
-import { ClassNames } from "@emotion/react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "@/utils/helper/axios";
 
-const Categories = () => {
-  const [category, setCategory] = useState(categoryData);
+import { getAllCategory } from "../../Store/categories/categories.action";
+
+const Categories = ({ categories }) => {
+  const [categoriesw, setCategory] = useState(categoryData);
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const containerRef = useRef(null);
@@ -47,6 +50,12 @@ const Categories = () => {
     return () => clearInterval(slider);
   }, [index]); */
 
+  // if (!categoryList) {
+  //   return <div>Loading...</div>; // or render a loading indicator
+  // }
+
+  console.log("Categories: ", categories);
+
   return (
     <section
       className={`padding_inside relative top-52 lg:top-56 mb-[5rem] mt-[2rem] md:mt-[4rem]`}
@@ -62,16 +71,19 @@ const Categories = () => {
         ref={containerRef}
         style={{ scrollLeft: scrollPosition }}
       >
-        {category.map((item, personIndex) => {
+        {categoriesw.map((category, personIndex) => {
           const animationClass =
             personIndex % 2 === 0 ? "animate-right" : "animate-left";
           return (
-            <Link key={personIndex} href={`/product-categories/${item.name}`}>
+            <Link
+              key={personIndex}
+              href={`/product-categories/${category.name}`}
+            >
               <CategoryCard
                 animationClass={animationClass}
-                name={item.name}
-                image={item.image}
-                totalItem={item.totalItem}
+                name={category.name}
+                image={category.image}
+                totalItem={category.totalItem}
               />
             </Link>
           );
