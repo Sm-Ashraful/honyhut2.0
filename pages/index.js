@@ -9,6 +9,14 @@ import Gallery from "../components/gallery";
 import RecommandForYou from "../components/RecommandForYou";
 import { MaleEnhancement } from "../utils/male";
 
+//updated code for new interface
+import HeroSection from "../components/Home/partials/HeroSection";
+import MultiProductFields from "../components/Home/partials/MultiProductFields";
+import NewProducts from "../components/Home/partials/NewProducts";
+import ReadyToShip from "../components/Home/partials/ReadyToShip";
+import UserForm from "../components/Home/partials/userForm";
+import FeatureCategories from "../components/Home/partials/FeatureCategories";
+
 import people from "../utils/fav-demo-data";
 import { allProducts } from "@/utils/products";
 import getNewArrival from "@/utils/helper/getNewProducts";
@@ -18,67 +26,55 @@ import { useDispatch } from "react-redux";
 
 import axios from "@/utils/helper/axios";
 
-// export async function getServerSideProps() {
-//   // const dispatch = useDispatch();
+export async function getServerSideProps() {
+  // const dispatch = useDispatch();
 
-//   const res = await axios.get("/category/getcategory");
-//   if (res.status === 200) {
-//     const { categoryList } = res.data;
+  const res = await axios.get("/category/getcategory");
+  if (res.status === 200) {
+    const { categoryList } = res.data;
 
-//     return {
-//       props: {
-//         categoryList,
-//       },
-//     };
-//   } else {
-//     return {
-//       props: {
-//         error: res.data.error,
-//       },
-//     };
-//   }
-// }
+    return {
+      props: {
+        categoryList,
+      },
+    };
+  } else {
+    return {
+      props: {
+        error: res.data.error,
+      },
+    };
+  }
+}
 
-export default function Home() {
+export default function Home({ categoryList }) {
   const newProducts = getNewArrival(allProducts);
-
-  // console.log("App Category list: ", categoryList);
 
   return (
     <>
       <main>
-        <ImageSlider />
-        <Categories />
-        <RecommandForYou
+        {/** <ImageSlider /> */}
+        <HeroSection />
+        {/**<Categories categories={categoryList} /> */}
+        <MultiProductFields />
+        {/** <RecommandForYou
           top={false}
           className={false}
           products={newProducts}
           title={`Trending Royal Honey`}
-        />
-        <Products />
-        <RecommandForYou
+        /> */}
+        <NewProducts />
+        {/** <Products /> */}
+
+        <ReadyToShip />
+        {/** <RecommandForYou
           top={false}
           className={false}
           products={newProducts}
           title={`New Best Items`}
-        />
-
-        <RecommandForYou
-          top={false}
-          className={false}
-          products={people}
-          title={`Just For You`}
-        />
-        <Women />
-        <RecommandForYou
-          top={false}
-          className={false}
-          products={MaleEnhancement[2].products}
-          title={`Enhancement Pills`}
-        />
-
-        <Gallery />
-        <Review />
+        />*/}
+        <UserForm />
+        <FeatureCategories />
       </main>
     </>
   );
