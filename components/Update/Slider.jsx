@@ -7,7 +7,7 @@ import styles from "./slider.module.css";
 
 import { sliderData } from "@/utils/New Data/sliderData";
 
-const PhotoSlider = () => {
+const Slider = () => {
   const [people, setPeople] = useState(sliderData);
   const [index, setIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState(0);
@@ -86,4 +86,4 @@ const PhotoSlider = () => {
   );
 };
 
-export default PhotoSlider;
+export default Slider;

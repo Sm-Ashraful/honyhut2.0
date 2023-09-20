@@ -5,7 +5,7 @@ import { readyToShip } from "@/utils/New Data/Ptoducts";
 
 const ReadyToShip = () => {
   return (
-    <div className="w-full relative top-[8.09rem] sm:top-[8.2rem] md:top-[9.4rem] lg:top-[9.3rem] md:px-[3rem] lg:px-[4rem] xl:px-[5rem] py-5">
+    <div className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] py-5">
       <div className="w-full flex gap-5 bg-white overflow-hidden rounded-lg">
         <div className="w-1/5  relative group gap-5">
           <img
