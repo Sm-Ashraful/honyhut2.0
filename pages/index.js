@@ -53,26 +53,13 @@ export default function Home({ categoryList }) {
   return (
     <>
       <main>
-        {/** <ImageSlider /> */}
         <HeroSection />
-        {/**<Categories categories={categoryList} /> */}
         <MultiProductFields />
-        {/** <RecommandForYou
-          top={false}
-          className={false}
-          products={newProducts}
-          title={`Trending Royal Honey`}
-        /> */}
+
         <NewProducts />
-        {/** <Products /> */}
 
         <ReadyToShip />
-        {/** <RecommandForYou
-          top={false}
-          className={false}
-          products={newProducts}
-          title={`New Best Items`}
-        />*/}
+
         <UserForm />
         <FeatureCategories />
       </main>

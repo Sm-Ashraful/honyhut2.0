@@ -3,7 +3,7 @@ import { AnimatedText } from "../../Update/AnimationTextChange";
 
 const UserForm = () => {
   return (
-    <div className="text-white w-full relative top-[8.09rem] sm:top-[8.2rem] md:top-[9.4rem] lg:top-[9.3rem] md:px-[3rem] lg:px-[4rem] xl:px-[5rem]  overflow-hidden">
+    <div className="text-white w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem]  overflow-hidden">
       <div
         style={{
           backgroundImage: `url("/new/rfq_home.jpg")`,

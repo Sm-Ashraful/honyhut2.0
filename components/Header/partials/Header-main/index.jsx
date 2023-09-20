@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Dart from "../../../../Assets/dart.svg";
 import shild from "../../../../Assets/shield.svg";
 import Image from "next/image";
 
-const HeaderMain = ({ logo }) => {
+const HeaderMain = () => {
+  const [nav, setNav] = useState("");
+  useEffect(() => {
+    let prevScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 200 && window.innerWidth < 768) {
+        setNav("fixed top-0 left-0 ");
+      } else if (currentScrollY > 200) {
+        setNav("fixed top-0 left-0");
+      } else {
+        setNav("");
+      }
+
+      // Update the previous scroll position with the current one
+      prevScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className="padding_inside flex gap-20 items-center bg-white">
+    <div
+      className={`padding_inside flex gap-20 items-center bg-white ${nav} z-50 min-w-full`}
+    >
       {/** Logo part*/}
       <div
         className={`w-[9rem] md:w-[11rem] flex justify-center items-center py-5`}
       >
         <a href="/" className="w-full">
-          <img src={logo.src} alt={"Image"} className="w-full" />
+          <img src={"/honeyhut logo.png"} alt={"Image"} className="w-full" />
         </a>
       </div>
       {/**Search Bar*/}

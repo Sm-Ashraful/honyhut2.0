@@ -4,7 +4,7 @@ import Image from "next/image";
 import { categories } from "@/utils/New Data/categories";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Card from "@/components/Update/Card";
-import PhotoSlider from "@/components/heroSlider/photo-slider";
+import Slider from "@/components/Update/Slider";
 
 import { mostPopularProducts } from "@/utils/New Data/MostPopularProducts";
 
@@ -30,7 +30,7 @@ const sliderCat = [
 const HeroSection = () => {
   return (
     <div
-      className="w-full relative top-[8.09rem] sm:top-[8.2rem] md:top-[9.4rem] lg:top-[9.3rem] md:px-[3rem] lg:px-[4rem] xl:px-[5rem] h-[580px] py-5"
+      className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] h-[580px] py-5"
       style={{
         backgroundImage: `url('hks_gsol_bg.jpg')`, // Use backticks and quotes around the URL
         backgroundPosition: "top",
@@ -64,7 +64,7 @@ const HeroSection = () => {
         </div>
         <div className="flex-1 rounded-lg overflow-hidden">
           <div className="h-[70%] max-w-full relative mb-4">
-            <PhotoSlider />
+            <Slider />
           </div>
           <div className="h-[25%] flex gap-5 w-full">
             {sliderCat.map((category, idx) => {

@@ -28,12 +28,10 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-honey text-black  relative top-32 md:top-48 mb-56 md:mb-48 text-base font-carmo">
+    <footer className=" text-black  relative   text-base font-carmo">
       <div className="md:flex justify-between items-start md:pt-11 padding_inside font-openSans relative">
         <div className="p-5 ">
-          <h5 className="text-center from-left md:text-left text-primary">
-            SHOP
-          </h5>
+          <h5 className="text-center from-left md:text-left ">SHOP</h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer">
             {categoryData.map((category, idx) => {
@@ -48,24 +46,24 @@ const Footer = () => {
           </ul>
         </div>
         <div className="p-5">
-          <h5 className="text-center from-right md:text-left text-primary">
+          <h5 className="text-center from-right md:text-left ">
             Customer Care
           </h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer ">
-            <li className="hover:text-primary hover:underline">
+            <li className=" hover:underline">
               <Link href="/contact/contact-us">Contact Us</Link>
             </li>
-            <li className="hover:text-primary hover:underline">
+            <li className=" hover:underline">
               <Link href="/help/faqs">FAQs</Link>
             </li>
-            <li className="hover:text-primary hover:underline">
+            <li className=" hover:underline">
               <Link href={"/uses-instruction"}>Uses Instruction</Link>
             </li>
-            <li className="hover:text-primary hover:underline">
+            <li className=" hover:underline">
               <Link href={"/shipping-policy"}>Shipping Policy</Link>
             </li>
-            <li className="hover:text-primary hover:underline">
+            <li className=" hover:underline">
               <Link href={`/return-policy`}>Return Policy</Link>
             </li>
           </ul>
@@ -89,9 +87,7 @@ const Footer = () => {
         </div>
 
         <div className="p-5 tracking-wider cursor-pointer">
-          <h5 className="text-center from-left md:text-left text-primary">
-            Links
-          </h5>
+          <h5 className="text-center from-left md:text-left ">Links</h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer">
             <li>
@@ -109,7 +105,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="p-5 ">
-          <h5 className="text-center from-left md:text-left text-primary">
+          <h5 className="text-center from-left md:text-left ">
             HONYHUT - for Mens and Women Enhancement
           </h5>
           <div className="pt-2">

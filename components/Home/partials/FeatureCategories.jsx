@@ -12,7 +12,7 @@ import { Autoplay } from "swiper/modules";
 
 const FeatureCategories = () => {
   return (
-    <div className="mt-10 w-full relative top-[8.09rem] sm:top-[8.2rem] md:top-[9.4rem] lg:top-[9.3rem] md:px-[3rem] lg:px-[4rem] xl:px-[5rem]  overflow-hidden">
+    <div className="mt-10 w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem]  overflow-hidden">
       <div className="flex items-end">
         <h2 className="!ml-0">Feature categories</h2>
         <p className="text-gray-400 text-sm">
