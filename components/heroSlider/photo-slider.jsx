@@ -5,11 +5,14 @@ import LeftRightArrow from "../common/LeftRightArrow";
 
 import styles from "./slider.module.css";
 
-const PhotoSlider = ({ data, delayTime }) => {
-  const [people, setPeople] = useState(data);
+import { sliderData } from "@/utils/New Data/sliderData";
+
+const PhotoSlider = () => {
+  const [people, setPeople] = useState(sliderData);
   const [index, setIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchEndX, setTouchEndX] = useState(0);
+  let delayTime = 5000;
 
   useEffect(() => {
     const lastIndex = data.length - 1;
@@ -45,7 +48,7 @@ const PhotoSlider = ({ data, delayTime }) => {
   return (
     <div>
       {people.map((person, personIndex) => {
-        const { id, image, name } = person;
+        const { image } = person;
         let position = "nextSlide";
         if (personIndex === index) {
           position = "activeSlide";
@@ -61,12 +64,12 @@ const PhotoSlider = ({ data, delayTime }) => {
             onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
             onTouchEnd={(e) => setTouchEndX(e.changedTouches[0].clientX)}
             className={`${styles[position]} duration-700`}
-            key={id}
+            key={personIndex}
           >
             <Link href={`/allproducts`}>
               <Image
                 src={image}
-                alt={name}
+                alt={"SLIDER PHOTO"}
                 fill
                 cover
                 className={styles.person_img}
@@ -75,17 +78,7 @@ const PhotoSlider = ({ data, delayTime }) => {
           </article>
         );
       })}
-      <div class="absolute -bottom-[45px] left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0">
-        {Array.from({ length: data.length }, (_, i) => (
-          <span
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`mx-[5px]  h-[8px] w-[8px] sm:w-[12px] sm:h-[12px] rounded-full cursor-pointer border border-solid border-red-800 bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] motion-reduce:transition-none ${
-              index === i && "bg-honey border-none"
-            }`}
-          ></span>
-        ))}
-      </div>
+
       <div className="hidden">
         <LeftRightArrow setIndex={setIndex} index={index} />
       </div>
