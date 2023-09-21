@@ -105,7 +105,7 @@ const HeroSection = () => {
                   type="flex"
                   style={{
                     width: "100%",
-                    marginBottom: "16px",
+                    marginBottom: "10px",
                   }}
                 />
               );
