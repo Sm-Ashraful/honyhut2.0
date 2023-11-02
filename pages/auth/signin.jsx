@@ -38,7 +38,7 @@ const SignIn = () => {
   }, [user]);
 
   return (
-    <main className="relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem] w-full bg-primary md:flex md:justify-center overflow-visible md:items-center ">
+    <main className="relative w-full bg-primary md:flex md:justify-center overflow-visible md:items-center ">
       <div className="bg-white flex justify-center items-center  w-full text-center md:rounded-2xl md:shadow-2xl md:px-16 md:flex md:w-3/5 md:max-w-4xl">
         {/* Sign in section */}
         <div className="w-full py-5">

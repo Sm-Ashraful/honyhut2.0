@@ -12,9 +12,9 @@ const UserForm = () => {
           width: "100%",
           height: "auto",
         }}
-        className="py-10 px-5 rounded-lg flex gap-5"
+        className="py-10 px-5 rounded-lg flex flex-col md:flex-row gap-5"
       >
-        <div className="w-1/2 ">
+        <div className="w-full md:w-1/2 ">
           <h3>Request for Quotations (RFQ)</h3>
           <div className="min-h-[40px]">
             <AnimatedText />
@@ -28,7 +28,7 @@ const UserForm = () => {
             <li className="pb-2">Compare and choose the best Quotations</li>
           </ul>
         </div>
-        <div className="w-1/2 h-full">
+        <div className="w-full md:w-1/2 h-full">
           <div className="w-full h-full bg-white text-black p-8 rounded-lg">
             <h3>Get Quotations Now</h3>
             <form action="">

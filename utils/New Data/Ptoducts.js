@@ -62,4 +62,40 @@ export const readyToShip = [
     MOQ: "1 Pieces",
     image: ["/new/mini-massage-gun-deep-tissue.png"],
   },
+  {
+    name: "Portable Mini PC Intel Quad Core Processor 4+128GB RAM for Business Presentation Office",
+    leadTime: "Lead Time 7–30 days",
+    price: "US$ 575 - 670 ",
+    MOQ: "1 Pieces",
+    image: ["/new/Portable-Mini-PC.jpg"],
+  },
+  {
+    name: "Portable Mini PC Intel Quad Core Processor 4+128GB RAM for Business Presentation Office",
+    leadTime: "Lead Time 7–30 days",
+    price: "US$ 575 - 670 ",
+    MOQ: "1 Pieces",
+    image: ["/new/Portable-Mini-PC.jpg"],
+  },
+
+  {
+    name: "Portable Mini PC Intel Quad Core Processor 4+128GB RAM for Business Presentation Office",
+    leadTime: "Lead Time 7–30 days",
+    price: "US$ 575 - 670 ",
+    MOQ: "1 Pieces",
+    image: ["/new/Portable-Mini-PC.jpg"],
+  },
+  {
+    name: "Portable Mini PC Intel Quad Core Processor 4+128GB RAM for Business Presentation Office",
+    leadTime: "Lead Time 7–30 days",
+    price: "US$ 575 - 670 ",
+    MOQ: "1 Pieces",
+    image: ["/new/Portable-Mini-PC.jpg"],
+  },
+  {
+    name: "Portable Mini PC Intel Quad Core Processor 4+128GB RAM for Business Presentation Office",
+    leadTime: "Lead Time 7–30 days",
+    price: "US$ 575 - 670 ",
+    MOQ: "1 Pieces",
+    image: ["/new/Portable-Mini-PC.jpg"],
+  },
 ];

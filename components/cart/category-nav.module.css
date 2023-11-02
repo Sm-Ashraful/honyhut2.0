@@ -31,13 +31,12 @@
   width: 330px;
   height: 100vh;
   position: absolute;
-  top: 0;
+  top: 30px;
   right: 0;
   letter-spacing: 1px;
   line-height: 2;
-  @apply bg-primary;
-  @apply shadow-allIn;
-  border-left: 1px solid #638c28;
+  @apply bg-white border-l border-l-yellowCustom;
+
   z-index: 1000;
   transform: translateX(150%);
   transition: transform 0.3s ease-in-out;
@@ -56,7 +55,7 @@
     height: 100vh;
     width: 370px;
     right: 0;
-    top: 0;
+    top: 30px;
   }
 }
 

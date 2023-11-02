@@ -34,7 +34,7 @@ const Product = () => {
   }
 
   return (
-    <div className="relative w-full top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
+    <div className="relative w-full">
       <div className="relative">
         <div>
           <HeroTop title="" />

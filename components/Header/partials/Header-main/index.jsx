@@ -129,7 +129,7 @@ const HeaderMain = () => {
         </form>
       </div>
       {/** rest things*/}
-      <div className="w-1/5 flex justify-center items-center">
+      <div className="w-1/5 hidden md:flex justify-center items-center">
         <div className="flex">
           <div className="relative">
             <Image src={Dart} alt={"name"} width={40} height={40} />

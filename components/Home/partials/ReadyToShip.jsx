@@ -2,19 +2,20 @@ import React from "react";
 import CardWithButton from "../../Update/CardWithButton";
 
 import { readyToShip } from "@/utils/New Data/Ptoducts";
+import Link from "next/link";
 
 const ReadyToShip = () => {
   return (
     <div className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] py-5">
-      <div className="w-full flex gap-5 bg-white overflow-hidden rounded-lg">
-        <div className="w-1/5  relative group gap-5">
+      <div className="w-full flex flex-col md:flex-row gap-5 bg-white overflow-hidden rounded-lg">
+        <div className="w-full md:w-1/5   relative group gap-5">
           <img
             src="/new/rto_home.jpg"
             alt=""
-            className="w-full h-full object-cover transition-transform transform"
+            className="w-full h-full object-cover transition-transform transform hidden md:block"
           />
-          <div className="w-full flex flex-col justify-center items-center absolute top-5 left-1/2 -translate-x-1/2">
-            <h3 className=" text-white">Ready To Ship</h3>
+          <div className="w-full flex flex-col justify-center items-center pt-5 md:absolute top-5 md:left-1/2 md:-translate-x-1/2">
+            <h3 className=" text-black md:text-white">Ready To Ship</h3>
             <button className="px-5 py-2 rounded-full bg-white text-red-400">
               View More
             </button>
@@ -26,20 +27,22 @@ const ReadyToShip = () => {
             marketplace right after orders are placed.
           </p>
         </div>
-        <div className="flex-1 flex gap-5">
-          {readyToShip.map((item, idx) => {
+        <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-5">
+          {readyToShip.slice(0, 4).map((item, idx) => {
             return (
-              <CardWithButton
-                key={idx}
-                image={item.image[0]}
-                name={item.name}
-                MOQ={item.MOQ}
-                price={item.price}
-                style={{
-                  flex: `0 0 calc(${100 / 4}% - 30px)`, // Adjust the '10px' as the desired gap
-                  margin: "5px", // Adjust the margin as needed
-                }}
-              />
+              <Link href={`/product/${idx + 5}`}>
+                <CardWithButton
+                  key={idx}
+                  image={item.image[0]}
+                  name={item.name}
+                  MOQ={item.MOQ}
+                  price={item.price}
+                  style={{
+                    // Adjust the '10px' as the desired gap
+                    margin: "5px", // Adjust the margin as needed
+                  }}
+                />
+              </Link>
             );
           })}
         </div>

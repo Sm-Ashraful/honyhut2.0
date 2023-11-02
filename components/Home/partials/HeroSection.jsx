@@ -30,7 +30,7 @@ const sliderCat = [
 const HeroSection = () => {
   return (
     <div
-      className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] h-[580px] py-5"
+      className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] md:h-[580px] md:py-5"
       style={{
         backgroundImage: `url('hks_gsol_bg.jpg')`, // Use backticks and quotes around the URL
         backgroundPosition: "top",
@@ -38,8 +38,8 @@ const HeroSection = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="w-full h-full flex gap-5 ">
-        <div className="w-1/4 bg-white rounded-lg">
+      <div className="w-full h-full flex flex-col md:flex-row gap-5 ">
+        <div className="w-full md:w-1/4 bg-white rounded-lg order-1 md:order-0 hidden md:block">
           <h2 className="relative flex items-center gap-3 py-5">
             <span>
               <Image src={Listing} alt="list-icon" width={20} height={20} />
@@ -62,7 +62,7 @@ const HeroSection = () => {
             })}
           </div>
         </div>
-        <div className="flex-1 rounded-lg overflow-hidden">
+        <div className="order-0 md:order-1 h-[350px] md:h-auto md:flex-1 rounded-lg overflow-hidden">
           <div className="h-[70%] max-w-full relative mb-4">
             <Slider />
           </div>
@@ -89,7 +89,7 @@ const HeroSection = () => {
             })}
           </div>
         </div>
-        <div className="w-1/4 bg-white rounded-lg px-5">
+        <div className="hidden md:block w-full md:w-1/4 bg-white rounded-lg px-5">
           <h2 className="relative  py-5">
             <span>Most Popular</span>
           </h2>

@@ -65,10 +65,9 @@ const CartNav = ({ headingLine, view, goto }) => {
       }`}
     >
       <div className="w-full h-full  mb-24 relative">
-        <div className="fixed top-0 px-5 py-5 flex justify-between items-center shadow-md w-full z-10">
+        <div className="fixed top-0 px-5 py-5 flex justify-between items-center border-y border-y-yellowCustom w-full z-10">
           <p className="text-xl text-headingColor font-bold">
             <span>{headingLine}</span>
-            <hr class="w-[60px] my-[5px] border-2  border-honey" />
           </p>
 
           <p

@@ -7,7 +7,7 @@ const CardWithButton = (props) => {
         <div className={`w-full relative bg-[#f3f3f3] bg-blend-multiply mb-5`}>
           <img className="object-cover" src={props.image} alt={props.name} />
         </div>
-        <div>
+        <div className="px-4 py-4">
           {
             <p className="text-[#666] pb-1.5 text-sm">
               {props.name.length > 50
