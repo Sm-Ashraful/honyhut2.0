@@ -13,7 +13,7 @@ const AllProducts = () => {
   const path = pathName.split("/");
   const viewProperty = useSelector((state) => state.sidebar.isViewProperty);
   return (
-    <div className="relative w-full top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem] ">
+    <div className="relative w-full">
       <HeroTop title={"All Products"} />
 
       <div className=" w-full gap-[10px] h-full  padding_inside">

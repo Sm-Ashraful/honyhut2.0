@@ -18,7 +18,7 @@ const FavSection = () => {
   }, [faItems]);
 
   return (
-    <section className="padding_inside relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem] h-auto my-5">
+    <section className="padding_inside relative h-auto my-5">
       <h2 className="mb-0 w-full text-center">My Favorite Items</h2>
       <hr className="h-px my-8 bg-gray border-0 dark:bg-gray" />
       {faItems.length === 0 ? (

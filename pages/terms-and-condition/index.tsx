@@ -16,7 +16,7 @@ const TermsAndCondition = () => {
   const formattedDate = fiveDaysAgo.toLocaleDateString("en-US", options);
 
   return (
-    <div className="w-full  relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
+    <div className="w-full  relative ">
       <HeroTop title={`Terms & Conditions`} />
 
       <div className="mt-6 md:mt-12 padding_inside">

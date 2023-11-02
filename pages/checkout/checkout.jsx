@@ -124,7 +124,7 @@ export default function Checkout() {
 
   return (
     <>
-      <main className="bg-primary h-auto relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
+      <main className="bg-primary h-auto relative ">
         <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center shadow-md">
           <p className="mb-0  text-xl font-bold">
             <FaHome className="text-secondary" />

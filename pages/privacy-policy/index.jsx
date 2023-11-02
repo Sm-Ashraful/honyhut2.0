@@ -3,7 +3,7 @@ import HeroTop from "../../components/common/top-component";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="w-full  relative top-[8.09rem] md:top-[9.4rem] lg:top-[9.3rem]">
+    <div className="w-full  relative ">
       <HeroTop title="Privacy Policy" />
       <div className="mt-6 md:mt-12 padding_inside">
         <p className="text-center leading-8 text-lg md:text-sm removeTextShadow text-[#878787]">
