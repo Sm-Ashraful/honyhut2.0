@@ -1,6 +1,7 @@
 export const categories = [
   {
     name: "Auto Parts & Accessories",
+    children: [],
   },
   {
     name: "Consumer Electronics",

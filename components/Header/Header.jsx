@@ -96,12 +96,15 @@ const Header = () => {
       <div className="hidden md:block">
         <HeaderTop handleCart={handleCart} />
       </div>
-      <HeaderMain logo={logo} />
-      <CartNav
-        headingLine={`Shopping Cart`}
-        view={`View Cart`}
-        goto={`Goto Checkout`}
-      />
+      <HeaderMain logo={logo} handleCart={handleCart} />
+      <div className="hidden md:block">
+        <CartNav
+          headingLine={`Shopping Cart`}
+          view={`View Cart`}
+          goto={`Goto Checkout`}
+        />
+      </div>
+      <Sidebar />
     </div>
   );
 };

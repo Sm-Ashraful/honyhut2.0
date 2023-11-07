@@ -7,7 +7,7 @@ const NewProducts = () => {
     <div className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] py-5">
       <MultiCardBox
         product={Products}
-        title={"New Arrivals"}
+        productCategory={"New Arrivals"}
         subtitle={
           "Goods & services handpicked by B2B sourcing & procurement specialists"
         }

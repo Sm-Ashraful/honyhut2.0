@@ -3,7 +3,7 @@ import React from "react";
 
 const Card = (props) => {
   return (
-    <div className={`w-full h-auto`}>
+    <div className={`w-full h-auto cursor-pointer group`}>
       <div
         className={`w-full h-full  ${props.type === "flex" ? "flex" : ""}`}
         style={props.style}
@@ -17,20 +17,26 @@ const Card = (props) => {
         </div>
         <div>
           {props.type === "flex" ? (
-            <p className="text-[#666] pb-1.5 text-sm">
+            <p className="text-[#666] pb-1.5 text-sm group-hover:text-primary-red">
               {props.name.length > 28
                 ? props.name.slice(0, 28) + "..."
                 : props.name}
             </p>
           ) : null}
-          <p className={`text-black font-semibold pb-1.5 ${props.position}`}>
+          <p
+            className={`text-black font-semibold pb-1.5 group-hover:text-primary-red ${props.position}`}
+          >
             {props.price}
           </p>
-          <p className={`text-[#666] text-sm ${props.position}`}>
+          <p
+            className={`text-[#666] text-sm ${props.position} group-hover:text-primary-red`}
+          >
             {props.MOQ}(MOQ)
           </p>
 
-          <p className={`text-[#666] text-sm ${props.position}`}>
+          <p
+            className={`text-[#666] text-sm ${props.position} group-hover:text-primary-red`}
+          >
             {props.typo && props.typo}
           </p>
         </div>

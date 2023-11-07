@@ -2,9 +2,19 @@ import React, { useState, useEffect } from "react";
 import Dart from "../../../../Assets/dart.svg";
 import shild from "../../../../Assets/shield.svg";
 import Image from "next/image";
+import { BsCart4, BsMenuApp } from "react-icons/bs";
+import Listing from "../../../../Assets/listing-box.svg";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { GoPerson } from "react-icons/go";
+import Link from "next/link";
 
-const HeaderMain = () => {
+import { toggle } from "@/Store/slices/globalSlice";
+import { useDispatch } from "react-redux";
+
+const HeaderMain = ({ logo, handleCart }) => {
   const [nav, setNav] = useState("");
+  const dispatch = useDispatch();
+
   useEffect(() => {
     let prevScrollY = window.scrollY;
 
@@ -29,20 +39,45 @@ const HeaderMain = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleSidebar = () => {
+    dispatch(toggle(true));
+  };
   return (
     <div
-      className={`padding_inside flex gap-20 items-center bg-white ${nav} z-50 min-w-full`}
+      className={`padding_inside !pb-5 md:pb-0 flex flex-col md:flex-row md:gap-20 items-center bg-white ${nav} z-50 min-w-full`}
     >
       {/** Logo part*/}
-      <div
-        className={`w-[9rem] md:w-[11rem] flex justify-center items-center py-5`}
-      >
-        <a href="/" className="w-full">
-          <img src={"/honeyhut logo.png"} alt={"Image"} className="w-full" />
-        </a>
+      <div className="w-full md:w-auto flex justify-between items-center">
+        <div className="md:hidden w-[30%]">
+          <p className="relative w-[fit-content]" onClick={handleSidebar}>
+            <span>
+              <Image src={Listing} alt="list-icon" width={20} height={20} />
+            </span>
+          </p>
+        </div>
+        <div
+          className={`w-[8rem] md:w-[11rem] flex justify-center items-center py-5`}
+        >
+          <a href="/" className="w-full">
+            <img src={"/honeyhut logo.png"} alt={"Image"} className="w-full" />
+          </a>
+        </div>
+        <div className="md:hidden w-[30%] flex justify-end gap-x-3 text-[21px]">
+          <Link href="/favorite">
+            <MdOutlineFavoriteBorder />
+          </Link>
+          <Link href="/cart/shopping-cart">
+            <BsCart4 />
+          </Link>
+
+          <Link href={"/auth/signup"}>
+            <GoPerson />
+          </Link>
+        </div>
       </div>
       {/**Search Bar*/}
-      <div className="flex-1">
+      <div className="md:flex-1 w-full">
         <form className="w-full">
           <div class="flex w-full border-[2px] border-secondary rounded-full overflow-hidden">
             <button
