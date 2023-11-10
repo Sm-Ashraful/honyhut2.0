@@ -14,9 +14,11 @@ import { Navigation } from "swiper/modules";
 export default function CategorySlider() {
   const [swiperRef, setSwiperRef] = useState(null);
 
+  //  h-[65px] h-[85px]
+
   return (
-    <div className="padding_inside w-full h-[85px] mt-5">
-      <div className="bg-[#0c1228] h-[65px] rounded-md overflow-hidden">
+    <div className="padding_inside w-full  mt-5">
+      <div className="bg-[#0c1228] rounded-md">
         <Swiper
           slidesPerView={5}
           onSwiper={setSwiperRef}

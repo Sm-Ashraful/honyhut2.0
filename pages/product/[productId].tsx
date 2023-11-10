@@ -8,7 +8,7 @@ import HeroTop from "@/components/common/top-component";
 import { useRouter } from "next/router";
 
 import { getProductById } from "../../utils/products";
-import RouteLink from "@/components/common/route-link";
+import Breadcrumbs from "../../components/Update/BreadCrumbs";
 
 const Product = () => {
   const [products, setProducts] = useState(RelProductData);
@@ -35,15 +35,6 @@ const Product = () => {
 
   return (
     <div className="relative w-full">
-      <div className="relative">
-        <div>
-          <HeroTop title="" />
-        </div>
-        <div className="absolute md:top-0 left-0  bottom-1">
-          <RouteLink path={path} background="transparent" />
-        </div>
-      </div>
-
       <div className="padding_inside bg-white">
         <ProductCatalog product={product} />
         <RecommendProduct

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Dart from "../../../../Assets/dart.svg";
-import shild from "../../../../Assets/shield.svg";
 import Image from "next/image";
-import { BsCart4, BsMenuApp } from "react-icons/bs";
+import { BsCart4 } from "react-icons/bs";
 import Listing from "../../../../Assets/listing-box.svg";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
@@ -11,8 +10,13 @@ import Link from "next/link";
 import { toggle } from "@/Store/slices/globalSlice";
 import { useDispatch } from "react-redux";
 
+import AccountDropdown from "../account-dropdown";
+import CartNav from "@/components/cart";
+import { FaSearch } from "react-icons/fa";
+
 const HeaderMain = ({ logo, handleCart }) => {
   const [nav, setNav] = useState("");
+  const [fixedNav, setFixedNav] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,12 +25,14 @@ const HeaderMain = ({ logo, handleCart }) => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > 200 && window.innerWidth < 768) {
+      if (currentScrollY > 200) {
         setNav("fixed top-0 left-0 ");
-      } else if (currentScrollY > 200) {
-        setNav("fixed top-0 left-0");
+        if (window.innerWidth < 720) {
+          setFixedNav(true);
+        }
       } else {
         setNav("");
+        setFixedNav(false);
       }
 
       // Update the previous scroll position with the current one
@@ -43,17 +49,26 @@ const HeaderMain = ({ logo, handleCart }) => {
   const handleSidebar = () => {
     dispatch(toggle(true));
   };
+  const handleSearchToggle = () => {
+    setFixedNav(!fixedNav);
+  };
   return (
     <div
-      className={`padding_inside !pb-5 md:pb-0 flex flex-col md:flex-row md:gap-20 items-center bg-white ${nav} z-50 min-w-full`}
+      className={`padding_inside !pb-2  md:!pb-0 flex flex-col md:flex-row md:gap-20 items-center bg-white ${nav} z-50 min-w-full`}
     >
       {/** Logo part*/}
       <div className="w-full md:w-auto flex justify-between items-center">
-        <div className="md:hidden w-[30%]">
+        <div className="md:hidden w-[30%] flex items-center gap-3">
           <p className="relative w-[fit-content]" onClick={handleSidebar}>
             <span>
-              <Image src={Listing} alt="list-icon" width={20} height={20} />
+              <Image src={Listing} alt="list-icon" width={18} height={18} />
             </span>
+          </p>
+          <p
+            className={`${fixedNav ? "block" : "hidden"}`}
+            onClick={handleSearchToggle}
+          >
+            <FaSearch />
           </p>
         </div>
         <div
@@ -63,23 +78,24 @@ const HeaderMain = ({ logo, handleCart }) => {
             <img src={"/honeyhut logo.png"} alt={"Image"} className="w-full" />
           </a>
         </div>
-        <div className="md:hidden w-[30%] flex justify-end gap-x-3 text-[21px]">
-          <Link href="/favorite">
+        <div className="md:hidden  flex justify-end items-center gap-x-1 text-[21px]">
+          <Link href="/favorite" className="md:text-[26px]">
             <MdOutlineFavoriteBorder />
           </Link>
-          <Link href="/cart/shopping-cart">
-            <BsCart4 />
-          </Link>
 
-          <Link href={"/auth/signup"}>
+          <CartNav />
+
+          <Link href={"/auth/signup"} className="md:text-[26px]">
             <GoPerson />
           </Link>
         </div>
       </div>
       {/**Search Bar*/}
-      <div className="md:flex-1 w-full">
+      <div
+        className={`${fixedNav ? "hidden !pb-0" : "md:flex-1 block"}  w-full`}
+      >
         <form className="w-full">
-          <div class="flex w-full border-[2px] border-secondary rounded-full overflow-hidden">
+          <div class="flex w-full border-[2px] border-customTheme rounded-full overflow-hidden">
             <button
               id="dropdown-button"
               data-dropdown-toggle="dropdown"
@@ -103,48 +119,7 @@ const HeaderMain = ({ logo, handleCart }) => {
                 />
               </svg>
             </button>
-            <div
-              id="dropdown"
-              class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-            >
-              <ul
-                class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdown-button"
-              >
-                <li>
-                  <button
-                    type="button"
-                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Mockups
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Templates
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Design
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Logos
-                  </button>
-                </li>
-              </ul>
-            </div>
+
             <div class="relative w-full">
               <input
                 type="search"
@@ -155,27 +130,24 @@ const HeaderMain = ({ logo, handleCart }) => {
               />
               <button
                 type="submit"
-                class="absolute top-0 right-0 py-2.5 px-6 text-sm font-medium h-full text-white bg-secondary "
+                class="absolute top-0 right-0 py-2.5 px-6 text-sm font-medium h-full text-white bg-customTheme "
               >
-                <span class="">Search</span>
+                <span className="text-customText">Search</span>
               </button>
             </div>
           </div>
         </form>
       </div>
       {/** rest things*/}
-      <div className="w-1/5 hidden md:flex justify-center items-center">
-        <div className="flex">
-          <div className="relative">
-            <Image src={Dart} alt={"name"} width={40} height={40} />
+      <div className="w-1/4 hidden md:flex gap-5 justify-end items-center">
+        <CartNav />
+
+        <div className="flex gap-1 items-center cursor-pointer">
+          <GoPerson className="text-[26px]" />
+          <div className="flex items-center gap-2">
+            <Link href={"/auth/signin"}>Sign In</Link> |
+            <Link href={"/auth/signup"}>Register</Link>
           </div>
-          <p className="text-sm">Request for Quotations</p>
-        </div>
-        <div className="flex items-center">
-          <div className="relative">
-            <Image src={shild} alt={"name"} width={40} height={40} />
-          </div>
-          <p> Order</p>
         </div>
       </div>
     </div>

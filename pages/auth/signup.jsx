@@ -40,8 +40,8 @@ const Signup = () => {
   }, [user]);
 
   return (
-    <main className="relative w-full bg-primary md:flex md:justify-center md:items-center">
-      <div className="bg-white flex justify-center items-center  w-full text-center md:rounded-2xl md:shadow-2xl md:px-16 md:flex md:w-3/5 md:max-w-4xl">
+    <main className="relative w-full md:flex md:justify-center md:items-center">
+      <div className=" flex justify-center items-center  w-full text-center md:rounded-2xl md:px-16 md:flex md:w-3/5 md:max-w-4xl">
         {/* Sign up section */}
         <div className="w-full p-5">
           <div>
@@ -53,19 +53,19 @@ const Signup = () => {
             <div className="flex justify-center my-2">
               <a
                 href="#"
-                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-customTheme hover:text-customText"
               >
                 <FaFacebookF className="text-sm lg:text-base" />
               </a>
               <a
                 href="#"
-                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-customTheme hover:text-customText"
               >
                 <FaInstagram className="text-sm" />
               </a>
               <a
                 href="#"
-                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-customTheme hover:text-customText"
               >
                 <FaGoogle className="text-sm lg:text-base" />
               </a>
@@ -75,41 +75,41 @@ const Signup = () => {
               className="flex flex-col items-center"
               onSubmit={handleSubmit}
             >
-              <div className="bg-primary w-3/4 p-2 flex items-center mb-3 rounded-lg">
+              <div className="bg-white w-3/4 p-2 flex items-center mb-3 rounded-lg">
                 <MdOutlinePeople className="text-gray m-1" />
                 <input
                   type="text"
                   name="name"
                   placeholder="Name"
                   value={name}
-                  className="bg-primary outline-none text-sm lg:text-base flex-1"
+                  className=" outline-none text-sm lg:text-base flex-1"
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="bg-primary w-3/4 p-2 flex items-center mb-3 rounded-lg">
+              <div className="bg-white w-3/4 p-2 flex items-center mb-3 rounded-lg">
                 <FaRegEnvelope className="text-gray m-1" />
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
                   value={email}
-                  className="bg-primary outline-none text-sm lg:text-base flex-1"
+                  className=" outline-none text-sm lg:text-base flex-1"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="bg-primary w-3/4 p-2 flex items-center mb-3 rounded-lg">
+              <div className="bg-white w-3/4 p-2 flex items-center mb-3 rounded-lg">
                 <MdLockOutline className="text-gray m-1" />
                 <input
                   type="password"
                   name="password"
                   placeholder="Enter Password"
                   value={password}
-                  className="bg-primary outline-none text-sm lg:text-base flex-1"
+                  className=" outline-none text-sm lg:text-base flex-1"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
-              <button className=" border-2 border-black rounded-full px-12 py-2 inline-block font-semibold hover:bg-honey">
+              <button className=" border-2 border-black rounded-full px-12 py-2 inline-block font-semibold hover:bg-customTheme hover:text-customText">
                 Sign Up
               </button>
               <div className=" flex ">

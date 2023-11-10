@@ -1,7 +1,22 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Card = (props) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 720);
+    };
+
+    handleResize(); // Set the initial value
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className={`w-full h-auto cursor-pointer group`}>
       <div
@@ -10,12 +25,12 @@ const Card = (props) => {
       >
         <div
           className={`${
-            props.type === "flex" ? "w-1/2" : "w-full"
+            props.type === "flex" ? (isMobile ? "w-1/3" : "w-1/2") : "w-full"
           }  relative mr-[16px] bg-[#f3f3f3] bg-blend-multiply`}
         >
           <img className="object-cover" src={props.image} alt={props.name} />
         </div>
-        <div>
+        <div className={`${isMobile && "w-1/2"}`}>
           {props.type === "flex" ? (
             <p className="text-[#666] pb-1.5 text-sm group-hover:text-primary-red">
               {props.name.length > 28
@@ -33,6 +48,13 @@ const Card = (props) => {
           >
             {props.MOQ}(MOQ)
           </p>
+          {props.type === "flex" && isMobile ? (
+            <p
+              className={`text-[#666] text-sm ${props.position} group-hover:text-primary-red`}
+            >
+              {props.s_desc && props.s_desc.slice(0, 120)}...
+            </p>
+          ) : null}
 
           <p
             className={`text-[#666] text-sm ${props.position} group-hover:text-primary-red`}

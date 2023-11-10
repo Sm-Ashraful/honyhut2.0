@@ -9,7 +9,11 @@ import FilterPage from "../sidebarFilter/filter";
 import { HiViewGrid } from "react-icons/hi";
 import { MdViewStream } from "react-icons/md";
 
-const FilterProducts = () => {
+// drawer code
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+
+const FilterProducts = ({ open, handleDrawerOpen }) => {
   const dispatch = useDispatch();
   const [checkedItems, setCheckedItems] = useState({});
   const [sliderValue, setSliderValue] = useState(0);
@@ -41,13 +45,10 @@ const FilterProducts = () => {
     setSelectedCategory(event.target.value);
   }
 
-  console.log("View property: ", viewProperty);
-
-  return (
-    <div className="my-[1rem] md:mb-[2rem] md:mt-[1rem]">
-      <div className="w-full h-auto">
-        <div className="py-[10px] w-full text-black mb-2 flex justify-between">
-          <button
+  /**
+   *  sx={{ mr: 2, ...(open && { display: "none" }) }}
+   * before drawer coding
+   * <button
             onClick={handleFilterOnClick}
             className="mb-0 text-trueGray-400 text-sm flex justify-center items-center cursor-pointer gap-[5px] px-8 py-2 border border-primary hover:border-ash"
           >
@@ -55,6 +56,22 @@ const FilterProducts = () => {
 
             <span> Filter</span>
           </button>
+   */
+
+  return (
+    <div className="my-[1rem] md:mb-[2rem] md:mt-[1rem]">
+      <div className="w-full h-auto">
+        <div className="py-[10px] w-full text-black mb-2 flex justify-between">
+          <button
+            onClick={handleDrawerOpen}
+            aria-label="open drawer"
+            className="mb-0 text-trueGray-400 text-sm flex justify-center items-center cursor-pointer gap-[5px] px-8 py-2 border border-primary hover:border-ash"
+          >
+            <IoFilter />
+
+            <span> Filter</span>
+          </button>
+
           <FilterPage />
           <div className="flex justify-center items-center  text-2xl md:text-4xl">
             <span

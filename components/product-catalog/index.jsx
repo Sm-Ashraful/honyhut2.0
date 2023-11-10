@@ -6,6 +6,7 @@ import Image from "next/image";
 // import ReactImageMagnify from "react-image-magnify";
 
 import { HiOutlinePlusCircle } from "react-icons/hi2";
+import { BsCartPlus } from "react-icons/bs";
 
 import LeftRightArrow from "@/components/common/LeftRightArrow";
 
@@ -19,11 +20,23 @@ import BtnOutlineCounter from "@/components/Button/BtnOutlineCounter";
 import BtnSolid from "@/components/Button/BtnSolid";
 
 import { useDispatch, useSelector } from "react-redux";
+import CustomizedBreadcrumbs from "../Update/BreadCrumbs";
+///mui import
+import { Box, Rating, Typography } from "@mui/material";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 
 const ProductCatalog = ({ product }) => {
   const [count, setCount] = useState(1);
   const [index, setIndex] = useState(0);
   const [zoom, setZoom] = useState(false);
+  const [tabValue, setTabValue] = useState("1");
+  const [age, setAge] = useState("");
+  const [ratingValue, setRatingValue] = useState(0);
+  const [writeReview, setWriteReview] = useState(false);
+
   const dispatch = useDispatch();
 
   const imageRef = useRef(null);
@@ -64,13 +77,22 @@ const ProductCatalog = ({ product }) => {
   const handleMouseLeave = () => {
     setZoom(false);
   };
-  console.log("Products: ", product);
+
+  const handleChangeValue = (event, value) => {
+    setTabValue(value);
+  };
 
   return (
     <section className="relative bg-white  ">
       <div className="flex flex-wrap px-[5px] md:pt-5">
+        <div className="block md:hidden pt-5">
+          <div className="relative">
+            <CustomizedBreadcrumbs />
+          </div>
+          <h3 className="text-xl md:text-3xl font-bold pt-3">{product.name}</h3>
+        </div>
         <div className="relative w-screen md:w-1/2   rounded flex flex-col justify-center items-center">
-          <div className="relative overflow-hidden w-full h-full">
+          <div className="relative overflow-hidden w-full md:h-full">
             <div
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
@@ -99,7 +121,7 @@ const ProductCatalog = ({ product }) => {
             </div>
           </div>
           <div className="preview z-50 hidden"></div>
-          <div className="h-44 flex flex-nowrap scroll-smooth x-scrollable-content">
+          <div className="h-44 pt-4 flex flex-nowrap scroll-smooth x-scrollable-content">
             {product.image.map((pic, picIndex) => {
               return (
                 <div key={picIndex} className="relative w-40 h-full ">
@@ -112,7 +134,12 @@ const ProductCatalog = ({ product }) => {
 
         {/* Product Information and button */}
         <div className="md:pl-12  w-full md:w-1/2  md:relative">
-          <h3 className="text-3xl font-bold">{product.name}</h3>
+          <div className="hidden md:block">
+            <div className="relative">
+              <CustomizedBreadcrumbs />
+            </div>
+            <h3 className="text-3xl font-bold">{product.name}</h3>
+          </div>
           <div className="mb-2">
             <span className="flex items-center">
               <ReviewStar className={`flex text-honey`} />
@@ -162,10 +189,7 @@ const ProductCatalog = ({ product }) => {
               <BtnOutlineCounter count={count} setCount={setCount} />
             </span>
             <span onClick={handleAddToCart}>
-              <BtnSolid
-                btnText={"Add to Cart"}
-                btnImage={<HiOutlinePlusCircle />}
-              />
+              <BtnSolid btnText={"Add to Cart"} btnImage={<BsCartPlus />} />
             </span>
           </div>
           <div className="flex items-center py-2 border-gray border-b-2"></div>
@@ -205,69 +229,111 @@ const ProductCatalog = ({ product }) => {
         {/* Product Information, shipping information */}
 
         <div className="w-full">
-          {/* Product Information, shipping information */}
-          <div className="px-5 mt-8 w-full flex justify-between bg-gray-200">
-            <div className="mb-3  w-full mt-5 md:flex">
-              <div className="w-full flex justify-center items-center">
-                <button className="font-bold text-gray-500 hover:text-gray-600 px-4">
-                  Description
-                </button>
-                <button className="font-bold text-gray-500 hover:text-gray-600">
-                  Reviews
-                </button>
-              </div>
-            </div>
-          </div>
-          {/* Product Information, shipping information end*/}
-
-          {/* Product Information, shipping information for pc view*/}
-          <hr className="w-full h-[2px] bg-gray-700 border-0 hidden md:block" />
-          <div className="md:block m-4">
-            <span className="">
-              <h1 className="font-bold">
-                Vitamax Royal Honey For Her (10 Sachets - 20 G)
-              </h1>
-              <p className="text-gray-500 m-4">
-                Stay desirable and pleasure your partner with an enhanced
-                feminine touch. Each Vitamax Royal Honey is filled with nature’s
-                best herbs, bee pollen, and royal honey jelly, known to balance
-                female hormones and heighten sexual energies. With 20 grams of
-                decadent nectar, you’ll experience a more beautiful skin tone
-                and complexion free of spots and freckles. The boost of hormones
-                adds volume and shape to your breasts while increasing the
-                feminine vitality within you. <br /> Whether you are
-                experiencing a lack of sexual interest or an inability to enjoy
-                your intimate moments, this elixir will energize you and help
-                create the best memories with your partner. <br /> <br />
-                <p className="pb-2">Product Benefits:</p>
-                <ul className="text-xl list-disc ml-6">
-                  <li>Improves sexual pleasure</li>
-                  <li>Regulates menstrual cycle</li>
-                  <li>Enhances sexual activity in menopausal</li>
-                  <li>Tightens vaginal muscles</li>
-                  <li>
-                    Country of Origin:{" "}
-                    <span className="font-bold">MADE IN MALAYSIA</span>
-                  </li>
-                </ul>
-              </p>
-              <h1 className="font-bold">What’s Included?</h1>
-              <ul className="text-xl list-disc ml-10 text-gray-500 mb-4">
-                <li>10 sachets - 20 grams Each</li>
-              </ul>
-              <h1 className="font-bold">Our Promise To You:</h1>
-              <ul className="text-xl list-disc ml-10 text-gray-500 mb-4">
-                <li>Every product we sell is %100 Authentic & Top Quality.</li>
-                <li>
-                  Your Satisfaction is %100 Guaranteed or your money back.
-                </li>
-              </ul>
-              <h1 className="font-bold">Shipping:</h1>
-              <ul className="text-xl list-disc ml-10 text-gray-500">
-                <li>Free 5 Days delivery.</li>
-                <li>Express and Expedite Shipping Available.</li>
-              </ul>
-            </span>
+          <div className="mb-5">
+            <Typography variant="h5">Additional Information</Typography>
+            <TabContext value={tabValue}>
+              <Box
+                sx={{
+                  borderBottom: 1,
+                  borderColor: "divider",
+                  marginLeft: "auto",
+                }}
+              >
+                <TabList
+                  onChange={handleChangeValue}
+                  aria-label="lab API tabs example"
+                >
+                  <Tab label="Details" value="1" className="relative" />
+                  <Tab label="Pricing" value="2" />
+                  <Tab label="Reviews" value="3" />
+                </TabList>
+              </Box>
+              <TabPanel value="1">
+                <div className="md:block">
+                  <span className="">
+                    <h1 className="font-bold">
+                      Vitamax Royal Honey For Her (10 Sachets - 20 G)
+                    </h1>
+                    <p className="text-gray-500 m-4">
+                      Stay desirable and pleasure your partner with an enhanced
+                      feminine touch. Each Vitamax Royal Honey is filled with
+                      nature’s best herbs, bee pollen, and royal honey jelly,
+                      known to balance female hormones and heighten sexual
+                      energies. With 20 grams of decadent nectar, you’ll
+                      experience a more beautiful skin tone and complexion free
+                      of spots and freckles. The boost of hormones adds volume
+                      and shape to your breasts while increasing the feminine
+                      vitality within you. <br /> Whether you are experiencing a
+                      lack of sexual interest or an inability to enjoy your
+                      intimate moments, this elixir will energize you and help
+                      create the best memories with your partner. <br /> <br />
+                      <p className="pb-2">Product Benefits:</p>
+                      <ul className="text-xl list-disc ml-6">
+                        <li>Improves sexual pleasure</li>
+                        <li>Regulates menstrual cycle</li>
+                        <li>Enhances sexual activity in menopausal</li>
+                        <li>Tightens vaginal muscles</li>
+                        <li>
+                          Country of Origin:{" "}
+                          <span className="font-bold">MADE IN MALAYSIA</span>
+                        </li>
+                      </ul>
+                    </p>
+                    <h1 className="font-bold">What’s Included?</h1>
+                    <ul className="text-xl list-disc ml-10 text-gray-500 mb-4">
+                      <li>10 sachets - 20 grams Each</li>
+                    </ul>
+                    <h1 className="font-bold">Our Promise To You:</h1>
+                    <ul className="text-xl list-disc ml-10 text-gray-500 mb-4">
+                      <li>
+                        Every product we sell is %100 Authentic & Top Quality.
+                      </li>
+                      <li>
+                        Your Satisfaction is %100 Guaranteed or your money back.
+                      </li>
+                    </ul>
+                    <h1 className="font-bold">Shipping:</h1>
+                    <ul className="text-xl list-disc ml-10 text-gray-500">
+                      <li>Free 5 Days delivery.</li>
+                      <li>Express and Expedite Shipping Available.</li>
+                    </ul>
+                  </span>
+                </div>
+              </TabPanel>
+              <TabPanel value="2">This is product Pricing Section</TabPanel>
+              <TabPanel value="3">
+                <Box className="w-full">
+                  <button
+                    type="button"
+                    onClick={() => setWriteReview(true)}
+                    className="ml-auto block rounded-md px-4 py-1 text-customTheme border border-customTheme"
+                  >
+                    Write Review
+                  </button>
+                  <form
+                    className={`border p-3 ${writeReview ? "block" : "hidden"}`}
+                  >
+                    <div>
+                      <Typography component="legend">Give Star</Typography>
+                      <Rating
+                        name="simple-controlled"
+                        value={ratingValue}
+                        onChange={(event, newRating) => {
+                          setRatingValue(newRating ?? 0);
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <Typography component="legend">Comment</Typography>
+                      <textarea cols={3} className="border w-full" />
+                    </div>
+                  </form>
+                  <Box className="border-t mt-2">
+                    <Typography>No review yet</Typography>
+                  </Box>
+                </Box>
+              </TabPanel>
+            </TabContext>
           </div>
         </div>
       </div>

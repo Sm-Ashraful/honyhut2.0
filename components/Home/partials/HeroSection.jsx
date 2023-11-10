@@ -63,6 +63,7 @@ const renderNewItems = () => {
               key={idx}
               image={product.image[0]}
               name={product.name}
+              s_desc={product.s_desc}
               MOQ={product.MOQ}
               price={product.price}
               type="flex"

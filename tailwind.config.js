@@ -76,8 +76,10 @@ module.exports = {
       },
     },
     colors: {
+      customTheme: "#00182E",
+      customText: "#FFD15F",
       white: "#FFF",
-      primary: "#ffffe3",
+      primary: "#F5F5F5", ///#fffff3
       secondary: "#FFC117",
       tertiary: "#BE0EE2",
       "primary-red": "#F44141",

@@ -39,7 +39,7 @@ const SignIn = () => {
 
   return (
     <main className="relative w-full bg-primary md:flex md:justify-center overflow-visible md:items-center ">
-      <div className="bg-white flex justify-center items-center  w-full text-center md:rounded-2xl md:shadow-2xl md:px-16 md:flex md:w-3/5 md:max-w-4xl">
+      <div className=" flex justify-center items-center  w-full text-center  md:px-16 md:flex md:w-3/5 md:max-w-4xl">
         {/* Sign in section */}
         <div className="w-full py-5">
           <div>
@@ -49,19 +49,19 @@ const SignIn = () => {
             <div className="flex justify-center my-2">
               <a
                 href="#"
-                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-customTheme hover:text-customText"
               >
                 <FaFacebookF className="text-sm lg:text-base" />
               </a>
               <a
                 href="#"
-                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-customTheme hover:text-customText"
               >
                 <FaInstagram className="text-sm" />
               </a>
               <a
                 href="#"
-                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-honey"
+                className="border-2 border-black rounded-full p-3 mx-2 hover:bg-customTheme hover:text-customText"
               >
                 <FaGoogle className="text-sm lg:text-base" />
               </a>
@@ -71,30 +71,30 @@ const SignIn = () => {
               className="flex flex-col items-center"
               onSubmit={loginFormSubmit}
             >
-              <div className="bg-primary w-3/4 p-2 flex items-center mb-3 rounded">
+              <div className="bg-white w-3/4 p-2 flex items-center mb-3 rounded">
                 <FaRegEnvelope className="text-gray m-2" />
                 <input
                   type="email"
                   placeholder="Email"
                   value={email}
-                  className="bg-primary outline-none text-sm lg:text-base flex-1 w-full"
+                  className=" outline-none text-sm lg:text-base flex-1 w-full"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="bg-primary w-3/4 p-2 flex items-center mb-3 rounded">
+              <div className="bg-white w-3/4 p-2 flex items-center mb-3 rounded">
                 <MdLockOutline className="text-gray m-2" />
                 <input
                   type="password"
                   placeholder="Password"
                   value={password}
-                  className="bg-primary outline-none text-sm lg:text-base flex-1"
+                  className=" outline-none text-sm lg:text-base flex-1"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="flex justify-between w-3/4 mb-5">
                 <Link
                   href="/auth/forgotPass"
-                  className="text-sm md:text-base mt-1 cursor-pointer text-secondary hover:text-honey"
+                  className="text-sm md:text-base mt-1 cursor-pointer text-customTheme hover:text-customText"
                 >
                   Forgot your Password?
                 </Link>
@@ -102,7 +102,7 @@ const SignIn = () => {
 
               <button
                 href="/"
-                className=" border-2 border-black rounded-full px-12 py-2 inline-block font-semibold hover:bg-honey"
+                className=" border-2 border-black rounded-full px-12 py-2 inline-block font-semibold hover:bg-customTheme hover:text-customText"
               >
                 Sign In
               </button>
@@ -110,7 +110,7 @@ const SignIn = () => {
                 <p className="ml-2 py-4">
                   Don't you have account yet?
                   <Link href="/auth/signup">
-                    <button className=" ml-2 px-4 py-4 text-secondary font-semibold hover:text-honey">
+                    <button className=" ml-2 px-4 py-4 text-customTheme font-semibold  hover:text-customText">
                       Sign Up
                     </button>
                   </Link>

@@ -36,7 +36,6 @@ const Layout = ({ children }) => {
       <main className="min-h-screen">
         <Header />
         {children}
-
         <Footer />
       </main>
     </>
