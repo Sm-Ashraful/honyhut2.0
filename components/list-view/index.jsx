@@ -31,7 +31,16 @@ const ListView = ({ product }) => {
           <div className="relative w-full flex p-3">
             <div className="relative basis-full md:basis-[80%] md:h-72 h-44  overflow-hidden rounded-md text-center flex justify-center items-center group">
               <div className="w-full h-full relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
-                <Image src={product.image[0]} alt="product Image" fill cover />
+                <Image
+                  src={`${
+                    product.image
+                      ? product.image[0]
+                      : product.productPictures[0].img
+                  }`}
+                  alt="product Image"
+                  fill
+                  cover
+                />
               </div>
               <div className="absolute bottom-2 md:top-[40%] right-2  md:right-auto">
                 <CardButton product={product} />

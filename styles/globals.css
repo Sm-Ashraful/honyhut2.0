@@ -58,7 +58,7 @@ body {
   font-weight: 400;
   max-width: 100vw;
   overflow-x: hidden;
-  @apply bg-primary;
+  @apply bg-white;
   font-family: MyFont, sans-serif;
 }
 
@@ -450,4 +450,23 @@ select {
   width: max-content;
   gap: 16px;
   animation: none;
+}
+
+/* badge design custom */
+.badge {
+  clip-path: polygon(0 15%, 100% 16%, 100% 100%, 48% 77%, 0% 100%);
+}
+/* badge animaiton */
+.b_anim {
+  animation: slideInLeft 0.8s ease-out 1s forwards;
+}
+@keyframes slideInLeft {
+  from {
+    top: -20px;
+    opacity: 0;
+  }
+  to {
+    top: -8px;
+    opacity: 1;
+  }
 }

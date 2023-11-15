@@ -1,9 +1,13 @@
 import React from "react";
 
-import styles from "./style.module.css";
-
 const OfferPercent = ({ percentage }) => {
-  return <div className={`${styles.offer_container}`}>-{percentage}%</div>;
+  return (
+    <div
+      className={`badge bg-customTheme text-customText h-12 w-10 flex justify-center items-center text-[8pt]`}
+    >
+      -{percentage}%
+    </div>
+  );
 };
 
 export default OfferPercent;

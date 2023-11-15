@@ -1,43 +1,70 @@
 import React from "react";
 
-import CardButton from "../common/card-button";
+import { FiShoppingCart } from "react-icons/fi";
+import BtnWithIcon from "../Update/BtnWithIcon";
+
+import { addItemToCart } from "@/Store/cart/cart.action";
+import { selectCartItems } from "@/Store/cart/cart.selector";
+import { setIsCartOpen } from "@/Store/cart/cart.action";
 
 import Image from "next/image";
-import { renderStars } from "@/utils/render-star";
 import OfferPercent from "../offer";
+import { useDispatch, useSelector } from "react-redux";
 
 const CommonCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+
   function countClickHandler(e) {
     e.preventDefault();
   }
+
+  //add cart functionality
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    dispatch(addItemToCart(cartItems, product, 1));
+    dispatch(setIsCartOpen(true));
+  };
 
   return (
     <>
       {product && (
         <div
-          className={`relative w-[full]  flex flex-col justify-center items-center px-[3px] md:px-[10px] pb-4 transition-all duration-300 cursor-pointer`}
+          className={`relative w-[full]  flex flex-col border border-customTheme/20 rounded-md justify-center items-center px-[3px] md:px-[10px] pb-4 transition-all duration-300 cursor-pointer`}
         >
           {/* image section  */}
           <div className="relative w-full">
-            <div className="relative w-full h-44 md:h-52 bg-white overflow-hidden shadow-photo rounded-md text-center flex justify-center items-center group">
+            <div className="relative w-full h-44 md:h-52 bg-white overflow-hidden  rounded-md text-center flex justify-center items-center group border-b mb-2">
               <div className="w-full h-full relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
-                <Image src={product.image[0]} alt="product Image" fill cover />
-              </div>
-              <div className="absolute bottom-2 md:top-[40%] right-2  md:right-auto">
-                <CardButton product={product} />
+                <Image
+                  src={`${
+                    product.image
+                      ? product.image[0]
+                      : product.productPictures[0].img
+                  }`}
+                  alt="product Image"
+                  fill
+                  cover
+                />
               </div>
             </div>
             {product.offer && (
-              <div className={`absolute -top-2 -right-1  opacity-100`}>
+              <div className={`absolute  -left-[5px] rounded-sm  b_anim`}>
                 <OfferPercent percentage={product.offer} />
               </div>
             )}
+            {/**cart buttion */}
+
             {/* description section  */}
-            <div className="w-full pt-5 shadow-sm px-2 pb-3">
-              <p className="text-[15px]   pb-2 font-bold">{product.name}</p>
-              <p className="w-full h-auto flex pb-2 text-primary-red">
-                {renderStars(product.star)}
-              </p>
+            <div className="w-full pt-2  px-2 ">
+              {
+                <p className="text-[#666] pb-1.5 text-sm">
+                  {product.name.length > 35
+                    ? product.name.slice(0, 35) + "..."
+                    : product.name}
+                </p>
+              }
+
               <p className="text-[13px] font-bold pb-2 md:pb-3">
                 <span>Price: </span>
                 {typeof product.offer === "number" ? (
@@ -57,7 +84,8 @@ const CommonCard = ({ product }) => {
                   </>
                 ) : (
                   <span>${product.price.toFixed(2)}</span>
-                )}
+                )}{" "}
+                /box
               </p>
 
               <p className=" text-black text-[14px]">
@@ -68,6 +96,10 @@ const CommonCard = ({ product }) => {
                 className="flex  w-full justify-between items-center md:px-5"
                 onClick={countClickHandler}
               ></div>
+              <BtnWithIcon clickHandler={handleAddToCart}>
+                <FiShoppingCart />
+                <span>Add To Cart</span>
+              </BtnWithIcon>
             </div>
           </div>
 

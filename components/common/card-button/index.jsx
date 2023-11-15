@@ -6,7 +6,6 @@ import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
-import { addItemToCart } from "@/Store/cart/cart.action";
 import { selectCartItems } from "@/Store/cart/cart.selector";
 
 import { addItemToFav } from "@/Store/favorite/favorite.action";
@@ -44,58 +43,41 @@ const CardButton = ({ product }) => {
   }
 
   return (
-    <div className="flex">
-      <div
-        className={`absolute md:static right-0 bottom-14  h-12 w-12 z-50 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 md:mx-[10px]`}
-      >
-        <div className="w-full h-full  rounded-full text-center">
+    <div className="flex justify-between w-full">
+      {/* cart count*/}
+      <div className="md:w-32 h-12  w-28 z-20 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ">
+        <button className="w-full h-full flex justify-around   items-center bg-white opacity-70 text-black  border py-4 text-[10px] md:text-[18px] rounded-md text-center">
           <span
-            className={`w-full h-full flex items-center justify-center bg-white opacity-70 text-black hover:bg-black hover:text-white border text-xl md:text-3xl rounded-md md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ${
-              isFavorite && `border`
-            }`}
-            onClick={handleFavClick}
+            className=" font-bold cursor-pointer hover:text-honey"
+            onClick={decreaseItem}
           >
-            {isFavorite ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
+            <AiOutlineMinus className="text-md font-bold" />
           </span>
-        </div>
-      </div>
 
-      <div className="flex ">
-        {/* cart count*/}
-        <div className="md:w-32 h-12  w-28 z-50 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000 ">
-          <button className="w-full h-full flex justify-around   items-center bg-white opacity-70 text-black  border py-4 text-[10px] md:text-[18px] rounded-md text-center">
-            <span
-              className=" font-bold cursor-pointer hover:text-honey"
-              onClick={decreaseItem}
-            >
-              <AiOutlineMinus className="text-md font-bold" />
-            </span>
+          <span>{count}</span>
 
-            <span>{count}</span>
-
-            <span
-              className="font-bold cursor-pointer hover:text-honey"
-              onClick={increaseItem}
-            >
-              <AiOutlinePlus className="text-md font-bold" />
-            </span>
-          </button>
-        </div>
-        {/* cart icon*/}
-
-        <div
-          className={`w-12 h-12  z-50 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
-        >
-          <button
-            className="w-full h-full flex justify-center items-center bg-white opacity-70 text-black hover:bg-black hover:text-white border py-4 text-[10px] md:text-[18px] rounded-md text-center"
-            onClick={handleAddToCart}
+          <span
+            className="font-bold cursor-pointer hover:text-honey"
+            onClick={increaseItem}
           >
-            <span className="pr-[5px]">
-              <FiShoppingCart />
-            </span>
-            {/* <span className="text-center">Cart</span> */}
-          </button>
-        </div>
+            <AiOutlinePlus className="text-md font-bold" />
+          </span>
+        </button>
+      </div>
+      {/* cart icon*/}
+
+      <div
+        className={`w-12 h-12  z-20 md:opacity-0 md:group-hover:opacity-100 md:transition-all md:duration-1000`}
+      >
+        <button
+          className="w-full h-full flex justify-center items-center bg-white opacity-70 text-black hover:bg-black hover:text-white border py-4 text-[10px] md:text-[18px] rounded-md text-center"
+          onClick={handleAddToCart}
+        >
+          <span className="pr-[5px]">
+            <FiShoppingCart />
+          </span>
+          {/* <span className="text-center">Cart</span> */}
+        </button>
       </div>
     </div>
   );

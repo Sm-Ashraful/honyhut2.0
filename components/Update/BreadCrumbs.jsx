@@ -37,18 +37,29 @@ export default function CustomizedBreadcrumbs() {
   }
 
   return (
-    <div className="" role="presentation" onClick={handleClick}>
-      <Breadcrumbs maxItems={3} aria-label="breadcrumb">
+    <div
+      className="padding_inside bg-white"
+      role="presentation"
+      onClick={handleClick}
+    >
+      <Breadcrumbs maxItems={3} aria-label="breadcrumb" className="py-3">
         <StyledBreadcrumb
           component="a"
           href="#"
           label="Home"
-          icon={<HomeIcon fontSize="small" />}
+          icon={<HomeIcon />}
+          className="text-sm md:text-lg"
         />
         {paths
           .filter((path) => path.trim() !== "") // Remove paths that are empty or contain only whitespace
           .map((path, idx) => (
-            <StyledBreadcrumb key={idx} component="a" href="#" label={path} />
+            <StyledBreadcrumb
+              key={idx}
+              component="a"
+              href="#"
+              label={path}
+              className="text-sm md:text-lg"
+            />
           ))}
       </Breadcrumbs>
     </div>

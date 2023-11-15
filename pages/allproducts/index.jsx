@@ -16,6 +16,11 @@ import { IoFilter } from "react-icons/io5";
 import { setViewProperty } from "@/Store/slices/globalSlice";
 import { HiViewGrid } from "react-icons/hi";
 import { MdViewStream } from "react-icons/md";
+import CustomizedBreadcrumbs from "../../components/Update/BreadCrumbs";
+import axiosInstance from "@/utils/helper/axios";
+import ListView from "@/components/list-view";
+import CommonCard from "@/components/CommonCard";
+import Link from "next/link";
 
 const drawerWidth = 240;
 
@@ -54,10 +59,22 @@ const AppBar = styled("div", {
   }),
 }));
 
-const AllProducts = () => {
+// get data using static props
+export async function getStaticProps() {
+  const res = await axiosInstance.get("/product/get-products");
+
+  const products = await res.data.products;
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
+const AllProducts = ({ products }) => {
   // const theme = useTheme();
   const [open, setOpen] = useState(true);
-
   const route = useRouter();
   const pathName = route.pathname;
   const path = pathName.split("/");
@@ -84,14 +101,15 @@ const AllProducts = () => {
   return (
     <div className="relative w-full">
       <HeroTop title={"All Products"} />
+      <CustomizedBreadcrumbs />
       <FilterDrawer open={open} handleDrawerClose={handleDrawerClose} />
-      <div className=" w-full gap-[10px] h-full  padding_inside">
-        <Main open={open}>
-          <div className="py-[10px] w-full text-black mb-2 flex justify-between">
+      <div className=" w-full gap-[10px] h-full">
+        <div open={open}>
+          <div className="!py-[10px] md:!py-5 w-full text-black  flex justify-between padding_inside bg-primary">
             <button
               onClick={handleDrawerOpen}
               aria-label="open drawer"
-              className="mb-0 text-trueGray-400 text-sm flex justify-center items-center cursor-pointer gap-[5px] px-8 py-2 border border-primary hover:border-ash"
+              className="mb-0 text-trueGray-400 text-sm flex justify-center items-center cursor-pointer gap-[5px] px-8 py-1 border border-trueGray-400 hover:border-ash"
             >
               <IoFilter />
 
@@ -116,30 +134,42 @@ const AllProducts = () => {
                 <MdViewStream />
               </span>
             </div>
-            <div class="flex justify-center items-center border text-trueGray-400">
-              <select className="text-sm pl-5 py-2 flex justify-center items-center  focus:outline-none">
-                <option>Featured</option>
-                <option>Best Selling</option>
-                <option>Alphabetically, A - Z</option>
-                <option>Alphabetically, Z - A</option>
-                <option>Price, low to high</option>
-                <option>Price, high to low</option>
-              </select>
-            </div>
           </div>
 
-          <div className="relative w-full">
-            {allProducts.map((category, idx) => {
-              return (
-                <MaleProducts
-                  category={category}
-                  viewProperty={viewProperty}
-                  key={idx}
-                />
-              );
-            })}
+          <div className="relative w-full  padding_inside">
+            <div className="pt-3 md:pt-5">
+              {viewProperty === "list" ? (
+                <div className="max-w-full grid  gap-[15px] md:gap-[10px] ">
+                  {products.map((product, idx) => {
+                    return (
+                      <Link
+                        href={`/product/${product._id}`}
+                        key={idx}
+                        className=" md:mt-5 mt-2"
+                      >
+                        <ListView key={idx} product={product} />
+                      </Link>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="max-w-full grid grid-cols-2 md:grid-cols-4  gap-[5px] md:gap-[10px]">
+                  {products.map((product, idx) => {
+                    return (
+                      <Link
+                        href={`/product/${product._id}`}
+                        key={idx}
+                        className=" md:mt-5 mt-2"
+                      >
+                        <CommonCard key={idx} product={product} />
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </div>
-        </Main>
+        </div>
       </div>
     </div>
   );

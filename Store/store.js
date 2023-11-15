@@ -11,6 +11,7 @@ import { favReducer } from "./favorite/favorite.reducer";
 import { orderReducer } from "./customer/order/order.reducer";
 import { userReducer } from "./customer/user/user.reducer";
 import { categoryReducer } from "./categories/categories.reducer";
+import { productReducer } from "./product/product.reducer";
 
 const persistConfig = {
   key: "root",
@@ -27,6 +28,7 @@ const persistedReducer = persistReducer(
     order: orderReducer,
     auth: userReducer,
     category: categoryReducer,
+    product: productReducer,
   })
 );
 
