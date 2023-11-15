@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import CommonCard from "@/components/CommonCard";
 
-import FilterProducts from "@/components/all-products";
+// import FilterProducts from "@/components/all-products";
 
 import { useRouter } from "next/router";
 
@@ -29,7 +29,7 @@ const BrandName = () => {
       <HeroTop title={product && product.title} />
       <div className="padding_inside">
         <div className="w-full  md:mr-0 md:block z-0 pt-[20px]">
-          <FilterProducts />
+          {/**<FilterProducts /> */}
         </div>
         <div className="md:grid md:grid-cols w-full md:gap-[10px] h-full relative">
           <section className="col-span-3 relative w-full">
