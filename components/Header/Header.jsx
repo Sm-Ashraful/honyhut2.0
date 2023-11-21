@@ -21,18 +21,20 @@ import CartNav from "../cart";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const cartCount = useSelector(selectCartCount);
 
   const handleCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
     dispatch(setIsCartOpen(true));
   };
+
   return (
     <div>
       <div className="hidden md:block">
         <HeaderTop handleCart={handleCart} />
       </div>
-      <HeaderMain logo={logo} handleCart={handleCart} />
+      <HeaderMain logo={logo} handleCart={handleCart} cartCount={cartCount} />
 
       <Sidebar />
     </div>

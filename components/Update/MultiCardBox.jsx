@@ -25,7 +25,9 @@ const MultiCardBox = ({
               <Link href={`/product/${idx}`}>
                 <Card
                   key={idx}
-                  image={item.image[0]}
+                  image={
+                    item.image ? item.image[0] : item.productPictures[0].img
+                  }
                   name={item.name}
                   MOQ={item.MOQ}
                   price={item.price}

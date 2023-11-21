@@ -22,7 +22,7 @@ import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Button from "@mui/material/Button";
 
-const CartNav = ({ view, goto }) => {
+const CartNav = ({ view, goto, cartCount }) => {
   const [state, setState] = React.useState({
     right: false,
   });
@@ -54,7 +54,7 @@ const CartNav = ({ view, goto }) => {
         >
           <div className="relative text-customTheme font-semibold">
             <BsCart4 className="text-[21px] md:text-[26px] " />
-            <span className="absolute -top-[10px] left-[8px]">0</span>
+            <span className="absolute -top-[10px] left-[8px]">{cartCount}</span>
           </div>
           <p className="hidden md:block text-customTheme capitalize font-semibold">
             Cart

@@ -18,7 +18,9 @@ const CardWithButton = (props) => {
           <p className={`text-black font-semibold pb-1.5 `}>
             {props.price} <span className="text-gray-500">/piece</span>
           </p>
-          <p className={`text-[#666] text-sm `}>{props.MOQ}(MOQ)</p>
+          <p className={`text-[#666] text-sm `}>
+            {props.MOQ ? `${props.MOQ}(MOQ)` : ""}
+          </p>
           <div className="mx-2 pt-3">
             <button className="pb-2 w-full border border-[#666] rounded-full mx-auto text-center px-5 py-2">
               See More

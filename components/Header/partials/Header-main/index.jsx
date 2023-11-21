@@ -14,10 +14,11 @@ import AccountDropdown from "../account-dropdown";
 import CartNav from "@/components/cart";
 import { FaSearch } from "react-icons/fa";
 
-const HeaderMain = ({ logo, handleCart }) => {
+const HeaderMain = ({ logo, handleCart, cartCount }) => {
   const [nav, setNav] = useState("");
   const [fixedNav, setFixedNav] = useState(false);
   const dispatch = useDispatch();
+  console.log("Cart Count: ", cartCount);
 
   useEffect(() => {
     let prevScrollY = window.scrollY;
@@ -58,7 +59,7 @@ const HeaderMain = ({ logo, handleCart }) => {
     >
       {/** Logo part*/}
       <div className="w-full md:w-auto flex justify-between items-center">
-        <div className="md:hidden w-[30%] flex items-center gap-3">
+        <div className="md:hidden  flex items-center gap-3">
           <p className="relative w-[fit-content]" onClick={handleSidebar}>
             <span>
               <Image src={Listing} alt="list-icon" width={18} height={18} />
@@ -140,7 +141,7 @@ const HeaderMain = ({ logo, handleCart }) => {
       </div>
       {/** rest things*/}
       <div className="w-1/4 hidden md:flex gap-5 justify-end items-center">
-        <CartNav />
+        <CartNav cartCount={cartCount} />
 
         <div className="flex gap-1 items-center cursor-pointer">
           <GoPerson className="text-[26px]" />

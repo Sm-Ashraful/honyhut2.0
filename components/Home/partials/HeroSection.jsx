@@ -18,6 +18,7 @@ import {
   mostPopularProducts,
   newItems,
 } from "@/utils/New Data/MostPopularProducts";
+import CardWithButton from "@/components/Update/CardWithButton";
 
 const sliderCat = [
   {
@@ -50,21 +51,20 @@ const sliderCat = [
   },
 ];
 
-const renderNewItems = () => {
+const renderNewItems = (newProducts) => {
   return (
     <>
       <h2 className="relative  py-5">
         <span>New Items</span>
       </h2>
       <div>
-        {newItems.slice(0, 4).map((product, idx) => {
+        {newProducts.slice(0, 4).map((product, idx) => {
           return (
             <Card
               key={idx}
-              image={product.image[0]}
+              image={product.productPictures[0].img}
               name={product.name}
-              s_desc={product.s_desc}
-              MOQ={product.MOQ}
+              MOQ={"10pcs"}
               price={product.price}
               type="flex"
               style={{
@@ -75,6 +75,7 @@ const renderNewItems = () => {
           );
         })}
       </div>
+
       <div className="mx-2">
         <button className="pb-2 w-full border-2 border-[#666] rounded-full mx-auto text-center px-5 py-2 hover:bg-secondary hover:text-white hover:border-0">
           See All
@@ -117,7 +118,7 @@ const renderPopularItems = () => {
   );
 };
 
-const HeroSection = () => {
+const HeroSection = ({ newProducts }) => {
   return (
     <div
       className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] md:h-[580px] md:py-5"
@@ -130,14 +131,14 @@ const HeroSection = () => {
     >
       <div className="w-full h-full flex flex-col md:flex-row gap-5 ">
         <div className="order-1 md:order-0 md:block w-full  md:w-1/4 bg-white rounded-lg px-5">
-          {renderNewItems()}
+          {renderNewItems(newProducts)}
         </div>
         <div className="order-0 md:order-1  h-[380px] md:h-auto md:flex-1 rounded-lg overflow-hidden">
           <div className="h-[60%] md:h-[70%] max-w-full relative mb-4">
             <Slider />
           </div>
           <div className="h-[35%] md:h-[25%]  w-full">
-            <InfinityLooper speed="20" direction="left">
+            <InfinityLooper speed="50" direction="left">
               {sliderCat.map((category, idx) => {
                 return (
                   <div

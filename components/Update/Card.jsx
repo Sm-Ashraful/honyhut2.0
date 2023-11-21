@@ -31,23 +31,22 @@ const Card = (props) => {
           <img className="object-cover" src={props.image} alt={props.name} />
         </div>
         <div className={`${isMobile && "w-1/2"}`}>
-          {props.type === "flex" ? (
-            <p className="text-[#666] pb-1.5 text-sm group-hover:text-primary-red">
-              {props.name.length > 28
-                ? props.name.slice(0, 28) + "..."
-                : props.name}
-            </p>
-          ) : null}
+          <p
+            className={`text-[#666] pb-1.5 text-sm group-hover:text-primary-red ${
+              props.type === "flex" ? "" : "pt-3"
+            }`}
+          >
+            {props.name.length > 40
+              ? props.name.slice(0, 40) + "..."
+              : props.name}
+          </p>
+
           <p
             className={`text-black font-semibold pb-1.5 group-hover:text-primary-red ${props.position}`}
           >
-            {props.price}
+            USD ${props.price}
           </p>
-          <p
-            className={`text-[#666] text-sm ${props.position} group-hover:text-primary-red`}
-          >
-            {props.MOQ}(MOQ)
-          </p>
+
           {props.type === "flex" && isMobile ? (
             <p
               className={`text-[#666] text-sm ${props.position} group-hover:text-primary-red`}
