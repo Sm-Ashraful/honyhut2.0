@@ -101,7 +101,9 @@ const AllProducts = ({ products }) => {
   return (
     <div className="relative w-full">
       <HeroTop title={"All Products"} />
-      <CustomizedBreadcrumbs />
+      <div className="relative padding_inside">
+        <CustomizedBreadcrumbs />
+      </div>
       <FilterDrawer open={open} handleDrawerClose={handleDrawerClose} />
       <div className=" w-full gap-[10px] h-full">
         <div open={open}>

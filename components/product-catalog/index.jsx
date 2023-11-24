@@ -55,7 +55,7 @@ const ProductCatalog = ({ product }) => {
   };
 
   useEffect(() => {
-    const lastIndex = product.image.length - 1;
+    const lastIndex = product.productPictures.length - 1;
     if (index < 0) {
       setIndex(lastIndex);
     }
@@ -86,34 +86,41 @@ const ProductCatalog = ({ product }) => {
     <section className="relative bg-white  ">
       <div className="flex flex-wrap px-[5px] md:pt-5">
         <div className="block md:hidden pt-5">
-          <div className="relative">
+          <div className="relative padding_inside">
             <CustomizedBreadcrumbs />
           </div>
           <h3 className="text-xl md:text-3xl font-bold pt-3">{product.name}</h3>
         </div>
-        <div className="relative w-screen md:w-1/2   rounded flex flex-col justify-center items-center">
-          <div className="relative overflow-hidden w-full md:h-full">
+        <div className="relative w-screen md:w-1/2   rounded flex flex-col justify-center md:justify-start items-center">
+          <div className="relative overflow-hidden w-full ">
             <div
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className={`relative flex justify-center h-96 items-center overflow-hidden`}
+              className={`relative flex justify-center h-80 items-center overflow-hidden`}
             >
-              {product.image.map((pic, picIndex) => {
+              {product.productPictures.map((pic, picIndex) => {
                 let position = "nextSlide";
                 if (picIndex === index) {
                   position = "activeSlide";
                 }
-                if (product.image.length > 1) {
+                if (product.productPictures.length > 1) {
                   if (
                     picIndex === index - 1 ||
-                    (index === 0 && picIndex === product.image.length - 1)
+                    (index === 0 &&
+                      picIndex === product.productPictures.length - 1)
                   ) {
                     position = "lastSlide";
                   }
                 }
                 return (
                   <article className={`${position} `} ref={imageRef}>
-                    <Image src={pic} alt={"Image"} fill cover />
+                    <Image
+                      src={pic.img}
+                      alt={"Image"}
+                      fill
+                      cover
+                      className="w-full"
+                    />
                   </article>
                 );
               })}
@@ -122,10 +129,10 @@ const ProductCatalog = ({ product }) => {
           </div>
           <div className="preview z-50 hidden"></div>
           <div className="h-44 pt-4 flex flex-nowrap scroll-smooth x-scrollable-content">
-            {product.image.map((pic, picIndex) => {
+            {product.productPictures.map((pic, picIndex) => {
               return (
                 <div key={picIndex} className="relative w-40 h-full ">
-                  <Image src={pic} alt={"Image"} fill cover />
+                  <Image src={pic.img} alt={"Image"} fill cover />
                 </div>
               );
             })}
@@ -135,7 +142,7 @@ const ProductCatalog = ({ product }) => {
         {/* Product Information and button */}
         <div className="md:pl-12  w-full md:w-1/2  md:relative">
           <div className="hidden md:block">
-            <div className="relative">
+            <div className="relative ">
               <CustomizedBreadcrumbs />
             </div>
             <h3 className="text-3xl font-bold">{product.name}</h3>
@@ -150,6 +157,7 @@ const ProductCatalog = ({ product }) => {
           </div>
           <div>
             <p className=" font-extrabold text-2xl py-4 title-font tracking-widest">
+              Price:{" "}
               {typeof product.offer === "number" ? (
                 <>
                   <span
@@ -175,7 +183,6 @@ const ProductCatalog = ({ product }) => {
             </p>
             <div className="leading-relaxed ml-5 text-lg text-[#878787]">
               <ul className="list-disc">
-                <li className="removeTextShadow">100% Organic Formula </li>
                 <li className="removeTextShadow">100% Authentic</li>
                 <li className="removeTextShadow">Top Quality Guarantee</li>
                 <li className="removeTextShadow">

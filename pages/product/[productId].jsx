@@ -3,31 +3,25 @@ import RelProductData from "../../utils/products-demo";
 import ProductCatalog from "../../components/product-catalog";
 import RecommendProduct from "@/components/RecommandForYou";
 import people from "../../utils/fav-demo-data";
-import HeroTop from "@/components/common/top-component";
 
-import { useRouter } from "next/router";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-import { getProductById } from "../../utils/products";
-import Breadcrumbs from "../../components/Update/BreadCrumbs";
+import { usePathname } from "next/navigation";
 
-const Product = () => {
-  const [products, setProducts] = useState(RelProductData);
-  let product;
+import axiosInstance from "@/utils/helper/axios";
 
-  const router = useRouter();
-  const productId = router.query.productId;
-  const pathName = router.pathname;
-  const path = pathName.split("/");
-  const removeId = path.pop();
+export const getServerSideProps = async (context) => {
+  // Get the productId from the URL parameter
+  const productId = context.params.productId;
+  // Fetch data from the database using the productId
+  const res = await axiosInstance.get(`/product/id/${productId}`);
+  const product = await res.data;
+  return { props: { product } };
+};
 
-  if (productId) {
-    product = getProductById(productId);
-    product && path.push(product.name);
-  }
-  // if (product.category) {
-  //    path.unshift(product?.categoryName);
-  //    path.unshift(product?.Subcategory)
-  // }
+const Product = ({ product }) => {
+  // const [product, setProduct] = useState(null);
+  console.log("Product: ", product);
 
   if (!product) {
     return <div className="w-screen h-screen text-center">Loading...</div>;
@@ -36,7 +30,7 @@ const Product = () => {
   return (
     <div className="relative w-full">
       <div className="padding_inside bg-white">
-        <ProductCatalog product={product} />
+        <ProductCatalog product={product.product} />
         <RecommendProduct
           top={"0"}
           className={false}

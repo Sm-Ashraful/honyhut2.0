@@ -20,40 +20,38 @@ const MultiProductFields = ({ products }) => {
   return (
     <div className="w-full relative  md:px-[3rem] lg:px-[4rem] xl:px-[5rem] py-5">
       <div className="grid md:grid-cols-3 gap-5">
-        <Link href="/product/category-page/Analyst's Choice">
-          <MultiCardBox
-            product={analyticProduct}
-            productCategory={"Analyst's Choice"}
-            position={"text-center"}
-            subtitle={
-              "Goods & services handpicked by B2B sourcing & procurement specialists"
-            }
-            type={"multiShow"}
-          />
-        </Link>
-        <Link href="/product/category-page/Low MOQ">
-          <MultiCardBox
-            product={lowMoq}
-            productCategory="Low MOQ"
-            position={"text-center"}
-            subtitle={
-              "Find products from certified low MOQ manufacturers & wholesale suppliers"
-            }
-            type={"multiShow"}
-          />
-        </Link>
+        <MultiCardBox
+          product={analyticProduct}
+          productCategory={"Girls Fashion"}
+          position={"text-center"}
+          subtitle={
+            "Goods & services handpicked by B2B sourcing & procurement specialists"
+          }
+          type={"multiShow"}
+          linkUrl="girls-fashion"
+        />
 
-        <Link href="/product/category-page/OEM Products">
-          <MultiCardBox
-            product={Products}
-            productCategory={"OEM Products"}
-            position={"text-center"}
-            subtitle={
-              "Reliable OEM companies offering thousands of popular OEM parts & items"
-            }
-            type={"multiShow"}
-          />
-        </Link>
+        <MultiCardBox
+          product={lowMoq}
+          productCategory="Shoes"
+          position={"text-center"}
+          subtitle={
+            "Find products from certified low MOQ manufacturers & wholesale suppliers"
+          }
+          type={"multiShow"}
+          linkUrl="Shoes"
+        />
+
+        <MultiCardBox
+          product={Products}
+          productCategory={"Electronics"}
+          position={"text-center"}
+          subtitle={
+            "Reliable OEM companies offering thousands of popular OEM parts & items"
+          }
+          type={"multiShow"}
+          linkUrl="electronics"
+        />
       </div>
     </div>
   );

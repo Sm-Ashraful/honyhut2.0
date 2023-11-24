@@ -11,6 +11,7 @@ import {
   selectCartTotal,
   selectShippingCost,
 } from "../../Store/cart/cart.selector";
+import CustomizedBreadcrumbs from "../../components/Update/BreadCrumbs";
 
 export default function Checkout() {
   const [selected, setSelected] = useState("");
@@ -22,17 +23,6 @@ export default function Checkout() {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const shippingCost = useSelector(selectShippingCost);
-
-  // if (productId) {
-  //   const newProduct =
-  //     Number(productId) > 84
-  //       ? Number(productId) > 102
-  //         ? getProductByIdThird(productId)
-  //         : getProductByIdSecond(productId)
-  //       : getProductById(productId);
-
-  //   setProduct(newProduct);
-  // }
 
   const path = pathName.split("/");
   const defaultFormValue = {
@@ -124,23 +114,11 @@ export default function Checkout() {
 
   return (
     <>
-      <main className="bg-primary h-auto relative ">
-        <div className="px-4 bg-white py-[10px] flex md:px-5 justify-start items-center shadow-md">
-          <p className="mb-0  text-xl font-bold">
-            <FaHome className="text-secondary" />
-          </p>
-          <p className="md:text-lg">
-            {path.map((linkName) => {
-              return (
-                <span>
-                  <span className="mx-2"> {"/"} </span>{" "}
-                  <span className="capitalize text-sm">{linkName}</span>
-                </span>
-              );
-            })}
-          </p>
+      <main className=" h-auto relative ">
+        <div className="relative padding_inside">
+          <CustomizedBreadcrumbs />
         </div>
-        <div className="w-full md:hidden">
+        <div className="w-full md:hidden ">
           <div className="bg-order">
             <div>
               <CheckOut
@@ -151,15 +129,12 @@ export default function Checkout() {
             </div>
           </div>
         </div>
-        <div className="mb-5">
+        <div className="mb-5 px-3 md:px-12">
           <div className="grid md:grid-cols-5 gap-8 w-full">
-            <div className="w-full md:col-span-3">
+            <div className="w-full md:col-span-3 order-1 md:order-0">
               <div>
                 <div className="my-4 mx-5">
-                  <p
-                    htmlFor="name"
-                    className="block font-bold text-tertiary mb-0 "
-                  >
+                  <p htmlFor="name" className="block font-bold  mb-0 ">
                     Billing Address
                   </p>
                   <hr className="h-[2px]  bg-gray border-0 dark:bg-gray" />
@@ -348,7 +323,7 @@ export default function Checkout() {
                     <button
                       disabled={!isFormComplete}
                       type="submit"
-                      className={`bg-secondary rounded-lg text-primary px-6 py-3  hover:bg-primary-red ${
+                      className={`bg-customTheme rounded-lg text-primary px-6 py-3  hover:bg-primary-red ${
                         !isFormComplete &&
                         "opacity-50 text-gray cursor-not-allowed"
                       }`}
@@ -783,7 +758,7 @@ export default function Checkout() {
                 </button>
               </div>
             </div>
-            <div className="col-span-2 hidden md:block">
+            <div className="col-span-2 hidden md:block order-0 md:order-1">
               <div className="bg-order">
                 <div>
                   <CheckOut

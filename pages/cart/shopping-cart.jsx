@@ -67,7 +67,6 @@ export default function Cart() {
         </div>
       </div>
       <div className="mt-10 padding_inside">
-        <LineWithCircle />
         {cartItems.length === 0 ? (
           <div className="w-full h-96 flex justify-center items-center">
             <h3 className="text-gray">Your Cart Is Empty </h3>

@@ -110,7 +110,7 @@ export default function CheckoutItems({
                   <div className="flex h-full items-center">
                     <div className="h-full w-[64px] relative p-3 border bg-white border-fullAsh rounded-md overflow-hidden mr-5">
                       <Image
-                        src={cartItem.image[0]}
+                        src={cartItem.productPictures[0].img}
                         alt={cartItem.name}
                         fill
                         cover

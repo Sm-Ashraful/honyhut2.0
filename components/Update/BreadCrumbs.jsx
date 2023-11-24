@@ -37,11 +37,7 @@ export default function CustomizedBreadcrumbs() {
   }
 
   return (
-    <div
-      className="padding_inside bg-white"
-      role="presentation"
-      onClick={handleClick}
-    >
+    <div className=" bg-white" role="presentation" onClick={handleClick}>
       <Breadcrumbs maxItems={3} aria-label="breadcrumb" className="py-3">
         <StyledBreadcrumb
           component="a"

@@ -8,34 +8,10 @@ import ReadyToShip from "../components/Home/partials/ReadyToShip";
 import UserForm from "../components/Home/partials/userForm";
 import FeatureCategories from "../components/Home/partials/FeatureCategories";
 
-import { useDispatch } from "react-redux";
-
-import axios from "@/utils/helper/axios";
 import axiosInstance from "@/utils/helper/axios";
 
-// export async function getServerSideProps() {
-//   // const dispatch = useDispatch();
-
-//   const res = await axios.get("/category/getcategory");
-//   if (res.status === 200) {
-//     const { categoryList } = res.data;
-
-//     return {
-//       props: {
-//         categoryList,
-//       },
-//     };
-//   } else {
-//     return {
-//       props: {
-//         error: res.data.error,
-//       },
-//     };
-//   }
-// }
-
 export async function getStaticProps() {
-  const res = await axiosInstance.get("/products/Fake-API-l2CLVFVGpz");
+  const res = await axiosInstance.get("/products/slug/Fake-API-l2CLVFVGpz");
 
   const newProducts = await res.data.products;
 
@@ -53,7 +29,7 @@ export default function Home({ newProducts }) {
         <HeroSection newProducts={newProducts} />
         <MultiProductFields products={newProducts} />
 
-        <NewProducts />
+        <NewProducts newProducts={newProducts} />
 
         <ReadyToShip />
 

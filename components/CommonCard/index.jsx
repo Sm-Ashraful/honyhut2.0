@@ -19,6 +19,8 @@ const CommonCard = ({ product }) => {
     e.preventDefault();
   }
 
+  console.log("Console.log from common card: ", product);
+
   //add cart functionality
   const handleAddToCart = (e) => {
     e.preventDefault();

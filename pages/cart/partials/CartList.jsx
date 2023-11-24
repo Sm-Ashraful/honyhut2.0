@@ -7,7 +7,14 @@ import Link from "next/link";
 import { HiShoppingBag } from "react-icons/hi";
 
 import Button from "@/components/Button";
-const tableHeader = [" ", " ", "Product", "Price", "Quantity", "Sub Total"];
+const tableHeader = [
+  " ",
+  " ",
+  "Product Name",
+  "Price",
+  "Quantity",
+  "Sub Total",
+];
 
 const CartList = (props) => {
   const {
@@ -36,7 +43,7 @@ const CartList = (props) => {
                   key={item.id}
                   className="border border-l-0 border-r-0 border-gray "
                 >
-                  <td className="py-5 px-2 mr-3 text-center border-r  text-gray">
+                  <td className="py-2 px-2 mr-3 text-center border-r  text-gray">
                     <div>
                       <span
                         className="mx-4 font-bold cursor-pointer hover:text-primary-red flex justify-center items-center"
@@ -49,14 +56,14 @@ const CartList = (props) => {
                   <td className="p-2 h-16 md:h-20 w-20 md:w-28 shadow-sm border-r">
                     <img
                       className="w-full h-full bg-center"
-                      src={item.image}
+                      src={item.productPictures[0].img}
                       alt={"Image"}
                     />
                   </td>
-                  <td className="py-5 px-2 text-end mr-3 border-r">
+                  <td className="py-2 px-2 text-end mr-3 border-r max-w-[250px] text-[10pt]">
                     {item.name}
                   </td>
-                  <td className="py-5 px-2 text-end border-r">
+                  <td className="py-2 px-2 text-end border-r">
                     {typeof item.offer === "number" ? (
                       <>
                         {item.offer && item.price && (
@@ -73,8 +80,8 @@ const CartList = (props) => {
                       <span>${item.price.toFixed(2)}</span>
                     )}
                   </td>
-                  <td className="py-5 px-2 flex justify-end items-center ml-2 border-r">
-                    <div className="flex flex-col justify-center items-center rounded-full py-2 ">
+                  <td className="py-2 px-2 flex justify-end items-center ml-2 border-r">
+                    <div className="flex  justify-center items-center rounded-full py-2 ">
                       <span
                         className="mx-2 py-2 font-bold cursor-pointer hover:text-primary-red bg-gray rounded-lg"
                         onClick={() => handleDecreaseQuantity(item)}
@@ -90,7 +97,7 @@ const CartList = (props) => {
                       </span>
                     </div>
                   </td>
-                  <td className="py-5 px-2 text-end">
+                  <td className="py-2 px-2 text-end">
                     ${" "}
                     {item.quantity *
                       (typeof item.offer === "number"
