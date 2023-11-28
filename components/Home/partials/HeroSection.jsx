@@ -37,23 +37,21 @@ const sliderCat = [
     name: "Hardware X Machinery",
     image: "/sliderCat/h_ent.png",
   },
-  {
-    name: "Supplements",
-    image: "/sliderCat/os_ent.png",
-  },
-  {
-    name: "Life Style X Fashion",
-    image: "/sliderCat/lf_ent.png",
-  },
-  {
-    name: "Hardware X Machinery",
-    image: "/sliderCat/h_ent.png",
-  },
 ];
+
+const renderCategories = (categories) => {
+  return (
+    <div>
+      <h2 className="relative  py-5">
+        <span>Categories</span>
+      </h2>
+    </div>
+  );
+};
 
 const renderNewItems = (newProducts) => {
   return (
-    <>
+    <React.Fragment>
       <h2 className="relative  py-5">
         <span>New Items</span>
       </h2>
@@ -81,13 +79,13 @@ const renderNewItems = (newProducts) => {
           See All
         </button>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
 const renderPopularItems = () => {
   return (
-    <>
+    <React.Fragment>
       <h2 className="relative  py-5">
         <span>Most Popular</span>
       </h2>
@@ -114,7 +112,7 @@ const renderPopularItems = () => {
           See All
         </button>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
@@ -137,33 +135,31 @@ const HeroSection = ({ newProducts }) => {
           <div className="h-[60%] md:h-[70%] max-w-full relative mb-4">
             <Slider />
           </div>
-          <div className="h-[35%] md:h-[25%]  w-full">
-            <InfinityLooper speed="50" direction="left">
-              {sliderCat.map((category, idx) => {
-                return (
-                  <div
-                    key={idx}
-                    className={`w-[150px] ${
-                      idx % 2 === 0
-                        ? "bg-[#e8f3ff] border-[#c6e2ff]"
-                        : "bg-[#fcffe8] border-[#ffe8c6]"
-                    } rounded-lg border-2 border-[#c6e2ff] relative`}
-                  >
-                    <div className="min-w-full h-full relative">
-                      <Image
-                        src={category.image}
-                        alt="category.name"
-                        fill
-                        contain
-                      />
-                    </div>
-                    <p className="w-full absolute left-0 bottom-0 category-bg font-[800] h-[44px] flex justify-center items-center text-center">
-                      {category.name}
-                    </p>
+          <div className="h-[35%] md:h-[25%]  w-full flex gap-x-3">
+            {sliderCat.map((category, idx) => {
+              return (
+                <div
+                  key={idx}
+                  className={`w-[150px] h-[120px] ${
+                    idx % 2 === 0
+                      ? "bg-[#e8f3ff] border-[#c6e2ff]"
+                      : "bg-[#fcffe8] border-[#ffe8c6]"
+                  } rounded-lg border-2 border-[#c6e2ff] relative`}
+                >
+                  <div className="min-w-full h-full relative">
+                    <Image
+                      src={category.image}
+                      alt="category.name"
+                      fill
+                      contain
+                    />
                   </div>
-                );
-              })}
-            </InfinityLooper>
+                  <p className="w-full absolute left-0 bottom-0 category-bg font-[800] h-[44px] flex justify-center items-center text-center">
+                    {category.name}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="order-2 md:order-2 md:block w-full md:w-1/4 bg-white rounded-lg px-5">

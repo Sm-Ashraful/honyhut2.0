@@ -4,16 +4,16 @@ import { Products } from "@/utils/New Data/Ptoducts";
 import Link from "next/link";
 
 const MultiProductFields = ({ products }) => {
-  let analyticProduct = [];
-  let lowMoq = [];
+  let girlsFashion = [];
+  let shoe = [];
   for (let i = 0; i < products.length; i++) {
-    if (products[i].productType === "analytic") {
-      analyticProduct.push(products[i]);
+    if (products[i].productType === "girls") {
+      girlsFashion.push(products[i]);
     }
   }
   for (let i = 0; i < products.length; i++) {
-    if (products[i].productType === "low") {
-      lowMoq.push(products[i]);
+    if (products[i].productType === "shoe") {
+      shoe.push(products[i]);
     }
   }
 
@@ -21,7 +21,7 @@ const MultiProductFields = ({ products }) => {
     <div className="w-full relative  md:px-[3rem] lg:px-[4rem] xl:px-[5rem] py-5">
       <div className="grid md:grid-cols-3 gap-5">
         <MultiCardBox
-          product={analyticProduct}
+          product={girlsFashion}
           productCategory={"Girls Fashion"}
           position={"text-center"}
           subtitle={
@@ -32,7 +32,7 @@ const MultiProductFields = ({ products }) => {
         />
 
         <MultiCardBox
-          product={lowMoq}
+          product={shoe}
           productCategory="Shoes"
           position={"text-center"}
           subtitle={

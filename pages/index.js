@@ -11,7 +11,7 @@ import FeatureCategories from "../components/Home/partials/FeatureCategories";
 import axiosInstance from "@/utils/helper/axios";
 
 export async function getStaticProps() {
-  const res = await axiosInstance.get("/products/slug/Fake-API-l2CLVFVGpz");
+  const res = await axiosInstance.get("/product/get-products");
 
   const newProducts = await res.data.products;
 
