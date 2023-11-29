@@ -4,11 +4,11 @@ import { CART_ACTION_TYPE } from "./cart.type";
 
 const addCartItem = (cartItems, productTodd, count) => {
   const existsItem = cartItems.find(
-    (cartItem) => cartItem.id === productTodd.id
+    (cartItem) => cartItem._id === productTodd._id
   );
   if (existsItem) {
     return cartItems.map((cartItem) =>
-      cartItem.id === productTodd.id
+      cartItem._id === productTodd._id
         ? { ...cartItem, quantity: cartItem.quantity + count }
         : cartItem
     );
@@ -19,14 +19,14 @@ const addCartItem = (cartItems, productTodd, count) => {
 
 const decreaseFromCartItem = (cartItems, productRemove) => {
   const existsItem = cartItems.find(
-    (cartItem) => cartItem.id === productRemove.id
+    (cartItem) => cartItem._id === productRemove._id
   );
   if (existsItem.quantity === 1) {
     return cartItems.filter((cartItem) => cartItem.id !== productRemove.id);
   }
   if (existsItem) {
     return cartItems.map((cartItem) => {
-      return cartItem.id === productRemove.id
+      return cartItem._id === productRemove._id
         ? { ...cartItem, quantity: cartItem.quantity - 1 }
         : cartItem;
     });
@@ -34,7 +34,7 @@ const decreaseFromCartItem = (cartItems, productRemove) => {
 };
 
 const removeItemFromCart = (cartItems, productToRemove) => {
-  return cartItems.filter((cartItem) => cartItem.id !== productToRemove.id);
+  return cartItems.filter((cartItem) => cartItem._id !== productToRemove._id);
 };
 
 export const setIsCartOpen = (bool) => {
