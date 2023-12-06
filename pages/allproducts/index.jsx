@@ -2,10 +2,7 @@ import { useState } from "react";
 
 import HeroTop from "../../components/common/top-component";
 import FilterProducts from "../../components/all-products";
-import MaleProducts from "../../components/all-products/maleProduct";
 import { useRouter } from "next/router";
-
-import { allProducts } from "../../utils/all-product";
 import { FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 
