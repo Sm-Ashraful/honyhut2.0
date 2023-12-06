@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-
-import { useRouter } from "next/router";
-import { FaHome } from "react-icons/fa";
+import { PaymentForm, CreditCard } from "react-square-web-payments-sdk";
+import axiosInstance from "../../utils/helper/axios";
 
 import CheckOut from "../../components/checkout";
 import {
@@ -12,105 +10,43 @@ import {
   selectShippingCost,
 } from "../../Store/cart/cart.selector";
 import CustomizedBreadcrumbs from "../../components/Update/BreadCrumbs";
+import AddressInput from "./components/AddressInput";
+import Link from "next/link";
 
 export default function Checkout() {
-  const [selected, setSelected] = useState("");
-  const [product, setProduct] = useState(null);
-
-  const route = useRouter();
-  const productId = route.query.productId;
-  const pathName = route.pathname;
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const shippingCost = useSelector(selectShippingCost);
 
-  const path = pathName.split("/");
-  const defaultFormValue = {
-    firstName: "",
-    streetAddress: "",
-    townCity: "",
-    state: "",
-    zipCode: "",
-    phoneNumber: "",
-    email: "",
-  };
-
-  const [formValues, setFormValues] = useState(defaultFormValue);
-  const [shippingFormValues, setShippingFormValues] =
-    useState(defaultFormValue);
-  const [isFormComplete, setIsFormComplete] = useState(false);
-  const [isShippingFormComplete, setIsShippingFormComplete] = useState(false);
-  const [isSubmitComplete, setIsSubmitCompleted] = useState(false);
-  const [isShippingSubmitComplete, setIsShippingSubmitCompleted] =
+  /// new checkout details
+  const [billingAddress, setBillingAddress] = useState(null);
+  const [isBillingAddressComplete, setIsBillingAddressComplete] =
     useState(false);
-  const [submittedValues, setSubmittedValues] = useState(null);
-  const [shippingSubmittedValues, setIsShippingSubmittedValues] =
-    useState(null);
   const [isOtherAddressChecked, setIsOtherAddressChecked] = useState(false);
-  const [isPayByCard, setIsPayByCard] = useState(false);
+  const [shippingAddress, setShippingAddress] = useState(null);
+  const [isShippingAddressComplete, setIsShippingAddressComplete] =
+    useState(false);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    console.log("values: ", name, value);
-    setFormValues((prevValues) => {
-      return { ...prevValues, [name]: value };
-    });
+  const [isOkForPayment, setIsOkForPayment] = useState(false);
+
+  const [isShippingFormComplete, setIsShippingFormComplete] = useState(false);
+
+  const handleBillingFormSubmit = (data) => {
+    setBillingAddress(data);
+    setIsBillingAddressComplete(true);
+  };
+  const handleShippingFormSubmit = (data) => {
+    setShippingAddress(data);
+    setIsShippingAddressComplete(true);
+    setIsOkForPayment(false);
   };
 
-  const handleShippingInputValueChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setShippingFormValues((prevValues) => {
-      return { ...prevValues, [name]: value };
-    });
+  const handleSetAddress = () => {
+    if (!isOtherAddressChecked) {
+      setShippingAddress(billingAddress);
+    }
+    setIsOkForPayment(true);
   };
-
-  const handleBillingFormSubmit = (e) => {
-    e.preventDefault();
-    setSubmittedValues(formValues);
-    setIsSubmitCompleted(true);
-    setFormValues(defaultFormValue);
-    console.log("form values", formValues);
-  };
-  const handleShippingFormSubmit = (e) => {
-    e.preventDefault();
-    setIsShippingSubmittedValues(shippingFormValues);
-    setIsShippingSubmitCompleted(true);
-    setShippingFormValues(defaultFormValue);
-  };
-
-  useEffect(() => {
-    const isComplete =
-      formValues.firstName &&
-      formValues.streetAddress &&
-      formValues.townCity &&
-      formValues.state &&
-      formValues.zipCode &&
-      formValues.phoneNumber;
-    setIsFormComplete(isComplete);
-  }, [formValues]);
-  useEffect(() => {
-    const isComplete =
-      shippingFormValues.firstName &&
-      shippingFormValues.streetAddress &&
-      shippingFormValues.townCity &&
-      shippingFormValues.state &&
-      shippingFormValues.zipCode &&
-      shippingFormValues.phoneNumber;
-    setIsShippingFormComplete(isComplete);
-  }, [shippingFormValues]);
-
-  const handleChange = (event) => {
-    event.preventDefault();
-    setSelected(event.target.value);
-  };
-
-  // const handleRadioChange = (event) => {
-  //   setIsOtherAddressChecked(event.target.checked);
-  // };
-  // const handlingPaymentRadioChange = (event) => {
-  //   setIsPayByCard(event.target.value === "true");
-  // };
 
   return (
     <>
@@ -119,8 +55,8 @@ export default function Checkout() {
           <CustomizedBreadcrumbs />
         </div>
         <div className="w-full md:hidden ">
-          <div className="bg-order">
-            <div>
+          <div className="">
+            <div className="">
               <CheckOut
                 cartItems={cartItems}
                 cartTotal={cartTotal}
@@ -129,660 +65,168 @@ export default function Checkout() {
             </div>
           </div>
         </div>
-        <div className="mb-5 px-3 md:px-12">
-          <div className="grid md:grid-cols-5 gap-8 w-full">
-            <div className="w-full md:col-span-3 order-1 md:order-0">
-              <div>
-                <div className="my-4 mx-5">
-                  <p htmlFor="name" className="block font-bold  mb-0 ">
-                    Billing Address
-                  </p>
-                  <hr className="h-[2px]  bg-gray border-0 dark:bg-gray" />
-                </div>
-                <form
-                  className={`text-sm md:text-lg mx-5 ${
-                    isSubmitComplete && "hidden"
-                  }`}
-                  onSubmit={handleBillingFormSubmit}
-                >
-                  <div className="flex mb-2">
-                    <div className="w-1/2 pr-2">
-                      <label htmlFor="name" className="block">
-                        First Name
-                        <span className="text-primary-red">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        placeholder="First Name"
-                        value={formValues.firstName || ""}
-                        required
-                        className="border border-gray rounded-md p-2 w-full"
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                    <div className="w-1/2">
-                      <label htmlFor="name" className="block">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Last Name"
-                        value={
-                          submittedValues?.lastName || formValues.lastName || ""
-                        }
-                        className="border border-gray rounded-md p-2 w-full"
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex mb-2">
-                    <div className="mr-2 w-full">
-                      <label htmlFor="name" className="block font-bold">
-                        Country / Region
-                        <span className="text-primary-red">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="townCity"
-                        name="townCity"
-                        placeholder="United States"
-                        value={"United States "}
-                        required
-                        className="border border-gray rounded-md p-2 w-full"
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                    <div className="w-full">
-                      <label htmlFor="name" className="block">
-                        Street Address
-                        <span className="text-primary-red">*</span>
-                      </label>
-                      <div className="flex">
-                        <input
-                          type="text"
-                          id="streetAddress"
-                          name="streetAddress"
-                          placeholder="House number and street name"
-                          value={
-                            submittedValues?.streetAddress ||
-                            formValues.streetAddress ||
-                            ""
-                          }
-                          required
-                          className="border border-gray rounded-md p-2 w-full mr-2"
-                          onChange={handleInputChange}
-                        />
-                        <input
-                          type="text"
-                          id="apartment"
-                          name="apartment"
-                          placeholder="Apartment, suite, unit etc. (optional)"
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleInputChange}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mb-2 flex">
-                    <div className="w-full mr-2">
-                      <label htmlFor="name" className="block">
-                        Town / City
-                        <span className="text-primary-red">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="townCity"
-                        name="townCity"
-                        placeholder="town / city name"
-                        value={
-                          submittedValues?.townCity || formValues.townCity || ""
-                        }
-                        required
-                        className="border border-gray rounded-md p-2 w-full"
-                        onChange={handleInputChange}
-                      />
-                    </div>
-
-                    <div className="w-full mr-2">
-                      <label htmlFor="name" className="block">
-                        State
-                        <span className="text-primary-red">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="state"
-                        name="state"
-                        placeholder="State / Province / Region Name"
-                        value={submittedValues?.state || formValues.state || ""}
-                        required
-                        className="border border-gray rounded-md p-2 w-full"
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                    <div className="w-full">
-                      <label htmlFor="name" className="block">
-                        ZIP Code
-                        <span className="text-primary-red">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="zipCode"
-                        name="zipCode"
-                        placeholder="ZIP code"
-                        value={
-                          submittedValues?.zipCode || formValues.zipCode || ""
-                        }
-                        required
-                        className="border border-gray rounded-md p-2 w-full"
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex  mb-2">
-                    <div className="w-full mr-2">
-                      <label htmlFor="number" className="block">
-                        Phone Number
-                      </label>
-                      <input
-                        type="number"
-                        id="phoneNumber"
-                        name="phoneNumber"
-                        placeholder="Phone number"
-                        value={
-                          submittedValues?.phoneNumber ||
-                          formValues.phoneNumber ||
-                          ""
-                        }
-                        required
-                        className="border border-gray rounded-md p-2 w-full"
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                    <div className="w-full">
-                      <label htmlFor="email" className="block ">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="email address"
-                        value={submittedValues?.email || formValues.email || ""}
-                        className="border border-gray rounded-md p-2 w-full"
-                        onChange={handleInputChange}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-end">
-                    <button
-                      disabled={!isFormComplete}
-                      type="submit"
-                      className={`bg-customTheme rounded-lg text-primary px-6 py-3  hover:bg-primary-red ${
-                        !isFormComplete &&
-                        "opacity-50 text-gray cursor-not-allowed"
-                      }`}
-                    >
-                      Add
-                    </button>
-                  </div>
-                </form>
-                <div
-                  className={`mx-6 ${isSubmitComplete ? "block" : "hidden"}`}
-                >
-                  <input
-                    type="checkbox"
-                    id="myCheckbox"
-                    name="myCheckbox"
-                    value="true"
-                    checked
-                  />
-                  <label for="myCheckbox" className="pl-2 text-secondary">
-                    Billing Address Added Successfully
-                  </label>
-                </div>
-              </div>
-              <div className={`${isSubmitComplete ? "" : "blur-[3px]"} my-5`}>
-                <div className="my-4 mx-5">
-                  <p
-                    htmlFor="name"
-                    className="block font-bold text-tertiary mb-0 "
-                  >
-                    <strong>Shipping Address</strong>
-                  </p>
-                  <hr className="h-[2px]  bg-gray border-0 dark:bg-gray" />
-                </div>
-                <div className={`${isShippingSubmitComplete && "hidden"}`}>
-                  <form
-                    className={`text-sm md:text-lg mx-5 ${
-                      isOtherAddressChecked ? "block" : "hidden"
-                    }`}
-                    onSubmit={handleShippingFormSubmit}
-                  >
-                    <div className="flex mb-2">
-                      <div className="w-1/2 pr-2">
-                        <label htmlFor="name" className="block">
-                          First Name
-                          <span className="text-primary-red">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="firstName"
-                          name="firstName"
-                          placeholder="First Name"
-                          value={
-                            shippingSubmittedValues?.firstName ||
-                            shippingFormValues.firstName ||
-                            ""
-                          }
-                          required
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleShippingInputValueChange}
-                        />
-                      </div>
-                      <div className="w-1/2">
-                        <label htmlFor="name" className="block">
-                          Last Name
-                        </label>
-                        <input
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          placeholder="Last Name"
-                          value={
-                            shippingSubmittedValues?.lastName ||
-                            shippingFormValues.lastName ||
-                            ""
-                          }
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleShippingInputValueChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex mb-2">
-                      <div className="mr-2 w-full">
-                        <label htmlFor="name" className="block font-bold">
-                          Country / Region
-                          <span className="text-primary-red">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="townCity"
-                          name="townCity"
-                          placeholder="United States"
-                          value={"United States "}
-                          required
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleShippingInputValueChange}
-                        />
-                      </div>
-                      <div className="w-full">
-                        <label htmlFor="name" className="block">
-                          Street Address
-                          <span className="text-primary-red">*</span>
-                        </label>
-                        <div className="flex">
-                          <input
-                            type="text"
-                            id="streetAddress"
-                            name="streetAddress"
-                            placeholder="House number and street name"
-                            value={
-                              shippingSubmittedValues?.streetAddress ||
-                              shippingFormValues.streetAddress ||
-                              ""
-                            }
-                            required
-                            className="border border-gray rounded-md p-2 w-full mr-2"
-                            onChange={handleShippingInputValueChange}
-                          />
-                          <input
-                            type="text"
-                            id="apartment"
-                            name="apartment"
-                            placeholder="Apartment, suite, unit etc. (optional)"
-                            className="border border-gray rounded-md p-2 w-full"
-                            onChange={handleShippingInputValueChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mb-2 flex">
-                      <div className="w-full mr-2">
-                        <label htmlFor="name" className="block">
-                          Town / City
-                          <span className="text-primary-red">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="townCity"
-                          name="townCity"
-                          placeholder="town / city name"
-                          value={
-                            shippingSubmittedValues?.townCity ||
-                            shippingFormValues.townCity ||
-                            ""
-                          }
-                          required
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleShippingInputValueChange}
-                        />
-                      </div>
-
-                      <div className="w-full mr-2">
-                        <label htmlFor="name" className="block">
-                          State
-                          <span className="text-primary-red">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="state"
-                          name="state"
-                          placeholder="State / Province / Region Name"
-                          value={
-                            shippingSubmittedValues?.state ||
-                            shippingFormValues.state ||
-                            ""
-                          }
-                          required
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleShippingInputValueChange}
-                        />
-                      </div>
-                      <div className="w-full">
-                        <label htmlFor="name" className="block">
-                          ZIP Code
-                          <span className="text-primary-red">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="zipCode"
-                          name="zipCode"
-                          placeholder="ZIP code"
-                          value={
-                            shippingSubmittedValues?.zipCode ||
-                            shippingFormValues.zipCode ||
-                            ""
-                          }
-                          required
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleShippingInputValueChange}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex  mb-2">
-                      <div className="w-full mr-2">
-                        <label htmlFor="number" className="block">
-                          Phone Number
-                        </label>
-                        <input
-                          type="number"
-                          id="phoneNumber"
-                          name="phoneNumber"
-                          placeholder="Phone number"
-                          value={
-                            shippingSubmittedValues?.phoneNumber ||
-                            shippingFormValues.phoneNumber ||
-                            ""
-                          }
-                          required
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleShippingInputValueChange}
-                        />
-                      </div>
-                      <div className="w-full">
-                        <label htmlFor="email" className="block ">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          placeholder="email address"
-                          value={
-                            shippingSubmittedValues?.email ||
-                            shippingFormValues.email ||
-                            ""
-                          }
-                          className="border border-gray rounded-md p-2 w-full"
-                          onChange={handleShippingInputValueChange}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex justify-end">
-                      <button
-                        disabled={!isShippingFormComplete}
-                        type="submit"
-                        className={`bg-secondary rounded-lg text-primary px-6 py-3  hover:bg-primary-red ${
-                          !isShippingFormComplete &&
-                          "opacity-50 text-gray cursor-not-allowed"
-                        }`}
-                      >
-                        Add
-                      </button>
-                    </div>
-                  </form>
-                  <div className="flex justify-between">
-                    <div className={`mx-6 flex items-center`}>
-                      <input
-                        type="radio"
-                        id="billingAddress"
-                        name="myCheckbox"
-                        value="true"
-                        checked={!isOtherAddressChecked}
-                        onChange={() => setIsOtherAddressChecked(false)}
-                      />
-                      <label
-                        for="billingAddress"
-                        className="pl-2 text-secondary"
-                      >
-                        Same as Billing address
-                      </label>
-                    </div>
-                    <div className={`mx-6 flex items-center`}>
-                      <input
-                        type="radio"
-                        id="otherAddressCheckbox"
-                        name="myCheckbox"
-                        value="true"
-                        checked={isOtherAddressChecked}
-                        onChange={() => setIsOtherAddressChecked(true)}
-                      />
-                      <label
-                        for="otherAddressCheckbox"
-                        className="pl-2 text-secondary"
-                      >
-                        Add Other Shipping address
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className={`mx-6 ${
-                    isShippingSubmitComplete ? "block" : "hidden"
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    id="myCheckbox"
-                    name="myCheckbox"
-                    value="true"
-                    checked
-                  />
-                  <label for="myCheckbox" className="pl-2 text-secondary">
-                    Shipping Address Added Successfully
-                  </label>
-                </div>
-              </div>
-              <div
-                className={`my-4 mx-5  ${isSubmitComplete ? "" : "blur-[3px]"}`}
-              >
+        {cartItems.length > 0 ? (
+          <div className="mb-5 px-3 md:px-12">
+            <div className="grid md:grid-cols-5 gap-8 w-full">
+              <div className="w-full md:col-span-3 order-1 md:order-0">
                 <div>
-                  <div className="">
-                    <p
-                      htmlFor="name"
-                      className="block font-bold text-tertiary mb-0 "
-                    >
-                      Payment
+                  <div className="my-4 mx-5">
+                    <p htmlFor="name" className="block font-bold  mb-0 ">
+                      Billing Address
                     </p>
+                    <hr className="h-[2px]  bg-gray border-0 dark:bg-gray" />
                   </div>
-                  <hr className="h-[2px]  bg-gray border-0 dark:bg-gray" />
-                </div>
-                <div>
-                  <div className="flex justify-between py-3">
-                    <div>
+                  {/**billing form */}
+                  {isBillingAddressComplete ? (
+                    <div className={`mx-6`}>
                       <input
-                        type="radio"
-                        id="creditCard"
-                        name="payment"
+                        type="checkbox"
+                        id="myCheckbox"
+                        name="myCheckbox"
                         value="true"
-                        checked={!isPayByCard}
-                        onChange={() => setIsPayByCard(false)}
+                        checked
                       />
-                      <label for="creditCard" className="pl-2 text-secondary">
-                        Card Payment
+                      <label for="myCheckbox" className="pl-2 text-blue-800">
+                        Billing Address Added Successfully
                       </label>
                     </div>
-                    <div className="flex">
-                      <div className="w-[32px] max-h-[40px] relative mr-2">
-                        <Image
-                          src="/logos/visa.svg"
-                          alt="visa img"
-                          fill
-                          cover
-                        />
-                      </div>
-                      <div className="w-[32px] max-h-[40px] relative mr-2">
-                        <Image
-                          src="/logos/mastercard.svg"
-                          alt="mastercard img"
-                          fill
-                          cover
-                        />
-                      </div>
-                      <div className="w-[32px]  max-h-[40px] relative mr-2">
-                        <Image
-                          src="/logos/discover.svg"
-                          alt="discover"
-                          fill
-                          cover
-                        />
-                      </div>
-                      <div className="w-[32px] max-h-[40px] relative">
-                        <Image
-                          src="/logos/amex.svg"
-                          alt="amex img"
-                          fill
-                          cover
-                        />
-                      </div>
+                  ) : (
+                    <div className="mx-5">
+                      <AddressInput submitHandler={handleBillingFormSubmit} />
                     </div>
-                  </div>
-                  {!isPayByCard && (
-                    <form action="post">
-                      <div className="mb-2">
-                        <label htmlFor="number" className="block">
-                          Card Number
-                        </label>
-                        <input
-                          type="number"
-                          id="name"
-                          name="name"
-                          placeholder="put your card number"
-                          required
-                          className="border border-gray rounded-md p-2 w-full"
-                        />
-                      </div>
-                      <div className="grid grid-cols-2 gap-4 w-full">
-                        <div className="mb-2">
-                          <label htmlFor="number" className="block">
-                            Expiry (MM/YY)
-                          </label>
-                          <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="MM/YY"
-                            required
-                            className="border border-gray rounded-md p-2 w-full"
-                          />
-                        </div>
-                        <div className="mb-2">
-                          <label htmlFor="number" className="block">
-                            Card code
-                          </label>
-                          <input
-                            type="number"
-                            id="name"
-                            name="name"
-                            placeholder="CVC"
-                            required
-                            className="border border-gray rounded-md p-2 w-full"
-                          />
-                        </div>
-                      </div>
-                    </form>
                   )}
-                  <div>
-                    <input
-                      type="radio"
-                      id="paypal"
-                      name="payment"
-                      value="true"
-                      checked={isPayByCard}
-                      onChange={() => setIsPayByCard(true)}
-                    />
-                    <label for="paypal" className="pl-2 text-secondary">
-                      Cash On Delivery
-                    </label>
+                </div>
+                {isBillingAddressComplete && (
+                  <div className={`my-5`}>
+                    <div className="my-4 mx-5">
+                      <p
+                        htmlFor="name"
+                        className="block font-bold text-black mb-0 "
+                      >
+                        <strong>Shipping Address</strong>
+                      </p>
+                      <hr className="h-[2px]  bg-gray border-0 dark:bg-gray" />
+                    </div>
+                    {isShippingAddressComplete ? (
+                      <div className={`mx-6 `}>
+                        <input
+                          type="checkbox"
+                          id="myCheckbox"
+                          name="myCheckbox"
+                          value="true"
+                          checked
+                        />
+                        <label for="myCheckbox" className="pl-2 text-blue-800">
+                          Shipping Address Added Successfully
+                        </label>
+                      </div>
+                    ) : (
+                      <div className={``}>
+                        <div className="flex justify-between">
+                          <div className={`mx-6 flex items-center`}>
+                            <input
+                              type="radio"
+                              id="billingAddress"
+                              name="myCheckbox"
+                              value="true"
+                              checked={!isOtherAddressChecked}
+                              onChange={() => setIsOtherAddressChecked(false)}
+                            />
+                            <label
+                              for="billingAddress"
+                              className="pl-2 text-black"
+                            >
+                              Same as Billing address
+                            </label>
+                          </div>
+                          <div className={`mx-6 flex items-center`}>
+                            <input
+                              type="radio"
+                              id="otherAddressCheckbox"
+                              name="myCheckbox"
+                              value="true"
+                              checked={isOtherAddressChecked}
+                              onChange={() => setIsOtherAddressChecked(true)}
+                            />
+                            <label
+                              for="otherAddressCheckbox"
+                              className="pl-2 text-black"
+                            >
+                              Add Other Shipping address
+                            </label>
+                          </div>
+                        </div>
+                        <div
+                          className={`mx-5 mt-3 ${
+                            isOtherAddressChecked ? "block" : "hidden"
+                          }`}
+                        >
+                          <AddressInput
+                            submitHandler={handleShippingFormSubmit}
+                          />
+                        </div>
+                      </div>
+                    )}
                   </div>
+                )}
+                {isBillingAddressComplete && !isOkForPayment && (
+                  <button
+                    onClick={handleSetAddress}
+                    className="mx-5 text-sm cursor-pointer  bg-customTheme hover:bg-white hover:border border-customTheme hover:text-black px-4 py-2 rounded-full text-customText"
+                  >
+                    Confirm Address
+                  </button>
+                )}
+                <div className="my-5 mx-5">
+                  <p className="font-bold pb-3">We accepts: </p>
+                  <img src="/images/payment.png" alt="" />
+                </div>
+
+                <div className="mx-5  pt-4">
+                  <PaymentForm
+                    applicationId="sandbox-sq0idb-_aDTylsZi26CflA7NzVtxA"
+                    cardTokenizeResponseReceived={async (
+                      token,
+                      verifiedBuyer
+                    ) => {
+                      const response = await axiosInstance.post(
+                        "/car/product/payment",
+                        {
+                          sourceId: token.token,
+                          billingAddress: billingAddress,
+                          shippingAddress: shippingAddress,
+                        }
+                      );
+                      console.log("This is response from backend: ", response);
+                    }}
+                    locationId="LWT2TDD6X98ST"
+                  >
+                    <CreditCard />
+                  </PaymentForm>
                 </div>
               </div>
-              <div className="flex justify-end md:hidden">
-                <button
-                  disabled={!isShippingFormComplete}
-                  type="submit"
-                  className={`w-full hover:bg-secondaryTextColor rounded-lg text-primary py-5 text-2xl  bg-primary-red ${
-                    !isShippingFormComplete &&
-                    "opacity-50 text-gray cursor-not-allowed"
-                  }`}
-                >
-                  Proceed Order
-                </button>
-              </div>
-            </div>
-            <div className="col-span-2 hidden md:block order-0 md:order-1">
-              <div className="bg-order">
-                <div>
+              <div className="col-span-2 hidden md:block order-0 md:order-1 ">
+                <div className="sticky top-[7rem]">
                   <CheckOut
                     cartItems={cartItems}
                     cartTotal={cartTotal}
                     shippingCost={shippingCost}
-                  />
+                  ></CheckOut>
                 </div>
-              </div>
-              <div className="flex justify-end">
-                <button
-                  disabled={!isShippingFormComplete}
-                  type="submit"
-                  className={`w-full hover:bg-secondaryTextColor rounded-lg text-primary px-6 py-3  bg-primary-red ${
-                    !isShippingFormComplete &&
-                    "opacity-50 text-gray cursor-not-allowed"
-                  }`}
-                >
-                  Proceed Order
-                </button>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="pt-5 w-full h-full mx-5 flex flex-col gap-y-5 justify-center items-center">
+            <p>Please Select Product for Shipping</p>
+            <Link
+              href="/allproducts"
+              className="mx-5 text-sm cursor-pointer  bg-customTheme hover:bg-white hover:border border-customTheme hover:text-black px-4 py-2 rounded-full text-customText"
+            >
+              Add Product Now!
+            </Link>
+          </div>
+        )}
       </main>
     </>
   );

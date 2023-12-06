@@ -1,19 +1,21 @@
 import React from "react";
 
 import { FiShoppingCart } from "react-icons/fi";
-import BtnWithIcon from "../Update/BtnWithIcon";
 
-import { addItemToCart } from "@/Store/cart/cart.action";
+import { addItemToCart, emptyCard } from "@/Store/cart/cart.action";
 import { selectCartItems } from "@/Store/cart/cart.selector";
 import { setIsCartOpen } from "@/Store/cart/cart.action";
 
 import Image from "next/image";
-import OfferPercent from "../offer";
+import OfferPercent from "../../../components/offer";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
-const CommonCard = ({ product }) => {
+const CarCard = ({ product }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
+
+  const router = useRouter();
 
   function countClickHandler(e) {
     e.preventDefault();
@@ -22,8 +24,9 @@ const CommonCard = ({ product }) => {
   //add cart functionality
   const handleAddToCart = (e) => {
     e.preventDefault();
+    dispatch(emptyCard());
     dispatch(addItemToCart(cartItems, product, 1));
-    dispatch(setIsCartOpen(true));
+    router.push("/checkout/checkout");
   };
 
   return (
@@ -34,8 +37,8 @@ const CommonCard = ({ product }) => {
         >
           {/* image section  */}
           <div className="relative w-full">
-            <div className="relative w-full h-44 md:h-52 bg-white overflow-hidden  rounded-md text-center flex justify-center items-center group border-b mb-2">
-              <div className="w-full h-full relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
+            <div className="relative w-auto h-44 md:h-52 bg-white overflow-hidden  rounded-md text-center flex justify-center items-center group border-b mb-2">
+              <div className="relative group-hover:scale-125 transition-all  duration-1000 text-center flex justify-center items-center">
                 <Image
                   src={`${
                     product.image
@@ -43,8 +46,9 @@ const CommonCard = ({ product }) => {
                       : product.productPictures[0].img
                   }`}
                   alt="product Image"
-                  fill
-                  cover
+                  width={300}
+                  height={300}
+                  className="w-[100px] h-auto"
                 />
               </div>
             </div>
@@ -89,6 +93,10 @@ const CommonCard = ({ product }) => {
               </p>
 
               <p className=" text-black text-[14px]">
+                Minimum order Qty:
+                <span className="text-secondaryTextColor"> 10</span>
+              </p>
+              <p className=" text-black text-[14px]">
                 In stock:
                 <span className="text-secondaryTextColor"> Available</span>
               </p>
@@ -96,10 +104,16 @@ const CommonCard = ({ product }) => {
                 className="flex  w-full justify-between items-center md:px-5"
                 onClick={countClickHandler}
               ></div>
-              <BtnWithIcon clickHandler={handleAddToCart}>
-                <FiShoppingCart />
-                <span>Add To Cart</span>
-              </BtnWithIcon>
+              <div className="mx-2 pt-3">
+                <button
+                  type="submit"
+                  className="flex gap-2 items-center justify-center bg-customTheme text-customText pb-2 w-full border border-[#666] rounded-full mx-auto text-center px-5 py-2"
+                  onClick={handleAddToCart}
+                >
+                  <FiShoppingCart />
+                  <span>Order Now</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -110,4 +124,4 @@ const CommonCard = ({ product }) => {
   );
 };
 
-export default CommonCard;
+export default CarCard;
