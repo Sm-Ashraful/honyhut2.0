@@ -48,9 +48,9 @@ const CommonCard = ({ product }) => {
                 />
               </div>
             </div>
-            {product.offer && (
+            {product.details?.Offer && (
               <div className={`absolute  -left-[5px] rounded-sm  b_anim`}>
-                <OfferPercent percentage={product.offer} />
+                <OfferPercent percentage={product.details?.Offer} />
               </div>
             )}
             {/**cart buttion */}
@@ -64,6 +64,9 @@ const CommonCard = ({ product }) => {
                     : product.name}
                 </p>
               }
+              <p className=" text-black text-[14px] pb-2">
+                {product.details?.Unit}
+              </p>
 
               <p className="text-[13px] font-bold pb-2 md:pb-3">
                 <span>Price: </span>

@@ -6,14 +6,20 @@ import Link from "next/link";
 const MultiProductFields = ({ products }) => {
   let girlsFashion = [];
   let shoe = [];
+  let electronics = [];
   for (let i = 0; i < products.length; i++) {
-    if (products[i].productType === "girls") {
+    if (products[i].category === "65715b485c8a29c4daa96837") {
       girlsFashion.push(products[i]);
     }
   }
   for (let i = 0; i < products.length; i++) {
-    if (products[i].productType === "shoe") {
+    if (products[i].category === "6571b4565c8a29c4daa969a7") {
       shoe.push(products[i]);
+    }
+  }
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].category === "65704af21d3fd8729a253b69") {
+      electronics.push(products[i]);
     }
   }
 
@@ -43,7 +49,7 @@ const MultiProductFields = ({ products }) => {
         />
 
         <MultiCardBox
-          product={Products}
+          product={electronics}
           productCategory={"Electronics"}
           position={"text-center"}
           subtitle={

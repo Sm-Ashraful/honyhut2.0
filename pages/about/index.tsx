@@ -1,9 +1,6 @@
-import React from "react";
-
+import About from "./partials/About";
+import AboutServey from "./partials/about-servay";
 import HeroTop from "@/components/common/top-component";
-import About from "@/components/aboutUs";
-import AboutServey from "@/components/aboutUs/about-servay";
-import AboutProduct from "@/components/aboutUs/about-products";
 
 const AboutUs = () => {
   return (
@@ -14,7 +11,6 @@ const AboutUs = () => {
       />
       <About />
       <AboutServey />
-      <AboutProduct />
     </div>
   );
 };

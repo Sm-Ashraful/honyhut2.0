@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 //updated code for new interface
 import HeroSection from "../components/Home/partials/HeroSection";
 import MultiProductFields from "../components/Home/partials/MultiProductFields";
@@ -7,32 +5,31 @@ import NewProducts from "../components/Home/partials/NewProducts";
 import ReadyToShip from "../components/Home/partials/ReadyToShip";
 import UserForm from "../components/Home/partials/userForm";
 import FeatureCategories from "../components/Home/partials/FeatureCategories";
+import { fetchData } from "@/utils/helper/fetchData";
 
-import axiosInstance from "@/utils/helper/axios";
+import { useSelector, useDispatch } from "react-redux";
+import { setProducts } from "@/store/product/product.action";
 
 export async function getStaticProps() {
-  const res = await axiosInstance.get("/product/get-products");
-
-  const newProducts = await res.data.products;
-
+  const { products, categories } = await fetchData();
   return {
     props: {
-      newProducts,
+      products,
+      categories,
     },
   };
 }
 
-export default function Home({ newProducts }) {
+export default function Home({ products, categories }) {
+  const dispatch = useDispatch();
+  dispatch(setProducts(products));
   return (
     <>
       <main>
-        <HeroSection newProducts={newProducts} />
-        <MultiProductFields products={newProducts} />
-
-        <NewProducts newProducts={newProducts} />
-
+        <HeroSection newProducts={products} categories={categories} />
+        <MultiProductFields products={products} />
+        <NewProducts newProducts={products} />
         <ReadyToShip />
-
         <UserForm />
         <FeatureCategories />
       </main>

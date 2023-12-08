@@ -45,19 +45,6 @@ const FilterProducts = ({ open, handleDrawerOpen }) => {
     setSelectedCategory(event.target.value);
   }
 
-  /**
-   *  sx={{ mr: 2, ...(open && { display: "none" }) }}
-   * before drawer coding
-   * <button
-            onClick={handleFilterOnClick}
-            className="mb-0 text-trueGray-400 text-sm flex justify-center items-center cursor-pointer gap-[5px] px-8 py-2 border border-primary hover:border-ash"
-          >
-            <IoFilter />
-
-            <span> Filter</span>
-          </button>
-   */
-
   return (
     <div className="my-[1rem] md:mb-[2rem] md:mt-[1rem]">
       <div className="w-full h-auto">

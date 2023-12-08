@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Dart from "../../../../Assets/dart.svg";
 import Image from "next/image";
 import { BsCart4 } from "react-icons/bs";
@@ -17,8 +18,8 @@ import { FaSearch } from "react-icons/fa";
 const HeaderMain = ({ logo, handleCart, cartCount }) => {
   const [nav, setNav] = useState("");
   const [fixedNav, setFixedNav] = useState(false);
+  const router = useRouter();
   const dispatch = useDispatch();
-  console.log("Cart Count: ", cartCount);
 
   useEffect(() => {
     let prevScrollY = window.scrollY;
@@ -31,6 +32,9 @@ const HeaderMain = ({ logo, handleCart, cartCount }) => {
         if (window.innerWidth < 720) {
           setFixedNav(true);
         }
+        // if (router.pathname === "/allproducts") {
+        //   setNav("");
+        // }
       } else {
         setNav("");
         setFixedNav(false);
@@ -55,7 +59,7 @@ const HeaderMain = ({ logo, handleCart, cartCount }) => {
   };
   return (
     <div
-      className={`padding_inside !pb-2  md:!pb-0 flex flex-col md:flex-row md:gap-20 items-center bg-white ${nav} z-50 min-w-full`}
+      className={`padding_inside !pb-2  md:!pb-0 flex flex-col md:flex-row md:gap-20 items-center bg-white ${nav} z-50 min-w-full border-b`}
     >
       {/** Logo part*/}
       <div className="w-full md:w-auto flex justify-between items-center">

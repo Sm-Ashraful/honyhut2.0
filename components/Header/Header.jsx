@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <div className="hidden md:block">
         <HeaderTop handleCart={handleCart} />
       </div>

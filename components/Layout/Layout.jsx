@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Header from "../Header/Header";
@@ -6,8 +6,16 @@ import Header from "../Header/Header";
 import Footer from "../Footer";
 import BottomMenu from "../Bottom-menu";
 import Script from "next/script";
+import { useRouter } from "next/router";
 
 const Layout = ({ children }) => {
+  const [noFooter, setNoFooter] = useState(false);
+  const router = useRouter();
+  useEffect(() => {
+    if (router.pathname === "/allproducts") {
+      setNoFooter(true);
+    }
+  }, [router.pathname]);
   return (
     <>
       <Head>
@@ -36,7 +44,11 @@ const Layout = ({ children }) => {
       <main className="min-h-screen">
         <Header />
         {children}
-        <Footer />
+        {!noFooter && (
+          <>
+            <Footer />
+          </>
+        )}
       </main>
     </>
   );

@@ -26,9 +26,15 @@ const Card = (props) => {
         <div
           className={`${
             props.type === "flex" ? (isMobile ? "w-1/3" : "w-1/2") : "w-full"
-          }  relative mr-[16px] bg-[#f3f3f3] bg-blend-multiply`}
+          }  relative mr-[16px] bg-[#f3f3f3] bg-blend-multiply max-h-[220px] overflow-hidden`}
         >
-          <img className="object-cover" src={props.image} alt={props.name} />
+          <Image
+            width={200}
+            height={200}
+            className="object-cover w-full h-full"
+            src={props.image}
+            alt={props.name}
+          />
         </div>
         <div className={`${isMobile && "w-1/2"}`}>
           <p

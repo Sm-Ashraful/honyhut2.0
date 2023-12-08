@@ -1,23 +1,47 @@
 import React from "react";
 import { Products } from "@/utils/New Data/Ptoducts";
 import MultiCardBox from "@/components/Update/MultiCardBox";
+import Link from "next/link";
+import Card from "@/components/Update/Card";
 
 const NewProducts = ({ newProducts }) => {
-  console.log("New products: ", newProducts);
-  // const products = [];
-  // for (let i = 0; i < 4; i++) {
-  //   products.push(NewProducts[i]);
-  // }
   return (
     <div className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] py-5">
-      <MultiCardBox
-        product={newProducts}
-        productCategory={"New Arrivals"}
-        subtitle={
-          "Goods & services handpicked by B2B sourcing & procurement specialists"
-        }
-        type="singleShow"
-      />
+      <div className="w-full bg-white p-5 rounded-lg border ">
+        <div>
+          <div className="flex justify-between items-center pb-2">
+            <h2 className="!ml-0">New Arrivals</h2>
+            <Link
+              href={`/product/category-page/new-arrivals`}
+              className="text-sm cursor-pointer hover:text-[#777] bg-customTheme hover:bg-white px-4 py-2 rounded-full text-customText"
+            >
+              See more
+            </Link>
+          </div>
+          <p className="text-[#666] text-sm leading-4">
+            Goods & services handpicked by B2B sourcing & procurement
+            specialists
+          </p>
+        </div>
+        <div className="grid grid-cols-4 gap-5 pt-5">
+          {newProducts.slice(0, 4).map((item, idx) => {
+            return (
+              <Link href={`/product/${item._id}`}>
+                <Card
+                  key={idx}
+                  image={
+                    item.image ? item.image[0] : item.productPictures[0].img
+                  }
+                  name={item.name}
+                  MOQ={item?.MOQ}
+                  price={item.price}
+                  typo={item.typo}
+                />
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

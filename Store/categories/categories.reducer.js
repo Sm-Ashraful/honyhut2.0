@@ -1,8 +1,8 @@
 import { CATEGORIES_ACTION_TYPE } from "./categories.type";
-import axios from "@/utils/helper/axios";
 
 export const CATEGORY_INITIAL_STATE = {
   categories: [],
+  filerCategories: [],
   loading: false,
   error: null,
 };
@@ -10,11 +10,23 @@ export const categoryReducer = (state = CATEGORY_INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case CATEGORIES_ACTION_TYPE.GET_ALL_CATEGORIES_SUCCESS:
-      console.log("payload.categories", payload);
+    case CATEGORIES_ACTION_TYPE.GET_ALL_CATEGORIES_REQUEST:
       return {
         ...state,
+        loading: true,
+      };
+    case CATEGORIES_ACTION_TYPE.GET_ALL_CATEGORIES_SUCCESS:
+      console.log("payload", payload);
+      return {
+        ...state,
+        loading: false,
         categories: payload,
+      };
+    case CATEGORIES_ACTION_TYPE.GET_ALL_CATEGORIES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: payload.error,
       };
     default:
       return state;

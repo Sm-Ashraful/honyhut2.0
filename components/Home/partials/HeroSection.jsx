@@ -5,20 +5,17 @@
  */
 
 import React from "react";
-import Listing from "../../../Assets/listing-box.svg";
 import Image from "next/image";
-import { categories } from "@/utils/New Data/categories";
-import { MdKeyboardArrowRight } from "react-icons/md";
+
 import Card from "@/components/Update/Card";
 import Slider from "@/components/Update/Slider";
-
-import InfinityLooper from "../../Update/InfinityLooper";
 
 import {
   mostPopularProducts,
   newItems,
 } from "@/utils/New Data/MostPopularProducts";
 import CardWithButton from "@/components/Update/CardWithButton";
+import Link from "next/link";
 
 const sliderCat = [
   {
@@ -116,7 +113,7 @@ const renderPopularItems = () => {
   );
 };
 
-const HeroSection = ({ newProducts }) => {
+const HeroSection = ({ newProducts, categories }) => {
   return (
     <div
       className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] md:h-[580px] md:py-5"
@@ -136,9 +133,10 @@ const HeroSection = ({ newProducts }) => {
             <Slider />
           </div>
           <div className="h-[35%] md:h-[25%]  w-full flex gap-x-3">
-            {sliderCat.map((category, idx) => {
+            {categories.map((category, idx) => {
               return (
-                <div
+                <Link
+                  href={`/product/category-page/${category._id}`}
                   key={idx}
                   className={`w-[150px] h-[120px] ${
                     idx % 2 === 0
@@ -148,7 +146,7 @@ const HeroSection = ({ newProducts }) => {
                 >
                   <div className="min-w-full h-full relative">
                     <Image
-                      src={category.image}
+                      src={category.categoryImage}
                       alt="category.name"
                       fill
                       contain
@@ -157,7 +155,7 @@ const HeroSection = ({ newProducts }) => {
                   <p className="w-full absolute left-0 bottom-0 category-bg font-[800] h-[44px] flex justify-center items-center text-center">
                     {category.name}
                   </p>
-                </div>
+                </Link>
               );
             })}
           </div>
