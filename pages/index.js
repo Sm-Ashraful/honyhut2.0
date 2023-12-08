@@ -8,7 +8,6 @@ import FeatureCategories from "../components/Home/partials/FeatureCategories";
 import { fetchData } from "@/utils/helper/fetchData";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setProducts } from "@/store/product/product.action";
 
 export async function getStaticProps() {
   const { products, categories } = await fetchData();
@@ -22,7 +21,7 @@ export async function getStaticProps() {
 
 export default function Home({ products, categories }) {
   const dispatch = useDispatch();
-  dispatch(setProducts(products));
+
   return (
     <>
       <main>
