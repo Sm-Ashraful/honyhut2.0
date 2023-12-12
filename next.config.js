@@ -6,7 +6,7 @@ const withTM = require("next-transpile-modules")([
 const nextConfig = withTM({
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "honyhut.com"],
+    domains: ["localhost", "honyhut.com", "res.cloudinary.com"],
   },
   experimental: {
     esmExternals: "loose",

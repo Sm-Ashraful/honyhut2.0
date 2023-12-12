@@ -8,17 +8,17 @@ const MultiProductFields = ({ products }) => {
   let shoe = [];
   let electronics = [];
   for (let i = 0; i < products.length; i++) {
-    if (products[i].category === "65715b485c8a29c4daa96837") {
+    if (products[i].category === "65782d4dd88d22dbcabc29ef") {
       girlsFashion.push(products[i]);
     }
   }
   for (let i = 0; i < products.length; i++) {
-    if (products[i].category === "6571b4565c8a29c4daa969a7") {
+    if (products[i].category === "65782d63d88d22dbcabc29f1") {
       shoe.push(products[i]);
     }
   }
   for (let i = 0; i < products.length; i++) {
-    if (products[i].category === "65704af21d3fd8729a253b69") {
+    if (products[i].category === "65782d3ad88d22dbcabc29ed") {
       electronics.push(products[i]);
     }
   }

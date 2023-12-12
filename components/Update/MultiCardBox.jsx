@@ -26,7 +26,7 @@ const MultiCardBox = ({ product, productCategory, subtitle, linkUrl }) => {
                 <CardWithoutName
                   key={idx}
                   image={
-                    item.image ? item.image[0] : item.productPictures[0].img
+                    item.image ? item.image[0] : item.productPictures[2].url
                   }
                   price={item.price}
                   details={item.details}

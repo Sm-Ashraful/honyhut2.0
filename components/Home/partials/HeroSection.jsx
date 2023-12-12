@@ -57,7 +57,7 @@ const renderNewItems = (newProducts) => {
           return (
             <Card
               key={idx}
-              image={product.productPictures[0].img}
+              image={product.productPictures[0].url}
               name={product.name}
               MOQ={"10pcs"}
               price={product.price}

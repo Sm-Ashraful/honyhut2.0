@@ -30,7 +30,7 @@ const NewProducts = ({ newProducts }) => {
                 <Card
                   key={idx}
                   image={
-                    item.image ? item.image[0] : item.productPictures[0].img
+                    item.image ? item.image[0] : item.productPictures[1].url
                   }
                   name={item.name}
                   MOQ={item?.MOQ}
