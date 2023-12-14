@@ -2,7 +2,6 @@ import { CATEGORIES_ACTION_TYPE } from "./categories.type";
 
 export const CATEGORY_INITIAL_STATE = {
   categories: [],
-  filerCategories: [],
   loading: false,
   error: null,
 };
@@ -16,7 +15,6 @@ export const categoryReducer = (state = CATEGORY_INITIAL_STATE, action) => {
         loading: true,
       };
     case CATEGORIES_ACTION_TYPE.GET_ALL_CATEGORIES_SUCCESS:
-      console.log("payload", payload);
       return {
         ...state,
         loading: false,

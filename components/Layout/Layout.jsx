@@ -11,11 +11,16 @@ import { useRouter } from "next/router";
 const Layout = ({ children }) => {
   const [noFooter, setNoFooter] = useState(false);
   const router = useRouter();
+
   useEffect(() => {
-    if (router.pathname === "/allproducts") {
-      setNoFooter(true);
-    }
+    const isAllProductsPage =
+      router.pathname.startsWith("/all-products") ||
+      router.pathname.startsWith("/all-products/");
+    console.log("Match Result:", isAllProductsPage);
+
+    setNoFooter(isAllProductsPage);
   }, [router.pathname]);
+
   return (
     <>
       <Head>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Dart from "../../../../Assets/dart.svg";
 import Image from "next/image";
-import { BsCart4 } from "react-icons/bs";
 import Listing from "../../../../Assets/listing-box.svg";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
@@ -14,6 +12,7 @@ import { useDispatch } from "react-redux";
 import AccountDropdown from "../account-dropdown";
 import CartNav from "@/components/cart";
 import { FaSearch } from "react-icons/fa";
+import SideBar from "@/components/Update/SideBar";
 
 const HeaderMain = ({ logo, handleCart, cartCount }) => {
   const [nav, setNav] = useState("");
@@ -64,10 +63,8 @@ const HeaderMain = ({ logo, handleCart, cartCount }) => {
       {/** Logo part*/}
       <div className="w-full md:w-auto flex justify-between items-center">
         <div className="md:hidden  flex items-center gap-3">
-          <p className="relative w-[fit-content]" onClick={handleSidebar}>
-            <span>
-              <Image src={Listing} alt="list-icon" width={18} height={18} />
-            </span>
+          <p className="relative w-[fit-content]">
+            <SideBar />
           </p>
           <p
             className={`${fixedNav ? "block" : "hidden"}`}

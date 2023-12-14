@@ -136,7 +136,7 @@ const HeroSection = ({ newProducts, categories }) => {
             {categories.map((category, idx) => {
               return (
                 <Link
-                  href={`/product/category-page/${category._id}`}
+                  href={`/product/category-page/${category.name}`}
                   key={idx}
                   className={`w-[150px] h-[120px] ${
                     idx % 2 === 0

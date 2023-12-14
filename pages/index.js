@@ -20,9 +20,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ products, categories }) {
-  const dispatch = useDispatch();
-  console.log("products: ", products);
-
   return (
     <>
       <main>

@@ -40,7 +40,7 @@ const CommonCard = ({ product }) => {
                   src={`${
                     product.image
                       ? product.image[0]
-                      : product.productPictures[0].img
+                      : product.productPictures[0].url
                   }`}
                   alt="product Image"
                   fill

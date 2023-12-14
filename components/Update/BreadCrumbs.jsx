@@ -37,14 +37,18 @@ export default function CustomizedBreadcrumbs() {
   }
 
   return (
-    <div className=" bg-white" role="presentation" onClick={handleClick}>
-      <Breadcrumbs maxItems={3} aria-label="breadcrumb" className="py-3">
+    <div
+      className=" bg-white flex items-center"
+      role="presentation"
+      onClick={handleClick}
+    >
+      <Breadcrumbs maxItems={3} aria-label="breadcrumb" className="">
         <StyledBreadcrumb
           component="a"
           href="#"
           label="Home"
           icon={<HomeIcon />}
-          className="text-sm md:text-lg"
+          className="text-sm md:text-lg !h-[35px] px-2 bg-white"
         />
         {paths
           .filter((path) => path.trim() !== "") // Remove paths that are empty or contain only whitespace
@@ -54,7 +58,7 @@ export default function CustomizedBreadcrumbs() {
               component="a"
               href="#"
               label={path}
-              className="text-sm md:text-lg"
+              className="text-sm md:text-lg !h-[35px] px-2 bg-white capitalize"
             />
           ))}
       </Breadcrumbs>

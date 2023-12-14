@@ -1,21 +1,20 @@
 import React from "react";
 
-import { readyToShip } from "@/utils/New Data/Ptoducts";
 import CardWithButton from "@/components/Update/CardWithButton";
 import Link from "next/link";
 
-export default function Product() {
+export default function Product({ products }) {
   return (
-    <div className="grid grid-cols-4 gap-5 padding_inside">
-      {readyToShip.map((item, idx) => {
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-5 padding_inside">
+      {products.map((item, idx) => {
         return (
           <Link href={`/product/${idx + 5}`}>
             <CardWithButton
-              key={idx}
-              image={item.image[0]}
               name={item.name}
-              MOQ={item.MOQ}
+              image={item.image ? item.image[0] : item.productPictures[0].url}
               price={item.price}
+              details={item.details}
+              key={idx}
               style={{
                 flex: `0 0 calc(${100 / 4}% - 30px)`, // Adjust the '10px' as the desired gap
                 margin: "5px", // Adjust the margin as needed

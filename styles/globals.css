@@ -470,3 +470,6 @@ select {
     opacity: 1;
   }
 }
+.isActive {
+  @apply bg-customTheme text-white blur-0;
+}

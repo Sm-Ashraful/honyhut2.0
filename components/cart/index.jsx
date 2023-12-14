@@ -1,20 +1,11 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { AiOutlineClose } from "react-icons/ai";
-import { useRef, useEffect } from "react";
+import { useSelector } from "react-redux";
 
-import { selectCartOpen } from "@/Store/cart/cart.selector";
-import { setIsCartOpen } from "@/Store/cart/cart.action";
 import { selectCartTotal } from "@/Store/cart/cart.selector";
 import { selectCartItems } from "@/Store/cart/cart.selector";
-
-import { useRouter } from "next/router";
-
 import CheckOut from "./cart";
 import Link from "next/link";
 import { FaTimes } from "react-icons/fa";
-
-import styles from "./category-nav.module.css";
 import { BsCart4 } from "react-icons/bs";
 
 //material ui import
@@ -26,12 +17,8 @@ const CartNav = ({ view, goto, cartCount }) => {
   const [state, setState] = React.useState({
     right: false,
   });
-
-  const isCartOpen = useSelector(selectCartOpen);
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
-
-  const dispatch = useDispatch();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
