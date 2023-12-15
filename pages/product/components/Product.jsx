@@ -4,6 +4,7 @@ import CardWithButton from "@/components/Update/CardWithButton";
 import Link from "next/link";
 
 export default function Product({ products }) {
+  if (!products) return <div>Loading...</div>;
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-5 padding_inside">
       {products.map((item, idx) => {

@@ -11,7 +11,7 @@ import { Navigation } from "swiper/modules";
 
 export default function CategorySlider({ categories }) {
   //  h-[65px] h-[85px]
-
+  if (!categories) return null;
   return (
     <div className="padding_inside w-full  mt-5">
       <div className="bg-[#0c1228] rounded-md ">

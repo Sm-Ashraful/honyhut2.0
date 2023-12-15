@@ -42,14 +42,11 @@ export async function getServerSideProps(context) {
 }
 
 export default function LandingPage({ childCategories, productData }) {
-  if (!childCategories || !productData) {
-    return <div className="w-screen h-screen text-center">Loading...</div>;
-  }
   return (
     <div className="relative bg-[#2c3141]">
       <HeroBanner />
-      <CategorySlider categories={childCategories ? childCategories : null} />
-      <Product products={productData ? productData : null} />
+      <CategorySlider categories={childCategories} />
+      <Product products={productData} />
     </div>
   );
 }
