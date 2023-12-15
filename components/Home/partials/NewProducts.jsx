@@ -1,6 +1,4 @@
 import React from "react";
-import { Products } from "@/utils/New Data/Ptoducts";
-import MultiCardBox from "@/components/Update/MultiCardBox";
 import Link from "next/link";
 import Card from "@/components/Update/Card";
 

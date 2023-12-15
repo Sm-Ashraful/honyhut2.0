@@ -41,12 +41,10 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default function LandingPage({
-  categoryData,
-  childCategories,
-  productData,
-}) {
-  console.log("product data: ", productData);
+export default function LandingPage({ childCategories, productData }) {
+  if (!childCategories || !productData) {
+    return <div className="w-screen h-screen text-center">Loading...</div>;
+  }
   return (
     <div className="relative bg-[#2c3141]">
       <HeroBanner />
