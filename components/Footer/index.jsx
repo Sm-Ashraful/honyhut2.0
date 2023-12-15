@@ -18,11 +18,9 @@ const Footer = () => {
     navigator.clipboard
       .writeText(phoneNumber)
       .then(() => {
-        console.log("Phone number copied to clipboard: " + phoneNumber);
         alert("Phone number copied to clipboard: " + phoneNumber);
       })
       .catch((error) => {
-        console.error("Failed to copy phone number: ", error);
         alert("Failed to copy phone number. Please try again.");
       });
   }

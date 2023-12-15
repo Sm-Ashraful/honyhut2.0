@@ -14,7 +14,6 @@ const SearchModal = ({ searchResults, width }) => {
   const isSearchModalOpen = useSelector(
     (state) => state.sidebar.isSearchModalOpen
   );
-  console.log("isSearchModalOpen", isSearchModalOpen);
   useEffect(() => {
     function handleClickOutside(event) {
       if (

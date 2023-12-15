@@ -8,7 +8,7 @@ export default function Product({ products }) {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-5 padding_inside">
       {products.map((item, idx) => {
         return (
-          <Link href={`/product/${idx + 5}`}>
+          <Link href={`/product/${item._id}`}>
             <CardWithButton
               name={item.name}
               image={item.image ? item.image[0] : item.productPictures[0].url}

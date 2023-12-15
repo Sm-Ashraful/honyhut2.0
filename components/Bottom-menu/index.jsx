@@ -22,7 +22,6 @@ const BottomMenu = () => {
   const isActive = (href) => {
     return router.pathname === href ? "active" : "";
   };
-  console.log("Fav ITems: ", favItems);
 
   return (
     <nav

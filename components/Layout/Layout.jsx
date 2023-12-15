@@ -16,7 +16,6 @@ const Layout = ({ children }) => {
     const isAllProductsPage =
       router.pathname.startsWith("/all-products") ||
       router.pathname.startsWith("/all-products/");
-    console.log("Match Result:", isAllProductsPage);
 
     setNoFooter(isAllProductsPage);
   }, [router.pathname]);

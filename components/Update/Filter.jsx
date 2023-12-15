@@ -23,7 +23,6 @@ const Filter = (props) => {
             </div>
             <ul>
               {category.children.map((child, idx) => {
-                console.log("child: ", child);
                 return (
                   <li
                     className="flex items-center ml-10 pb-2"

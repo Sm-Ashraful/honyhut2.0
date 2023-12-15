@@ -54,8 +54,6 @@ const Categories = ({ categories }) => {
   //   return <div>Loading...</div>; // or render a loading indicator
   // }
 
-  console.log("Categories: ", categories);
-
   return (
     <section
       className={`padding_inside relative top-52 lg:top-56 mb-[5rem] mt-[2rem] md:mt-[4rem]`}

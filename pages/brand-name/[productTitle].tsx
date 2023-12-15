@@ -20,7 +20,6 @@ const BrandName = () => {
   const path = pathName.split("/");
   path.pop();
   if (product) {
-    console.log("product title: ", product.title);
     path.push(product.title);
   }
 

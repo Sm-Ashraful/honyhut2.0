@@ -70,7 +70,7 @@ export const signup = (user) => {
         }
       })
       .catch((error) => {
-        console.log("Error: ", error);
+        s;
         dispatch({
           type: USER_ACTION_TYPE.SET_SIGNUP_FAILED,
           payload: {

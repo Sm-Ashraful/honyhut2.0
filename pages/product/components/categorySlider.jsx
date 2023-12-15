@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,8 +10,6 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 export default function CategorySlider({ categories }) {
-  const [swiperRef, setSwiperRef] = useState(null);
-
   //  h-[65px] h-[85px]
 
   return (
@@ -20,7 +17,6 @@ export default function CategorySlider({ categories }) {
       <div className="bg-[#0c1228] rounded-md ">
         <Swiper
           slidesPerView={5}
-          onSwiper={setSwiperRef}
           navigation={true}
           modules={[Navigation]}
           className="w-full h-full "
