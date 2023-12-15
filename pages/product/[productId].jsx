@@ -13,7 +13,7 @@ export const getServerSideProps = async (context) => {
   return { props: { product } };
 };
 
-const Product = ({ product }) => {
+const ProductPage = ({ product }) => {
   if (!product) {
     return <div className="w-screen h-screen text-center">Loading...</div>;
   }
@@ -33,4 +33,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default ProductPage;

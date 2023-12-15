@@ -23,7 +23,7 @@ const NewProducts = ({ newProducts }) => {
             specialists
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5 pt-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 pt-5">
           {newProducts.slice(0, 4).map((item, idx) => {
             return (
               <Link href={`/product/${item._id}`}>

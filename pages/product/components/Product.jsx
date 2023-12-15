@@ -11,7 +11,7 @@ export default function Product({ products }) {
           <Link href={`/product/${item._id}`}>
             <CardWithButton
               name={item.name}
-              image={item.image ? item.image[0] : item.productPictures[0].url}
+              image={item.productPictures[0].url}
               price={item.price}
               details={item.details}
               key={idx}

@@ -46,11 +46,12 @@ export default function LandingPage({
   childCategories,
   productData,
 }) {
+  console.log("product data: ", productData);
   return (
     <div className="relative bg-[#2c3141]">
       <HeroBanner />
-      <CategorySlider categories={childCategories} />
-      <Product products={productData} />
+      <CategorySlider categories={childCategories ? childCategories : null} />
+      <Product products={productData ? productData : null} />
     </div>
   );
 }

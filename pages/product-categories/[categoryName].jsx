@@ -51,7 +51,7 @@ const ProductsCategory = ({ categoryData, productData }) => {
                   <Card
                     key={idx}
                     image={
-                      item.image ? item.image[0] : item.productPictures[1].url
+                      item.image ? item.image[0] : item?.productPictures[0].url
                     }
                     name={item.name}
                     MOQ={item?.MOQ}
