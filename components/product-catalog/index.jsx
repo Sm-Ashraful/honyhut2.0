@@ -58,15 +58,7 @@ const ProductCatalog = ({ product }) => {
     }
   }, [index, product]);
 
-  const handleMouseMove = (event) => {
-    const { left, top, width, height } =
-      imageRef.current.getBoundingClientRect();
-    const x = (event.pageX - left) / width;
-    const y = (event.pageY - top) / height;
-
-    imageRef.current.style.transformOrigin = `${x * 100}% ${y * 100}%`;
-    setZoom(true);
-  };
+  const handleMouseMove = (event) => {};
 
   const handleMouseLeave = () => {
     setZoom(false);

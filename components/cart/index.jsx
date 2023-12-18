@@ -61,7 +61,7 @@ const CartNav = ({ view, goto, cartCount }) => {
               borderColor: "divider",
               position: "relative",
             }}
-            className="w-[80vw] md:w-[340px]"
+            className="w-[80vw] md:w-[420px]"
           >
             <div className="mt-[20px] w-fit mx-auto  flex flex-col items-center cursor-pointer">
               <div className="w-fit relative flex flex-col items-center">
@@ -80,17 +80,17 @@ const CartNav = ({ view, goto, cartCount }) => {
               </p>
             </div>
           </Box>
-          <Box className="h-full w-full flex flex-col items-center gap-5">
+          <Box className=" flex flex-col items-center gap-5">
             <div
-              className={`relative w-full h-full pt-10 z-0 overflow-x-hidden overflow-y-auto `}
+              className={`relative w-[80vw] md:w-[420px] pt-10 z-0 overflow-x-hidden overflow-y-auto `}
               myContainer
             >
               {cartItems.length > 0 ? (
-                <div className="w-full">
+                <div className="w-full relative">
                   <div className="relative left-2 h-5/6 w-full text-sm">
                     <CheckOut />
                   </div>
-                  <div className="fixed bottom-0 mb-2 flex flex-col w-full">
+                  <div className="fixed bottom-0 mb-2 flex flex-col w-[80vw] md:w-[420px] ">
                     <div className="px-5">
                       <hr className="w-full h-[1px]  bg-gray border-0" />
                       <div className="flex justify-between items-center py-5 text-xl font-bold text-primary-red">
@@ -106,15 +106,15 @@ const CartNav = ({ view, goto, cartCount }) => {
                     <div className="cursor-pointer place-items-center w-full px-4 py-2">
                       <Link href={"../../cart/shopping-cart"}>
                         <div className="text-black bg-secondaryTextColor border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
-                          {view}
+                          View Cart
                         </div>
                       </Link>
                     </div>
 
                     <div className="cursor-pointer place-items-center w-full px-4">
                       <Link href={"../../checkout/checkout"}>
-                        <button class="text-white bg-primary-red border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
-                          {goto}
+                        <button class="text-white bg-customTheme border-0 py-2 px-6 focus:outline-none hover:bg-honey rounded text-2xl text-center w-full">
+                          Checkout
                         </button>
                       </Link>
                     </div>

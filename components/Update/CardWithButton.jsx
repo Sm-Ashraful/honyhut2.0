@@ -41,8 +41,8 @@ const CardWithButton = (props) => {
           )}
           <p className={`text-[#666] text-sm `}>{props.details?.Unit}</p>
           <div className="mx-2 pt-3">
-            <button className="pb-2 w-full border border-[#666] rounded-full mx-auto text-center px-5 py-2">
-              See More
+            <button className="pb-2 w-full border border-[#666] rounded-full mx-auto text-center px-5 py-2 bg-customTheme hover:bg-white text-customText hover:text-customTheme">
+              Buy Now
             </button>
           </div>
         </div>

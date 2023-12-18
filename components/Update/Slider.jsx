@@ -66,7 +66,7 @@ const Slider = () => {
             className={`${styles[position]} duration-700`}
             key={personIndex}
           >
-            <Link href={`/allproducts`}>
+            <Link href={`/all-products`}>
               <Image
                 src={image}
                 alt={"SLIDER PHOTO"}

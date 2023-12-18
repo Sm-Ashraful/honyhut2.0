@@ -4,17 +4,13 @@
   
  */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
+import MobileCard from "@/components/Update/MobileCard";
 import Card from "@/components/Update/Card";
 import Slider from "@/components/Update/Slider";
 
-import {
-  mostPopularProducts,
-  newItems,
-} from "@/utils/New Data/MostPopularProducts";
-import CardWithButton from "@/components/Update/CardWithButton";
 import Link from "next/link";
 
 const sliderCat = [
@@ -46,14 +42,30 @@ const renderCategories = (categories) => {
   );
 };
 
-const renderNewItems = (newProducts) => {
+const renderNewItems = (newProducts, isMobile) => {
   return (
     <React.Fragment>
       <h2 className="relative  md:py-5">
         <span>New Items</span>
       </h2>
-      <div>
+      <div className={`${isMobile && "grid grid-cols-2 gap-5"}`}>
         {newProducts.slice(0, 4).map((product, idx) => {
+          if (isMobile) {
+            return (
+              <MobileCard
+                key={idx}
+                image={product.productPictures[0].url}
+                name={product.name}
+                MOQ={product.details.Unit}
+                price={product.price}
+                type="flex"
+                style={{
+                  width: "100%",
+                  marginBottom: "10px",
+                }}
+              />
+            );
+          }
           return (
             <Card
               key={idx}
@@ -80,20 +92,36 @@ const renderNewItems = (newProducts) => {
   );
 };
 
-const renderPopularItems = () => {
+const renderPopularItems = (mostPopularProducts, isMobile) => {
   return (
     <React.Fragment>
       <h2 className="relative  py-5">
         <span>Most Popular</span>
       </h2>
-      <div>
+      <div className={`${isMobile && "grid grid-cols-2 gap-5"}`}>
         {mostPopularProducts.slice(0, 4).map((product, idx) => {
+          if (isMobile) {
+            return (
+              <MobileCard
+                key={idx}
+                image={product.productPictures[0].url}
+                name={product.name}
+                MOQ={product.details.Unit}
+                price={product.price}
+                type="flex"
+                style={{
+                  width: "100%",
+                  marginBottom: "10px",
+                }}
+              />
+            );
+          }
           return (
             <Card
               key={idx}
-              image={product.image[0]}
+              image={product.productPictures[0].url}
               name={product.name}
-              MOQ={product.MOQ}
+              MOQ={product.details.Unit}
               price={product.price}
               type="flex"
               style={{
@@ -114,6 +142,27 @@ const renderPopularItems = () => {
 };
 
 const HeroSection = ({ newProducts, categories }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const mostPopularProducts = [];
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 720);
+    };
+
+    handleResize(); // Set the initial value
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  for (let i = 0; i < newProducts.length; i++) {
+    if (newProducts[i].category === "65800c178cccfba446d0dd43") {
+      mostPopularProducts.push(newProducts[i]);
+    }
+  }
+
   return (
     <div
       className="w-full relative md:px-[3rem] lg:px-[4rem] xl:px-[5rem] md:h-[580px] md:py-5"
@@ -126,7 +175,7 @@ const HeroSection = ({ newProducts, categories }) => {
     >
       <div className="w-full h-full flex flex-col md:flex-row gap-5 ">
         <div className="order-1 md:order-0 md:block w-full  md:w-1/4 bg-white rounded-lg px-5">
-          {renderNewItems(newProducts)}
+          {renderNewItems(newProducts, isMobile)}
         </div>
         <div className="order-0 md:order-1  h-[380px] md:h-auto md:flex-1 rounded-lg overflow-hidden">
           <div className="h-[60%] md:h-[70%] max-w-full relative mb-4">
@@ -161,7 +210,7 @@ const HeroSection = ({ newProducts, categories }) => {
           </div>
         </div>
         <div className="order-2 md:order-2 md:block w-full md:w-1/4 bg-white rounded-lg px-5">
-          {renderPopularItems()}
+          {renderPopularItems(mostPopularProducts, isMobile)}
         </div>
       </div>
     </div>

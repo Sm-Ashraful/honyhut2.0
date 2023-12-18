@@ -10,10 +10,12 @@ const RecommendProduct = ({ title, products, className, top }) => {
     e.preventDefault();
     setSeeMore(!seeMore);
   };
+  console.log("Product: ", products);
+
   return (
     <section
       className={`padding_inside relative ${
-        top ? top : `top-52 lg:top-56 mb-[5rem] mt-[2rem] md:mt-[4rem] lg:mt-10`
+        top ? top : `mb-[5rem] mt-[2rem] md:mt-[4rem] lg:mt-10`
       }`}
     >
       <h2 className="text-honey md:text-center text-center drop-shadow-md">
@@ -31,14 +33,14 @@ const RecommendProduct = ({ title, products, className, top }) => {
         {products.map((item, index) => {
           if (seeMore) {
             return (
-              <Link href={`/product/${item.id}`}>
+              <Link href={`/product/details/${item.slug}`}>
                 <CommonCard key={index} product={item} percentage={`Hot`} />
               </Link>
             );
           } else {
-            if (index < 8) {
+            if (index < 4) {
               return (
-                <Link href={`/product/${item.id}`}>
+                <Link href={`/product/details/${item.slug}`}>
                   <CommonCard key={index} product={item} percentage={`Hot`} />
                 </Link>
               );
@@ -46,17 +48,6 @@ const RecommendProduct = ({ title, products, className, top }) => {
           }
         })}
       </div>
-      {products.length > 8 && (
-        <div className="w-full flex justify-center ">
-          <span
-            className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md bg-yellow-100 border border-transparent font-semibold text-yellow-500 hover:text-white hover:bg-yellow-500 focus:outline-none focus:ring-2 ring-offset-white focus:ring-yellow-500 focus:ring-offset-2 transition-all dark:focus:ring-offset-gray-800 cursor-pointer
-        "
-            onClick={handleSeeMore}
-          >
-            {seeMore === true ? <p>See Less</p> : <p>Load more &#187; </p>}
-          </span>
-        </div>
-      )}
     </section>
   );
 };

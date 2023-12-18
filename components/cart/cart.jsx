@@ -41,22 +41,23 @@ export default function Cart() {
     <div className="relative w-full">
       <div className={` w-full px-5 py-5`}>
         {cartItems.map((cartItem) => (
-          <div className="h-[64px] w-full flex mb-[15px] justify-between items-center relative shadow-sm text-black">
+          <div className="h-[64px] w-full flex mb-[40px] justify-between items-center relative shadow-sm text-black">
             <div className="flex h-full items-center">
               <div className="h-full w-[64px] relative p-3 border bg-white border-fullAsh rounded-md overflow-hidden mr-5">
                 <Image
-                  src={
-                    cartItem.image
-                      ? cartItem.image[0]
-                      : cartItem.productPictures[0].img
-                  }
+                  src={cartItem.productPictures[0].url}
                   alt={cartItem.name}
                   fill
                   cover
                 />
               </div>
               <div>
-                <p className="font-semibold max-w-[100px]">{cartItem.name}</p>
+                <p className="font-semibold max-w-[100px]">
+                  {cartItem.name.length > 25
+                    ? cartItem.name.slice(0, 17)
+                    : cartItem.name}
+                  ...
+                </p>
                 <div className="flex justify-center items-center border border-gray rounded-full px-4 py-2 w-32">
                   {cartItem.quantity}
                   <span

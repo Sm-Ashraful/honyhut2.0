@@ -56,9 +56,7 @@ const CartList = (props) => {
                   <td className="p-2 h-16 md:h-20 w-20 md:w-28 shadow-sm border-r">
                     <img
                       className="w-full h-full bg-center"
-                      src={
-                        item.image ? item.image[0] : item.productPictures[0].img
-                      }
+                      src={item.productPictures[0].url}
                       alt={"Image"}
                     />
                   </td>

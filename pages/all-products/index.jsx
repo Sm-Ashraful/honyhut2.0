@@ -75,7 +75,7 @@ const AllProducts = ({ products, categories }) => {
                   {filterProducts.map((product, idx) => {
                     return (
                       <Link
-                        href={`/product/${product._id}`}
+                        href={`/product/details/${product.slug}`}
                         key={idx}
                         className=" md:mt-5 mt-2"
                       >
@@ -89,7 +89,7 @@ const AllProducts = ({ products, categories }) => {
                   {filterProducts.map((product, idx) => {
                     return (
                       <Link
-                        href={`/product/${product._id}`}
+                        href={`/product/details/${product.slug}`}
                         key={idx}
                         className=" md:mt-5 mt-2"
                       >
