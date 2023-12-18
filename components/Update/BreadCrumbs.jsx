@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { emphasize, styled } from "@mui/material/styles";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Chip from "@mui/material/Chip";
@@ -38,7 +38,7 @@ export default function CustomizedBreadcrumbs() {
 
   return (
     <div
-      className=" bg-white flex items-center"
+      className=" bg-white flex items-center "
       role="presentation"
       onClick={handleClick}
     >
@@ -48,7 +48,7 @@ export default function CustomizedBreadcrumbs() {
           href="#"
           label="Home"
           icon={<HomeIcon />}
-          className="text-sm md:text-lg !h-[35px] px-2 bg-white"
+          className="text-[10pt] md:text-sm  !h-[35px] px-2 bg-white text-primary-red"
         />
         {paths
           .filter((path) => path.trim() !== "") // Remove paths that are empty or contain only whitespace
@@ -58,7 +58,7 @@ export default function CustomizedBreadcrumbs() {
               component="a"
               href="#"
               label={path}
-              className="text-sm md:text-lg !h-[35px] px-2 bg-white capitalize"
+              className="text-[10pt] md:text-sm  !h-[35px] px-2 bg-white capitalize text-primary-red"
             />
           ))}
       </Breadcrumbs>

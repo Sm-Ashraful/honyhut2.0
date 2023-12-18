@@ -22,7 +22,7 @@ const MultiCardBox = ({ product, productCategory, subtitle, linkUrl }) => {
         <div className="grid grid-cols-3 gap-5 pt-5">
           {product.slice(0, 3).map((item, idx) => {
             return (
-              <Link href={`/product/${item._id}`}>
+              <Link href={`/product/details/${item.slug}`}>
                 <CardWithoutName
                   key={idx}
                   image={

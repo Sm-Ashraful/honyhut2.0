@@ -1,16 +1,22 @@
-import ProductCatalog from "../../components/product-catalog";
+import ProductCatalog from "../../../components/product-catalog";
 import RecommendProduct from "@/components/RecommandForYou";
-import people from "../../utils/fav-demo-data";
+import people from "../../../utils/fav-demo-data";
 
 import axiosInstance from "@/utils/helper/axios";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export const getServerSideProps = async (context) => {
   // Get the productId from the URL parameter
-  const productId = context.params.productId;
+  const slug = context.params.slug;
   // Fetch data from the database using the productId
-  const res = await axiosInstance.get(`/product/id/${productId}`);
-  const product = await res.data;
-  return { props: { product } };
+  const res = await axiosInstance.get(`/product/id/${slug}`);
+  const product = await res.data.product;
+
+  return {
+    props: { product },
+  };
 };
 
 const ProductPage = ({ product }) => {
@@ -21,7 +27,7 @@ const ProductPage = ({ product }) => {
   return (
     <div className="relative w-full">
       <div className="padding_inside bg-white">
-        <ProductCatalog product={product.product} />
+        <ProductCatalog product={product} />
         <RecommendProduct
           top={"0"}
           className={false}

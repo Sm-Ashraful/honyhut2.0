@@ -19,6 +19,7 @@ const CartNav = ({ view, goto, cartCount }) => {
   });
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
+  const categories = useSelector((state) => state.category.categories);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -123,18 +124,17 @@ const CartNav = ({ view, goto, cartCount }) => {
                 <div className="gap-5 w-full h-full text-customTheme">
                   <p className="text-center">Your Cart Is Empty</p>
                   <div className="flex flex-col w-full  items-center pt-5 gap-3">
-                    <button className="border-2 hover:bg-customTheme hover:text-white border-customTheme w-3/5 px-5 py-3">
-                      Shop Supplements
-                    </button>
-                    <button className="border-2 hover:bg-customTheme hover:text-white border-customTheme w-3/5 px-5 py-3">
-                      Shop Electronics
-                    </button>
-                    <button className="border-2 hover:bg-customTheme hover:text-white border-customTheme w-3/5 px-5 py-3">
-                      Shop Hardware
-                    </button>
-                    <button className="border-2 hover:bg-customTheme hover:text-white border-customTheme w-3/5 px-5 py-3">
-                      Shop Lifestyle
-                    </button>
+                    {categories.map((category, idx) => {
+                      return (
+                        <Link
+                          key={idx}
+                          href={`/product/category-page/${category.name}`}
+                          className="border-2 hover:bg-customTheme hover:text-white border-customTheme w-3/5 px-5 py-3"
+                        >
+                          Shop {category.name}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}

@@ -1,5 +1,3 @@
-import React from "react";
-
 import CardWithButton from "@/components/Update/CardWithButton";
 import Link from "next/link";
 
@@ -9,7 +7,7 @@ export default function Product({ products }) {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-5 padding_inside">
       {products.map((item, idx) => {
         return (
-          <Link href={`/product/${item._id}`}>
+          <Link href={`/product/details/${item.slug}`}>
             <CardWithButton
               name={item.name}
               image={item.productPictures[0].url}

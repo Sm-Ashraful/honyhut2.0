@@ -5,20 +5,14 @@ import ReviewStar from "@/components/Star";
 import Image from "next/image";
 // import ReactImageMagnify from "react-image-magnify";
 
-import { HiOutlinePlusCircle } from "react-icons/hi2";
 import { BsCartPlus } from "react-icons/bs";
-
 import LeftRightArrow from "@/components/common/LeftRightArrow";
-
 import { addItemToCart } from "@/Store/cart/cart.action";
 import { addItemToFav } from "@/Store/favorite/favorite.action";
-
 import { selectCartItems } from "@/Store/cart/cart.selector";
 import { selectFavItems } from "@/Store/favorite/favorite.selector";
-
 import BtnOutlineCounter from "@/components/Button/BtnOutlineCounter";
 import BtnSolid from "@/components/Button/BtnSolid";
-
 import { useDispatch, useSelector } from "react-redux";
 import CustomizedBreadcrumbs from "../Update/BreadCrumbs";
 ///mui import
@@ -96,7 +90,7 @@ const ProductCatalog = ({ product }) => {
             <div
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className={`relative flex justify-center h-80 items-center overflow-hidden`}
+              className={`relative flex justify-center h-[360px] md:h-[480px]  items-center overflow-hidden`}
             >
               {product.productPictures.map((pic, picIndex) => {
                 let position = "nextSlide";
@@ -115,7 +109,7 @@ const ProductCatalog = ({ product }) => {
                 return (
                   <article className={`${position} `} ref={imageRef}>
                     <Image
-                      src={pic.img}
+                      src={pic.url}
                       alt={"Image"}
                       fill
                       cover
@@ -132,7 +126,7 @@ const ProductCatalog = ({ product }) => {
             {product.productPictures.map((pic, picIndex) => {
               return (
                 <div key={picIndex} className="relative w-40 h-full ">
-                  <Image src={pic.img} alt={"Image"} fill cover />
+                  <Image src={pic.url} alt={"Image"} fill cover />
                 </div>
               );
             })}
@@ -142,7 +136,7 @@ const ProductCatalog = ({ product }) => {
         {/* Product Information and button */}
         <div className="md:pl-12  w-full md:w-1/2  md:relative">
           <div className="hidden md:block">
-            <div className="relative ">
+            <div className="relative pb-5">
               <CustomizedBreadcrumbs />
             </div>
             <h3 className="text-3xl font-bold">{product.name}</h3>

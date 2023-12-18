@@ -28,7 +28,7 @@
     "pages/all-products/index.jsx",
     "pages/product-categories/[categoryName].jsx",
     "pages/index.js",
-    "pages/product/[productId].jsx",
+    "pages/product/details/[slug].jsx",
     "pages/product/category-page/[proudctCategory].jsx",
     "pages/product/components/Product.jsx"
   ],

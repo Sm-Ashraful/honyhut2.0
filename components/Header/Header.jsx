@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderTop from "./partials/header-top";
 import HeaderMain from "./partials/Header-main";
 import logo from "../../Assets/honeyhut logo.png";
 import { useDispatch, useSelector } from "react-redux";
+import { getAllCategory } from "../../Store/categories/categories.action";
 
 import { setIsCartOpen } from "../../Store/cart/cart.action";
 import { selectCartCount } from "../../Store/cart/cart.selector";
@@ -10,6 +11,9 @@ import { selectCartCount } from "../../Store/cart/cart.selector";
 const Header = () => {
   const dispatch = useDispatch();
   const cartCount = useSelector(selectCartCount);
+  useEffect(() => {
+    dispatch(getAllCategory());
+  }, []);
 
   const handleCart = (e) => {
     e.preventDefault();

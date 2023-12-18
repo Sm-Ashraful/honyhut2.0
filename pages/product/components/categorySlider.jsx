@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation } from "swiper/modules";
 
-export default function CategorySlider({ categories }) {
+export default function CategorySlider({ categories, handleCategory }) {
   //  h-[65px] h-[85px]
   if (!categories) return null;
   return (
@@ -25,7 +25,8 @@ export default function CategorySlider({ categories }) {
             return (
               <SwiperSlide
                 key={idx}
-                className="px-3 min-w-fit text-white py-3  !flex justify-center items-center text-center hover:bg-black/10"
+                onClick={() => handleCategory(category._id)}
+                className="px-3 min-w-fit text-white py-3  !flex justify-center items-center text-center hover:bg-black/10 cursor-pointer"
               >
                 {category.name}
               </SwiperSlide>

@@ -49,7 +49,7 @@ const renderCategories = (categories) => {
 const renderNewItems = (newProducts) => {
   return (
     <React.Fragment>
-      <h2 className="relative  py-5">
+      <h2 className="relative  md:py-5">
         <span>New Items</span>
       </h2>
       <div>
@@ -59,7 +59,7 @@ const renderNewItems = (newProducts) => {
               key={idx}
               image={product.productPictures[0].url}
               name={product.name}
-              MOQ={"10pcs"}
+              MOQ={product.details.Unit}
               price={product.price}
               type="flex"
               style={{
@@ -132,13 +132,13 @@ const HeroSection = ({ newProducts, categories }) => {
           <div className="h-[60%] md:h-[70%] max-w-full relative mb-4">
             <Slider />
           </div>
-          <div className="h-[35%] md:h-[25%]  w-full flex gap-x-3">
+          <div className="h-[35%] md:h-[25%]  w-full flex gap-x-3 px-5 md:px-0">
             {categories.map((category, idx) => {
               return (
                 <Link
                   href={`/product/category-page/${category.name}`}
                   key={idx}
-                  className={`w-[150px] h-[120px] ${
+                  className={`w-[120px] md:w-[150px] h-[100px] md:h-[120px] ${
                     idx % 2 === 0
                       ? "bg-[#e8f3ff] border-[#c6e2ff]"
                       : "bg-[#fcffe8] border-[#ffe8c6]"

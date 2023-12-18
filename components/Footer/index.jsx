@@ -1,16 +1,8 @@
-import React, { useState } from "react";
-import categoryData from "@/utils/category-demo-data";
-import Image from "next/image";
-
 import Link from "next/link";
-
-import { GrMail } from "react-icons/gr";
-
-import styles from "../Header/style.module.css";
-import { BsTelephoneForwardFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const categories = useSelector((state) => state.category.categories);
 
   function copyPhoneNumber() {
     const phoneNumber = "+1 931 422 8003";
@@ -26,16 +18,21 @@ const Footer = () => {
   }
 
   return (
-    <footer className=" text-black  relative   text-base font-carmo">
+    <footer className=" text-white  relative   text-base font-carmo bg-customTheme">
       <div className="md:flex justify-between items-start md:pt-11 padding_inside font-openSans relative">
         <div className="p-5 ">
-          <h5 className="text-center from-left md:text-left ">SHOP</h5>
+          <h5 className="text-center from-left md:text-left font-bold text-customText">
+            SHOP
+          </h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer">
-            {categoryData.map((category, idx) => {
+            {categories?.map((category, idx) => {
               return (
                 <li>
-                  <Link key={idx} href={`/product-categories/${category.name}`}>
+                  <Link
+                    key={idx}
+                    href={`/product/category-page/${category.name}`}
+                  >
                     {category.name}
                   </Link>
                 </li>
@@ -44,8 +41,8 @@ const Footer = () => {
           </ul>
         </div>
         <div className="p-5">
-          <h5 className="text-center from-right md:text-left ">
-            Customer Care
+          <h5 className="text-center from-left md:text-left font-bold text-customText uppercase">
+            Help
           </h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer ">
@@ -85,7 +82,9 @@ const Footer = () => {
         </div>
 
         <div className="p-5 tracking-wider cursor-pointer">
-          <h5 className="text-center from-left md:text-left ">Links</h5>
+          <h5 className="text-center from-left md:text-left font-bold text-customText uppercase">
+            Quick Links
+          </h5>
 
           <ul className="pt-2 tracking-wider cursor-pointer">
             <li>
@@ -103,19 +102,19 @@ const Footer = () => {
           </ul>
         </div>
         <div className="p-5 ">
-          <h5 className="text-center from-left md:text-left ">
-            HONYHUT - for Mens and Women Enhancement
+          <h5 className="text-center from-left md:text-left font-bold text-customText">
+            HONYHUT - online e-commerce store
           </h5>
           <div className="pt-2">
-            <p className=" md:max-w-lg">
+            <p className=" md:max-w-lg text-customText">
               Honyhut was founded in 2017 with vision of building the best
-              online store in the Medical Products. We want to inspire by
-              offering an exclusive shopping experience and excellent customer
-              service with the best mixture of high-quality brands.
+              online store. We want to inspire by offering an exclusive shopping
+              experience and excellent customer service with the best mixture of
+              high-quality brands.
             </p>
           </div>
           <ul className="flex items-center py-5">
-            <li className="w-[25px] h-[25px] mr-[15px] rounded-full bg-primary  flex justify-center items-center p-5">
+            <li className="w-[25px] h-[25px] mr-[15px] rounded-full bg-customText  flex justify-center items-center p-5">
               <a href="#">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +127,7 @@ const Footer = () => {
                 </svg>
               </a>
             </li>
-            <li className="w-[25px] h-[25px] mx-[15px] rounded-full bg-primary  flex justify-center items-center p-5">
+            <li className="w-[25px] h-[25px] mx-[15px] rounded-full bg-customText  flex justify-center items-center p-5">
               <a href="#">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +141,7 @@ const Footer = () => {
                 </svg>
               </a>
             </li>
-            <li className="w-[25px] h-[25px] mx-[15px] rounded-full bg-primary  flex justify-center items-center p-5">
+            <li className="w-[25px] h-[25px] mx-[15px] rounded-full bg-customText  flex justify-center items-center p-5">
               <a href="#">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +155,7 @@ const Footer = () => {
                 </svg>
               </a>
             </li>
-            <li className="w-[25px] h-[25px] mx-[15px] rounded-full bg-primary  flex justify-center items-center p-5 ">
+            <li className="w-[25px] h-[25px] mx-[15px] rounded-full bg-customText  flex justify-center items-center p-5 ">
               <a href="#">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

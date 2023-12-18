@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Header from "../Header/Header";
-// import ImageSlider from '../ImageSlider';
 import Footer from "../Footer";
-import BottomMenu from "../Bottom-menu";
 import Script from "next/script";
 import { useRouter } from "next/router";
 

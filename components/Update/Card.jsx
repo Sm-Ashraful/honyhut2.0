@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -60,12 +59,6 @@ const Card = (props) => {
               {props.s_desc && props.s_desc.slice(0, 120)}...
             </p>
           ) : null}
-
-          <p
-            className={`text-[#666] text-sm ${props.position} group-hover:text-primary-red`}
-          >
-            {props.typo && props.typo}
-          </p>
         </div>
       </div>
     </div>

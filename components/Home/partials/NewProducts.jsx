@@ -24,7 +24,7 @@ const NewProducts = ({ newProducts }) => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 pt-5">
           {newProducts.slice(0, 4).map((item, idx) => {
             return (
-              <Link href={`/product/${item._id}`}>
+              <Link href={`/product/details/${item.slug}`}>
                 <Card
                   key={idx}
                   image={

@@ -7,8 +7,6 @@ import UserForm from "../components/Home/partials/userForm";
 import FeatureCategories from "../components/Home/partials/FeatureCategories";
 import { fetchData } from "@/utils/helper/fetchData";
 
-import { useSelector, useDispatch } from "react-redux";
-
 export async function getStaticProps() {
   const { products, categories } = await fetchData();
   return {

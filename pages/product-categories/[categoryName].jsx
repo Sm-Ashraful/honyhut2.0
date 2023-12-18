@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from "react";
-import ProCategory from "../../components/product-Categories";
-import FilterProducts from "@/components/all-products";
-import { allProducts } from "@/utils/all-product";
-import { useRouter } from "next/router";
+import React from "react";
 
-import HeroTop from "@/components/common/top-component";
-import { useSelector } from "react-redux";
+import FilterProducts from "@/components/all-products";
+
 import { fetchCategoryData, fetchProductData } from "@/utils/helper/fetchData";
 import Card from "@/components/Update/Card";
 import Link from "next/link";
@@ -35,7 +31,7 @@ export async function getServerSideProps(context) {
   }
 }
 
-const ProductsCategory = ({ categoryData, productData }) => {
+const ProductsCategory = ({ productData }) => {
   return (
     <div className="relative w-full ">
       <div>
@@ -47,7 +43,7 @@ const ProductsCategory = ({ categoryData, productData }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 pt-5">
             {productData.map((item, idx) => {
               return (
-                <Link href={`/product/${item._id}`}>
+                <Link href={`/product/details/${item.slug}`}>
                   <Card
                     key={idx}
                     image={
