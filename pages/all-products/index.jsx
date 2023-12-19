@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setViewProperty } from "@/Store/slices/globalSlice";
@@ -27,7 +26,6 @@ export async function getStaticProps() {
 
 const AllProducts = ({ products, categories }) => {
   const dispatch = useDispatch();
-  const router = useRouter();
   const [filterProducts, setFilterProducts] = useState(products);
   const viewProperty = useSelector((state) => state.sidebar.isViewProperty);
 
@@ -72,7 +70,7 @@ const AllProducts = ({ products, categories }) => {
             <div className="">
               {viewProperty === "list" ? (
                 <div className="max-w-full grid  gap-[15px] md:gap-[10px] ">
-                  {filterProducts.map((product, idx) => {
+                  {filterProducts?.map((product, idx) => {
                     return (
                       <Link
                         href={`/product/details/${product.slug}`}
@@ -86,7 +84,7 @@ const AllProducts = ({ products, categories }) => {
                 </div>
               ) : (
                 <div className="max-w-full grid grid-cols-2 md:grid-cols-3  gap-[5px] md:gap-[10px]">
-                  {filterProducts.map((product, idx) => {
+                  {filterProducts?.map((product, idx) => {
                     return (
                       <Link
                         href={`/product/details/${product.slug}`}
